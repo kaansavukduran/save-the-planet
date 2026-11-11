@@ -1,0 +1,10 @@
+{
+  "name": "Save the Planet: Aion & Friends",
+  "short_name": "SaveThePlanet",
+  "start_url": "./index.html",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#0b131e",
+  "theme_color": "#22c55e",
+  "description": "Narrative 2D Pixel Art Serious Game & Animal Liberation / UN SDG Platformer"
+}
