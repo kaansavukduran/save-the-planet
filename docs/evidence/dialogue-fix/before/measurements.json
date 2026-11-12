@@ -1,0 +1,11 @@
+{
+  "source_version": "0.4.3",
+  "capture": "Observed pre-change native console output; original scratch JSON was overwritten by the after-change confirmation run.",
+  "speaker": "Kurt",
+  "speaker_width": 1.0,
+  "speaker_height": 192.0,
+  "speaker_lines": 5,
+  "music_can_process": false,
+  "music_stream_paused": true,
+  "world_paused": true
+}

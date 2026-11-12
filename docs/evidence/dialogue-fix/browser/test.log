@@ -1,0 +1,29 @@
+{'check': 'Genuine old release reproduces silent dialogue while unpaused music is measurable', 'status': 'PASS'}
+{'check': 'tr: actual intro has a horizontal speaker, correct portrait and visible body', 'status': 'PASS'}
+{'check': 'tr: short intro needs no scrollbar', 'status': 'PASS'}
+{'check': 'tr: measured PCM continues during a real paused dialogue', 'status': 'PASS'}
+{'check': 'tr: music playback actually advances through the conversation', 'status': 'PASS'}
+{'check': 'tr: dialogue applies a gentle gain without changing the preference', 'status': 'PASS'}
+{'check': 'tr: reading keeps the world still', 'status': 'PASS'}
+{'check': 'tr 2048x1024: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'tr 844x390: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'tr 390x844: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'tr 320x568: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'tr: closing restores normal music volume', 'status': 'PASS'}
+{'check': 'tr: player-selected mute stays silent during the next real conversation', 'status': 'PASS'}
+{'check': 'tr: mute and actual progress survive reload', 'status': 'PASS'}
+{'check': 'en: actual intro has a horizontal speaker, correct portrait and visible body', 'status': 'PASS'}
+{'check': 'en: short intro needs no scrollbar', 'status': 'PASS'}
+{'check': 'en: measured PCM continues during a real paused dialogue', 'status': 'PASS'}
+{'check': 'en: music playback actually advances through the conversation', 'status': 'PASS'}
+{'check': 'en: dialogue applies a gentle gain without changing the preference', 'status': 'PASS'}
+{'check': 'en: reading keeps the world still', 'status': 'PASS'}
+{'check': 'en 2048x1024: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'en 844x390: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'en 390x844: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'en 320x568: header/body/gutter remain readable', 'status': 'PASS'}
+{'check': 'en: closing restores normal music volume', 'status': 'PASS'}
+{'check': 'en: player-selected mute stays silent during the next real conversation', 'status': 'PASS'}
+{'check': 'en: mute and actual progress survive reload', 'status': 'PASS'}
+{'check': 'Actual phone-layout touch interaction opens readable dialogue with continuing music', 'status': 'PASS'}
+{'check': 'Touch Continue closes the real dialogue', 'status': 'PASS'}

@@ -188,6 +188,7 @@ func publish_qa(dt: float) -> void:
 			sample.input_method=Controls.input_method
 			sample.jump_count=player.jumps
 			sample.visual=player.visual.render_snapshot()
+			sample.audio={"playing":audio.music.playing,"stream_paused":audio.music.stream_paused,"can_process":audio.music.can_process(),"position":audio.music.get_playback_position(),"volume":audio.music.volume_linear,"preference":State.prefs.music,"dialogue":audio.dialogue_active}
 			sample.title_visuals=ui.title_friends.map(func(friend):return friend.render_snapshot())
 			sample.held=Controls.KEYS.keys().filter(func(action):return Input.is_action_pressed(action))
 			sample.touch_ids=Controls.touch_ids

@@ -34,6 +34,14 @@ var hint_revision=""
 var pause_button: Button
 var theme_clock=0.0
 var touch_boxes: Dictionary={}
+var panel_scroll: ScrollContainer
+var dialogue_header: HBoxContainer
+var dialogue_name: Label
+var dialogue_body: Label
+var dialogue_counter: Label
+var dialogue_speaker=""
+var dialogue_page_number=0
+var dialogue_page_total=0
 
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -131,7 +139,16 @@ func layout_snapshot() -> Dictionary:
 	var buttons=[]
 	var sliders=[]
 	if is_instance_valid(modal):collect_buttons(modal,buttons);collect_sliders(modal,sliders)
-	return {"buttons":buttons,"sliders":sliders,"heroes":heroes,"prompt_visible":prompt_plate.visible,"prompt_rect":[prompt_plate.position.x,prompt_plate.position.y,prompt_plate.size.x,prompt_plate.size.y],"pause":[pause_button.position.x,pause_button.position.y,pause_button.size.x,pause_button.size.y],"viewport":[v.x,v.y],"portrait":is_portrait(),"touch":Controls.touch_enabled(),"touch_rects":rects,"modal":[r.position.x,r.position.y,r.size.x,r.size.y],"player_screen":[game.player.get_global_transform_with_canvas().origin.x,game.player.get_global_transform_with_canvas().origin.y] if game.player else []}
+	return {"buttons":buttons,"sliders":sliders,"heroes":heroes,"prompt_visible":prompt_plate.visible,"prompt_rect":[prompt_plate.position.x,prompt_plate.position.y,prompt_plate.size.x,prompt_plate.size.y],"pause":[pause_button.position.x,pause_button.position.y,pause_button.size.x,pause_button.size.y],"viewport":[v.x,v.y],"portrait":is_portrait(),"touch":Controls.touch_enabled(),"touch_rects":rects,"modal":[r.position.x,r.position.y,r.size.x,r.size.y],"player_screen":[game.player.get_global_transform_with_canvas().origin.x,game.player.get_global_transform_with_canvas().origin.y] if game.player else [],"dialogue":dialogue_snapshot()}
+
+func control_rect(node: Control) -> Array:
+	var bounds=node.get_global_rect()
+	return [bounds.position.x,bounds.position.y,bounds.size.x,bounds.size.y]
+
+func dialogue_snapshot() -> Dictionary:
+	if menu_kind!="dialogue" or not is_instance_valid(dialogue_body):return {}
+	var bar=panel_scroll.get_v_scroll_bar()
+	return {"speaker":dialogue_name.text,"speaker_rect":control_rect(dialogue_name),"speaker_lines":dialogue_name.get_line_count(),"header_rect":control_rect(dialogue_header),"body":dialogue_body.text,"body_rect":control_rect(dialogue_body),"body_lines":dialogue_body.get_line_count(),"scroll_rect":control_rect(panel_scroll),"scrollbar_visible":bar.visible,"scrollbar_rect":control_rect(bar),"page":dialogue_page_number,"pages":dialogue_page_total,"portrait":dialogue_header.get_child(0) is TextureRect}
 
 
 func collect_buttons(node: Node,result: Array) -> void:
@@ -262,6 +279,7 @@ func refresh_hints() -> void:
 func open_panel(title: String,kind: String) -> void:
 	close_panel(false)
 	menu_kind=kind;get_tree().paused=true;dimmer.visible=kind!="title";Controls.release_all()
+	game.audio.set_dialogue(kind=="dialogue")
 	if game.player:game.player.buffer=0;game.player.velocity=Vector2.ZERO
 	modal=PanelContainer.new();modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);modal.offset_left=60;modal.offset_right=-60;modal.offset_top=38;modal.offset_bottom=-38
 	if kind=="dialogue":modal.offset_top=get_viewport().get_visible_rect().size.y-(350 if State.prefs.large_text else 270);modal.offset_bottom=-24
@@ -271,9 +289,13 @@ func open_panel(title: String,kind: String) -> void:
 	arrange()
 	modal_stack=VBoxContainer.new();modal_stack.add_theme_constant_override("separation",10);modal.add_child(modal_stack)
 	var scroll=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.follow_focus=true;scroll.size_flags_vertical=Control.SIZE_EXPAND_FILL;modal_stack.add_child(scroll)
+	panel_scroll=scroll
 	footer_actions=VBoxContainer.new();footer_actions.add_theme_constant_override("separation",9);modal_stack.add_child(footer_actions)
 	focus_assigned=false
-	list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;list.add_theme_constant_override("separation",9);scroll.add_child(list)
+	list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;list.add_theme_constant_override("separation",9)
+	if kind=="dialogue":
+		var gutter=MarginContainer.new();gutter.size_flags_horizontal=Control.SIZE_EXPAND_FILL;gutter.add_theme_constant_override("margin_right",12);scroll.add_child(gutter);gutter.add_child(list)
+	else:scroll.add_child(list)
 	var label=Label.new();label.text=title;label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;label.add_theme_font_size_override("font_size",26);label.add_theme_font_override("font",PlanetSkin.BOLD);list.add_child(label)
 
 func paragraph(value: String) -> Label:
@@ -294,7 +316,10 @@ func close_panel(resume: bool=true) -> void:
 		if is_instance_valid(v):v.queue_free()
 	title_friends.clear()
 	if game.player:game.player.buffer=0
-	if resume:get_tree().paused=false
+	dialogue_header=null;dialogue_name=null;dialogue_body=null;dialogue_counter=null;panel_scroll=null
+	if resume:
+		game.audio.set_dialogue(false)
+		get_tree().paused=false
 
 func show_title() -> void:
 	open_panel("SAVE THE\nPLANET", "title")
@@ -372,28 +397,43 @@ func show_dialogue(pair: Array) -> void:
 	if State.history.size()>100:State.history.pop_front()
 	State.save_game()
 	dialogue_pages.clear()
+	dialogue_speaker=State.text("Yol arkadaşları","Along the way")
+	dialogue_page_number=0
 	var page=""
 	for word in value.split(" "):
-		if page.length()+word.length()>255:
+		if page!="" and page.length()+word.length()>255:
 			dialogue_pages.append(page);page=""
 		page+=(" " if page!="" else "")+word
 	if page!="":dialogue_pages.append(page)
+	dialogue_page_total=dialogue_pages.size()
 	show_dialogue_page()
 
 func show_dialogue_page() -> void:
 	if dialogue_pages.is_empty():close_panel();return
 	var value: String=dialogue_pages.pop_front()
 	var colon=value.find(":")
-	var speaker=value.substr(0,colon) if colon>=0 and colon<50 else State.text("Yol arkadaşları","Along the way")
+	if colon>=0 and colon<50:dialogue_speaker=value.substr(0,colon)
+	var speaker=dialogue_speaker
+	dialogue_page_number+=1
 	open_panel(speaker,"dialogue")
-	list.get_child(0).add_theme_color_override("font_color",PlanetSkin.GOLD)
+	dialogue_name=list.get_child(0)
+	dialogue_name.add_theme_color_override("font_color",PlanetSkin.GOLD)
+	dialogue_name.accessibility_name=State.text("Konuşan: ","Speaker: ")+speaker
+	dialogue_name.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+	dialogue_name.vertical_alignment=VERTICAL_ALIGNMENT_CENTER
+	dialogue_header=HBoxContainer.new();dialogue_header.size_flags_horizontal=Control.SIZE_EXPAND_FILL;dialogue_header.add_theme_constant_override("separation",12)
+	modal_stack.add_child(dialogue_header);modal_stack.move_child(dialogue_header,0)
 	var speaker_id=-1
 	for i in 4:
-		if ["Aion","Kurt","Kuzu","Ömer"][i] in speaker:speaker_id=i
+		for alias in [["Aion"],["Kurt","Wolf"],["Kuzu","Lamb"],["Ömer","Omer","Owl"]][i]:
+			if alias in speaker:speaker_id=i
 	if speaker_id>=0:
-		var name_label=list.get_child(0);var row=HBoxContainer.new();row.add_theme_constant_override("separation",12);list.add_child(row);list.move_child(row,0);name_label.reparent(row)
-		var portrait=TextureRect.new();portrait.texture=load("res://assets/derived/canonical-"+HeroVisual.HEROES[speaker_id]+"-0-0.png");portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;portrait.custom_minimum_size=Vector2(60,48);row.add_child(portrait);row.move_child(portrait,0)
-	paragraph(value.substr(colon+1).strip_edges() if colon>=0 and colon<50 else value)
+		var portrait=TextureRect.new();portrait.texture=load("res://assets/derived/canonical-"+HeroVisual.HEROES[speaker_id]+"-0-0.png");portrait.expand_mode=TextureRect.EXPAND_IGNORE_SIZE;portrait.stretch_mode=TextureRect.STRETCH_KEEP_ASPECT_CENTERED;portrait.custom_minimum_size=Vector2(60,60);dialogue_header.add_child(portrait)
+	var identity=VBoxContainer.new();identity.size_flags_horizontal=Control.SIZE_EXPAND_FILL;identity.size_flags_vertical=Control.SIZE_SHRINK_CENTER;dialogue_header.add_child(identity)
+	dialogue_name.reparent(identity)
+	if dialogue_page_total>1:
+		dialogue_counter=Label.new();dialogue_counter.text=State.text("Sayfa ","Page ")+str(dialogue_page_number)+" / "+str(dialogue_page_total);dialogue_counter.add_theme_font_size_override("font_size",14);dialogue_counter.add_theme_color_override("font_color",PlanetSkin.SAGE);identity.add_child(dialogue_counter)
+	dialogue_body=paragraph(value.substr(colon+1).strip_edges() if colon>=0 and colon<50 else value)
 	var next=button(State.text("Devam   [Enter]","Continue   [Enter]"),func():
 		if dialogue_pages.is_empty():close_panel()
 		else:show_dialogue_page())

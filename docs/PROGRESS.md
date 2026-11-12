@@ -1,3 +1,7 @@
+# 0.4.4 · konuşma okunabilirliği ve müzik
+
+Kullanıcının dikine Kurt ve müziğin kesilmesi hatası yeniden üretildi. Başlık 1 px / 5 satır; Audio process PAUSABLE. Sabit isim/portre ve footer, ayrı gutter'lı gövde; konuşmacı/sayfa sürekliliği, kesilmeyen müzik ve 220 ms gain geçişi. Native181, browser29, mevcut120+24+38+56/ayrı kayıt PASS. [Test ve devam](DIALOGUE_FIX_0.4.4.md). Canlı yayın henüz bu aşamada doğrulanmış sayılmaz.
+
 # 0.4.3 · animasyon hizası
 
 Kullanıcının aşağı/yanlara kayma hatası gerçek animasyon karelerinde doğrulandı. Aion idle alt sınır +16,15 px; Baykuş yatay salınım 12,38 px. Göz pivotları yerine gövde/taban kaydı ve sabit Sprite2D kökü. Kaynak/türev PNG byte'ları korundu. Alpha/render56 (1.248 birleşim), browser19, native120+24+38 ve ayrı kayıt PASS. [Devam ve kanıt](SPRITE_FIX_0.4.3.md).

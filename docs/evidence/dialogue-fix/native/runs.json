@@ -1,0 +1,27 @@
+[
+  {
+    "test": "campaign",
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "test": "acceptance",
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "test": "save_read",
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "test": "quality",
+    "exit_code": 0,
+    "script_error": false
+  },
+  {
+    "test": "sprite_alignment",
+    "exit_code": 0,
+    "script_error": false
+  }
+]

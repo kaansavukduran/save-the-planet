@@ -1,0 +1,1418 @@
+{
+  "checks": [
+    {
+      "check": "(2048, 1024) tr large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) tr large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(2048, 1024) en large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) tr large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(844, 390) en large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) tr large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(390, 844) en large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) tr large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=false: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: speaker name is horizontal with real text width",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: correct character portrait is present in both languages",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: fixed speaker header is outside the scrolling text",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: body text leaves a scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: dialogue body is actually visible",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: music continues while the world is paused",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: smooth dialogue gain does not overwrite the volume preference",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: reading still freezes gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: speaker and actual page count persist through continuation",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: pagination preserves all dialogue words",
+      "status": "PASS"
+    },
+    {
+      "check": "(320, 568) en large=true: closing restores the chosen music level",
+      "status": "PASS"
+    },
+    {
+      "check": "Oversized text really uses the body scrollbar",
+      "status": "PASS"
+    },
+    {
+      "check": "Actual overflow still reserves a readable scrollbar gutter",
+      "status": "PASS"
+    },
+    {
+      "check": "Scrolling body text leaves speaker and Continue in fixed separate areas",
+      "status": "PASS"
+    },
+    {
+      "check": "Muted music stays muted in dialogue",
+      "status": "PASS"
+    },
+    {
+      "check": "Closing dialogue never unmutes the player",
+      "status": "PASS"
+    }
+  ],
+  "snapshots": [
+    {
+      "case": "(2048, 1024) tr large=false",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          354.0,
+          920.0,
+          84.0
+        ],
+        "header_rect": [
+          74.0,
+          284.0,
+          932.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          354.0,
+          932.0,
+          90.0
+        ],
+        "scrollbar_rect": [
+          1006.0,
+          354.0,
+          8.0,
+          90.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          284.0,
+          860.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(2048, 1024) tr large=true",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          274.0,
+          920.0,
+          99.0
+        ],
+        "header_rect": [
+          74.0,
+          204.0,
+          932.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          274.0,
+          932.0,
+          165.0
+        ],
+        "scrollbar_rect": [
+          1006.0,
+          274.0,
+          8.0,
+          165.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          204.0,
+          860.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(2048, 1024) en large=false",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          354.0,
+          920.0,
+          84.0
+        ],
+        "header_rect": [
+          74.0,
+          284.0,
+          932.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          354.0,
+          932.0,
+          90.0
+        ],
+        "scrollbar_rect": [
+          1006.0,
+          354.0,
+          8.0,
+          90.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          284.0,
+          860.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(2048, 1024) en large=true",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          274.0,
+          920.0,
+          99.0
+        ],
+        "header_rect": [
+          74.0,
+          204.0,
+          932.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          274.0,
+          932.0,
+          165.0
+        ],
+        "scrollbar_rect": [
+          1006.0,
+          274.0,
+          8.0,
+          165.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          204.0,
+          860.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(844, 390) tr large=false",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 2,
+        "body_rect": [
+          74.0,
+          354.0,
+          1008.0,
+          55.0
+        ],
+        "header_rect": [
+          74.0,
+          284.0,
+          1020.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          354.0,
+          1020.0,
+          90.0
+        ],
+        "scrollbar_rect": [
+          1094.0,
+          354.0,
+          8.0,
+          90.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          284.0,
+          948.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(844, 390) tr large=true",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          274.0,
+          1008.0,
+          99.0
+        ],
+        "header_rect": [
+          74.0,
+          204.0,
+          1020.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          274.0,
+          1020.0,
+          165.0
+        ],
+        "scrollbar_rect": [
+          1094.0,
+          274.0,
+          8.0,
+          165.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          204.0,
+          948.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(844, 390) en large=false",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          354.0,
+          1008.0,
+          84.0
+        ],
+        "header_rect": [
+          74.0,
+          284.0,
+          1020.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          354.0,
+          1020.0,
+          90.0
+        ],
+        "scrollbar_rect": [
+          1094.0,
+          354.0,
+          8.0,
+          90.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          284.0,
+          948.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(844, 390) en large=true",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 3,
+        "body_rect": [
+          74.0,
+          274.0,
+          1008.0,
+          99.0
+        ],
+        "header_rect": [
+          74.0,
+          204.0,
+          1020.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          74.0,
+          274.0,
+          1020.0,
+          165.0
+        ],
+        "scrollbar_rect": [
+          1094.0,
+          274.0,
+          8.0,
+          165.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          146.0,
+          204.0,
+          948.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(390, 844) tr large=false",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 6,
+        "body_rect": [
+          30.0,
+          682.0,
+          408.0,
+          183.0
+        ],
+        "header_rect": [
+          30.0,
+          612.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          682.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          682.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          612.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(390, 844) tr large=true",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          682.0,
+          408.0,
+          235.0
+        ],
+        "header_rect": [
+          30.0,
+          612.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          682.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          682.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          612.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(390, 844) en large=false",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          682.0,
+          408.0,
+          214.0
+        ],
+        "header_rect": [
+          30.0,
+          612.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          682.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          682.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          612.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(390, 844) en large=true",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          682.0,
+          408.0,
+          235.0
+        ],
+        "header_rect": [
+          30.0,
+          612.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          682.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          682.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          612.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(320, 568) tr large=false",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 6,
+        "body_rect": [
+          30.0,
+          496.0,
+          408.0,
+          183.0
+        ],
+        "header_rect": [
+          30.0,
+          426.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          496.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          496.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          426.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(320, 568) tr large=true",
+      "first_page": {
+        "body": "Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu geçidi birlikte güvenli hale getirebiliriz. Önce dinleyip çevreyi inceleyelim. Bu",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          496.0,
+          408.0,
+          235.0
+        ],
+        "header_rect": [
+          30.0,
+          426.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 3,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          496.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          496.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Kurt",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          426.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(320, 568) en large=false",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          496.0,
+          408.0,
+          214.0
+        ],
+        "header_rect": [
+          30.0,
+          426.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          496.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          496.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          426.0,
+          348.0,
+          36.0
+        ]
+      }
+    },
+    {
+      "case": "(320, 568) en large=true",
+      "first_page": {
+        "body": "We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the surroundings first. We can make this passage safe together. Let us listen and inspect the",
+        "body_lines": 7,
+        "body_rect": [
+          30.0,
+          496.0,
+          408.0,
+          235.0
+        ],
+        "header_rect": [
+          30.0,
+          426.0,
+          420.0,
+          60.0
+        ],
+        "page": 1,
+        "pages": 4,
+        "portrait": true,
+        "scroll_rect": [
+          30.0,
+          496.0,
+          420.0,
+          240.0
+        ],
+        "scrollbar_rect": [
+          450.0,
+          496.0,
+          8.0,
+          240.0
+        ],
+        "scrollbar_visible": false,
+        "speaker": "Wolf",
+        "speaker_lines": 1,
+        "speaker_rect": [
+          102.0,
+          426.0,
+          348.0,
+          36.0
+        ]
+      }
+    }
+  ]
+}
