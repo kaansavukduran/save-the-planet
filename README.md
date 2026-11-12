@@ -1,6 +1,6 @@
 # Save the Planet
 
-Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik neden-sonuç ilişkisini eylemlerle ele alan **Godot 4.6.3 / GDScript** platform macerası. Dört karakter, beş perde/on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.4.0 geliştirme sürümü**; nihai sanat, hedef süre ve fiziksel platform QA henüz tamamlanmadı.
+Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik neden-sonuç ilişkisini eylemlerle ele alan **Godot 4.6.3 / GDScript** platform macerası. Dört karakter, beş perde/on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.4.1 geliştirme sürümü**; nihai sanat, hedef süre ve fiziksel platform QA henüz tamamlanmadı. Güncel devam kaydı: [FORGE.md](FORGE.md).
 
 ```sh
 godot --path .

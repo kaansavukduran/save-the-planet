@@ -1,0 +1,49 @@
+First launch stays dark even with a light OS preference True
+Normal UI requests SystemFont by default True
+Portrait uses its own 480-unit layout rather than a shrunken landscape True
+Portrait title panel fits the viewport True
+Displayed percentage follows observed real byte progress True
+Loader has ten segments and a successfully decoded source strawberry True
+Loader shows the actual project version True
+Branded loader background is black True
+Local licensed pixel font is loaded for decorative branding True
+First-use touch teaching is shown True
+Skip tutorial stores the first-use preference True
+Context action prompt does not cover the standing hero in portrait True
+Touch Use button invokes the actual fan interaction (previous failure regression) True
+Portrait supports simultaneous touch movement and jump True
+Releasing the jump finger keeps the direction finger held True
+A separate second touch press produces Aion’s real double jump True
+Rotation mid-jump keeps the world and position without reloading the level True
+Rotation releases held touch input instead of leaving movement stuck True
+844x390: every touch target stays inside the viewport True
+844x390: action targets meet 44 CSS pixels True
+844x390: player feet stay visible above touch controls True
+844x390: pause panel adapts to the orientation True
+390x844: every touch target stays inside the viewport True
+390x844: action targets meet 44 CSS pixels True
+390x844: player feet stay visible above touch controls True
+390x844: pause panel adapts to the orientation True
+768x1024: every touch target stays inside the viewport True
+768x1024: action targets meet 44 CSS pixels True
+768x1024: player feet stay visible above touch controls True
+768x1024: pause panel adapts to the orientation True
+1024x768: every touch target stays inside the viewport True
+1024x768: action targets meet 44 CSS pixels True
+1024x768: player feet stay visible above touch controls True
+1024x768: pause panel adapts to the orientation True
+320x568: every touch target stays inside the viewport True
+320x568: action targets meet 44 CSS pixels True
+320x568: player feet stay visible above touch controls True
+320x568: pause panel adapts to the orientation True
+Light theme applies through the real native settings button True
+Music slider has a 44px touch region and stores its real adjusted value True
+Light theme also applies during actual touch gameplay True
+System theme follows a light browser preference True
+System theme reacts to a changed browser preference without restarting True
+Bundled accessible font can be selected True
+System font can be restored True
+Large text works with the new theme and portrait layout True
+Settings remains usable after rotation with large text True
+Theme, font, tutorial and accessibility preferences survive reload True
+V1.4 RESULT 48 checks []

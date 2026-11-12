@@ -4,6 +4,8 @@ signal animal_arrived
 var spec: Dictionary = {}
 var clock=0.0
 var camera_x=0.0
+var view_bounds=Rect2(0,0,960,540)
+var draw_cpu_usec=0
 var solids: Array = []
 var gates: Array = []
 var moving: Array = []
@@ -14,6 +16,10 @@ var timer=0.0
 var props: Dictionary = {}
 var mechanism_times: Dictionary = {}
 const PALETTES={"meadow":["95c7bd","c8dfb3","446c72","355c51","e4d5a7"],"workshop":["8daab2","d4c8a6","596a79","45505c","bc9570"],"river":["80b7cd","bce2d4","446b7d","356c65","ddce9d"],"forest":["80b0a6","bbd5aa","3d6463","284d46","bea47c"],"town":["c4b2bd","ead1af","68748b","56686f","d6b492"],"coast":["82bdce","e5dec1","557d90","426578","e6cfa3"],"finale":["768f9c","c6b8ad","4f5a70","344e58","bdac8d"]}
+
+func _ready() -> void:
+	# Resizing a paused menu must also repaint the scenery behind it.
+	get_viewport().size_changed.connect(queue_redraw)
 
 func solid(rect: Rect2,animated: bool=false) -> PhysicsBody2D:
 	var b: PhysicsBody2D=AnimatableBody2D.new() if animated else StaticBody2D.new()
@@ -83,6 +89,9 @@ func unsafe_at(p: Vector2) -> bool:
 
 func _draw() -> void:
 	if spec.is_empty():return
+	var draw_started=Time.get_ticks_usec() if OS.is_debug_build() else 0
+	# Read the rendered camera transform: portrait and ultrawide views expand the world.
+	view_bounds=get_viewport().get_canvas_transform().affine_inverse()*get_viewport_rect()
 	var palette=PALETTES[spec.biome];var end=float(spec.length)
 	draw_backdrop(palette,end)
 	if spec.has("water"):
@@ -104,7 +113,7 @@ func _draw() -> void:
 	for p in spec.platforms:terrain(Rect2(p[0],p[1],p[2],p[3]),palette,true)
 	if spec.has("tunnel"):
 		var t=spec.tunnel;terrain(Rect2(t[0],t[1],t[2],t[3]),palette,true)
-		_label(Vector2(t[0]-35,t[1]-18),State.text("↘ KUZU · J","↘ LAMB · J"),Color("273f46"),15)
+		_label(Vector2(t[0]-35,t[1]-18),tunnel_hint(),Color("273f46"),15)
 	for m in moving:
 		terrain(Rect2(m.body.position-m.size/2,m.size),palette,true)
 		draw_line(m.origin-m.amplitude,m.origin+m.amplitude,Color("edf1d3"),2)
@@ -115,7 +124,7 @@ func _draw() -> void:
 		if not visible_x(x):continue
 		draw_rect(Rect2(x,432,3,8),Color("567b55"));draw_rect(Rect2(x-3,428,9,5),Color("eacb86"))
 	for x in range(250,int(end)-100,610):
-		if x<camera_x-150 or x>camera_x+1100:continue
+		if not visible_x(x):continue
 		var name="log" if spec.biome in ["meadow","forest"] else "rocks"
 		var texture: Texture2D=props[name]
 		draw_texture_rect(texture,Rect2(x,397,85,43),false,Color(1,1,1,0.85))
@@ -165,6 +174,7 @@ func _draw() -> void:
 	var exit_pos=Vector2(end-100,440)
 	draw_rect(Rect2(exit_pos.x,350,9,90),Color("4c6962"));draw_rect(Rect2(exit_pos.x-32,352,74,28),Color("f1dfb2"))
 	_label(exit_pos+Vector2(-25,-67),"→",Color("345550"),24)
+	if OS.is_debug_build():draw_cpu_usec=Time.get_ticks_usec()-draw_started
 
 func terrain(r: Rect2,palette: Array,raised: bool) -> void:
 	draw_rect(r,Color(palette[3]));draw_rect(Rect2(r.position,r.size*Vector2(1,0)+Vector2(0,6)),Color("eee1b2"))
@@ -179,7 +189,10 @@ func terrain(r: Rect2,palette: Array,raised: bool) -> void:
 		if not raised:draw_rect(Rect2(x+12,r.position.y+42,8,5),Color(palette[4]).darkened(0.25))
 
 func visible_x(x: float) -> bool:
-	return x>=camera_x-180 and x<=camera_x+1140
+	return x>=view_bounds.position.x-180 and x<=view_bounds.end.x+180
+
+func tunnel_hint() -> String:
+	return State.text("↘ KUZU · ","↘ LAMB · ")+Controls.hint("ability")
 
 func draw_mechanism(a: Dictionary) -> void:
 	if not visible_x(float(a.x)):return
@@ -266,8 +279,18 @@ func draw_backdrop(palette: Array,end: float) -> void:
 	# Palette roles and stepped silhouettes are shared by all ten chapters.
 	var sky_top=Color("203b52").lerp(Color(palette[0]),0.20)
 	var sky_bottom=Color(palette[1]).darkened(0.08)
+	# Extend the original gradient at either edge, retaining its world-space bands.
+	# A very tall portrait camera can see above -300; a wide camera sees past x+994.
+	var sky_left=view_bounds.position.x-16
+	var sky_width=view_bounds.size.x+32
+	if view_bounds.position.y< -300:
+		draw_rect(Rect2(sky_left,view_bounds.position.y-16,sky_width,-300-view_bounds.position.y+16),sky_top)
+	if view_bounds.end.y>492:
+		draw_rect(Rect2(sky_left,492,sky_width,view_bounds.end.y-492+16),sky_bottom)
 	for i in 18:
-		draw_rect(Rect2(camera_x-16,-300+i*44,1010,45),sky_top.lerp(sky_bottom,float(i)/17.0))
+		var y=-300+i*44
+		if y+45<view_bounds.position.y or y>view_bounds.end.y:continue
+		draw_rect(Rect2(sky_left,y,sky_width,45),sky_top.lerp(sky_bottom,float(i)/17.0))
 	var sun=Vector2(camera_x+745,111)
 	draw_rect(Rect2(sun+Vector2(-34,-42),Vector2(68,84)),Color("e5d6a1"))
 	draw_rect(Rect2(sun+Vector2(-42,-29),Vector2(84,58)),Color("e5d6a1"))
@@ -276,7 +299,7 @@ func draw_backdrop(palette: Array,end: float) -> void:
 		var color=[Color("62838a"),Color("476e78"),Color("2c5360")][layer]
 		for x in range(-600,int(end)+1000,300):
 			var base=roundf(x+camera_x*parallax)
-			if base<camera_x-400 or base>camera_x+1300:continue
+			if base<view_bounds.position.x-400 or base>view_bounds.end.x+300:continue
 			var h=110+posmod(x*7+layer*45,95)
 			var y=265+layer*38
 			var points=PackedVector2Array([Vector2(base,440),Vector2(base,y+30),Vector2(base+30,y+30),Vector2(base+30,y),Vector2(base+60,y),Vector2(base+60,y-h/3.0),Vector2(base+100,y-h/3.0),Vector2(base+100,y-h/2.0),Vector2(base+145,y-h/2.0),Vector2(base+145,y-h/3.0),Vector2(base+200,y-h/3.0),Vector2(base+200,y),Vector2(base+280,y),Vector2(base+280,440)])
@@ -284,10 +307,10 @@ func draw_backdrop(palette: Array,end: float) -> void:
 	# Small distant silhouettes are project-local scenery, not new canon locations.
 	for x in range(300,int(end)+600,730):
 		var px=roundf(x+camera_x*0.68)
-		if px<camera_x-120 or px>camera_x+1100:continue
+		if not visible_x(px):continue
 		draw_rect(Rect2(px,246,20,85),Color("3c606c"));draw_rect(Rect2(px+27,222,13,109),Color("3c606c"));draw_rect(Rect2(px+2,264,38,10),Color("6f9394"))
 	for x in range(90,int(end)+250,265):
-		if x<camera_x-180 or x>camera_x+1140:continue
+		if not visible_x(x):continue
 		if spec.biome in ["workshop","town","finale"]:
 			draw_rect(Rect2(x,285,145,155),Color("3a5664"));draw_rect(Rect2(x-6,276,157,12),Color("67818b"))
 			for w in range(15,133,30):

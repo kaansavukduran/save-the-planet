@@ -43,6 +43,8 @@ jobs:
         run: python3 packaging/build_web.py
       - name: AIONIA v1.4 responsive and appearance regressions
         run: python3 tests/browser_v14.py
+      - name: Camera and sky across ultrawide, tall portrait and rotation
+        run: python3 tests/browser_world_render.py
       - name: Privacy, storage recovery and enforced CSP
         run: python3 tests/browser_quality.py
       - name: Keyboard-free gamepad menus and hotplug

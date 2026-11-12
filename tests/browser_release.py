@@ -6,10 +6,10 @@ from threading import Thread
 from browser_wait import wait_js
 from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
-import json
+import json, os
 
 ROOT = Path(__file__).resolve().parents[1]
-E=ROOT/'docs/evidence/v0.4/release';E.mkdir(parents=True,exist_ok=True)
+E=ROOT/os.environ.get('STP_TEST_EVIDENCE','docs/evidence/v0.4/release');E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *args): pass
 
@@ -44,6 +44,6 @@ with sync_playwright() as p:
         errors.append(str(e))
     finally:
         result={'checks':checks,'errors':errors,'build':json.loads((ROOT/'build/web/BUILD.json').read_text())}
-        (ROOT/'work/browser-release.json').write_text(json.dumps(result,indent=2))
+        (ROOT/os.environ.get('STP_TEST_RESULT','work/browser-release.json')).write_text(json.dumps(result,indent=2))
         print(json.dumps(result,indent=2)); browser.close(); server.shutdown()
 raise SystemExit(1 if errors or any(c['status']=='FAIL' for c in checks) else 0)

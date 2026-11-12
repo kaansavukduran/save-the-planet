@@ -1,0 +1,101 @@
+{
+  "checks": [
+    {
+      "check": "03 Air switching cannot create upward motion after jumps are spent",
+      "pass": true
+    },
+    {
+      "check": "03 Shared jumps and glide budget survive 30 switches",
+      "pass": true
+    },
+    {
+      "check": "03 Switching does not refresh cooldown",
+      "pass": true
+    },
+    {
+      "check": "04 Dash switching cannot stack speed or cross a closed gate",
+      "pass": true
+    },
+    {
+      "check": "05 Lamb roll physically enters the low tunnel",
+      "pass": true
+    },
+    {
+      "check": "05 Unsafe body switch is rejected in the tunnel",
+      "pass": true
+    },
+    {
+      "check": "05 Larger body is allowed after leaving tunnel",
+      "pass": true
+    },
+    {
+      "check": "10 Party menu freezes movement, hazards and cooldowns",
+      "pass": true
+    },
+    {
+      "check": "10 Closing a menu does not replay its jump input",
+      "pass": true
+    },
+    {
+      "check": "10 Dialogue freezes physics",
+      "pass": true
+    },
+    {
+      "check": "11 Focus loss releases held actions",
+      "pass": true
+    },
+    {
+      "check": "06 Moving platform carries the switched character",
+      "pass": true
+    },
+    {
+      "check": "03 Owl rides a marked air current",
+      "pass": true
+    },
+    {
+      "check": "03 Air current cannot bypass the finite glide budget",
+      "pass": true
+    },
+    {
+      "check": "18 Upper route bypasses the still-closed heavy barrier",
+      "pass": true
+    },
+    {
+      "check": "13 Gamepad D-pad and A reach Settings",
+      "pass": true
+    },
+    {
+      "check": "13 Gamepad Start resumes gameplay",
+      "pass": true
+    },
+    {
+      "check": "08 Retry returns to a safe checkpoint immediately",
+      "pass": true
+    },
+    {
+      "check": "07 Animal autonomously reaches safety once",
+      "pass": true
+    },
+    {
+      "check": "07 Reloading the rescue scene cannot duplicate the individual",
+      "pass": true
+    },
+    {
+      "check": "09 Corrupt primary recovers the valid backup",
+      "pass": true
+    },
+    {
+      "check": "08 Language and accessibility preferences survive reload",
+      "pass": true
+    },
+    {
+      "check": "09 Schema 1 migration preserves world facts and animals",
+      "pass": true
+    },
+    {
+      "check": "09 Future save is preserved without overwriting",
+      "pass": true
+    }
+  ],
+  "failures": []
+}

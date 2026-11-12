@@ -8,7 +8,7 @@ from functools import partial
 from threading import Thread
 from pathlib import Path
 import json,re,os
-R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.4/v14';E.mkdir(parents=True,exist_ok=True)
+R=Path(__file__).resolve().parents[1];E=R/os.environ.get('STP_TEST_EVIDENCE','docs/evidence/v0.4/v14');E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 server=ThreadingHTTPServer(('127.0.0.1',8032),partial(Quiet,directory=str(R/os.environ.get('STP_TEST_WEB_DIR','build/web-qa'))));Thread(target=server.serve_forever,daemon=True).start()
@@ -105,6 +105,6 @@ with sync_playwright() as p:
   errors.append(str(e));page.screenshot(path=str(E/'failure.png'));print('FAIL',str(e),flush=True)
  finally:
   result={'checks':checks,'errors':errors,'snapshots':snapshots,'browser':b.version,'touch_input':'CDP plus timed DOM TouchEvent pairs; actual Godot input and physics, no progress injection','physical_phone':'NOT TESTED','physical_tablet':'NOT TESTED','system_font_web_note':'Godot SystemFont requested; browser sandbox may resolve an engine fallback, unlike native OS font lookup.'}
-  (R/'work/browser-v14.json').write_text(json.dumps(result,indent=2));b.close();server.shutdown()
+  (R/os.environ.get('STP_TEST_RESULT','work/browser-v14.json')).write_text(json.dumps(result,indent=2));b.close();server.shutdown()
 print('V1.4 RESULT',len(checks),'checks',errors,flush=True)
 raise SystemExit(1 if errors or any(c['status']=='FAIL' for c in checks) else 0)

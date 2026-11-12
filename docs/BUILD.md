@@ -13,7 +13,7 @@ python3 packaging/build_native.py
 
 Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
 
-Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 4, sürüm 0.4.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 5, sürüm 0.4.1. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
 
 Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
 

@@ -183,7 +183,7 @@ func publish_qa(dt: float) -> void:
 		if qa_clock>0.1:
 			qa_clock=0.0
 			var sample={"x":player.position.x,"y":player.position.y,"vx":player.velocity.x,"vy":player.velocity.y,"floor":player.is_on_floor(),"active":State.active,"cooldown":player.cooldown,"unlocked":State.unlocked,"flags":State.flags,"level":State.level,"hub":in_hub,"menu":ui.menu_kind,"completed":State.completed,"shape_height":player.body_shape.shape.size.y,"glide":player.glide_left}
-			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)}
+			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME),"cpu_frame_ms":Performance.get_monitor(Performance.TIME_PROCESS)*1000.0,"physics_ms":Performance.get_monitor(Performance.TIME_PHYSICS_PROCESS)*1000.0,"world_draw_script_ms":world.draw_cpu_usec/1000.0}
 			sample.input_method=Controls.input_method
 			sample.jump_count=player.jumps
 			sample.held=Controls.KEYS.keys().filter(func(action):return Input.is_action_pressed(action))

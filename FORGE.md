@@ -1,0 +1,21 @@
+# Save the Planet · geliştirme devam kaydı
+
+Proje: `kaansavukduran/save-the-planet`, Godot 4.6.3 / GDScript. AIONIA v1.4 ve kullanıcının onayladığı D-pad + aksiyon düğmeleri geçerlidir. Mevcut dört karakterin kaynakları korunur; başka projelerdeki tasarım/anahtar/onaylar bu oyun için yetki sayılmaz.
+
+## 0.4.1 · ekran çizimi ve giriş ipuçları
+
+[Uygulama planı](docs/PLAN_v0.4.1.md). 1920×720/2560×720 sağ kenar ve 390×1000 üst kenar gökyüzü boşlukları, gerçek 0.4.0 Web paketinde yeniden üretildi. Gökyüzü ve çevre çizim sınırları görünür kamera alanından hesaplanır; menü duraklatılmışken de viewport değişikliği yeniden çizim ister. Dünya koordinatları/kayıt checkpoint'leri değişmez. Tünel tabelası aktif klavye/gamepad eşlemesini ve dokunmatik eylem adını izler.
+
+Debug QA, CPU kare/fizik ve dünya çizim komutlarını hazırlama sürelerini ayrıca raporlar. Sonuncusu GPU süresi değildir. Release QA köprüsü kapalı kalır.
+
+Güncel test sonuçları ve paket durumu: [0.4.1 doğrulaması](docs/VALIDATION_0.4.1.md). Önceki [0.4.0 paketleri](docs/DELIVERY.md) kaynak commit'iyle sabitlenmiştir; yeni yamanın paketleri diye sunulmaz.
+
+## Açık kalite kapıları
+
+- Yazılım GPU 60 FPS bütçesi önceki koşuda FAIL; düzeltildi diye işaretleme. Fiziksel GPU profili, toplam browser/WASM/GPU belleği, enerji ve giriş gecikmesi henüz doğrulanmadı.
+- Fiziksel telefon/tablet iki yön/safe-area/dokunmatik/ses, Xbox, Windows kurulum/kaldırma, ekran okuyucu ve insan playtest NOT TESTED.
+- Android release SDK/JDK/mevcut imza ortamı eksik; anahtar uydurma veya başka uygulamanın anahtarını kullanma.
+- Nihai logo/varyant onayları, Emre'nin doğrulanmış sprite kaynağı ve 2–3 saat hedef içerik/süre doğrulaması açık.
+- Hızlı headless çıkışta ObjectDB cleanup uyarısı devam ediyor; testlerin davranış PASS sonucu bu uyarının çözüldüğü anlamına gelmez.
+
+Sonraki çalışma: ölçülen darboğaza göre anlamlı optimizasyon ve hedef cihaz testi; ardından doğrulanmış sanat kaynakları, insanla zorluk/süre/erişilebilirlik değerlendirmesi ve platform yayın kapıları. Arka planda otomatik devam sözü verilmez.
