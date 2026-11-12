@@ -1,0 +1,232 @@
+class_name PlanetWorld
+extends Node2D
+signal animal_arrived
+var spec: Dictionary = {}
+var clock=0.0
+var solids: Array = []
+var gates: Array = []
+var moving: Array = []
+var actor_x=0.0
+var actor_done=false
+var actors: Array = []
+var timer=0.0
+var props: Dictionary = {}
+const PALETTES={"meadow":["95c7bd","c8dfb3","446c72","355c51","e4d5a7"],"workshop":["8daab2","d4c8a6","596a79","45505c","bc9570"],"river":["80b7cd","bce2d4","446b7d","356c65","ddce9d"],"forest":["80b0a6","bbd5aa","3d6463","284d46","bea47c"],"town":["c4b2bd","ead1af","68748b","56686f","d6b492"],"coast":["82bdce","e5dec1","557d90","426578","e6cfa3"],"finale":["768f9c","c6b8ad","4f5a70","344e58","bdac8d"]}
+
+func solid(rect: Rect2,animated: bool=false) -> PhysicsBody2D:
+	var b: PhysicsBody2D=AnimatableBody2D.new() if animated else StaticBody2D.new()
+	var c=CollisionShape2D.new();var shape=RectangleShape2D.new();shape.size=rect.size;c.shape=shape
+	if rect.size.y<=22:
+		c.one_way_collision=true;c.one_way_collision_margin=5;b.collision_layer=2
+	b.position=rect.get_center();add_child(b);b.add_child(c);solids.append(rect);return b
+
+func setup(data: Dictionary) -> void:
+	spec=data
+	for name in ["forest-arch","pipe-arch","log","barrier","rocks","grass-left","grass-right","industrial-left","industrial-right"]:props[name]=load("res://assets/derived/prop-"+name+".png")
+	for g in spec.ground:solid(Rect2(g[0],g[1],g[2],g[3]))
+	for p in spec.platforms:solid(Rect2(p[0],p[1],p[2],p[3]))
+	if spec.has("tunnel"):
+		var t=spec.tunnel;solid(Rect2(t[0],t[1],t[2],t[3]))
+	for g in spec.get("gates",[]):
+		if State.flags.get(g.flag,false):continue
+		var r=g.rect;gates.append({"flag":g.flag,"body":solid(Rect2(r[0],r[1],r[2],r[3]))})
+	for m in spec.get("moving",[]):
+		var r=Rect2(m[0],m[1],m[2],m[3]);var b=solid(r,true)
+		moving.append({"body":b,"origin":r.get_center(),"size":r.size,"amplitude":Vector2(m[4],m[5])})
+	if spec.has("animal"):
+		var a=spec.animal
+		actor_done=State.flags.get(a.arrived,false);actor_x=float(a.to if actor_done else a.from)
+	for a in spec.actions:
+		if a.kind=="friend":
+			var v=HeroVisual.new();v.hero=int(a.unlock);v.position=Vector2(a.x+40,440);add_child(v);actors.append({"id":a.id,"visual":v})
+	if spec.id=="sanctuary":
+		for i in State.unlocked:
+			var v=HeroVisual.new();v.hero=int(i);v.position=Vector2(690+int(i)*145,440);v.pose="idle";add_child(v);actors.append({"id":"hub.friend"+str(i),"visual":v})
+
+func _physics_process(dt: float) -> void:
+	clock+=dt
+	for m in moving:
+		m.body.position=m.origin+m.amplitude*sin(clock*1.15)
+	for g in gates:
+		if is_instance_valid(g.body) and State.flags.get(g.flag,false):g.body.queue_free()
+	for a in spec.get("actions",[]):
+		if a.has("timer") and State.flags.get(a.id,false) and not State.flags.get(a.timer_flag,false):
+			timer+=dt
+			if timer>=float(a.timer):State.mark(a.timer_flag)
+	if spec.has("animal") and not actor_done:
+		var a=spec.animal
+		if State.has_all(a.requires):
+			actor_x=move_toward(actor_x,float(a.to),95*dt)
+			if actor_x>=float(a.to):
+				actor_done=true;State.animals[a.id]={"habitat":a.habitat,"status":"safe"};State.mark(a.arrived);animal_arrived.emit()
+	queue_redraw()
+
+func danger_phase() -> int:
+	# Explicit warning before each active interval, then a generous safe interval.
+	var phase=fmod(clock,4.5)
+	return 1 if phase<0.8 else (2 if phase<2.3 else 0)
+
+func unsafe_at(p: Vector2) -> bool:
+	if State.flags.get(spec.get("hazard_disable",""),false):return false
+	if danger_phase()!=2:return false
+	for h in spec.hazards:
+		if Rect2(h[0]-12,h[1]-8,h[2]+24,h[3]+8).has_point(p-Vector2(0,15)):return true
+	return false
+
+func _draw() -> void:
+	if spec.is_empty():return
+	var palette=PALETTES[spec.biome];var end=float(spec.length)
+	# Art uses stepped silhouettes and integer geometry; collision tops have a light rim.
+	draw_rect(Rect2(-1000,-500,end+2500,1200),Color(palette[0]))
+	draw_rect(Rect2(-1000,180,end+2500,500),Color(palette[1]))
+	draw_circle(Vector2(690,100),46,Color("f5e8b7"))
+	for x in range(80,int(end)+500,550):
+		var y=80+posmod(x,100)
+		draw_rect(Rect2(x,y,120,14),Color("d8e7cb"));draw_rect(Rect2(x+18,y-13,65,14),Color("d8e7cb"))
+	for x in range(-300,int(end)+900,320):
+		var h=100+posmod(x*7,95)
+		draw_colored_polygon(PackedVector2Array([Vector2(x,345),Vector2(x+70,220-h/3.0),Vector2(x+100,220-h/3.0),Vector2(x+120,180-h/4.0),Vector2(x+150,180-h/4.0),Vector2(x+240,345)]),Color(palette[2]))
+	for x in range(100,int(end),230):
+		if spec.biome in ["workshop","town","finale"]:
+			draw_rect(Rect2(x,265,130,170),Color(palette[2]).darkened(0.08))
+			draw_rect(Rect2(x-8,253,146,12),Color(palette[3]))
+			for w in range(14,115,32):draw_rect(Rect2(x+w,286,16,26),Color("e5cf98"))
+			if spec.biome!="town":
+				draw_rect(Rect2(x+90,206,18,58),Color(palette[3]));draw_rect(Rect2(x+85,202,28,8),Color(palette[3]).lightened(0.2))
+		else:
+			draw_rect(Rect2(x+30,250,16,190),Color("695e55"))
+			for y in range(160,295,28):
+				var width=80+(y-160)*0.38
+				var left=x+38-width/2
+				draw_rect(Rect2(left,y,width,33),Color(palette[3]))
+				draw_rect(Rect2(left+7,y-7,width-14,10),Color(palette[3]).lightened(0.13))
+				for j in 5:
+					draw_rect(Rect2(left+10+j*(width-20)/5,y+6,7,4),Color(palette[3]).lightened(0.2))
+			draw_rect(Rect2(x+34,310,6,95),Color("97836b"))
+	if spec.has("water"):
+		var w=spec.water;var polluted=not State.flags.get("a2l1.source_stopped",false) and spec.id=="a2l1"
+		draw_rect(Rect2(w[0],w[1],w[2],w[3]),Color("6e637b" if polluted else "518fa4"))
+		for x in range(int(w[0]),int(w[0]+w[2]),55):
+			draw_line(Vector2(x,w[1]+8),Vector2(x+25,w[1]+8),Color("c3dedd"),2)
+	if spec.id=="a2l1":
+		var stopped=State.flags.get("a2l1.source_stopped",false)
+		draw_rect(Rect2(470,390,2100,15),Color("66737e"))
+		for x in range(490,2560,110):draw_rect(Rect2(x,385,8,25),Color("bac5bf"))
+		if not stopped:
+			for i in 7:
+				var fx=520+fmod(clock*130+i*95,1900)
+				draw_rect(Rect2(fx,425,18,7),Color("8b7593"))
+			_label(Vector2(510,355),State.text("ATIK YENİDEN GELİYOR ← KAYNAK","WASTE RETURNS ← SOURCE"),Color("344350"),15)
+	for g in spec.ground:terrain(Rect2(g[0],g[1],g[2],g[3]),palette,false)
+	for p in spec.platforms:terrain(Rect2(p[0],p[1],p[2],p[3]),palette,true)
+	if spec.has("tunnel"):
+		var t=spec.tunnel;terrain(Rect2(t[0],t[1],t[2],t[3]),palette,true)
+		_label(Vector2(t[0]-35,t[1]-18),State.text("↘ KUZU · J","↘ LAMB · J"),Color("273f46"),15)
+	for m in moving:
+		terrain(Rect2(m.body.position-m.size/2,m.size),palette,true)
+		draw_line(m.origin-m.amplitude,m.origin+m.amplitude,Color("edf1d3"),2)
+	for cp in spec.checkpoints:
+		draw_rect(Rect2(cp,378,4,62),Color("e9dfc4"));draw_colored_polygon(PackedVector2Array([Vector2(cp+4,378),Vector2(cp+38,385),Vector2(cp+4,399)]),Color("2c8778"))
+	for x in range(70,int(end),95):
+		draw_rect(Rect2(x,432,3,8),Color("567b55"));draw_rect(Rect2(x-3,428,9,5),Color("eacb86"))
+	for x in range(250,int(end)-100,610):
+		var name="log" if spec.biome in ["meadow","forest"] else "rocks"
+		var texture: Texture2D=props[name]
+		draw_texture_rect(texture,Rect2(x,397,85,43),false,Color(1,1,1,0.85))
+	var arch: Texture2D=props["forest-arch" if spec.biome in ["meadow","forest","river"] else "pipe-arch"]
+	draw_texture_rect(arch,Rect2(end-240,270,190,170),false)
+	if spec.id=="sanctuary":
+		if State.animals.has("duru"):draw_animal(Vector2(480+sin(clock*0.5)*28,440),"care",false)
+		if State.flags.get("story_complete",false):
+			for x in range(200,2000,40):
+				draw_rect(Rect2(x,426,3,14),Color("60916f"));draw_rect(Rect2(x-4,421,11,7),Color("e6b68d"))
+		_label(Vector2(1300,340),State.text("BAKIM VE İZLEME SÜRÜYOR","CARE AND MONITORING CONTINUE"),Color("344c4f"),16)
+	if not State.prefs.reduced_effects:
+		for i in 18:
+			var fx=fmod(i*239+clock*7,end);var fy=130+posmod(i*47,210)+sin(clock+i)*10
+			draw_rect(Rect2(fx,fy,2,2),Color(0.95,0.88,0.6,0.45))
+	for a in spec.actions:draw_mechanism(a)
+	for g in spec.get("gates",[]):
+		var r=g.rect
+		if not State.flags.get(g.flag,false):
+			draw_rect(Rect2(r[0],r[1],r[2],r[3]),Color("465762"))
+			for y in range(int(r[1]),int(r[1]+r[3]),14):draw_line(Vector2(r[0],y),Vector2(r[0]+r[2],y+10),Color("e7bd75"),4)
+		else:draw_line(Vector2(r[0],440),Vector2(r[0]+55,420),Color("768577"),8)
+	var disabled=State.flags.get(spec.get("hazard_disable",""),false)
+	for h in spec.hazards:
+		var pos=Vector2(h[0]+h[2]/2,438)
+		var phase=0 if disabled else danger_phase()
+		var c=Color("da7064" if phase==2 else ("edc470" if phase==1 else "668a80"))
+		draw_rect(Rect2(h[0],434,h[2],6),Color("344953"))
+		for i in 6:
+			var theta=clock*(3 if phase==2 else 0)+i*TAU/6
+			draw_line(pos,pos+Vector2(cos(theta),sin(theta))*27,c,7)
+		draw_circle(pos,18,c);draw_circle(pos,8,Color("344953") if phase==0 else c.lightened(0.3))
+		if phase==1:
+			draw_colored_polygon(PackedVector2Array([pos+Vector2(0,-80),pos+Vector2(-14,-54),pos+Vector2(14,-54)]),c)
+			_label(pos+Vector2(-3,-58),"!",Color("293b43"),18)
+	if spec.has("animal"):
+		var walk=not actor_done and State.has_all(spec.animal.requires)
+		draw_animal(Vector2(actor_x,440),spec.animal.habitat,walk)
+		if not walk and not actor_done:_label(Vector2(actor_x-25,370),"…",Color("314a52"),24)
+	var exit_pos=Vector2(end-100,440)
+	draw_rect(Rect2(exit_pos.x,350,9,90),Color("4c6962"));draw_rect(Rect2(exit_pos.x-32,352,74,28),Color("f1dfb2"))
+	_label(exit_pos+Vector2(-25,-67),"→",Color("345550"),24)
+
+func terrain(r: Rect2,palette: Array,raised: bool) -> void:
+	draw_rect(r,Color(palette[3]));draw_rect(Rect2(r.position,r.size*Vector2(1,0)+Vector2(0,6)),Color("eee1b2"))
+	draw_rect(Rect2(r.position+Vector2(0,6),Vector2(r.size.x,6)),Color("70956c"))
+	if raised and r.size.y<=22 and not props.is_empty():
+		var texture: Texture2D=props["industrial-left" if spec.biome in ["workshop","town","finale"] else "grass-left"]
+		draw_texture_rect(texture,Rect2(r.position+Vector2(-4,-6),Vector2(r.size.x+8,65)),false)
+		draw_line(r.position,r.position+Vector2(r.size.x,0),Color("f5e6b8"),3)
+	for x in range(int(r.position.x)+8,int(r.end.x),32):
+		draw_rect(Rect2(x,r.position.y+18,16,4),Color(palette[4]).darkened(0.12))
+		if not raised:draw_rect(Rect2(x+12,r.position.y+42,8,5),Color(palette[4]).darkened(0.25))
+
+func draw_mechanism(a: Dictionary) -> void:
+	var p=Vector2(a.x,a.y);var done=State.flags.get(a.id,false)
+	var c=Color("80c39d" if done else "eac677")
+	if a.kind=="friend":return
+	draw_rect(Rect2(p+Vector2(-23,-43),Vector2(46,43)),Color("3e5962"))
+	match a.kind:
+		"record":
+			draw_rect(Rect2(p+Vector2(-17,-65),Vector2(34,43)),Color("efdfb5"))
+			for y in range(-57,-28,8):draw_line(p+Vector2(-10,y),p+Vector2(10,y),Color("718d89"),3)
+		"fan":
+			draw_circle(p+Vector2(0,-51),23,Color("687e87"))
+			for i in 4:
+				var theta=(0 if done or State.prefs.reduced_effects else clock*9)+i*TAU/4
+				draw_line(p+Vector2(0,-51),p+Vector2(cos(theta),sin(theta))*20+Vector2(0,-51),c,7)
+		"water","valve":
+			draw_circle(p+Vector2(0,-49),19,c);draw_line(p+Vector2(-14,-49),p+Vector2(14,-49),Color("426f81"),5)
+			if done:
+				for i in 3:draw_rect(Rect2(p+Vector2(-16+i*12,-30+fmod(clock*35+i*8,23)),Vector2(4,6)),Color("a8dfdf"))
+		"meal":
+			draw_rect(Rect2(p+Vector2(-50,-43),Vector2(100,8)),Color("866851"));draw_circle(p+Vector2(0,-49),15,Color("eee2ba"))
+			for i in 5:draw_rect(Rect2(p+Vector2(-10+i*4,-51+(i%2)*4),Vector2(4,4)),Color("9a793a" if done else "a8b4ad"))
+			if done:_label(p+Vector2(-70,-82),State.text("MERCİMEKLİ SOFRA","LENTIL MEAL"),Color("344e4d"),14)
+		"care":
+			draw_rect(Rect2(p+Vector2(-35,-43),Vector2(70,12)),Color("eee4c9"));draw_animal(p+Vector2(0,-43),"care",false)
+			draw_rect(Rect2(p+Vector2(40,-43),Vector2(18,43)),Color("7ea69c"));draw_circle(p+Vector2(49,-53),10,Color("d8ac84"))
+		_:
+			draw_line(p+Vector2(0,-35),p+Vector2(20 if done else -20,-65),c,7)
+			draw_circle(p+Vector2(20 if done else -20,-65),6,c)
+	if done:
+		draw_line(p+Vector2(-8,-85),p+Vector2(-1,-78),Color("28594d"),3);draw_line(p+Vector2(-1,-78),p+Vector2(12,-93),Color("28594d"),3)
+	else:
+		draw_colored_polygon(PackedVector2Array([p+Vector2(0,-91),p+Vector2(-6,-100),p+Vector2(6,-100)]),c)
+		if not a.heroes.is_empty():_label(p+Vector2(-5,-105),str(int(a.heroes[0])+1),Color("344e4d"),14)
+
+func draw_animal(p: Vector2,habitat: String,walk: bool) -> void:
+	var step=sin(clock*13)*4 if walk else 0.0
+	var body=Color("b97f62" if habitat in ["forest","nest"] else "eee2c3")
+	draw_rect(Rect2(p+Vector2(-17,-25),Vector2(32,20)),body)
+	draw_rect(Rect2(p+Vector2(7,-35),Vector2(20,25)),body.lightened(0.08))
+	draw_rect(Rect2(p+Vector2(10,-47),Vector2(6,17)),body);draw_rect(Rect2(p+Vector2(20,-44),Vector2(5,13)),body)
+	draw_rect(Rect2(p+Vector2(21,-29),Vector2(3,4)),Color("34434a"))
+	draw_rect(Rect2(p+Vector2(-12+step,-7),Vector2(6,7)),body.darkened(0.25));draw_rect(Rect2(p+Vector2(11-step,-7),Vector2(6,7)),body.darkened(0.25))
+	if habitat=="forest":draw_colored_polygon(PackedVector2Array([p+Vector2(-16,-17),p+Vector2(-44,-27),p+Vector2(-30,-7)]),body)
+
+func _label(pos: Vector2,value: String,color: Color,size: int=16) -> void:
+	draw_string(preload("res://assets/fonts/DejaVuSans.ttf"),pos,value,HORIZONTAL_ALIGNMENT_LEFT,-1,size,color)

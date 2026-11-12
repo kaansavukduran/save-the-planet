@@ -1,30 +1,15 @@
-# 🌍 Save the Planet: Küllerden Yeşeren Gezegen (Aion & Dostları)
+# Save the Planet
 
-**Hedef GitHub Deposu:** `https://github.com/kaansavukduran/save-the-planet`  
-**Önceki Oyun Mirası:** [Aion Endless Run (Vercel)](https://aionendlessrun.vercel.app/) · [GitHub (`kaansavukduran/aion_endless_run`)](https://github.com/kaansavukduran/aion_endless_run)  
-**Kategori:** [Serious Games](https://www.edutopia.org/blog/games-for-learning-community-resources-andrew-miller/) · [Game-Based Learning (GBL)](https://www.edutopia.org/article/5-reasons-to-use-game-based-learning-in-your-classroom/) · [Games for Change (G4C)](https://learn.gamesforchange.org/impact) · [BM Sürdürülebilir Kalkınma Amaçları (SDG 12, 13, 15)](https://sdgs.un.org/goals)
+Fragaria Interactive / AIONIA. Hayvan hakları, veganlık ve ekolojik ilişkileri eylem ve sonuçlarla ele alan Godot 4.6.3 / GDScript platform macerası. Dört karakter, beş perde, on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.1.0 geliştirme sürümü**; hedef oyun süresi, görsel son kalite ve tüm fiziksel platform testleri henüz tamamlanmadı.
 
-## ✨ Öne Çıkan Özellikler
-
-1. **Orijinal Karakter Evreni (4 Oynanabilir Kahraman + Tag-Team Geçişi):**
-   - **Aion (Pembe Aksolotl):** Su Dalgası & Çift Zıplama (`[1]`)
-   - **Melun Bilge Kurt:** Kafes Kırıcı Pençe & Depar (`[2]`)
-   - **Kutsanmış Cahil Koyun (Kuzu):** Tohum Taklası & Toprak Çiçeklendirme (`[3]`)
-   - **Baykuş Ömer:** Hava Süzülüşü & Kanıt Işını (`[4]`)
-   - **Tavşan Emre:** Özgür Yaşam Alanı'nda Anadolu bakliyatlarıyla bitkisel güçlendirmeler hazırlayan sığınak şefi.
-2. **5 Perdelik Hikâye Modu + Bölüm Sonu Eko-Makineleri (Boss) + Sonsuz Sığınak Koşusu.**
-3. **12 GBL & BM SDG Kanıt Kartı (Kanıt Atlası):** Hayvan hakları, su ayak izi, arazi kullanımı, yeşil yıkama (greenwashing) ve tarihsel vegan öncüler (el-Maarrî'den 1944'e).
-4. **Çoklu Platform Destek:** Vercel Web (`index.html`), Godot 4.x (`project.godot`), Windows (`.exe`), Linux (`x86_64`) ve Android (`.apk`).
-
-## 🚀 Hızlı Kurulum ve GitHub / Vercel Dağıtımı
-
-```bash
-git init
-git remote add origin https://github.com/kaansavukduran/save-the-planet.git
-git add .
-git commit -m "feat: Save the Planet v1.0.0 - 5 Acts, 4 Heroes, GBL Codex & Multi-Platform"
-git branch -M main
-git push -u origin main
+```sh
+godot --path .
 ```
 
-Vercel üzerinde yayınlamak için depoyu Vercel'e bağlamanız veya `npx vercel --prod` komutunu çalıştırmanız yeterlidir (`index.html` ve `vercel.json` kök dizinde hazırdır).
+A/D veya oklar hareket, Space zıplama, J yetenek, E etkileşim, 1–4 karakter, Q takım, Esc duraklat, Tab defter; S/aşağı platformdan inme. Takım menüsü durdurur. Tuşlar ayarlardan değişir. Gamepad ve isteğe bağlı dokunmatik kontroller vardır.
+
+Gerçek web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 8000 --directory build/web`. Native paketleme: `python3 packaging/build_native.py`. [Build ve platform ayrıntıları](docs/BUILD.md), [uygulama planı](docs/IMPLEMENTATION_PLAN.md), [gerçek ilerleme ve devam noktası](docs/PROGRESS.md), [doğrulama](docs/VALIDATION.md), [güncel tasarım](GDD.md).
+
+Eski Canvas uygulaması `legacy/` içinde korunur; yeni oyun gerçekten `project.godot` ve `scenes/main.tscn` üzerinden çalışır. Dağıtım çıktısı Godot WASM/PCK'dir. PWA/çevrimdışı web desteği iddia edilmez. Kayıt yerel cihaz/tarayıcıya aittir.
+
+Kanonik görsellerin kaynakları ve dönüşümleri [assets/provenance.json](assets/provenance.json), kullanım koşulları [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) ve [varlık envanteri](docs/ASSETS.md) içindedir. Kaynak depo: https://github.com/kaansavukduran/save-the-planet .

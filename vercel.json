@@ -1,16 +1,12 @@
 {
   "version": 2,
-  "name": "save-the-planet",
-  "cleanUrls": true,
+  "framework": null,
+  "buildCommand": "python3 packaging/build_web.py",
+  "outputDirectory": "build/web",
   "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=3600"
-        }
-      ]
-    }
+    {"source": "/", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/index.html", "headers": [{"key": "Cache-Control", "value": "no-cache"}]},
+    {"source": "/planet-(.*)", "headers": [{"key": "Cache-Control", "value": "public,max-age=31536000,immutable"}]},
+    {"source": "/(.*).wasm", "headers": [{"key": "Content-Type", "value": "application/wasm"}]}
   ]
 }

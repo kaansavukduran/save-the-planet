@@ -1,0 +1,73 @@
+{
+  "assets": [
+    {
+      "path": "source/canonical-aion.png",
+      "sha256": "789fe4e54752e0f11da49eff5d43ab92e0c726ca919ca136c906991143844687",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/canonical-owl.png",
+      "sha256": "7969f14b2b15d92f3352350546e8cd55cd3d663ecef6f768fa4f1289d727c1bb",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/canonical-sheep.png",
+      "sha256": "8b60d58e55798aeed7edde058342beb66647eb5d1a8735f867fbb586c2eb9083",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/canonical-wolf.png",
+      "sha256": "6f5eb1f33b92f4b0f77be626d9c50ab997bb79b37237d3f8857de723469e0ba3",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/canonical-rolls.png",
+      "sha256": "01aebfe28ed30efb6faa1e3034fd4a2fed32dc6d7333e9cd9f76fa9d6c8731e3",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/agility-wolf.png",
+      "sha256": "411ccdf8e8a09371367b412cc061b95b08ebb2d7b637bccc5b5f88b7e05f096d",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/agility-owl.png",
+      "sha256": "2930ec1c574613398bd741962aaf8feba9b83d434a5ceec9df94abd6d1720dfc",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "license": "MPL-2.0; upstream AI artwork limitations retained",
+      "transformation": "original unchanged; derived frames use registered silhouette runs and anatomical origins"
+    },
+    {
+      "path": "source/frontier-parkour.png",
+      "source": "https://github.com/kaansavukduran/aion_endless_run",
+      "commit": "03fd1f4a400345847da7b0b471272ec75602a62a",
+      "sha256": "07bcf676cc7805916462c7c8af056b89b8411025813902a9c48514dc21417e6d",
+      "transformation": "registered foreground alpha runs from FRONTIER-PROVENANCE; nine named scenery crops",
+      "license": "MPL-2.0; original notices retained"
+    },
+    {
+      "path": "fonts/DejaVuSans.ttf",
+      "source": "Debian fonts-dejavu-core system package",
+      "license": "DejaVu / Bitstream Vera; see fonts/LICENSE.txt"
+    }
+  ]
+}

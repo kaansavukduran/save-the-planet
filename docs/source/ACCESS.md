@@ -1,0 +1,10 @@
+# Kaynak erişimi ve doğruluk kaydı · 2026-11-12
+
+- Geliştirme Google Doc'u: tek sekme t.0; 29.350 karakterlik tüm metin ve bütün tablolar okundu. Metin snapshot'ı aynı klasörde. Kanonik kaynak ve hareket tablolarındaki tüm bağlantılar çıkarıldı.
+- Hedef/başvuru depoları güncel HEAD'leriyle klonlandı. Referans salt okunur tutuldu. Kanonik dört PNG, takla ve agility kayıtları; frame_bank bağımlılıkları; register_canonical/register_agility, lisans, proje/export/build belgeleri incelendi. Daha küçük bağımsız kaynak kaydı kuruldu.
+- Drive'daki bağlı 14 PNG okunabildi; her birinin byte içeriğinden SHA-256 hesaplandı. 14/14 referans GitHub karşılığıyla birebir eşleşti. `DRIVE_ASSET_HASHES.json` kayıtlıdır. Kanonik dörtlü yerel dosyalardan görsel olarak açıldı; hash eşleşmesi aynı görüntüler olduklarını kanıtlar.
+- Üç bağlı arşiv klasörünün doğrudan çocukları listelendi. Bu işlem alt klasörlerdeki her dosyanın tamamının okunduğu anlamına gelmez. İhtiyaç duyulan karakter/prop kaynakları GitHub'dan takip edildi.
+- Vegan Türkiye strateji metninin tamamı okundu. Vegan Kişiler Atlası PDF metni erişilebilir (214.961 karakter); tanım ve kanıt okuma bölümleri incelendi. 150 biyografi/218 kaynağın tamamı bağımsız doğrulanmış sayılmaz; oyunda bu biyografilere dayalı yeni tarih/sağlık iddiası kullanılmadı.
+- Resmî Godot 4.6 web/Android/Windows/Linux belge sitesi 403 verdi; aynı sürüm belgeleri resmî `godotengine/godot-docs` GitHub dalından okunabildi. 4.6.3 resmî release SHA512 listesi ve motor/template dosyaları erişilebilir ve doğrulandı. JavaScriptBridge XML'i 4.6.3 kaynak etiketinden kontrol edildi.
+- Vercel build yapılandırması ve BM SDG goals ana sayfası erişildi. SDG bağlantıları tematik kapsamda tutuldu; onay/ortaklık iddiası kurulmadı. Foundations of Game-Based Learning PDF'i erişildi; GBL/gamification ayrımı ve tasarım yaklaşımı incelendi. Games for Change sitesi 403 verdi; okunmuş gibi gösterilmedi.
+- Drive proje klasörü ve dört alt klasörü erişilebilir. APK için imza kimliği veya platform anahtarı bu klasörler okunarak varsayılmadı.

@@ -1,0 +1,23 @@
+name: Godot verification
+on:
+  push:
+    branches: [main, codex/godot-story]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  campaign:
+    runs-on: ubuntu-latest
+    env:
+      XDG_DATA_HOME: ${{ github.workspace }}/work/data
+      XDG_CONFIG_HOME: ${{ github.workspace }}/work/config
+      XDG_CACHE_HOME: ${{ github.workspace }}/work/cache
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Pinned engine, templates and web
+        run: python3 packaging/build_web.py
+      - name: All ten chapters and critical acceptance scenarios
+        run: |
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/campaign.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/acceptance.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script tests/save_read.gd
