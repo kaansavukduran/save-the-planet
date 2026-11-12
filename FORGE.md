@@ -1,6 +1,6 @@
 # Save the Planet · geliştirme devam kaydı
 
-**0.4.2 Web hotfix:** kullanıcı eski Canvas ekranı bildirdi. Eski HTTP/cache-first worker durumu yeniden üretildi; `/play` girişi ve yalnız oyun cache'ini emekliye ayırma düzeltildi. Aynı eski ziyaretçide gerçek kaydı ve diğer uygulamaları koruyan 14/14 kontrol PASS. [Ayrıntı ve sınırlar](docs/HOTFIX_0.4.2.md). Yayın sonucu bu kayda eklenecek; önceki temiz tarayıcı testi eski ziyaretçiyi kapsamıyordu.
+**0.4.2 Web hotfix yayında:** https://save-the-planet-mauve.vercel.app/play . Kullanıcının eski Canvas ekranı gerçek cache ile yeniden üretildi; yeni giriş ve hedefli emeklilik 14/14, canlı oyun/kayıt 5/5, telefon boyutunda dokunmatik 4/4 PASS. [Ayrıntı ve sınırlar](docs/HOTFIX_0.4.2.md). Son yayın kaynağı b224a759c61ab3437386c6f2ec6c77636f090f8c; sonraki rapor commit'leri oyun kodunu değiştirmez. Önceki temiz tarayıcı testi eski ziyaretçiyi kapsamıyordu.
 
 **Onaylı 0.4.1 yayında:** https://save-the-planet-mauve.vercel.app · [GitHub release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1). Vercel production READY; canlı ilk görev/kayıt/QA kapalı testleri 5/5 PASS. [Yayın kaydı](docs/RELEASE_0.4.1.md). Aşağıdaki açık kalite kapıları geçerlidir.
 

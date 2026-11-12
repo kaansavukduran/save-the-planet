@@ -18,4 +18,14 @@ Eski `legacy/vercel.json` HTML dahil bir saatlik HTTP önbelleği veriyordu. Ar�
 
 Kanıt `evidence/legacy-upgrade/accepted/`; 390×844 Chromium/SwiftShader görünümü. Önceki test/uygulama denemeleri saklandı. İlk fixture accepted socket'te klasörü seçtiği için Chromium preconnect'i sahte eski sunucuya bağlayabiliyordu; klasör artık her istekte seçilir. Başlık testinde düşük seviye DisplayServer yerine Window.title kullanımı gerekti. Bunlar gizlenmiş PASS değildir; başarısız kayıtlar korunur.
 
-CI aynı arşiv HTML/worker'ı kullanır; geçmiş sunucunun eksik worker yanıtı fixture'da 404 ile kurulur. Yerel koşuda gerçek 0.4.1 export'tan 0.4.2'ye geçildi. Fiziksel telefon, tarayıcıların otomatik worker kontrol zamanlaması ve tüm eski cihaz durumları NOT TESTED. Canlı yayın sonucu ayrıca kaydedilir.
+CI aynı arşiv HTML/worker'ı kullanır; geçmiş sunucunun eksik worker yanıtı fixture'da 404 ile kurulur. Yerel koşuda gerçek 0.4.1 export'tan 0.4.2'ye geçildi. Fiziksel telefon, tarayıcıların otomatik worker kontrol zamanlaması ve tüm eski cihaz durumları NOT TESTED.
+
+## Canlı sonuç
+
+https://save-the-planet-mauve.vercel.app/play **yayında**. Production `dpl_2Rrd8ZS9kCn27LBBqRNy2cgtSzWw`, READY; kaynak `b224a759c61ab3437386c6f2ec6c77636f090f8c`; tag `25551f06b68070c5`. Ana URL yeni girişe yönlenir. `/play` ve iki worker dosyası HTTP 200 / no-store; eski worker URL'leri artık 404 değildir.
+
+Gerçek canlı Chromium ilk görev/kayıt/QA kapalı testleri **5/5 PASS**, `evidence/legacy-upgrade/live/`. 390×844 dokunmatik menü başlangıcı, CDP yön + Yap ile gerçek fan görevi, döndürme ve reload **4/4 PASS**, `live-mobile/`. Öğretimi atlama adımı Escape ile yapıldı; yüzde yüz dokunmatik menü testi veya fiziksel telefon testi diye sunulmaz. Yerel 38 kalite kontrolü de geçti.
+
+[Kaynak CI](https://github.com/kaansavukduran/save-the-planet/actions/runs/43298697182): campaign ve browser işleri PASS; yeni arşiv önbellek regresyonu dahil. [0.4.2 Web release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.2). Sonraki rapor commit'leri production'ın test edilen oyun kodunu değiştirmez.
+
+0.4.1 release/paketleri korunur. Bu düzeltme eski Canvas'ın geçici/in-memory ilerlemesini yeni Godot hikâyesine dönüştürmez; testte korunan kayıt, normal oynanışla oluşturulan gerçek Godot kaydıdır. LocalStorage/IndexedDB topluca silinmez.
