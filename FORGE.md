@@ -1,6 +1,6 @@
 # Save the Planet · geliştirme devam kaydı
 
-**Vercel simgesi:** eksik `/favicon.ico` (404) için mevcut gezegen ikonundan standart ICO/PNG/SVG Web export ve no-cache tanımları eklendi. Yerel gerçek browser simge decode/oyun girişi/kayıt kontrolü PASS; canlı yayın doğrulaması sürüyor. [Kaynak ve test](docs/FAVICON_FIX.md).
+**Vercel simgesi:** eksik `/favicon.ico` (404) için mevcut gezegen ikonundan standart ICO/PNG/SVG Web export ve no-cache tanımları eklendi. Yerel10 ve canlı10 gerçek browser simge/decode/oyun girişi/kayıt PASS. Production READY, kaynakc1ea89480eb5544be728be501deedcb981b18da0; /favicon.ico HTTP200. Oturumlu Vercel kartı görünümü NOT TESTED; kart önbelleği ayrıca yenilenir. [Kaynak ve test](docs/FAVICON_FIX.md).
 
 **0.4.4 diyalog/ses:** Kurt başlığı 1 px genişlik / 5 satır yüzünden gövdeyi kapatıyordu; ses dünyayla duraklıyordu. Sabit genişleyen konuşmacı başlığı, ayrı kaydırılabilir gövde/gutter, sayfa sürekliliği ve kesilmeyen/220 ms yumuşakça kısılan müzik uygulandı. Native181 ve browser29 (gerçek PCM, TR/EN/dokunmatik/mute) PASS; kampanya120/kabul24/kalite38/sprite56/ayrı kayıt PASS. [Ayrıntı](docs/DIALOGUE_FIX_0.4.4.md). Yayında: https://save-the-planet-mauve.vercel.app/play?v=0.4.4 . Canlı5/dokunmatik4/paket8 ve Linux gerçek pencere PASS. Kaynak808f1633dadf7868bc471cceb1b31231552effa0; kaynak CI iki iş PASS. [Teslim](docs/DELIVERY.md).
 

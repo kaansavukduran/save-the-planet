@@ -1,0 +1,19 @@
+{
+  "url": "https://save-the-planet-mauve.vercel.app",
+  "checks": [
+    {
+      "check": "Normal game entry still starts the Godot title screen",
+      "status": "PASS"
+    },
+    {
+      "check": "HTML explicitly exposes standard ICO, PNG and SVG icons",
+      "status": "PASS"
+    }
+  ],
+  "assets": {},
+  "errors": [
+    "APIRequestContext.get: connect ECONNREFUSED 216.198.79.67:443\nCall log:\n  - \u2192 GET https://save-the-planet-mauve.vercel.app/favicon.ico\n    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\n    - accept: */*\n    - accept-encoding: gzip,deflate,br\n"
+  ],
+  "browser": "156.0.8078.79",
+  "dashboard_card": "NOT TESTED"
+}
