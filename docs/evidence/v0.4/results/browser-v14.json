@@ -1,0 +1,237 @@
+{
+  "checks": [
+    {
+      "check": "First launch stays dark even with a light OS preference",
+      "status": "PASS"
+    },
+    {
+      "check": "Normal UI requests SystemFont by default",
+      "status": "PASS"
+    },
+    {
+      "check": "Portrait uses its own 480-unit layout rather than a shrunken landscape",
+      "status": "PASS"
+    },
+    {
+      "check": "Portrait title panel fits the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "Displayed percentage follows observed real byte progress",
+      "status": "PASS"
+    },
+    {
+      "check": "Loader has ten segments and a successfully decoded source strawberry",
+      "status": "PASS"
+    },
+    {
+      "check": "Loader shows the actual project version",
+      "status": "PASS"
+    },
+    {
+      "check": "Branded loader background is black",
+      "status": "PASS"
+    },
+    {
+      "check": "Local licensed pixel font is loaded for decorative branding",
+      "status": "PASS"
+    },
+    {
+      "check": "First-use touch teaching is shown",
+      "status": "PASS"
+    },
+    {
+      "check": "Skip tutorial stores the first-use preference",
+      "status": "PASS"
+    },
+    {
+      "check": "Context action prompt does not cover the standing hero in portrait",
+      "status": "PASS"
+    },
+    {
+      "check": "Touch Use button invokes the actual fan interaction (previous failure regression)",
+      "status": "PASS"
+    },
+    {
+      "check": "Portrait supports simultaneous touch movement and jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Releasing the jump finger keeps the direction finger held",
+      "status": "PASS"
+    },
+    {
+      "check": "A separate second touch press produces Aion\u2019s real double jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Rotation mid-jump keeps the world and position without reloading the level",
+      "status": "PASS"
+    },
+    {
+      "check": "Rotation releases held touch input instead of leaving movement stuck",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: every touch target stays inside the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: action targets meet 44 CSS pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: player feet stay visible above touch controls",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: pause panel adapts to the orientation",
+      "status": "PASS"
+    },
+    {
+      "check": "390x844: every touch target stays inside the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "390x844: action targets meet 44 CSS pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "390x844: player feet stay visible above touch controls",
+      "status": "PASS"
+    },
+    {
+      "check": "390x844: pause panel adapts to the orientation",
+      "status": "PASS"
+    },
+    {
+      "check": "768x1024: every touch target stays inside the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "768x1024: action targets meet 44 CSS pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "768x1024: player feet stay visible above touch controls",
+      "status": "PASS"
+    },
+    {
+      "check": "768x1024: pause panel adapts to the orientation",
+      "status": "PASS"
+    },
+    {
+      "check": "1024x768: every touch target stays inside the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "1024x768: action targets meet 44 CSS pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "1024x768: player feet stay visible above touch controls",
+      "status": "PASS"
+    },
+    {
+      "check": "1024x768: pause panel adapts to the orientation",
+      "status": "PASS"
+    },
+    {
+      "check": "320x568: every touch target stays inside the viewport",
+      "status": "PASS"
+    },
+    {
+      "check": "320x568: action targets meet 44 CSS pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "320x568: player feet stay visible above touch controls",
+      "status": "PASS"
+    },
+    {
+      "check": "320x568: pause panel adapts to the orientation",
+      "status": "PASS"
+    },
+    {
+      "check": "Light theme applies through the real native settings button",
+      "status": "PASS"
+    },
+    {
+      "check": "Music slider has a 44px touch region and stores its real adjusted value",
+      "status": "PASS"
+    },
+    {
+      "check": "Light theme also applies during actual touch gameplay",
+      "status": "PASS"
+    },
+    {
+      "check": "System theme follows a light browser preference",
+      "status": "PASS"
+    },
+    {
+      "check": "System theme reacts to a changed browser preference without restarting",
+      "status": "PASS"
+    },
+    {
+      "check": "Bundled accessible font can be selected",
+      "status": "PASS"
+    },
+    {
+      "check": "System font can be restored",
+      "status": "PASS"
+    },
+    {
+      "check": "Large text works with the new theme and portrait layout",
+      "status": "PASS"
+    },
+    {
+      "check": "Settings remains usable after rotation with large text",
+      "status": "PASS"
+    },
+    {
+      "check": "Theme, font, tutorial and accessibility preferences survive reload",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "font_on_browser": "Open Sans SemiBold"
+    },
+    {
+      "paired_jump": {
+        "x": 837.749572753906,
+        "y": 311.063171386719,
+        "vy": -174.166595458984,
+        "jump_count": 2,
+        "held": [
+          "right",
+          "jump"
+        ],
+        "touch_fixture_timing": [
+          {
+            "type": "touchstart",
+            "t": 15145.699999999255
+          },
+          {
+            "type": "touchend",
+            "t": 15556.699999999255
+          },
+          {
+            "type": "touchstart",
+            "t": 15632.199999999255
+          },
+          {
+            "type": "touchend",
+            "t": 16131
+          }
+        ]
+      }
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "touch_input": "CDP plus timed DOM TouchEvent pairs; actual Godot input and physics, no progress injection",
+  "physical_phone": "NOT TESTED",
+  "physical_tablet": "NOT TESTED",
+  "system_font_web_note": "Godot SystemFont requested; browser sandbox may resolve an engine fallback, unlike native OS font lookup."
+}

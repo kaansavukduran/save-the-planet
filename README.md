@@ -18,4 +18,4 @@ Web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 
 
 Eski Canvas kaynakları `legacy/` altında korunur. Yeni oyun `project.godot` / `scenes/main.tscn` üzerinden gerçek Godot'tur. PWA/çevrimdışı web sözü yoktur. Fiziksel Xbox/telefon/Windows, ekran okuyucuyla tam oyun ve insan katılımcı testleri yapılmadı; evrensel erişilebilirlik veya WCAG 2.2 AA sertifikası iddia edilmez. Android release SDK/keystore ortamı eksiktir. Emre'nin doğrulanmış sprite'ı ve final logo/varyant onayları hâlâ açıktır; yeni tasarım uydurulmadı.
 
-Kaynak/lisans: [provenance](assets/provenance.json), [LICENSE](LICENSE), [üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md), [varlık envanteri](docs/ASSETS.md). Önceki sürüm paketleri [0.2 teslim kaydında](docs/DELIVERY_0.2.md) kalır; 0.4 diye sunulmaz.
+Kaynak/lisans: [provenance](assets/provenance.json), [LICENSE](LICENSE), [üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md), [varlık envanteri](docs/ASSETS.md). Önceki [0.3](docs/DELIVERY_0.3.md) ve [0.2](docs/DELIVERY_0.2.md) teslimleri korunur; 0.4 diye sunulmaz.

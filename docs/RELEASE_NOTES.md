@@ -1,3 +1,16 @@
+# 0.4.0 · AIONIA v1.4
+
+- Varsayılan koyu ve sistem fontu isteği; kalıcı açık/sistem tema ve font alternatifi. Web font erişimi sınırlaması UI'da açıklanır.
+- Kullanıcı onaylı D-pad + aksiyonlar, portre/yatay için ayrı HUD/kamera/menü, 44px hedeflenen kontroller, atlanabilir öğretim ve ikinci parmakla karakter/pause.
+- Dokunmatik etkileşim işleyicisi ve kaybolan menü eylemleri düzeltildi. Bağlamsal ipucu karakteri kapatmaz; güvenlik geri bildirimi saklanmaz.
+- Referans çilekli siyah Fragaria yükleme ekranı: pixel yazı, on segment, gerçek byte yüzdesi/sürüm, JS/WASM hatası, stall/offline/retry. Native açılış sınırlaması ayrı.
+- Shell'e ait gereksiz import kopyaları Web PCK'den çıkarıldı; lisanslar Web kökünde de dağıtılır.
+- Üç tam browser kampanyası ve kayıt yükseltmesi doğrulandı. Sonuçlar ve açık kalite kapıları [0.4 test raporunda](VALIDATION_0.4.md).
+
+Önceki sürüm notları aşağıda korunur.
+
+---
+
 # Save the Planet 0.3.0 · geliştirme sürümü
 
 AIONIA v1.1 teknoloji bağımsız kalite yaklaşımı mevcut Godot oyununa uygulanır; kaynak dokümanın metni okumada v1.2 idi. Ürün/hedef gruplar, gerçek QA ve güvenlik/mahremiyet sınırları repoda kaydedildi.

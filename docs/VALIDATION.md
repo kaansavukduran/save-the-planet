@@ -1,6 +1,6 @@
-# Güncel rapor: 0.3.0
+# Güncel rapor: 0.4.0
 
-[AIONIA v1.1 uygulaması ve gerçek sonuçlar](VALIDATION_0.3.md). Aşağıdaki metin 0.2.0 tarihsel kaydıdır; yeni sürümün sonucu yerine sayılmaz.
+[AIONIA v1.4 uygulaması ve gerçek sonuçlar](VALIDATION_0.4.md). Aşağıdaki metin 0.2.0 tarihsel kaydıdır; yeni sürümün sonucu yerine sayılmaz.
 
 # Gerçek doğrulama · 0.2.0 · 2026-11-12
 

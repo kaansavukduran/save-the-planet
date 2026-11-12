@@ -1,14 +1,14 @@
 # 0.4.0 · AIONIA v1.4 devam kaydı
 
-12 Kasım 2026. Kullanıcının v1.4 talebi için belge tamamen okundu. İşlevsel Godot altyapısı, dört kaynak karakter ve on bölüm korunur. [Uygulama planı](PLAN_v0.4.md), [kontrol kararı](CONTROL_DECISION.md).
+Son oyun kaynağı **a2058eaa27725c572cdd80420c8abb4108c14433**. [Teslim](DELIVERY.md), [gerçek testler](VALIDATION_0.4.md), [kontrol kararı](CONTROL_DECISION.md), [plan](PLAN_v0.4.md).
 
-Uygulananlar: koyu/açık/sistem teması ve font tercihleri; portre/yatay için ayrı çözünürlük, kamera ve menü/HUD; otomatik dokunmatik algılama, aşağı inme, kısa atlanabilir öğretim ve basılı durum; yürürken ikinci parmakla portre seçimi; sabit devam/geri/diyalog eylemleri; gerçek yüzdeyle segmentli siyah Fragaria web yükleme ekranı. Native açılış ayrı statik PNG referansıdır; yüzde uydurulmaz. Kaynak logo nihai onayı bekler. Web motoru yerel sistem fontu yerine fallback çözebilir; bu sınır saklanmaz.
+Kullanıcı D-pad + aksiyon düğmelerini açıkça seçti. Godot 4.6.3, dört mevcut karakter ve on bölüm/final korunur. Koyu/açık/sistem ve font tercihleri; portre/yatay kamera/HUD; dokunmatik ↓/yetenek/etkileşim/ikincil portre/pause; atlanabilir öğretim; sabit menü eylemleri; görünür güvenlik geri bildirimi; gerçek yüzde/sürüm ve hata kurtarmayla Fragaria web yükleme ekranı uygulandı. Gereksiz shell import kopyaları Web PCK'den çıkarıldı.
 
-Doğrulama sürüyor. İlk çalıştırılan v1.4 tarayıcı paketi 43 kontrol, gamepad menü paketi 11 kontrol, native 120+24+30 ve ayrı süreçte kayıt PASS verdi. Tam dokunmatik kampanya henüz bitmeden PASS yazılmaz. Bulunan gerçek etkileşim/ikincil dokunma ve kaydırılan eylem sorunları düzeltilerek regresyonlara eklendi. Nihai sürüm kanıtı [0.4 raporunda](VALIDATION_0.4.md) toplanır.
+Gerçek durum: native 120+24+32 ve ayrı kayıt PASS. Sıfırdan dokunmatik TR 360×640 **112/112**, 844×390 **112/112**; gamepad EN **112/112** PASS. UI48, mahremiyet20, gamepad menü11, erişilebilir giriş12, yükleme12, yükseltme7, shipping3 PASS. Temiz kaynakla paketler üretildi; Linux penceresi, SHA/CRC/source ve Drive metadata kontrol edildi. Preview READY/HTTP200; mevcut SSO korunur. Sonraki belge/test commit'leri oynanış kodunu değiştirmez.
 
-**Kontrol tercihi: APPROVED.** Kullanıcı 12 Kasım 2026 tarihinde “D-pad + aksiyon düğmeleri (Önerilen)” yanıtını açıkça verdi. Ana mobil kontrol şeması budur; klavye ve Xbox/gamepad korunur. Ayrıntı CONTROL_DECISION.md içindedir.
+**Açık:** release yazılım GPU 60 FPS bütçesi FAIL (33,4 ms medyan, 50 ms P95). Fiziksel telefon/tablet/Xbox/Windows/ses/ekran okuyucu ve insan playtest NOT TESTED. Android release SDK/JDK/mevcut keystore ortamı eksik. Nihai logo/varyant onayı, Emre sprite'ı, 2–3 saat hedef içerik ve platform yayın QA kapıları açık. Native splash statik PNG referansıdır; Web fontu sandbox'ta motor fallback'ine çözülebilir.
 
-Devam: gerçek telefon/tablet/Xbox/Windows ve ekran okuyucu doğrulaması; hedef GPU performansı; nihai logo/varyant ve Emre sprite onayı; 2–3 saat hedef içerik süresi. Android release SDK/keystore olmadan APK tamamlandı sayılmaz. Önceki sürüm sonuçları aşağıdaki tarihsel kayıttadır.
+Sonraki somut sıra: gerçek cihaz + safe-area/iki yön/giriş/ses matrisi; GPU profili ve kare bütçesi düzeltmeleri; doğrulanmış sanat kaynakları; insanla zorluk/süre/erişilebilirlik testi; Android mevcut imza yapılandırması; Windows kurulum/güncelleme/kaldırma ve imza/resource-branding. Kalite kapıları kapanmadan üretim hazır diye işaretleme. Arka planda kendiliğinden devam sözü yoktur; bu dosya başlangıç noktasıdır.
 
 ---
 

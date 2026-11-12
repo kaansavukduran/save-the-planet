@@ -1,0 +1,2222 @@
+{
+  "checks": [
+    {
+      "check": "Chapter a1l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a1l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l2",
+      "pass": true
+    },
+    {
+      "check": "Sanctuary traversed",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a3l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a3l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a4l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a4l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a4l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a4l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a5l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a5l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a5l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a5l2",
+      "pass": true
+    },
+    {
+      "check": "Final story_complete in actual browser",
+      "pass": true
+    },
+    {
+      "check": "Interactive epilogue in actual browser",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves all world facts",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves completed chapters",
+      "pass": true
+    },
+    {
+      "check": "Continue restores the expected destination",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "started_level": 0,
+  "saved_session_sha256": null,
+  "build": {
+    "game_version": "0.4.0",
+    "source_commit": "0a05715489fc9f24c4230431e257ef4b3fdd140d",
+    "working_tree_dirty": true,
+    "working_tree_changes": [
+      " M docs/BUILD.md",
+      " M docs/REGRESSION_SCOPE.md",
+      " M docs/evidence/v0.4/shell/iframe.png",
+      " M docs/evidence/v0.4/shell/loader-error.png",
+      " M docs/evidence/v0.4/shell/loading.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a1l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a1l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a1l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a1l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a2l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a2l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a2l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a2l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a3l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a3l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a3l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a3l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a4l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a4l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-360x640/a4l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a1l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a1l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a1l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a1l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a2l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a2l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a2l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a2l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a3l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a3l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a3l2-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a3l2-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a4l1-dialogue.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a4l1-exit.png",
+      " M docs/evidence/v0.4/touch-tr-844x390/a4l2-dialogue.png",
+      " M docs/evidence/v0.4/v14/light-settings-portrait.png",
+      " M docs/evidence/v0.4/v14/pause-1024-768.png",
+      " M docs/evidence/v0.4/v14/pause-320-568.png",
+      " M docs/evidence/v0.4/v14/pause-390-844.png",
+      " M docs/evidence/v0.4/v14/pause-768-1024.png",
+      " M docs/evidence/v0.4/v14/pause-844-390.png",
+      " M docs/evidence/v0.4/v14/persisted-landscape.png",
+      " M packaging/build_web.py",
+      " M scripts/camera_rig.gd",
+      " M scripts/game.gd",
+      " M scripts/ui.gd",
+      " M tests/browser_campaign.py",
+      " M tests/browser_shell.py",
+      " M tests/browser_v14.py",
+      " M tests/touch_driver.py",
+      "?? docs/evidence/v0.4/native/",
+      "?? docs/evidence/v0.4/release/",
+      "?? docs/evidence/v0.4/touch-tr-360x640-resumed/",
+      "?? docs/evidence/v0.4/touch-tr-360x640/browser-failure.png",
+      "?? docs/evidence/v0.4/touch-tr-844x390-resumed/",
+      "?? docs/evidence/v0.4/touch-tr-844x390/browser-failure.png",
+      "?? docs/evidence/v0.4/upgrade/",
+      "?? docs/evidence/v0.4/v14/light-touch-gameplay.png",
+      "?? docs/evidence/v0.4/v14/light-touch-pressed.png",
+      "?? docs/evidence/v0.4/v14/portrait-context-visible-hero.png",
+      "?? tests/browser_upgrade.py"
+    ],
+    "content_tag": "c35dbd31e718a887",
+    "files": {
+      "index.html": "7f7d7191ad6751993eda746e2156c0ec4adc06ef8d3ed2b8ad28386ab582d0ac",
+      "planet-c35dbd31e718a887.wasm": "9b772205387d214619428ef095c6c4319a4aa4514879ae411be515d405bad784",
+      "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+      "planet-c35dbd31e718a887.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+      "planet-c35dbd31e718a887.js": "8ee40f1dfac8ea4d9828cbe4f17fbf4834ba3e7708c1fe5a96c3388977f5ef38",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+      "planet-c35dbd31e718a887.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "planet-c35dbd31e718a887.pck": "ae70b4bde6ca4710385cb2b190ab8e83945eb0066301258df3418bfbc8ecfe90"
+    }
+  },
+  "input": "touch",
+  "touch_fixture": "CDP + timed DOM TouchEvent pairs; no progress injection",
+  "physical_gamepad": false,
+  "snapshots": [
+    {
+      "active": 0,
+      "completed": [],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          409.97412109375,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 0,
+      "menu": "",
+      "performance": {
+        "draw_calls": 126,
+        "fps": 22,
+        "static_memory_bytes": 27551464
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3729.97412109375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          392.490234375,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 1,
+      "menu": "",
+      "performance": {
+        "draw_calls": 108,
+        "fps": 26,
+        "static_memory_bytes": 28100036
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3712.490234375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          391.6787109375,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 2,
+      "menu": "",
+      "performance": {
+        "draw_calls": 131,
+        "fps": 28,
+        "static_memory_bytes": 28700792
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3711.6787109375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          378.33935546875,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 3,
+      "menu": "",
+      "performance": {
+        "draw_calls": 134,
+        "fps": 20,
+        "static_memory_bytes": 29057912
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3698.33935546875,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          409.350830078125,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 4,
+      "menu": "",
+      "performance": {
+        "draw_calls": 136,
+        "fps": 19,
+        "static_memory_bytes": 29406040
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3729.35083007812,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          398.83984375,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 5,
+      "menu": "",
+      "performance": {
+        "draw_calls": 129,
+        "fps": 21,
+        "static_memory_bytes": 29668244
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3718.83984375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          394.63818359375,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 6,
+      "menu": "",
+      "performance": {
+        "draw_calls": 110,
+        "fps": 23,
+        "static_memory_bytes": 30338192
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3714.63818359375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          399.087158203125,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 7,
+      "menu": "",
+      "performance": {
+        "draw_calls": 137,
+        "fps": 24,
+        "static_memory_bytes": 30794596
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3719.08715820312,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true,
+        "a5l1.care_system_active": true,
+        "a5l1.harmful_line_isolated": true,
+        "a5l1.plant_meal_ready": true,
+        "a5l1.safe_exit_ready": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          406.345947265625,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 8,
+      "menu": "",
+      "performance": {
+        "draw_calls": 110,
+        "fps": 24,
+        "static_memory_bytes": 31074814
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3726.34594726562,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true,
+        "a5l1.care_system_active": true,
+        "a5l1.harmful_line_isolated": true,
+        "a5l1.plant_meal_ready": true,
+        "a5l1.safe_exit_ready": true,
+        "a5l2.exit_protected": true,
+        "a5l2.flow_rerouted": true,
+        "a5l2.inner_system_stopped": true,
+        "a5l2.pattern_observed": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "held": [],
+      "hub": false,
+      "input_method": "touch",
+      "jump_count": 0,
+      "layout": {
+        "buttons": [],
+        "heroes": [
+          [
+            16,
+            170,
+            72,
+            66
+          ],
+          [
+            95,
+            170,
+            72,
+            66
+          ],
+          [
+            174,
+            170,
+            72,
+            66
+          ],
+          [
+            253,
+            170,
+            72,
+            66
+          ]
+        ],
+        "modal": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "pause": [
+          392,
+          12,
+          72,
+          68
+        ],
+        "player_screen": [
+          398.64892578125,
+          637.92529296875
+        ],
+        "portrait": true,
+        "prompt_rect": [
+          24,
+          314,
+          432,
+          88
+        ],
+        "prompt_visible": true,
+        "touch": true,
+        "touch_rects": {
+          "ability": [
+            310,
+            765,
+            72,
+            72
+          ],
+          "down": [
+            174,
+            765,
+            72,
+            72
+          ],
+          "interact": [
+            390,
+            685,
+            72,
+            72
+          ],
+          "jump": [
+            390,
+            765,
+            72,
+            72
+          ],
+          "left": [
+            18,
+            765,
+            72,
+            72
+          ],
+          "right": [
+            96,
+            765,
+            72,
+            72
+          ]
+        },
+        "viewport": [
+          480,
+          853
+        ]
+      },
+      "level": 9,
+      "menu": "",
+      "performance": {
+        "draw_calls": 122,
+        "fps": 24,
+        "static_memory_bytes": 31470058
+      },
+      "prefs": {
+        "font": "system",
+        "font_resolved": "Open Sans SemiBold",
+        "light": false,
+        "theme": "dark"
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "touch_ids": {},
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3718.64892578125,
+      "y": 439.925262451172
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "viewport": [
+    360,
+    640
+  ],
+  "renderer": "Chromium SwiftShader WebGL2",
+  "wall_seconds": 567.7508169369976
+}
