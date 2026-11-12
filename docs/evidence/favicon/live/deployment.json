@@ -1,0 +1,10 @@
+{
+  "content": [
+    {
+      "type": "text",
+      "text": "{\n  \"result\": {\n    \"deployment\": {\n      \"id\": \"dpl_4aTXURdhC6ZUP2pdHcWCzkR96qjK\",\n      \"name\": \"save-the-planet\",\n      \"url\": \"save-the-planet-ui1qwrulb-vegan-axolotl.vercel.app\",\n      \"type\": \"LAMBDAS\",\n      \"state\": \"READY\",\n      \"createdAt\": 1794521666769,\n      \"creator\": {\n        \"uid\": \"J5fUdfv2H3rwbWxzjXjuOXEH\",\n        \"username\": \"kaansavukduran-8895\"\n      },\n      \"project\": {\n        \"id\": \"prj_84DjinRWsLxrXPtFJYPawPxiGtra\",\n        \"name\": \"save-the-planet\",\n        \"framework\": null\n      },\n      \"meta\": {\n        \"githubCommitRef\": \"c1ea89480eb5544be728be501deedcb981b18da0\",\n        \"githubCommitSha\": \"c1ea89480eb5544be728be501deedcb981b18da0\",\n        \"githubCommitMessage\": \"Expose standard project favicons for Vercel dashboard discovery\",\n        \"githubRepo\": \"save-the-planet\",\n        \"githubOrg\": \"kaansavukduran\"\n      },\n      \"alias\": [\n        \"save-the-planet-mauve.vercel.app\",\n        \"save-the-planet-vegan-axolotl.vercel.app\",\n        \"save-the-planet-git-c1ea89480eb5544be728be-1e89ba-vegan-axolotl.vercel.app\"\n      ],\n      \"target\": \"production\",\n      \"regions\": [\n        \"iad1\"\n      ],\n      \"buildingAt\": 1794521696725,\n      \"ready\": 1794521742071,\n      \"readyState\": \"READY\",\n      \"aliasError\": null\n    }\n  }\n}"
+    }
+  ],
+  "structuredContent": null,
+  "isError": false
+}

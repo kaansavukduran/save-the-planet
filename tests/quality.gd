@@ -1,0 +1,118 @@
+extends SceneTree
+## Behavior tests for save recovery, honest feedback, privacy and alternative input.
+var checks: Array=[]
+var game: Node
+var state: Node
+var controls: Node
+
+func _initialize() -> void:call_deferred("run")
+func check(ok: bool,label: String) -> void:
+	checks.append({"check":label,"status":"PASS" if ok else "FAIL"})
+	if not ok:push_error(label)
+func ticks(count: int=2) -> void:
+	for i in count:await physics_frame
+func pad(button: int,pressed: bool=true) -> void:
+	var event=InputEventJoypadButton.new();event.button_index=button;event.pressed=pressed;Input.parse_input_event(event);await ticks()
+func tap_pad(button: int) -> void:
+	await pad(button);await pad(button,false)
+func write_save(data: Variant) -> void:
+	var file=FileAccess.open(state.path,FileAccess.WRITE);file.store_string(JSON.stringify(data));file.close()
+
+func run() -> void:
+	await process_frame
+	state=root.get_node("State");controls=root.get_node("Controls")
+	state.path="user://aionia-quality.json";state.prefs=state.DEFAULT_PREFS.duplicate(true);state.new_game()
+	controls.reset_keyboard(false);controls.reset_gamepad(false);controls.apply_deadzone()
+	game=load("res://scenes/main.tscn").instantiate();root.add_child(game);await ticks(4)
+	game.ui.close_panel();game.load_level(0,false,false);await ticks(3)
+	state.mark("quality.recovery");state.save_game()
+	var snapshot=state.snapshot().duplicate(true);snapshot.active={"unexpected":"type"};write_save(snapshot)
+	check(state.load_game() and state.flags.get("quality.recovery",false),"Malformed active hero recovers the real valid backup without a conversion error")
+	var file=FileAccess.open(state.path,FileAccess.WRITE);file.store_string("x".repeat(state.MAX_SAVE_BYTES+1));file.close()
+	check(state.load_game() and state.flags.get("quality.recovery",false),"Oversized disk save is skipped before loading; valid backup restores progress")
+	state.path="user://missing-quality-directory/save.json"
+	check(not state.save_game() and state.storage_error,"Actual file write failure is reported")
+	await ticks(3)
+	check(game.ui.save_status.visible,"Saving failure remains visible in the running game's HUD")
+	game.player.position=Vector2(float(game.level_data.checkpoints[0]),440);game.player.velocity=Vector2.ZERO;await ticks(6)
+	check(state.storage_error and not "kayıt alındı" in game.ui.toast.text.to_lower(),"Failed checkpoint save never announces that it was saved")
+	state.path="user://aionia-quality.json"
+	check(state.save_game() and not state.storage_error,"Retrying the real write restores successful save state")
+	snapshot=state.snapshot().duplicate(true);snapshot.schema_version=99;write_save(snapshot)
+	check(not state.save_game() and state.parse_save(state.read_save_file(state.path)).schema_version==99,"Newer file appearing after load is not overwritten by autosave")
+	state.protected_future=false;DirAccess.remove_absolute(ProjectSettings.globalize_path(state.path));state.save_game()
+	check(controls.rebind("ability",KEY_V),"A free keyboard key can be reassigned")
+	check(not controls.rebind("jump",KEY_V) and controls.hint("jump","keyboard")=="Space","Conflicting key is rejected without losing the existing jump binding")
+	game.ui.show_bindings("keyboard");game.ui.pending_binding="jump"
+	var conflict=InputEventKey.new();conflict.physical_keycode=KEY_V;conflict.pressed=true;Input.parse_input_event(conflict);await ticks(3)
+	conflict=InputEventKey.new();conflict.physical_keycode=KEY_V;conflict.pressed=false;Input.parse_input_event(conflict)
+	check(game.ui.list.get_child(1) is Label and game.ui.list.get_child(1).text==controls.binding_notice,"Rebinding conflict is shown at the top of the actual menu, not below offscreen rows")
+	game.ui.close_panel()
+	check(not controls.rebind("ability",KEY_F1),"Help shortcut remains available when rebinding")
+	controls.reset_keyboard(false)
+	check(controls.rebind("interact",KEY_T),"Interaction key can be rebound")
+	game.player.position=Vector2(400,440);game.player.velocity=Vector2.ZERO;await ticks(3)
+	var event=InputEventKey.new();event.physical_keycode=KEY_T;event.pressed=true;Input.parse_input_event(event);await ticks(3)
+	event=InputEventKey.new();event.physical_keycode=KEY_T;event.pressed=false;Input.parse_input_event(event);await ticks()
+	check(state.flags.get("a1l1.noise_off",false),"Rebound key completes the real first interaction")
+	game.ui.close_panel();controls.reset_keyboard(false);state.unlocked=[0,1,2,3];game.player.switch_hero(0)
+	controls.set_method("keyboard")
+	check(game.world.tunnel_hint()=="↘ KUZU · J","Tunnel sign uses the default keyboard ability binding")
+	controls.rebind("ability",KEY_V,false)
+	check(game.world.tunnel_hint()=="↘ KUZU · V","Tunnel sign follows a reassigned keyboard ability")
+	controls.reset_keyboard(false);controls.set_method("gamepad")
+	check(game.world.tunnel_hint()=="↘ KUZU · X","Tunnel sign names the gamepad ability rather than a keyboard key")
+	controls.rebind_gamepad("ability",JOY_BUTTON_RIGHT_STICK,false)
+	check(game.world.tunnel_hint()=="↘ KUZU · RS","Tunnel sign follows a reassigned gamepad ability")
+	controls.reset_gamepad(false);controls.set_method("touch")
+	check(game.world.tunnel_hint()=="↘ KUZU · Yetenek","Tunnel sign names the touch action")
+	state.prefs.language="en"
+	check(game.world.tunnel_hint()=="↘ LAMB · Ability","Touch tunnel sign follows the selected language")
+	state.prefs.language="tr";controls.set_method("keyboard")
+	await tap_pad(JOY_BUTTON_RIGHT_SHOULDER)
+	check(state.active==1 and controls.input_method=="gamepad","RB switches the actual shared body to the next unlocked hero")
+	await tap_pad(JOY_BUTTON_LEFT_SHOULDER)
+	check(state.active==0,"LB returns to the previous hero")
+	check(controls.rebind_gamepad("ability",JOY_BUTTON_RIGHT_STICK),"Gamepad button can be reassigned")
+	game.player.cooldown=0;game.player.position=Vector2(200,440);await tap_pad(JOY_BUTTON_RIGHT_STICK)
+	check(game.player.cooldown>0,"Reassigned physical event path triggers the real ability")
+	check(controls.hint("ability")=="RS","Active input hints reflect the new gamepad binding")
+	controls.reset_gamepad(false)
+	state.prefs.deadzone=0.3;controls.apply_deadzone()
+	var motion=InputEventJoypadMotion.new();motion.axis=JOY_AXIS_LEFT_X;motion.axis_value=0.1;Input.parse_input_event(motion);await ticks(5)
+	check(not Input.is_action_pressed("right"),"Stick noise below the configured deadzone is ignored")
+	motion=InputEventJoypadMotion.new();motion.axis=JOY_AXIS_LEFT_X;motion.axis_value=0.8;Input.parse_input_event(motion);await ticks(10)
+	check(game.player.velocity.x>0,"Stick movement above the deadzone drives real physics")
+	controls.connection_changed(0,false);await ticks()
+	check(paused and game.ui.menu_kind=="pause" and not Input.is_action_pressed("right"),"Controller disconnect handler releases held inputs and pauses; no automatic resume")
+	game.ui.close_panel();game.ui.show_title();game.ui.show_settings();await tap_pad(JOY_BUTTON_START)
+	check(game.ui.menu_kind=="title" and paused,"Start from title settings returns to title instead of entering the unstarted world")
+	game.ui.close_panel();state.prefs.reduced_effects=true;await ticks(3)
+	var camera=game.player.get_node("Camera2D")
+	check(not camera.position_smoothing_enabled and camera.position.x==50,"Reduced motion also disables camera smoothing and variable look-ahead")
+	state.path="user://aionia-quality.json";state.save_game();state.save_game()
+	var unrelated=FileAccess.open("user://unrelated-quality.txt",FileAccess.WRITE);unrelated.store_string("keep");unrelated.close()
+	check(state.erase_local_data(),"Explicit local erasure removes primary and backup successfully")
+	controls._notification(NOTIFICATION_APPLICATION_FOCUS_OUT);game.load_level(0,false,false);await ticks()
+	check(not FileAccess.file_exists(state.path) and not FileAccess.file_exists(state.path+".bak") and not FileAccess.file_exists(state.path+".tmp"),"Focus loss and scene reload cannot recreate the deleted save")
+	check(state.flags.is_empty() and state.history.is_empty() and state.prefs==state.DEFAULT_PREFS,"Erasure clears in-memory progress, dialogue history and preferences")
+	check(FileAccess.get_file_as_string("user://unrelated-quality.txt")=="keep","Other local files survive game-data erasure")
+	state.protected_future=true;game.ui.show_title();await ticks();await tap_pad(JOY_BUTTON_A)
+	check(game.ui.menu_kind=="new" and state.protected_future,"Replacing an unreadable or newer save requires a visible New Journey confirmation")
+	await tap_pad(JOY_BUTTON_B)
+	check(game.ui.menu_kind=="title" and paused and state.protected_future,"Cancel from New Journey confirmation returns to title without starting or deleting data")
+	state.new_game()
+	check(FileAccess.file_exists(state.path) and not state.storage_paused,"Explicit New Game starts saving again")
+	# Focused acceptance fixture: attempt the gate before stopping the fan.
+	# Position is arranged here; the interaction itself goes through real input.
+	controls.reset_keyboard(false);game.ui.close_panel();game.load_level(0,false,false)
+	game.ui.toast_left=0;game.player.position=Vector2(1050,440);await ticks(3)
+	check(game.ui.prompt_plate.visible,"Gate interaction cue is visible before an invalid-order attempt")
+	var interact_key=InputEventKey.new();interact_key.physical_keycode=KEY_E;interact_key.pressed=true;Input.parse_input_event(interact_key);await ticks(3)
+	interact_key=InputEventKey.new();interact_key.physical_keycode=KEY_E;interact_key.pressed=false;Input.parse_input_event(interact_key)
+	check(game.ui.toast.visible and not game.ui.prompt_plate.visible,"Invalid-order interaction explains the missing safety step instead of being hidden by its context cue")
+	state.erase_local_data();DirAccess.remove_absolute(ProjectSettings.globalize_path("user://unrelated-quality.txt"))
+	var out=FileAccess.open("res://work/quality-results.json",FileAccess.WRITE);out.store_string(JSON.stringify({"checks":checks},"  "));out.close()
+	var failures=checks.filter(func(item):return item.status=="FAIL")
+	print("QUALITY CHECKS: ",checks.size()," FAILURES: ",failures)
+	game.queue_free();await process_frame;quit(0 if failures.is_empty() else 1)

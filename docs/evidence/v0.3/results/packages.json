@@ -1,0 +1,31 @@
+{
+  "version": "0.3.0",
+  "source_commit": "fe504a17bee8ab322fb28aced2bdb1159fcb2497",
+  "clean_worktree_at_export": true,
+  "archives_and_local_hashes": "PASS",
+  "hosting_config_excluded_from_web_pck": "PASS",
+  "installer_built": "PASS",
+  "windows_execution": "NOT TESTED",
+  "artifacts": [
+    {
+      "name": "SaveThePlanet-Windows-Portable.zip",
+      "bytes": 45672871,
+      "sha256": "afed304cda99fc6bff1157a90fc7196644ca4f92b76b9a060579ce3676fb02b0"
+    },
+    {
+      "name": "SaveThePlanet-Web.zip",
+      "bytes": 19130153,
+      "sha256": "ddc7dc681c583d5426e5776cae40e225eaa2272a9886cb155a11dea75def040b"
+    },
+    {
+      "name": "SaveThePlanet-Linux-x86_64.tar.gz",
+      "bytes": 36725526,
+      "sha256": "55cf3257e4db2feac47cb567826be9e5f27d31bc7ac9ff25a74be819bb23dc64"
+    },
+    {
+      "name": "SaveThePlanet-Setup.exe",
+      "bytes": 35533191,
+      "sha256": "174d190bc711fabea5a1a22d8590b37f5b943e03e87bd1545266b5e7c281758e"
+    }
+  ]
+}

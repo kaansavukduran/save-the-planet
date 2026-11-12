@@ -1,0 +1,52 @@
+{
+  "scope": "Color tokens only, not a WCAG certification or physical display test",
+  "pairs": {
+    "dark body": {
+      "foreground": "#f2e5c7",
+      "background": "#142333",
+      "contrast": 12.75
+    },
+    "light body": {
+      "foreground": "#172d35",
+      "background": "#eef3ea",
+      "contrast": 12.74
+    },
+    "dark secondary": {
+      "foreground": "#8fb9a5",
+      "background": "#1d3040",
+      "contrast": 6.23
+    },
+    "light secondary": {
+      "foreground": "#2d6255",
+      "background": "#e0eade",
+      "contrast": 5.68
+    },
+    "primary normal": {
+      "foreground": "#ffffff",
+      "background": "#a93f59",
+      "contrast": 5.93
+    },
+    "primary hover": {
+      "foreground": "#ffffff",
+      "background": "#97405a",
+      "contrast": 6.57
+    },
+    "primary pressed": {
+      "foreground": "#ffffff",
+      "background": "#733047",
+      "contrast": 9.36
+    },
+    "dark touch idle": {
+      "worst_black_white_underlay_contrast": 8.04
+    },
+    "dark touch pressed": {
+      "worst_black_white_underlay_contrast": 9.62
+    },
+    "light touch idle": {
+      "worst_black_white_underlay_contrast": 8.86
+    },
+    "light touch pressed": {
+      "worst_black_white_underlay_contrast": 10.65
+    }
+  }
+}

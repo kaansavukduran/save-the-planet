@@ -1,0 +1,42 @@
+{
+  "build": {
+    "game_version": "0.2.0",
+    "source_commit": "d154003dfda176fbb0aefd48034ae4d0ad65aec3",
+    "working_tree_dirty": true,
+    "content_tag": "b49818f97a604eef",
+    "files": {
+      "index.html": "b90cdd6fd45c15666b25cb3c91f4b0b5baa058b6f3f23f169ca3de99cc29fcae",
+      "planet-b49818f97a604eef.js": "8ee40f1dfac8ea4d9828cbe4f17fbf4834ba3e7708c1fe5a96c3388977f5ef38",
+      "planet-b49818f97a604eef.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "planet-b49818f97a604eef.wasm": "9b772205387d214619428ef095c6c4319a4aa4514879ae411be515d405bad784",
+      "planet-b49818f97a604eef.pck": "74902f4aa219235f7f76d6d3a16cfa25cd8aa86e923a9a2a05fc1e610a5f8114",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "planet-b49818f97a604eef.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    }
+  },
+  "environment": "Linux-6.18.57-x86_64-with-glibc2.41",
+  "browser": "156.0.8078.79",
+  "renderer": "SwiftShader WebGL2",
+  "physical_device": false,
+  "viewport_css": [
+    1152,
+    648
+  ],
+  "canvas_backing": [
+    1152,
+    648
+  ],
+  "scene": "a1l1 idle at start; no other game browsers running",
+  "load_ms_local": 2459.1,
+  "frames": 180,
+  "raf_median_ms": 33.4,
+  "raf_p95_ms": 66.6,
+  "godot": {
+    "draw_calls": 156,
+    "fps": 25,
+    "static_memory_bytes": 27776831
+  },
+  "total_browser_memory": "NOT TESTED"
+}

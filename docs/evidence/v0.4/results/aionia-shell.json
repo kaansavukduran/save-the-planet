@@ -1,0 +1,77 @@
+{
+  "checks": [
+    {
+      "check": "Loader closes only after the engine starts",
+      "status": "PASS"
+    },
+    {
+      "check": "Progress used the real byte callback",
+      "status": "PASS"
+    },
+    {
+      "check": "AudioContext runs after user input (not an audible hardware test)",
+      "status": "PASS"
+    },
+    {
+      "check": "Failed engine download exposes an error message",
+      "status": "PASS"
+    },
+    {
+      "check": "A fatal download error is not later replaced by a slow-loading hint",
+      "status": "PASS"
+    },
+    {
+      "check": "Retry reopens the real game after download recovers",
+      "status": "PASS"
+    },
+    {
+      "check": "A failed bootstrap script presents a clear recovery action instead of hanging",
+      "status": "PASS"
+    },
+    {
+      "check": "Retry recovers after a failed engine script",
+      "status": "PASS"
+    },
+    {
+      "check": "A genuinely stalled download exposes a wait/retry message",
+      "status": "PASS"
+    },
+    {
+      "check": "Browser offline state gives explicit connection feedback during loading",
+      "status": "PASS"
+    },
+    {
+      "check": "Iframe help offers a full-page route",
+      "status": "PASS"
+    },
+    {
+      "check": "Focused iframe receives real movement keys",
+      "status": "PASS"
+    }
+  ],
+  "unexpected_errors": [],
+  "performance": {
+    "environment": "Linux-6.18.57-x86_64-with-glibc2.41",
+    "browser": "156.0.8078.79",
+    "renderer": "Chromium SwiftShader WebGL2",
+    "viewport": [
+      1152,
+      648
+    ],
+    "scene": "a1l1 start, player idle, local HTTP",
+    "measurement_concurrency": "Functional suite may overlap other tests; use web_performance.py for the isolated baseline",
+    "load_ms_local": 4860.3,
+    "raf_median_ms": 100.0,
+    "raf_p95_ms": 150,
+    "sample_frames": 120,
+    "audio_context": "running",
+    "godot_monitors": {
+      "draw_calls": 157,
+      "fps": 11,
+      "static_memory_bytes": 26600872
+    },
+    "memory_scope": "Godot static allocator; not total browser/WASM memory",
+    "engine_total_memory": "NOT TESTED",
+    "physical_gpu": "NOT TESTED"
+  }
+}

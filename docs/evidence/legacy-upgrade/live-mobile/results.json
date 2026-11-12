@@ -1,0 +1,24 @@
+{
+  "checks": [
+    {
+      "check": "Live portrait opens the current game rather than the archived Canvas",
+      "status": "PASS"
+    },
+    {
+      "check": "Actual touch on New journey starts the current game",
+      "status": "PASS"
+    },
+    {
+      "check": "Real touch D-pad and Use complete the first fan objective on the public mobile layout",
+      "status": "PASS"
+    },
+    {
+      "check": "Rotation and reload retain actual touch progress",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "browser": "156.0.8078.79",
+  "physical_phone": "NOT TESTED",
+  "input": "New journey by touch; tutorial skipped with Escape; gameplay CDP touch; read-only save verification, no progress injection"
+}

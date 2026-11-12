@@ -1,0 +1,12 @@
+.godot/
+.ci-godot/
+work/
+build/
+dist/
+__pycache__/
+*.keystore
+*.jks
+.godot/export_credentials.cfg
+.env*
+
+.vercel/

@@ -1,0 +1,160 @@
+{
+  "files": [
+    {
+      "local_name": "SaveThePlanet-Web.zip",
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1icleFxO65VuV67PojucEZy3daVsYZUIF",
+      "title": "SaveThePlanet-0.3.0-Web.zip",
+      "file_name": "SaveThePlanet-0.3.0-Web.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/1icleFxO65VuV67PojucEZy3daVsYZUIF/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "verified_metadata": {
+        "id": "1icleFxO65VuV67PojucEZy3daVsYZUIF",
+        "title": "SaveThePlanet-0.3.0-Web.zip",
+        "mime_type": null,
+        "size": "19130153",
+        "url": "https://drive.google.com/file/d/1icleFxO65VuV67PojucEZy3daVsYZUIF/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1icleFxO65VuV67PojucEZy3daVsYZUIF/view?usp=drivesdk",
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "local_name": "SaveThePlanet-Linux-x86_64.tar.gz",
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1dw_pFh6acJFOB6AWKbfumoh8vS8DmKLF",
+      "title": "SaveThePlanet-0.3.0-Linux-x86_64.tar.gz",
+      "file_name": "SaveThePlanet-0.3.0-Linux-x86_64.tar.gz",
+      "mime_type": "application/gzip",
+      "url": "https://drive.google.com/file/d/1dw_pFh6acJFOB6AWKbfumoh8vS8DmKLF/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "verified_metadata": {
+        "id": "1dw_pFh6acJFOB6AWKbfumoh8vS8DmKLF",
+        "title": "SaveThePlanet-0.3.0-Linux-x86_64.tar.gz",
+        "mime_type": null,
+        "size": "36725526",
+        "url": "https://drive.google.com/file/d/1dw_pFh6acJFOB6AWKbfumoh8vS8DmKLF/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1dw_pFh6acJFOB6AWKbfumoh8vS8DmKLF/view?usp=drivesdk",
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "local_name": "SaveThePlanet-Windows-Portable.zip",
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1GNPl9ME4P6nWFtd9V_W3tEcZgjaRjncC",
+      "title": "SaveThePlanet-0.3.0-Windows-Portable.zip",
+      "file_name": "SaveThePlanet-0.3.0-Windows-Portable.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/1GNPl9ME4P6nWFtd9V_W3tEcZgjaRjncC/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "verified_metadata": {
+        "id": "1GNPl9ME4P6nWFtd9V_W3tEcZgjaRjncC",
+        "title": "SaveThePlanet-0.3.0-Windows-Portable.zip",
+        "mime_type": null,
+        "size": "45672871",
+        "url": "https://drive.google.com/file/d/1GNPl9ME4P6nWFtd9V_W3tEcZgjaRjncC/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1GNPl9ME4P6nWFtd9V_W3tEcZgjaRjncC/view?usp=drivesdk",
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "local_name": "SaveThePlanet-Setup.exe",
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1VRt-qV2nW-JbVGIv6sTHzHHoI5sJAy4F",
+      "title": "SaveThePlanet-0.3.0-Setup.exe",
+      "file_name": "SaveThePlanet-0.3.0-Setup.exe",
+      "mime_type": "application/vnd.microsoft.portable-executable",
+      "url": "https://drive.google.com/file/d/1VRt-qV2nW-JbVGIv6sTHzHHoI5sJAy4F/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "verified_metadata": {
+        "id": "1VRt-qV2nW-JbVGIv6sTHzHHoI5sJAy4F",
+        "title": "SaveThePlanet-0.3.0-Setup.exe",
+        "mime_type": null,
+        "size": "35533191",
+        "url": "https://drive.google.com/file/d/1VRt-qV2nW-JbVGIv6sTHzHHoI5sJAy4F/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1VRt-qV2nW-JbVGIv6sTHzHHoI5sJAy4F/view?usp=drivesdk",
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "local_name": "SHA256SUMS.json",
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1KJkFj1IHix9-_DWMg83uTXXM1_j8Mb90",
+      "title": "SaveThePlanet-0.3.0-SHA256SUMS.json",
+      "file_name": "SaveThePlanet-0.3.0-SHA256SUMS.json",
+      "mime_type": "application/json",
+      "url": "https://drive.google.com/file/d/1KJkFj1IHix9-_DWMg83uTXXM1_j8Mb90/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "verified_metadata": {
+        "id": "1KJkFj1IHix9-_DWMg83uTXXM1_j8Mb90",
+        "title": "SaveThePlanet-0.3.0-SHA256SUMS.json",
+        "mime_type": null,
+        "size": "434",
+        "url": "https://drive.google.com/file/d/1KJkFj1IHix9-_DWMg83uTXXM1_j8Mb90/view?usp=drivesdk",
+        "display_url": "https://drive.google.com/file/d/1KJkFj1IHix9-_DWMg83uTXXM1_j8Mb90/view?usp=drivesdk",
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    }
+  ],
+  "metadata_check": "PASS destination and package sizes; remote checksum not exposed by connector"
+}

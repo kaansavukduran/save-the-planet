@@ -1,0 +1,542 @@
+GÖREV: SAVE THE PLANET OYUNUNU PLANLA, GELİŞTİR, ÇALIŞTIR VE DOĞRULA
+Hedef depo: kaansavukduran/save-the-planet
+Başvuru oyunu ve mevcut karakter kaynakları: kaansavukduran/aion_endless_run
+Bu mesaj, geliştirme için gerekli kapsamı içerir. Başka bir konuşmaya veya ekli bir tasarım belgesine ihtiyaç duymadan çalışmaya başla.
+Mevcut Save the Planet uygulaması beklentilerimi karşılamıyor. Önce depoyu ve çalışan uygulamayı incele; sorunları belirle; korunabilecek parçaları seç; ardından aşağıdaki kapsamı gerçek bir Godot oyununa dönüştür.
+Görevin yalnız plan hazırlamak değil. Kısa bir uygulama planından sonra aynı görev içinde geliştirmeye, çalıştırmaya, test etmeye ve düzeltmeye geç. İlk prototipi veya birkaç ekranı tamamlayıp bütün oyunu bitmiş sayma.
+1. Ürünün amacı ve değişmez kararlar
+Ben Vegan Türkiye web sitesinin sahibiyim. Hayvan haklarını, veganlığı, ekolojik ilişkileri ve kanıta dayalı düşünmeyi oyun oynayarak öğreten; hikâyeli, eğlenceli ve kullanıcı dostu bir oyun istiyorum.
+•  Oyun adı: Save the Planet.
+•  Yayıncı/geliştirici markası: Fragaria Interactive.
+•  Karakter evreni: AIONIA.
+•  Atmosfer: Sevimli, sıcak ve mizahi; gerektiğinde derin ve epik.
+•  Motor: Godot 4.x.
+•  Programlama dili: GDScript.
+•  Görünüm: Yandan görülen 2D pixel art.
+•  Ana tür: Bölüm tabanlı, hikâyeli kurtarma ve aksiyon-platform macerası.
+•  Temel özellik: Bölüm içinde dört karakter arasında geçiş.
+•  Ana kapsam: Beş perde, toplam on bölüm, ziyaret edilebilir güvenli yaşam alanı ve gerçek bir hikâye finali.
+•  Diller: Türkçe ve İngilizce.
+•  Kontroller: Klavye, gamepad ve dokunmatik.
+•  Çıktılar: Vercel web sürümü, Windows portable paket, Windows kurulum EXE’si, Linux portable paket ve Android release APK.
+•  Aynı oyun sistemleri ve içerik, ortak Godot projesinden hedef platformlara aktarılmalı.
+Godot projesi gerçekten bulunmalı ve çalışmalı. Godot kullandığını söyleyen bir README ile HTML/Canvas tabanlı başka bir oyunu teslim etme.
+Bu görevde ayrı bir oyun motoru geliştirme projesine girme. Kullanışlı sistemleri yeniden kullanılabilir tasarla; öncelik Save the Planet’in tamamlanmasıdır.
+2. Başlangıçta mevcut durumu doğrula
+Önce şu sırayla çalış:
+1. Hedef depoyu, etkin dalı, güncel commit’i, çalışma ağacını ve uygulanabilir AGENTS.md dosyalarını incele.
+2. Kullanıcının veya başka bir ajanın kaydedilmemiş değişikliklerini koru. Gerekiyorsa ayrı dal veya worktree kullan.
+3. Mevcut uygulamayı mümkünse çalıştır. Kontrol, kamera, görseller, bölüm akışı, kayıt ve mobil kullanım sorunlarını somut örneklerle belirle.
+4. Korunabilecek parçaları ve yeniden yazılması gereken sistemleri ayır. Büyük yeniden yazma kararlarını mevcut sorunla ilişkilendir.
+5. Başvuru oyunu Aion Endless Run’ı ayrı kaynak olarak incele. Bu depoya değişiklik yapma.
+6. Kısa bir geliştirme planı oluştur ve ilk uygulanabilir işe geç.
+Ön hazırlık incelemesinde görülen referanslar:
+•  Save the Planet: e415cb4da85ebd7fbce8b46abe9b67acbc976c4d
+•  Aion Endless Run: 03fd1f4a400345847da7b0b471272ec75602a62a
+Bunlar tarihli referanslardır. Çalışmaya başladığında güncel durumu yeniden kontrol et. Depoları bu commit’lere geri döndürme.
+Ön hazırlıkta hedef deponun kökünde GDD.md, README.md, index.html, manifest.json, sw.js ve vercel.json görülmüştü. Büyük index.html dosyasının tamamı incelenmemişti. Bu nedenle mevcut uygulamanın davranışını kendin doğrula; bütün kodu incelemeden silme.
+reset --hard, toplu silme veya force push ile başlangıç yapma. Eski çalışmayı git geçmişinde koruyan, geri alınabilir değişikliklerle ilerle.
+3. Oyuncuya verilecek deneyim
+Oyuncu dört arkadaşla bir vadideki sorunların bağlantısını keşfeder; parkurları aşar; hayvanların güvenli ve özgür yaşam koşullarına kavuşmasına yardım eder; yaptığı değişikliklerin sonuçlarını sonraki sahnelerde görür.
+Temel bölüm ritmi:
+•  Kısa ve anlaşılır bir amaç.
+•  Hareket, keşif ve küçük bir merak unsuru.
+•  Çevrede görülebilen bir sorun.
+•  Oyuncunun uyguladığı çözüm.
+•  Kısa bir hareketli sonuç veya kaçış.
+•  Yardım edilen bireyle ya da arkadaşlarla sakin bir karşılaşma.
+•  Sonraki bölüme anlamlı bağlantı.
+Eğlenceyi iyi zıplama hissi, okunabilir tehlikeler, alternatif rotalar, karakter yetenekleri, küçük keşifler, sıcak diyaloglar ve yakın kontrol noktaları taşımalı.
+Ana oyun otomatik sonsuz koşu değildir. Aion Endless Run’ın hareket hissini, okunabilirliğini ve tekrar oynama isteğini referans al; yeni oyunun kendi bölüm yapısı ve hikâyesi olsun.
+Açık dünya, çevrim içi çok oyuncu, üretim ekonomisi, günlük görev sistemi ve zorunlu sonsuz koşu modu ilk kapsamın parçası değildir.
+Bölümler için yaklaşık 8–12 dakika, ilk iki bölümün bağlı deneyimi için 15–20 dakika başlangıç hedefi kullanılabilir. Yaşam alanı, keşif ve diyaloglarla yaklaşık 2–3 saatlik ana deneyim hedeflenebilir. Bunlar tasarım hedefidir; ölçülmüş süre veya garanti değildir. Süreyi doldurmak için tekrar ekleme.
+4. Dört ana karakter
+Mevcut karakter kimliklerini, isimlerini, renklerini ve ayırt edici görünümlerini koru.
+
+[TABLO]
+Karakter
+Hareket özelliği
+Çevreyle etkileşimi
+Karakter gelişimi
+Aion, pembe aksolotl
+Çift zıplama, anlaşılır hava kontrolü
+Su düzenekleri, akışı yönlendirme, uygun mekanizmalara su darbesi
+Hızlı yardım etme isteğini gözlem ve dinlemeyle tamamlar.
+Melun Bilge Kurt
+Kısa güçlü depar
+Ağır kapak, hasarlı bariyer ve durmuş mekanizmaları açma
+Korkutucu etiketinin ötesinde düşünceli ve koruyucudur.
+Kutsanmış Cahil Koyun / Kuzu
+Gerçek takla, alçak geçitlerden ilerleme
+Güvenli yaklaşma koşullarını kurma, uygun yerde tohum bırakma
+Soru sorar, öğrenir, itiraz eder ve finalde etkin karar alır.
+Baykuş Ömer
+Sınırlı süzülüş, belirli hava akımlarını kullanma
+Yüksekten keşif, araştırılabilir izleri ve kayıtları bulma
+Kanıt arar; bilmediğini ve kanıtın yetmediğini söyleyebilir.
+
+Kuzu’nun adı sürekli aşağılamaya dönüştürülmesin. Ömer her sorunu tek tuşla çözen anlatıcı olmasın. Kurt yalnız engel kıran kas gücüne indirgenmesin.
+Fantastik hareketlerle gerçek biyolojik bilgiyi ayır. Aion’un yeteneği, gerçek kirli suyun tek dokunuşla içilebilir hâle geldiği mesajını vermesin. Kuzu’nun güven kurması hayvanların iradesini ortadan kaldıran büyü olmasın.
+Karakter değiştirme kuralları
+Başlangıç için tek oyuncu fizik gövdesi, ortak hareket durumu ve karaktere özgü görünüm/yetenek verisi kullanmak uygundur. Farklı bir mimari seçersen durum aktarımını açıkça çöz.
+Karakter değiştirmek şu kaynakları sıfırlamamalı:
+•  Havada kullanılabilen hareket hakları.
+•  Süzülme sınırı.
+•  Depar veya yetenek bekleme süresi.
+•  Hız sınırı.
+•  Hasar sonrası koruma.
+•  Kontrol noktası ve görev durumu.
+Aion ile Ömer arasında geçiş yaparak sonsuz yükselme mümkün olmamalı. Kurt deparında geçiş hızları toplamamalı. Kuzu dar tüneldeyken büyük gövdeye geçiş güvenli değilse ertelenmeli ve anlaşılır ipucu gösterilmeli.
+Aktif karakter dışında ikinci oyuncu kontrolcüsü veya ikinci kamera kalmamalı.
+Karakterler yalnız farklı renkte kapıları açan anahtarlara dönüşmesin. Erken bir engelde en az iki gerçek çözüm bulunmalı. Her odada dört ayrı rota üretmek zorunlu değil.
+5. Hikâye ve on bölüm
+Hikâye bir vadi, kasaba, orman, nehir ve kıyı çevresinde geçsin. Açılışta düzenli buluşmaya gelmeyen bir arkadaş aranır. Ekip, kapanmış geçitler ve değişen çevrenin ardındaki Gri Çark düzenini keşfeder.
+İnsan karakterler farklı tutumlara sahip olsun: değişime yardım eden çalışan, sorununu anlatan üretici, kanıt arayan araştırmacı ve sorumluluğunu gizleyen yönetici bulunabilir. Sorunu bütün insanları kötü ilan ederek anlatma.
+Onaylı perde sırası:
+1. Çitin Ötesi
+2. Nehrin İzinde
+3. Kurdun Geçidi
+4. Yeşil Vitrin, Sessiz Kıyı
+5. Birlikte Açılan Yol
+Perde 1: Çitin Ötesi
+A1L1: Sessiz Buluşma
+Aion ile eksik arkadaşın izini ara. Hareket, zıplama ve güvenli yeniden deneme öğretilsin. Gürültüden dolayı ilerlemek istemeyen bir hayvanla karşılaş. Oyuncu onu toplamak yerine gürültüyü azaltıp güvenli güzergâh açsın.
+Kuzu katılsın. Karakter değiştirme ve alçak geçitte takla güvenli ortamda tanıtılsın.
+Tamamlanma: Hayvan kendi hareketiyle güvenli alana geçer; görev yalnız bir kez kaydolur; sonraki hedef açılır.
+A1L2: Açılan Kapı
+Kurt ağır servis kapağını açarak katılır. Ömer yüksekten güvenli geçişi fark ederek katılır. Dört karakter tamamlanır.
+En az bir engelde iki geçerli çözüm sun. Kısa ortak kaçıştan sonra güvenli yaşam alanına ulaş.
+Tamamlanma: Dört karakter kullanılabilir; ilk kurtarmanın sonucu yaşam alanında görünür; kayıt yüklenince ilerleme korunur.
+Perde 2: Nehrin İzinde
+A2L1: Geri Dönen Kirlilik
+Aion görünen atığı kaldırabilir, fakat çalışan kaynak akışı tekrar kirletir. Oyuncu yukarı akışı izleyerek asıl kaynağı bulur.
+Tamamlanma: Kaynak durdurulmadan görev bitmez. Kaynak kapatıldığında tekrar kirlenme kesilir. Oyuncu belirtiyi gidermek ile nedeni değiştirmek arasındaki farkı oynayarak görür.
+A2L2: Nehrin Geçidi
+Akışı yönlendir, arıtma düzenini çalıştır ve güvenli geçiş oluştur. Hareketli platformlar ve kısa tahliye bölümü kullan.
+İyileşmenin birden fazla adım ve zaman gerektirdiği görülsün. Aion bütün işi tek başına çözmesin.
+Tamamlanma: Geçiş gerçekten güvenlidir; su ve düzenek durumları kayıttan sonra korunur.
+Perde 3: Kurdun Geçidi
+A3L1: Bölünmüş Orman
+Kapanmış yaban geçidine ulaş. Ağır engel açma ve parkur üzerinden en az iki rota sun.
+Hayvanın yolunun kesilmesi, yaşam alanı parçalanmasını görünür kılsın. Yaklaşmadan yardım etmek mümkün olsun.
+Tamamlanma: Geçit açılır; yaban hayvanı oyuncuya veya envantere katılmadan uygun yaşam alanına gider.
+A3L2: Korkunun Adı
+Okunabilir makineli tehlikeler arasında yuva alanına giden güvenli koridoru aç. Kurt ve Ömer farklı çözümler sağlayabilsin.
+Korkulan hayvan da korunur. Tehlike kaldırılırken yuva yerinde kalır. Kurtarmak her zaman hayvanı başka yere taşımak değildir.
+Tamamlanma: a3l2.machine_safe ve a3l2.corridor_open gerçekleşir; hayvan doğal alanına ulaşır; bölüm çıkışı bu dünya durumlarıyla açılır.
+Perde 4: Yeşil Vitrin, Sessiz Kıyı
+A4L1: Yeşil Vitrin
+Kasabadaki çevreci bir iddiayı sahadaki kayıtlarla karşılaştır. Ömer’in keşfiyle kaynak, tarih, ölçü ve kapsam bilgileri bulunan parçalar bulunsun.
+Bu etkileşim zorunlu çoktan seçmeli sınav olmasın. Oyuncu dünyada bulduğu kayıtları karşılaştırarak çelişkiyi veya bilgi eksikliğini fark etsin.
+Tamamlanma: Kanıtsız iddiayı onaylamadan ilerlenebilir. “Yeterli bilgi yok” gerektiğinde geçerli sonuçtur.
+A4L2: Sessiz Kıyı
+Hareketli kıyı düzeneğinin görünür güvenli aralığını kullan. Enerji beslemesini ayır ve dolaşmış hayvanın çevresinde güvenli çalışma alanı oluştur.
+Süzülüş ve alçak geçitleri birleştir. Deneyimli bakım karakteri doğrudan müdahaleyi üstlensin.
+Tamamlanma: a4l2.mechanism_stopped, a4l2.care_zone_safe ve a4l2.animal_in_care gerçekleşir. Hayvanın anında tamamen iyileştiği varsayılmaz.
+Perde 5: Birlikte Açılan Yol
+A5L1: Birlikte Hazırlık
+Dört arkadaş ve insan destekçiler finale hazırlanır:
+•  Güvenli çıkışı oluştur.
+•  Zararlı hattı bakım sisteminden ayır.
+•  Bakım sisteminin çalışmaya devam etmesini sağla.
+•  İnsan topluluğunun ortak yemeğinde hayvansal malzeme yerine bitkisel seçenek sağla.
+Bitkisel yemek görevi dekor değildir. Oyuncu seçimi uygular, sonucunu ve kısa karakter tepkisini görür. Uzun malzeme toplama veya üretim zinciri kurma.
+Tamamlanma: a5l1.safe_exit_ready, a5l1.harmful_line_isolated, a5l1.care_system_active ve a5l1.plant_meal_ready finale erişimi açar.
+A5L2: Birlikte Açılan Yol
+Üç aşamalı Gri Çark finali oluştur:
+1. Hareket düzenini gözlemle ve güvenli yaklaş.
+2. Erişilebilir alt sistemleri durdur.
+3. Güvenli çıkışı koru ve son geçişi tamamla.
+Ömer gözler, Aion akışı yönlendirir, Kuzu iç geçide ulaşır, Kurt çıkışı açar. Kusursuz hızda dört karakter değiştirmek zorunlu olmasın.
+Finalin ardından etkileşimli kapanış, karakterlerin sonuçları, değişmiş yaşam alanı ve bölüm seçimi açılır. story_complete kaydedilir.
+İlk 15–20 dakikalık kesit
+A1L1 ve A1L2 birlikte ilk kalite kontrolünü oluşturur:
+•  Kısa merak sahnesi.
+•  Aion hareket ve zıplama.
+•  Hayvanın koşullarını gözlemleyerek çözüm.
+•  Kuzu ve güvenli karakter değişimi.
+•  Kurt ve Ömer’in birer belirgin yeteneği.
+•  Alternatif çözüm içeren engel.
+•  Kısa ortak kaçış.
+•  Yaşam alanı ve kayıttan devam.
+Bu kesit ara aşamadır. Sorunları düzelttikten sonra kalan sekiz bölüme ve finale devam et.
+6. Hayvan hakları, veganlık ve öğrenme yaklaşımı
+GBL, oyun temelli öğrenmedir. Bu oyunda öğrenme; oyuncunun eylemi, gördüğü sonuç ve başka bir durumda aynı ilkeyi kullanması üzerinden kurulmalı.
+Hayvanlar:
+•  Para birimi değildir.
+•  Can hakkı değildir.
+•  Üretim binası veya işçi değildir.
+•  Oyuncunun hizmetine girmek zorunda değildir.
+•  Türüne göre farklı ahlaki puan değeri taşımaz.
+•  Yaklaşmayı, uzaklaşmayı veya beklemeyi seçebilir.
+Yaban hayvanları uygun doğal alanlarına yönlendirilir. Evcilleştirilmiş hayvanlar rastgele doğaya bırakılmaz. Her hayvan aynı bahçeye doldurulmaz.
+İnsanların vegan tercihleri ile kurtların ve baykuşların doğal beslenmesini birbirine karıştırma. Canlılara saldırmayı ana ilerlemenin koşulu yapma. Aksiyon; parkur, makineler, çevresel tehlikeler ve güvenli yol oluşturma üzerinden kurulabilir.
+SDG, Birleşmiş Milletler Sürdürülebilir Kalkınma Amaçlarıdır. Tematik bağlantılar:
+
+[TABLO]
+Tema
+İlgili amaçlar
+Su kirliliği ve suyla ilişkili yaşam alanları
+SDG 6.3, 6.6
+Kıyı ve deniz ekosistemleri
+SDG 14.1, 14.2
+Habitat ve biyolojik çeşitlilik
+SDG 15.1, 15.5
+Kaynak kullanımı, atık ve bilinçli seçenekler
+SDG 12.2, 12.5, 12.8
+İklim farkındalığı ve bilgi değerlendirme
+SDG 13.3
+Sürdürülebilirlik için öğrenme
+SDG 4.7
+
+Bu ilişkiler BM onayı veya ortaklığı anlamına gelmez. Games for Change bir kuruluştur; üyelik veya sertifika varmış gibi sunma. Veganlık ve hayvan hakları oyunun açık etik yaklaşımıdır; SDG çerçevesiyle tamamen özdeş olduğunu ileri sürme.
+Gerçek bilgi iddialarında kaynak, kapsam, tarih ve varsa birim kaydı tut. Hayvan kurtarma sayısını uydurma litre su veya kilogram karbon tasarrufuna çevirme. Fantastik yetenekleri bilimsel gerçek gibi anlatma.
+Bilgi kartları kapalıyken de ana öğrenme etkileşimleri anlaşılmalı. Ayrıntılı açıklamalar Ömer’in defterinde isteğe bağlı açılabilir.
+7. Mevcut karakter kaynakları
+Önce aşağıdaki kanonik görselleri aç ve incele. Ana karakterleri rastgele yeni görsellerle değiştirme.
+
+[TABLO]
+Karakter
+Kanonik kaynak
+Aion
+canonical-aion.png
+Kurt
+canonical-wolf.png
+Kuzu
+canonical-sheep.png
+Ömer
+canonical-owl.png
+
+Ek hareket kaynakları:
+
+[TABLO]
+Kaynak
+Bağlantı
+Aion hareket
+motion-aion.png
+Aion koşu
+aion-runner.png
+Kurt koşu
+wolf-runner.png
+Kurt çeviklik
+agility-wolf.png
+Kuzu koşu
+sheep-runner.png
+Kuzu hareket
+motion-sheep.png
+Ömer koşu
+owl-runner.png
+Ömer çeviklik
+agility-owl.png
+Ortak takla
+canonical-rolls.png
+Ortak aksiyon
+adventure-combat.png
+
+İlgili arşivler:
+•  Karakter evreni ve 2D varlıklar
+•  Aion görsel arşivi
+•  Aion ekran görüntüleri
+•  Vegan Türkiye strateji metni
+•  Vegan Kişiler Atlası
+Drive erişimi yoksa
+İşi durdurmadan Aion Endless Run deposundaki karşılıkları incele:
+•  assets/canonical-aion.png
+•  assets/canonical-wolf.png
+•  assets/canonical-sheep.png
+•  assets/canonical-owl.png
+•  assets/canonical-rolls.png
+•  assets/agility-wolf.png
+•  assets/agility-owl.png
+•  assets/CANONICAL-PROVENANCE.json
+•  assets/AGILITY-PROVENANCE.json
+•  scripts/frame_bank.gd
+•  packaging/register_canonical.py
+•  packaging/register_agility.py
+•  THIRD_PARTY_NOTICES.md
+•  LICENSE
+•  project.godot
+•  export_presets.cfg
+•  docs/BUILD.md
+•  docs/VERCEL.md
+frame_bank.gd başka kaynak kayıtlarına da bağımlı olabilir. Kod alacaksan bağımlılıklarını izle. Eksik preload referansları bırakma. Yeni oyun için yalnız kullanılan varlıkları kapsayan daha küçük bir kaynak kaydı oluşturabilirsin.
+Aynı dosya adı, Drive ve GitHub dosyalarının birebir aynı olduğunu kanıtlamaz. Kaynak eşleşmesini doğrula.
+Okumadığın Drive dosyasını okudum deme. Her iki kaynağa da erişilemiyorsa erişim açığını kaydet; bağımsız sistemleri geliştirmeye devam et.
+8. Sprite ve sanat üretim standardı
+•  Sprite sheet’in tamamını tek karakter görseli olarak kullanma.
+•  Paftaları incelemeden eşit hücrelere bölme.
+•  Gerçek kare sınırlarını, alfa kanalını, yönü, hareket sırasını ve hizalama noktalarını kontrol et.
+•  Ayak hizası, gövde ölçeği ve karakterin zemine oturması animasyonlar arasında tutarlı olsun.
+•  Komşu kare sızıntısı, boş kare, kırpılmış kuyruk/kanat, titreme ve bulanıklığı kontrol et.
+•  Fizik gövdesi ile görsel boyutu birbirinden bağımsız ayarlayabilirsin; oyuncunun algısı tutarlı kalmalı.
+•  Kanonik karakterleri zorla 16 veya 32 piksel varsayımına uydurma. Ortak dünya ölçeğini gerçek kaynakları gördükten sonra seç.
+•  Gerçek koşu, iniş, takla, depar ve etkileşim pozlarını kullan. Sabit resmi yatay kaydırmayı animasyon sayma.
+•  Aion’un pembe gövdesini ve mavi ayrıntılarını, Kurt’un gri-mor görünümünü, Kuzu’nun altın halesini ve Ömer’in ayırt edici kahverengi görünümünü koru.
+•  Çevre, karakter, arayüz ve efektlerde ortak görsel dil oluştur.
+•  Oynanabilir zemin ve iniş noktaları dekorun içinde kaybolmasın.
+•  Arayüz, oyunun üzerine yerleştirilmiş büyük bir web paneli gibi görünmesin.
+•  Ses ve müziğin kaynak ve kullanım koşullarını kaydet.
+Eksik varlıkları mevcut / uyarlanabilir / eksik olarak listele. Geliştirme sırasında geçici varlık kullanabilirsin; finalde zorunlu animasyonları ve sahne varlıklarını tamamla.
+Özellikle kapak açma, gözlem, sakin yaklaşma, yan karakterlerin bekleme/ilerleme/dinlenme durumları ve makinelerin açık/kapalı durumları gerçek karşılık bulmalı.
+Kaynakları assets/source/, türetilmiş dosyaları assets/derived/ gibi ayrı yerlerde tut. assets/provenance.json içinde kaynak, alınan sürüm, dönüşüm ve kullanım bilgilerini kaydet. İlgili lisans ve bildirimleri koru.
+9. Kontroller, kamera ve erişilebilirlik
+Başlangıç klavye eşlemesi:
+
+[TABLO]
+Eylem
+Tuş
+Hareket
+A/D veya yön tuşları
+Zıplama
+Space
+Özel yetenek
+J
+Etkileşim
+E
+Doğrudan karakter seçimi
+1–4
+Karakter seçim menüsü
+Q
+Duraklatma
+Esc
+
+Tuşlar yeniden atanabilsin. Gamepad aynı soyut eylemleri kullansın.
+Karakter seçim menüsü varsayılan olarak oyunu durdursun. Doğrudan kısayolla geçiş kesintisiz olabilir. Diyalog veya menüde basılan düğme arka planda karakteri zıplatmasın.
+Dokunmatik kullanımda yön, zıplama ve yetenek aynı anda çalışmalı. Tuşlar tehlikeyi veya karakteri örtmemeli. Telefon için ayrı yerleşim kullan; masaüstü arayüzünü yalnız küçültme.
+Hareket hissinde:
+•  Kenardan ayrıldıktan hemen sonra zıplamayı kabul eden kısa tolerans.
+•  Yere inmeden hemen önce basılmış zıplamayı hatırlayan giriş tamponu.
+•  Okunabilir hava kontrolü.
+•  Tutarlı hareketli platform davranışı.
+•  Kısa ve güvenli yeniden başlama.
+Yaklaşık 100–150 milisaniyelik başlangıç toleransları denenebilir; gerçek oynanışa göre ayarla.
+Kamera yaklaşan tehlikeyi ve iniş yerini göstersin. Karakter değişiminde sıçramasın. Kontrol noktasına dönüşte oyuncuyu eski konumdan uzun süre takip ederek gizlemesin.
+Şunları ekle:
+•  Hikâye modu ve standart mod.
+•  İsteğe bağlı ustalık hedefleri.
+•  Metin büyütme.
+•  Ayrı müzik ve efekt sesleri.
+•  Kamera sarsıntısını ve yoğun efektleri azaltma.
+•  Atlanabilir diyaloglar ve konuşma geçmişi.
+•  Renk yanında şekil/hareket işaretleri.
+•  Ses kapalıyken anlaşılabilir temel bilgiler.
+•  Klavye ve gamepad ile kullanılabilir menüler.
+Yardım seçenekleri hikâyenin sonuna erişimi engellemesin. Yeni bir düğmeyi ilk kez ölümcül veya hassas zamanlama isteyen bir durumda öğretme.
+10. Godot mimarisi ve kayıt sistemi
+Motorun doğrulanmış kararlı bir Godot 4.x sürümünü ve tam eşleşen export şablonlarını sabitle. Başvuru deposunun kullandığı sürümü, yeni ortamın güncel veya uygun sürümü diye otomatik kabul etme.
+Başlangıç tercihleri:
+•  GDScript.
+•  Compatibility görüntüleme yöntemi.
+•  Tek iş parçacıklı web export.
+•  İhtiyaç dışı eklenti ve GDExtension bağımlılığı oluşturmama.
+•  Tek ortak oyun kod tabanı.
+Sorumlulukları ayır:
+•  PlayerController: hareket ve çarpışma.
+•  Karakter verileri ve yetenekler.
+•  PartyState: aktif/açılmış karakterler ve ortak hareket kaynakları.
+•  Etkileşim ve kurtarma durumları.
+•  Bölüm ve kontrol noktası durumu.
+•  Kamera.
+•  Diyalog ve görevler.
+•  Kayıt.
+•  Arayüz ve giriş.
+•  Platforma özgü davranışlar.
+İsimleri mevcut projeye uyarlayabilirsin. Bütün oyunu tek dev betiğe gömme; gereksiz soyutlama da kurma.
+Önerilen içerik düzeni: scenes/, scripts/, data/, localization/, assets/, packaging/, tests/, docs/.
+Kayıt sözleşmesi
+•  Sabit bölüm, görev, hayvan ve etkileşim kimlikleri kullan.
+•  Geçici sahne düğüm yollarını kalıcı kimlik sayma.
+•  schema_version ve oyun sürümü tut.
+•  Güvenli yazma ve son geçerli kayıt yaklaşımı kullan.
+•  Bozuk kayıt açılışı kilitlemesin.
+•  Kurtarma olayının tekrar tetiklenmesi ikinci hayvan, ödül veya görev sonucu üretmesin.
+•  Kontrol noktasına dönüş ile kalıcı görev durumlarının ilişkisini açık tanımla.
+•  Oyunu kapatıp açarak devamı gerçekten sına.
+•  Yeni sürüm geçişinde kullanıcı ilerlemesini sessizce silme.
+•  Dil, ses ve erişilebilirlik tercihleri korunsun.
+İlk sürümde hesap veya bulut servis zorunluluğu kurma. Cihazlar arasında kayıt eşitlenmesi varmış gibi davranma.
+11. Vercel ve web sürümü
+Gerçek Godot web export çıktısını yayımlayacak yapı kur.
+Başlangıç yapılandırması:
+•  Vercel framework: Other.
+•  Çıktı klasörü: build/web.
+•  Derleme komutu: gerçek Godot export yapan proje betiği; örneğin uygun şekilde oluşturulmuş python3 packaging/build_web.py.
+•  Mevcut vercel.json ve dağıtım düzeni önce incelensin.
+Build işlemi motoru ve eşleşen şablonları güvenilir kaynaktan edinmeli, sürüm ve sağlama değerlerini doğrulamalı, gerçek web çıktısını oluşturmalı.
+Save the Planet’e ait yükleme ekranı hazırla:
+•  Gerçek yükleme durumunu göster.
+•  Anlaşılır hata ve tekrar deneme yolu sağla.
+•  Sahte tamamlanma yüzdesi gösterme.
+•  Ses ve tam ekranı tarayıcının kullanıcı etkileşimi kurallarıyla uyumlu başlat.
+Tek iş parçacıklı başlangıçta çoklu iş parçacığına ait sunucu başlıklarını kör biçimde ekleme. Gereksinim değişirse seçilen Godot sürümünün resmî belgelerine göre değerlendir.
+Tarayıcı kayıt kalıcılığı, çevrimdışı açılma ve PWA ayrı özelliklerdir. PWA varsa çevrimdışı açılış ve güncellemesini ayrıca test et.
+Eski JavaScript ile yeni .pck veya .wasm dosyalarının karışmasını önle. Sürüm güncellemesini kayıt korunarak sına.
+Vegan Türkiye içine gömme için iframe odağı, dokunmatik, ses, tam ekran ve kayıt davranışını kontrol et. Sorun varsa tam sayfa açılış seçeneği ver.
+Erişimin ve mevcut yetkilerin uygunsa hedef projeye ait Vercel dağıtımını oluştur ve gerçek adresi doğrula. Yayın erişimi yoksa hazır web çıktısını, yapılandırmayı ve eksik yayın adımını teslim et; yayımlanmış gibi gösterme.
+12. Yerel platform çıktıları
+
+[TABLO]
+Hedef
+Teslim
+Windows portable
+SaveThePlanet-Windows-Portable.zip
+Windows kurulum
+SaveThePlanet-Setup.exe
+Linux portable
+SaveThePlanet-Linux-x86_64.tar.gz
+Android
+SaveThePlanet-Android.apk release paketi
+
+Windows portable paketi gerekli EXE ve oyun verilerini içersin. Kurulum EXE’si için gerçek kurulum, başlatma ve kaldırma davranışı tanımlansın.
+Linux paketinde çalıştırma izinleri ve gerekli bağımlılıklar kontrol edilsin. AppImage isteğe bağlı ek kapsam olabilir.
+Android’de paket kimliği, sürüm kodu ve imza sürekliliği korunsun. Anahtar ve parolaları repoya koyma. Debug APK’yı imzalı release teslimi olarak sunma.
+İmza, platform araç zinciri veya cihaz erişimi eksikse bağımsız işleri tamamla; engeli açık kaydet. Test edemediğin platformu başarılı diye raporlama.
+Her pakette aynı oyun sürümü ve kaynak commit bilgisi bulunmalı. Dosya sağlama değerleri paket bütünlüğünü destekler; oynanabilirlik testinin yerine geçmez.
+13. Geliştirme aşamaları
+
+[TABLO]
+Aşama
+Çıktı
+Geçiş koşulu
+M0
+Mevcut durum ve kaynak incelemesi
+Başlangıç durumu, korunacak işler ve somut sorunlar biliniyor.
+M1
+Godot teknik temel
+Kontrol, kamera, kayıt ve export profilleri gerçek olarak çalışıyor.
+M2
+Dört karakter ve takım parkuru
+Hareket, animasyon ve karakter değişimi kritik sınamaları geçiyor.
+M3
+İlk iki bölüm ve yaşam alanı
+15–20 dakikalık kesit baştan sona oynanabiliyor.
+M4
+Kalan sekiz bölüm ve final
+Bütün hikâye oynanabilir ve kapanışı var.
+M5
+Düzeltme ve bütünlük
+Dil, telefon, erişilebilirlik, görseller, performans ve kayıt sorunları gideriliyor.
+M6
+Platform teslimleri
+Üretilen paketler, web durumu ve doğrulamalar açıkça raporlanıyor.
+
+M3’te durma. Temel sorunlar giderildikten sonra aynı kapsam için yeniden izin istemeden M4’e devam et.
+Görsel kaliteyi bütün içerik bittikten sonraya bırakma. İlk kesitte kaynak işleme ve görsel dil doğrulansın; sonraki bölümler aynı standardı izlesin.
+14. Kabul testleri
+Aşağıdaki 24 senaryoyu anlamlı davranış testleri ve gerçek çalışma incelemeleriyle kapsa:
+
+[TABLO]
+No
+Senaryo
+Beklenen sonuç
+01
+Yeni oyun
+Hareket ve ilk amaç kısa sürede anlaşılır.
+02
+Görsel bütünlük
+Dört karakter doğru görünür; gerekli animasyonlar ve sahne varlıkları tamamdır.
+03
+Havada Aion/Ömer geçişi
+Sonsuz zıplama, yükselme veya süzülme oluşmaz.
+04
+Kurt deparında geçiş
+Hız birikimi veya duvardan geçme oluşmaz.
+05
+Kuzu dar tünelde geçiş
+Güvenli geçiş veya anlaşılır erteleme vardır.
+06
+Hareketli platform
+Geçiş konumu ve kamera görünürlüğünü korur.
+07
+Tekrarlanan kurtarma olayı
+Tek birey, tek kayıt ve tek sonuç oluşur.
+08
+Kayıttan devam
+Oyuncu, görevler, açılan yollar ve hayvan durumları tutarlıdır.
+09
+Bozuk/eski kayıt
+Açılış kilitlenmez; anlaşılır kurtarma veya sürüm geçişi vardır.
+10
+Menü/diyalog girişi
+Arkada hareket, hasar veya istemsiz yetenek oluşmaz.
+11
+Odak kaybı
+Basılı kalan tuş ve kontrol takılması oluşmaz.
+12
+Çoklu dokunma
+Yön ve zıplama/yetenek birlikte çalışır.
+13
+Klavye/gamepad menüleri
+Başlat, duraklat, ayarlar ve devam erişilebilirdir.
+14
+TR/EN ve büyük metin
+Eksik anahtar, bozuk karakter ve kesilmiş içerik yoktur.
+15
+Sessiz/düşük efektli kullanım
+Temel bilgi ve tehlikeler anlaşılır kalır.
+16
+Kirlilik görevi
+Bilgi kartı açmadan neden kaynağa müdahale gerektiği görülür.
+17
+Kanıt görevi
+Kanıtsız iddia zorunlu onaylatılmaz.
+18
+Alternatif rota
+Erken bir engel farklı karakterle başka yoldan aşılabilir.
+19
+Tam hikâye
+On bölümün zorunlu hedefleri, çıkışları ve final çalışır.
+20
+Temiz paket
+Gerekli dosyalar vardır; paket belirtilen hedefe aittir.
+21
+Web güncellemesi
+Dosya sürümleri tutarlıdır ve ilerleme korunur.
+22
+Çevrimdışı kullanım iddiası
+PWA varsa çevrimdışı açılış ve güncelleme sınanmıştır.
+23
+Android arka plan dönüşü
+Kontrol, ses ve oyun durumu tutarlıdır.
+24
+Hikâye ve etik
+Vegan alternatif görevi uygulanabilir; kurtarma sonuçları ve final sonrası yaşam görünürdür.
+
+Yalnız dosya varlığını veya kendi kodunun formülünü tekrar eden testleri başarı kanıtı sayma. Headless testler gerçek görüntü, kontrol ve oynanış incelemesinin yerine geçmez.
+Hedef cihazlarda akıcı deneyim amaçla. Performans raporunda cihazı, işletim sistemini/tarayıcıyı, çözünürlüğü ve ölçülen sahneyi belirt. Tek güçlü bilgisayarın sonucunu bütün cihazlara genelleme.
+Aion Endless Run ile karşılaştırabiliyorsan hareket netliği, sıkılma, kontrol sorunu ve tekrar oynama isteğini ayrı değerlendir. Gerçek katılımcı yoksa oyuncu testi yapılmış gibi yazma. İnsan testi eksikliğini belirt ve bağımsız geliştirmeyi sürdür.
+15. Belgeler ve çalışma devamlılığı
+Depoda şu belgeleri oluştur veya uygun biçimde güncelle:
+•  GDD.md: Tek güncel oyun tasarım kaynağı.
+•  docs/IMPLEMENTATION_PLAN.md: Aşamalar ve somut işler.
+•  docs/PROGRESS.md: Tamamlanan işler, açık sorunlar ve devam noktası.
+•  docs/VALIDATION.md: Gerçek testler, ortamlar ve sonuçlar.
+•  README.md: Çalıştırma ve proje özeti.
+•  Uygun build, export ve dağıtım belgeleri.
+•  Varlık kaynakları ve ilgili lisans bildirimleri.
+İlerleme kaydında planlandı, uygulandı, derlendi, açıldı, senaryo tamamlandı, yayımlandı, test edilmedi ve engelli durumlarını ayır.
+Oturum sınırına gelirse gerçek ilerlemeyi, dosyaları, açık hataları ve tam sonraki işi kaydet. Yapılmamış arka plan çalışması veya kendiliğinden devam edecek süreç iddia etme.
+Rutin teknik kararları gerekçeli biçimde kendin ver. Aynı kapsam için sürekli izin isteyerek durma. Gerçek erişim, imza, çelişen kullanıcı kararı veya kapsamı aşan bir işlem varsa somut engeli açıkla; bağımsız işleri sürdür.
+16. Resmî teknik ve içerik kaynakları
+Seçtiğin sürüme ilişkin teknik kararları güncel resmî belgelerle kontrol et:
+•  Godot web export
+•  Godot Android export
+•  Godot Windows export
+•  Godot Linux export
+•  Vercel build yapılandırması
+•  Birleşmiş Milletler SDG amaçları
+•  Foundations of Game-Based Learning
+•  Games for Change
+Bu bağlantılar oyuna ekleyeceğin her bilimsel iddiayı otomatik doğrulamaz. Yeni bir gerçek iddia kullanıyorsan doğrudan ilgili kaynağını kontrol et.
+17. Son teslimde beklediğim sonuç
+Son raporunda şunları ver:
+1. Beş perde ve on bölümün gerçek tamamlanma durumu.
+2. Oyunun nasıl çalıştırılacağı ve kontroller.
+3. Varsa doğrulanmış web adresi ve dağıtım durumu.
+4. Gerçekte üretilen platform paketlerinin yolları.
+5. Hangi ortamda hangi senaryoların test edildiği.
+6. Bilinen hatalar ve test edilmemiş hedefler.
+7. Erişim veya imza engelleri.
+8. Devam gerekiyorsa tam sonraki uygulanabilir adım.
+Tamamlanma ölçütü yalnız projenin açılması değildir. Dört karakter, bütün hikâye, kurtarma ve öğrenme etkileşimleri, görsel bütünlük, kayıt, kontroller, diller ve platform teslimlerinin gerçek durumu birlikte değerlendirilmelidir.
+Şimdi hedef depoyu inceleyerek başla. Kısa planını oluştur ve aynı görev içinde ilk uygulanabilir Godot geliştirme adımını gerçekleştir. Bu talimatı yeniden özetleyip uygulamayı sonraki mesaja erteleme.

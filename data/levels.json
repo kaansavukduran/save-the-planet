@@ -1,0 +1,1615 @@
+[
+  {
+    "id": "a1l1",
+    "act": 1,
+    "title": [
+      "Sessiz Buluşma",
+      "The Quiet Meeting"
+    ],
+    "intro": [
+      "Aion: Her zamanki buluşmaya Duru gelmedi. Şu izler dereye gidiyor… Önce A/D ile yürü, Space ile zıpla. Kenardan düşersen yakındaki bayrağa dönersin.",
+      "Aion: Duru missed our usual meeting. These tracks lead to the stream… Walk with A/D and jump with Space. A fall returns you to a nearby flag."
+    ],
+    "biome": "meadow",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a1l1.noise_off",
+        "x": 420,
+        "y": 440,
+        "label": [
+          "Gürültülü fanı kapat",
+          "Turn off the noisy fan"
+        ],
+        "heroes": [],
+        "requires": [],
+        "reply": [
+          "Aion: Duru hâlâ bekliyor. Sessizlik yetmedi; yolu da açmalıyız.",
+          "Aion: Duru is still waiting. Quiet is not enough; we need a clear path too."
+        ],
+        "kind": "fan"
+      },
+      {
+        "id": "a1l1.path_open",
+        "x": 1050,
+        "y": 440,
+        "label": [
+          "Sıkışan bahçe kapısını aç",
+          "Open the garden gate"
+        ],
+        "heroes": [],
+        "requires": [
+          "a1l1.noise_off"
+        ],
+        "reply": [
+          "Duru kendi zamanında yürüyecek. Ona alan bırakalım.",
+          "Duru will walk in her own time. Let us give her space."
+        ],
+        "kind": "gate"
+      },
+      {
+        "id": "a1l1.lamb_joined",
+        "x": 1630,
+        "y": 440,
+        "label": [
+          "Kuzu ile konuş",
+          "Talk to Lamb"
+        ],
+        "heroes": [],
+        "requires": [
+          "a1l1.duru_arrived"
+        ],
+        "reply": [
+          "Kuzu: Beni taşımana gerek yok! Ben de karar vermek istiyorum. 3 ile beni seç, J ile takla at. Alçak geçitte büyük gövdeye geçişi çıkışta deneyelim.",
+          "Lamb: You do not have to carry me! I want to help decide. Select me with 3, then roll with J. Try a bigger body after the low tunnel."
+        ],
+        "kind": "friend",
+        "unlock": 2
+      },
+      {
+        "id": "a1l1.tracks",
+        "x": 3150,
+        "y": 440,
+        "label": [
+          "Gri Çark izlerini incele",
+          "Inspect the Grey Wheel tracks"
+        ],
+        "heroes": [],
+        "requires": [
+          "a1l1.lamb_joined"
+        ],
+        "reply": [
+          "Kuzu: Kapıları kapatan düzenek servis yoluna uzanıyor. Duru güvenli bahçeye vardı; biz izi takip edelim.",
+          "Lamb: The gate controls lead to the service road. Duru reached the safe garden; let us follow the trail."
+        ],
+        "kind": "record"
+      }
+    ],
+    "required": [
+      "a1l1.duru_arrived",
+      "a1l1.lamb_joined",
+      "a1l1.tracks"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        2600,
+        180
+      ],
+      [
+        2740,
+        440,
+        1060,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        2520,
+        365,
+        130,
+        20
+      ],
+      [
+        2650,
+        385,
+        100,
+        20
+      ]
+    ],
+    "hazards": [],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "tunnel": [
+      1940,
+      362,
+      150,
+      44
+    ],
+    "animal": {
+      "id": "duru",
+      "from": 700,
+      "to": 1450,
+      "requires": [
+        "a1l1.noise_off",
+        "a1l1.path_open"
+      ],
+      "arrived": "a1l1.duru_arrived",
+      "habitat": "care"
+    },
+    "gates": [
+      {
+        "flag": "a1l1.path_open",
+        "rect": [
+          1100,
+          372,
+          22,
+          68
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a1l2",
+    "act": 1,
+    "title": [
+      "Açılan Kapı",
+      "The Opening Gate"
+    ],
+    "intro": [
+      "Kuzu: Burası servis yolu. Çalışanın bıraktığı işaretler güvenli aralıkları gösteriyor. Sarı üçgen uyarıdır; kırmızı çizgili makineye yaklaşma.",
+      "Lamb: This is the service road. A worker left signs for the safe intervals. A yellow triangle is a warning; avoid red striped machinery."
+    ],
+    "biome": "workshop",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a1l2.wolf_joined",
+        "x": 400,
+        "y": 440,
+        "label": [
+          "Kurt ile servis kapağını aç",
+          "Open the service hatch with Wolf"
+        ],
+        "heroes": [],
+        "requires": [],
+        "reply": [
+          "Kurt: Gücümü birini korkutmak için kullanmam. Kapak açık; ben de geliyorum. 2 ve J ile kısa depar yapabilirsin.",
+          "Wolf: My strength is not for frightening anyone. The hatch is open; I am coming too. Use 2 and J for a short dash."
+        ],
+        "kind": "friend",
+        "unlock": 1
+      },
+      {
+        "id": "a1l2.owl_joined",
+        "x": 850,
+        "y": 440,
+        "label": [
+          "Ömer ile yolu gözle",
+          "Scout the route with Ömer"
+        ],
+        "heroes": [],
+        "requires": [],
+        "reply": [
+          "Ömer: Üst yol açık görünüyor. 4 ile beni seç; havada Space basılıyken kısa süre süzülürüm. Sonsuza kadar değil, dinlenmeye ihtiyacım var!",
+          "Ömer: The upper route looks clear. Select me with 4 and hold Space while falling to glide briefly. Not forever; I need rest too!"
+        ],
+        "kind": "friend",
+        "unlock": 3
+      },
+      {
+        "id": "a1l2.barrier_open",
+        "x": 1580,
+        "y": 440,
+        "label": [
+          "Ağır bariyeri aç: Kurt / J",
+          "Open the heavy barrier: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [],
+        "reply": [
+          "Kurt: Alt yolu açtım. Aion ve Ömer üstteki basamaklardan da geçebilir; iki yol aynı çıkışa varır.",
+          "Wolf: The lower route is open. Aion and Ömer can also use the steps above; both routes reach the same exit."
+        ],
+        "kind": "hatch",
+        "sets": [
+          "a1l2.route_crossed"
+        ]
+      },
+      {
+        "id": "a1l2.escape_ready",
+        "x": 3100,
+        "y": 440,
+        "label": [
+          "Tahliye yolunu aç",
+          "Open the evacuation path"
+        ],
+        "heroes": [],
+        "requires": [
+          "a1l2.route_crossed"
+        ],
+        "reply": [
+          "Çalışan Deniz: Ben de bu kapılardan rahatsızdım. Yaşam alanına kadar ışıkları açık tutacağım. İnsanların hepsi aynı kararı vermiyor.",
+          "Worker Deniz: These gates troubled me too. I will keep the path lit to the sanctuary. People do not all make the same choices."
+        ],
+        "kind": "lever"
+      }
+    ],
+    "required": [
+      "a1l2.wolf_joined",
+      "a1l2.owl_joined",
+      "a1l2.route_crossed",
+      "a1l2.escape_ready"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        3800,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1280,
+        372,
+        140,
+        20
+      ],
+      [
+        1450,
+        312,
+        140,
+        20
+      ],
+      [
+        1630,
+        270,
+        160,
+        20
+      ],
+      [
+        1830,
+        335,
+        140,
+        20
+      ]
+    ],
+    "hazards": [
+      [
+        2810,
+        414,
+        60,
+        26
+      ]
+    ],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "gates": [
+      {
+        "flag": "a1l2.barrier_open",
+        "rect": [
+          1680,
+          330,
+          28,
+          110
+        ]
+      }
+    ],
+    "route_threshold": 1750,
+    "tunnel": [
+      2250,
+      362,
+      145,
+      44
+    ]
+  },
+  {
+    "id": "a2l1",
+    "act": 2,
+    "title": [
+      "Geri Dönen Kirlilik",
+      "Pollution Returns"
+    ],
+    "intro": [
+      "Aion: Derenin üstünde yine atık var. J ile görünen atığı kenara alabilirim. Ama su neden yeniden renk değiştiriyor? Yukarıdaki boruyu izleyelim.",
+      "Aion: Waste is floating here again. I can move it aside with J. But why does the water change colour again? Let us follow the upstream pipe."
+    ],
+    "biome": "river",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a2l1.waste_moved",
+        "x": 500,
+        "y": 440,
+        "label": [
+          "Görünen atığı kaldır: Aion / J",
+          "Move visible waste: Aion / J"
+        ],
+        "heroes": [
+          0
+        ],
+        "requires": [],
+        "reply": [
+          "Aion: Görünen atık gitti… ama çalışan borudan yenisi geliyor. Kaynağı durdurmadan bitiremeyiz.",
+          "Aion: The visible waste is gone… but more comes from the running pipe. We cannot finish until the source stops."
+        ],
+        "kind": "water"
+      },
+      {
+        "id": "a2l1.source_found",
+        "x": 1510,
+        "y": 440,
+        "label": [
+          "Boru hattını izle",
+          "Trace the pipe"
+        ],
+        "heroes": [],
+        "requires": [
+          "a2l1.waste_moved"
+        ],
+        "reply": [
+          "Üretici Ece: Akışı durdurmak için servis vanası yukarıda. Sorunu gizlemek yerine onarımı birlikte planlayalım.",
+          "Producer Ece: The service valve is upstream. Let us plan repairs together instead of hiding the problem."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a2l1.source_stopped",
+        "x": 2580,
+        "y": 440,
+        "label": [
+          "Atık kaynağını kapat: Kurt / J",
+          "Close the waste source: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [
+          "a2l1.source_found"
+        ],
+        "reply": [
+          "Aion: Artık yeni atık gelmiyor. Nehir henüz içilebilir değil. Sonraki adım arıtma ve izleme.",
+          "Aion: No new waste is entering. The river is not drinking water yet. Treatment and monitoring come next."
+        ],
+        "kind": "valve"
+      },
+      {
+        "id": "a2l1.observation",
+        "x": 3260,
+        "y": 440,
+        "label": [
+          "Akıştaki değişimi gözle",
+          "Observe the changed flow"
+        ],
+        "heroes": [],
+        "requires": [
+          "a2l1.source_stopped"
+        ],
+        "reply": [
+          "Ömer: Belirtiyi kaldırmak ile nedeni değiştirmek farklı işler. Bugün burada gördüğümüz, yeni atığın kesilmesi.",
+          "Ömer: Removing a symptom and changing its cause are different actions. What we observed here is that new waste stopped."
+        ],
+        "kind": "record"
+      }
+    ],
+    "required": [
+      "a2l1.source_stopped",
+      "a2l1.observation"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [
+      [
+        2810,
+        414,
+        65,
+        26
+      ]
+    ],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "water": [
+      350,
+      438,
+      2430,
+      70
+    ]
+  },
+  {
+    "id": "a2l2",
+    "act": 2,
+    "title": [
+      "Nehrin Geçidi",
+      "The River Crossing"
+    ],
+    "intro": [
+      "Deniz: Zararlı hat kesildi. Şimdi yönlendirme, filtre, bekleme ve kontrol var. Bu düzenek oyundaki bir model; gerçek suyun güvenliği uzman ölçümü gerektirir.",
+      "Deniz: The harmful line is isolated. Now we divert, filter, wait and inspect. This mechanism is a game model; real water safety requires expert testing."
+    ],
+    "biome": "river",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a2l2.flow_diverted",
+        "x": 500,
+        "y": 440,
+        "label": [
+          "Akışı yönlendir: Aion / J",
+          "Divert flow: Aion / J"
+        ],
+        "heroes": [
+          0
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "water"
+      },
+      {
+        "id": "a2l2.filter_on",
+        "x": 1210,
+        "y": 440,
+        "label": [
+          "Filtre kapağını aç: Kurt / J",
+          "Open the filter housing: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [
+          "a2l2.flow_diverted"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a2l2.monitor_started",
+        "x": 2350,
+        "y": 440,
+        "label": [
+          "Arıtmayı başlat",
+          "Start treatment"
+        ],
+        "heroes": [],
+        "requires": [
+          "a2l2.filter_on"
+        ],
+        "reply": [
+          "Ömer: Gösterge dolarken bekleyelim. Bu, anında iyileşme değil. Bakım sistemi çalışmayı sürdürüyor.",
+          "Ömer: Let us wait for the indicator. This is not instant recovery. The care system remains running."
+        ],
+        "kind": "valve",
+        "timer": 4.0,
+        "timer_flag": "a2l2.treatment_ready"
+      },
+      {
+        "id": "a2l2.crossing_safe",
+        "x": 3220,
+        "y": 440,
+        "label": [
+          "Geçişi denetle: Ömer / J",
+          "Inspect the crossing: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [
+          "a2l2.treatment_ready"
+        ],
+        "reply": [
+          "Ömer: Platform ve korkuluk güvenli. Bu geçiş onayı; içme suyu onayı değil.",
+          "Ömer: The platform and railing are safe. This approves the crossing, not drinking water."
+        ],
+        "kind": "record"
+      }
+    ],
+    "required": [
+      "a2l2.flow_diverted",
+      "a2l2.filter_on",
+      "a2l2.crossing_safe"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "moving": [
+      [
+        1910,
+        360,
+        120,
+        20,
+        120,
+        0
+      ]
+    ],
+    "water": [
+      1600,
+      450,
+      950,
+      60
+    ]
+  },
+  {
+    "id": "a3l1",
+    "act": 3,
+    "title": [
+      "Bölünmüş Orman",
+      "The Divided Forest"
+    ],
+    "intro": [
+      "Kurt: Çitin öte yanında orman var ama yaban geçidi kapanmış. Yaklaşmamız şart değil. Uzakta kalarak koridoru açabiliriz.",
+      "Wolf: The forest continues beyond the fence, but the wildlife passage is blocked. We do not need to approach the animal. We can open a corridor from a distance."
+    ],
+    "biome": "forest",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a3l1.traces",
+        "x": 480,
+        "y": 440,
+        "label": [
+          "Kesilen yaban yolunu incele",
+          "Inspect the interrupted wildlife trail"
+        ],
+        "heroes": [],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a3l1.passage_open",
+        "x": 1550,
+        "y": 440,
+        "label": [
+          "Ağır engeli kaldır: Kurt / J",
+          "Lift the heavy obstruction: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [
+          "a3l1.traces"
+        ],
+        "reply": [
+          "Kurt: Alt geçit açık. Üstteki parkurdan servis koluna ulaşmak da mümkün. Hayvanın yoluna girmeyelim.",
+          "Wolf: The underpass is open. The service handle is also reachable over the platforms. Stay out of the animal’s path."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a3l1.passage_open",
+        "x": 2370,
+        "y": 440,
+        "label": [
+          "Üst servis kolunu indir",
+          "Lower the upper service handle"
+        ],
+        "heroes": [],
+        "requires": [
+          "a3l1.traces"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "lever"
+      },
+      {
+        "id": "a3l1.native_seed",
+        "x": 2800,
+        "y": 440,
+        "label": [
+          "İşaretli yatağa yerel tohum bırak: Kuzu / J",
+          "Plant local seeds in the marked bed: Lamb / J"
+        ],
+        "heroes": [
+          2
+        ],
+        "requires": [
+          "a3l1.passage_open"
+        ],
+        "reply": [
+          "Kuzu: İşaretli yatağa bıraktım. Bu bir onarım adımı; orman bir anda büyümez. Yaban yolunu kapatmıyoruz.",
+          "Lamb: They are in the marked bed. This is one restoration step; a forest does not grow instantly. The wildlife path stays clear."
+        ],
+        "kind": "seed"
+      },
+      {
+        "id": "a3l1.distance_kept",
+        "x": 3200,
+        "y": 440,
+        "label": [
+          "Uzaktaki gözlem noktasına geç",
+          "Move to the distant observation point"
+        ],
+        "heroes": [],
+        "requires": [
+          "a3l1.passage_open"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "record"
+      }
+    ],
+    "required": [
+      "a3l1.passage_open",
+      "a3l1.wild_arrived"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        3800,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1280,
+        365,
+        160,
+        20
+      ],
+      [
+        1460,
+        300,
+        160,
+        20
+      ],
+      [
+        1650,
+        240,
+        160,
+        20
+      ],
+      [
+        1860,
+        305,
+        160,
+        20
+      ],
+      [
+        2080,
+        360,
+        160,
+        20
+      ]
+    ],
+    "hazards": [],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "animal": {
+      "id": "forest_fox",
+      "from": 2650,
+      "to": 3460,
+      "requires": [
+        "a3l1.passage_open",
+        "a3l1.distance_kept"
+      ],
+      "arrived": "a3l1.wild_arrived",
+      "habitat": "forest"
+    },
+    "gates": [
+      {
+        "flag": "a3l1.passage_open",
+        "rect": [
+          1710,
+          320,
+          28,
+          120
+        ]
+      }
+    ]
+  },
+  {
+    "id": "a3l2",
+    "act": 3,
+    "title": [
+      "Korkunun Adı",
+      "The Name of Fear"
+    ],
+    "intro": [
+      "Kuzu: Yuva burada kalmalı. Tehlikeyi kaldıralım; hayvanı evinden etmeyelim. Kurt uzaktaki şalteri açabilir, Ömer servis kaydını izleyebilir.",
+      "Lamb: The nest belongs here. Remove the hazard without moving the animal away. Wolf can use the remote switch, or Ömer can trace the service record."
+    ],
+    "biome": "forest",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a3l2.machine_safe",
+        "x": 710,
+        "y": 440,
+        "label": [
+          "Mekanik ayırıcı: Kurt / J",
+          "Mechanical isolator: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a3l2.machine_safe",
+        "x": 1270,
+        "y": 440,
+        "label": [
+          "Uzaktan güvenlik kolu: Ömer / J",
+          "Remote safety lever: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a3l2.corridor_open",
+        "x": 2540,
+        "y": 440,
+        "label": [
+          "Yuvaya giden koridoru aç",
+          "Open the corridor to the nest"
+        ],
+        "heroes": [],
+        "requires": [
+          "a3l2.machine_safe"
+        ],
+        "reply": [
+          "Kurt: Benden korkan biri de güvende yaşamalı. Yuvaya yaklaşmayacağım.",
+          "Wolf: Someone afraid of me deserves safety too. I will stay away from the nest."
+        ],
+        "kind": "gate"
+      }
+    ],
+    "required": [
+      "a3l2.machine_safe",
+      "a3l2.corridor_open",
+      "a3l2.wild_arrived"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [
+      [
+        1460,
+        414,
+        80,
+        26
+      ],
+      [
+        2250,
+        414,
+        80,
+        26
+      ]
+    ],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "hazard_disable": "a3l2.machine_safe",
+    "animal": {
+      "id": "nest_resident",
+      "from": 2760,
+      "to": 3370,
+      "requires": [
+        "a3l2.machine_safe",
+        "a3l2.corridor_open"
+      ],
+      "arrived": "a3l2.wild_arrived",
+      "habitat": "nest"
+    }
+  },
+  {
+    "id": "a4l1",
+    "act": 4,
+    "title": [
+      "Yeşil Vitrin",
+      "The Green Showcase"
+    ],
+    "intro": [
+      "Yönetici: Yeni yeşil etiketimiz her şeyi çözdü! Ömer: Etiketin kapsamı ne? Sahadaki kayıtların kaynak, tarih, birim ve kapsamına bakalım.",
+      "Manager: Our new green label solved everything! Ömer: What does it cover? Let us inspect source, date, unit and scope in the field records."
+    ],
+    "biome": "town",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a4l1.claim_read",
+        "x": 430,
+        "y": 440,
+        "label": [
+          "Vitrindeki iddiayı oku",
+          "Read the showcase claim"
+        ],
+        "heroes": [],
+        "requires": [],
+        "reply": [
+          "Kurgu ilan · Gri Çark, 12.11.2026: “Tüm tesis temiz.” Ölçü ve kapsam belirtilmemiş. Bu oyuna ait kurgu kaydıdır.",
+          "Fictional sign · Grey Wheel, 12 Nov 2026: “The entire plant is clean.” No metric or scope is given. This is a fictional game record."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a4l1.log_read",
+        "x": 1390,
+        "y": 440,
+        "label": [
+          "Saha kaydı: Ömer / J",
+          "Field log: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [
+          "a4l1.claim_read"
+        ],
+        "reply": [
+          "Kurgu saha kaydı · Deniz, 10.11.2026: doğu hattı 2 saat durdu; birim: saat; kapsam: yalnız doğu hattı. Batı hattına ilişkin ölçüm yok.",
+          "Fictional field log · Deniz, 10 Nov 2026: eastern line stopped for 2 hours; unit: hours; scope: eastern line only. No western line measurement."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a4l1.archive_read",
+        "x": 2480,
+        "y": 440,
+        "label": [
+          "Bakım defterini incele",
+          "Inspect the maintenance ledger"
+        ],
+        "heroes": [],
+        "requires": [
+          "a4l1.log_read"
+        ],
+        "reply": [
+          "Araştırmacı İpek: Bu defter yalnız bakım tarihlerini içeriyor. Tesisin tümü için çevresel sonuç çıkaramayız. Eksik bilgiyi açıkça yazalım.",
+          "Researcher İpek: This ledger records maintenance dates only. It cannot establish the environmental state of the entire plant. Let us state what is missing."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a4l1.insufficient_evidence",
+        "x": 3270,
+        "y": 440,
+        "label": [
+          "Kayıtları yan yana karşılaştır",
+          "Compare the records side by side"
+        ],
+        "heroes": [],
+        "requires": [
+          "a4l1.claim_read",
+          "a4l1.log_read",
+          "a4l1.archive_read"
+        ],
+        "reply": [
+          "Ömer: İlan bütün tesisi kapsıyor, kayıt tek hattı. Sonuç: yeterli bilgi yok. İddiayı onaylamadan kıyıya gidebiliriz.",
+          "Ömer: The sign covers the whole plant; the record covers one line. Conclusion: insufficient information. We can continue without endorsing the claim."
+        ],
+        "kind": "record"
+      }
+    ],
+    "required": [
+      "a4l1.insufficient_evidence"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "moving": [
+      [
+        1910,
+        360,
+        120,
+        20,
+        110,
+        0
+      ]
+    ]
+  },
+  {
+    "id": "a4l2",
+    "act": 4,
+    "title": [
+      "Sessiz Kıyı",
+      "The Quiet Shore"
+    ],
+    "intro": [
+      "Bakım görevlisi Aslı: Dolaşmış hayvana doğrudan müdahaleyi ben üstleneceğim. Siz enerji beslemesini ayırın, çalışma alanını güvenli hâle getirin. Kırmızı dişlileri izleyin; içleri boşken güvenli aralık başlar.",
+      "Carer Aslı: I will handle direct care for the entangled animal. Isolate the energy supply and make the workspace safe. Watch the red gears; the safe interval begins when their centres go dark."
+    ],
+    "biome": "coast",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a4l2.mechanism_stopped",
+        "x": 650,
+        "y": 440,
+        "label": [
+          "Enerjiyi ayır: Aion / J",
+          "Isolate power: Aion / J"
+        ],
+        "heroes": [
+          0
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "water"
+      },
+      {
+        "id": "a4l2.inner_latch",
+        "x": 1510,
+        "y": 440,
+        "label": [
+          "İç kilit: Kuzu / J",
+          "Inner latch: Lamb / J"
+        ],
+        "heroes": [
+          2
+        ],
+        "requires": [
+          "a4l2.mechanism_stopped"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a4l2.care_zone_safe",
+        "x": 2530,
+        "y": 440,
+        "label": [
+          "Bakım alanını koru: Ömer / J",
+          "Secure the care zone: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [
+          "a4l2.inner_latch"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a4l2.animal_in_care",
+        "x": 3270,
+        "y": 440,
+        "label": [
+          "Aslı’ya güvenli alanı bildir",
+          "Tell Aslı the area is safe"
+        ],
+        "heroes": [],
+        "requires": [
+          "a4l2.mechanism_stopped",
+          "a4l2.care_zone_safe"
+        ],
+        "reply": [
+          "Aslı: Bakım başladı. İyileşme zaman alabilir; şimdi tamamen iyileştiğini söyleyemeyiz. Ona sessiz bir alan bırakıyoruz.",
+          "Aslı: Care has begun. Recovery may take time; we cannot say the animal is fully healed now. We are leaving a quiet space."
+        ],
+        "kind": "care"
+      }
+    ],
+    "required": [
+      "a4l2.mechanism_stopped",
+      "a4l2.care_zone_safe",
+      "a4l2.animal_in_care"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [
+      [
+        980,
+        414,
+        70,
+        26
+      ],
+      [
+        2180,
+        414,
+        70,
+        26
+      ]
+    ],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "tunnel": [
+      1360,
+      362,
+      155,
+      44
+    ],
+    "hazard_disable": "a4l2.mechanism_stopped",
+    "water": [
+      1700,
+      450,
+      700,
+      70
+    ],
+    "wind": [
+      [
+        1710,
+        225,
+        330,
+        215
+      ]
+    ]
+  },
+  {
+    "id": "a5l1",
+    "act": 5,
+    "title": [
+      "Birlikte Hazırlık",
+      "Preparing Together"
+    ],
+    "intro": [
+      "Deniz: Zararlı hattı kapatırken bakımın elektriğini kesmeyelim. İpek kayıtları izleyecek; Ece geçidi tutacak. Ortak sofrada da kimsenin sömürüsünü gerektirmeyen bir seçenek hazırlayabiliriz.",
+      "Deniz: Let us isolate the harmful line without cutting power to care. İpek will monitor records; Ece will keep the passage clear. We can also prepare a shared meal that requires no animal exploitation."
+    ],
+    "biome": "workshop",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a5l1.safe_exit_ready",
+        "x": 490,
+        "y": 440,
+        "label": [
+          "Güvenli çıkışı hazırla: Kurt / J",
+          "Prepare the safe exit: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a5l1.harmful_line_isolated",
+        "x": 1300,
+        "y": 440,
+        "label": [
+          "Zararlı hattı ayır: Aion / J",
+          "Isolate the harmful line: Aion / J"
+        ],
+        "heroes": [
+          0
+        ],
+        "requires": [],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "water"
+      },
+      {
+        "id": "a5l1.care_system_active",
+        "x": 2490,
+        "y": 440,
+        "label": [
+          "Bakım hattını doğrula: Ömer / J",
+          "Verify care power: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [
+          "a5l1.harmful_line_isolated"
+        ],
+        "reply": [
+          "Deniz: Zararlı hat kapalı; bakım pompasının ayrı beslemesi çalışıyor. Kapatmak kadar neyin sürmesi gerektiğini bilmek de önemli.",
+          "Deniz: The harmful line is off; the care pump has separate power. Knowing what must continue matters too."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a5l1.plant_meal_ready",
+        "x": 3250,
+        "y": 440,
+        "label": [
+          "Sofrada mercimekli seçeneği uygula",
+          "Serve the lentil meal at the table"
+        ],
+        "heroes": [],
+        "requires": [
+          "a5l1.care_system_active"
+        ],
+        "reply": [
+          "Kuzu: Hayvansal malzeme yerine mercimekli yemeği ben seçtim. Ece: Herkesin paylaşabildiği sofra hazır! Kurt: İnsanların vegan seçimi, benim doğal beslenmemi tanımlamaz.",
+          "Lamb: I chose the lentil dish instead of animal ingredients. Ece: Our shared meal is ready! Wolf: A vegan choice for people does not define my natural diet."
+        ],
+        "kind": "meal"
+      }
+    ],
+    "required": [
+      "a5l1.safe_exit_ready",
+      "a5l1.harmful_line_isolated",
+      "a5l1.care_system_active",
+      "a5l1.plant_meal_ready"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ]
+  },
+  {
+    "id": "a5l2",
+    "act": 5,
+    "title": [
+      "Birlikte Açılan Yol",
+      "The Way We Open Together"
+    ],
+    "intro": [
+      "Ömer: Gri Çark üç aşamalı. Önce hareket düzenini gözle, sonra alt sistemleri durdur, en son açık çıkışı koru. Acele bir tuş dizisi gerekmiyor. Güvenli adalarda bekleyebiliriz.",
+      "Ömer: The Grey Wheel has three stages. Observe its pattern, stop its subsystems, then protect the exit. No rapid button sequence is needed. We can wait on safe islands."
+    ],
+    "biome": "finale",
+    "length": 3800,
+    "actions": [
+      {
+        "id": "a5l2.pattern_observed",
+        "x": 490,
+        "y": 440,
+        "label": [
+          "1 · Hareket düzenini gözle: Ömer / J",
+          "1 · Observe the pattern: Ömer / J"
+        ],
+        "heroes": [
+          3
+        ],
+        "requires": [],
+        "reply": [
+          "Ömer: Sarı üçgen uyarıyor; dolu kırmızı çark çalışıyor, içi boş çark duruyor. Her döngüde güvenli bir aralık var.",
+          "Ömer: Yellow triangles warn; a solid red gear is active, an empty gear is stopped. Each cycle has a safe interval."
+        ],
+        "kind": "record"
+      },
+      {
+        "id": "a5l2.flow_rerouted",
+        "x": 1240,
+        "y": 440,
+        "label": [
+          "2 · Akışı ayır: Aion / J",
+          "2 · Reroute flow: Aion / J"
+        ],
+        "heroes": [
+          0
+        ],
+        "requires": [
+          "a5l2.pattern_observed"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "water"
+      },
+      {
+        "id": "a5l2.inner_system_stopped",
+        "x": 2270,
+        "y": 440,
+        "label": [
+          "2 · İç geçitteki alt sistemi durdur: Kuzu / J",
+          "2 · Stop the inner subsystem: Lamb / J"
+        ],
+        "heroes": [
+          2
+        ],
+        "requires": [
+          "a5l2.flow_rerouted"
+        ],
+        "reply": [
+          "Yol şimdi daha güvenli.",
+          "The route is safer now."
+        ],
+        "kind": "hatch"
+      },
+      {
+        "id": "a5l2.exit_protected",
+        "x": 3180,
+        "y": 440,
+        "label": [
+          "3 · Son çıkışı açık tut: Kurt / J",
+          "3 · Protect the final exit: Wolf / J"
+        ],
+        "heroes": [
+          1
+        ],
+        "requires": [
+          "a5l2.inner_system_stopped"
+        ],
+        "reply": [
+          "Kurt: Çıkış açık. Kuzu: Burada bekleyip son geçişi ben izleyeceğim. Aion: Birlikte değiştirdiğimiz yol artık herkes için açık!",
+          "Wolf: The exit is open. Lamb: I will stay and watch the last crossing. Aion: The way we changed together is open for everyone!"
+        ],
+        "kind": "hatch"
+      }
+    ],
+    "required": [
+      "a5l2.pattern_observed",
+      "a5l2.flow_rerouted",
+      "a5l2.inner_system_stopped",
+      "a5l2.exit_protected"
+    ],
+    "ground": [
+      [
+        0,
+        440,
+        1900,
+        180
+      ],
+      [
+        2030,
+        440,
+        1770,
+        180
+      ]
+    ],
+    "platforms": [
+      [
+        1790,
+        365,
+        130,
+        20
+      ],
+      [
+        1950,
+        370,
+        120,
+        20
+      ],
+      [
+        2380,
+        355,
+        160,
+        20
+      ],
+      [
+        2660,
+        300,
+        140,
+        20
+      ]
+    ],
+    "hazards": [
+      [
+        880,
+        414,
+        80,
+        26
+      ],
+      [
+        1710,
+        414,
+        70,
+        26
+      ],
+      [
+        2800,
+        414,
+        70,
+        26
+      ]
+    ],
+    "checkpoints": [
+      950,
+      2180,
+      3200
+    ],
+    "hazard_disable": "a5l2.inner_system_stopped",
+    "tunnel": [
+      2100,
+      362,
+      170,
+      44
+    ],
+    "moving": [
+      [
+        1910,
+        350,
+        120,
+        20,
+        95,
+        0
+      ]
+    ],
+    "wind": [
+      [
+        1780,
+        200,
+        210,
+        240
+      ]
+    ]
+  }
+]

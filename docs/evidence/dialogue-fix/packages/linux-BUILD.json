@@ -1,0 +1,8 @@
+{
+  "game_version": "0.4.4",
+  "engine": "4.6.3.stable.official.7d41c59c4",
+  "source_commit": "808f1633dadf7868bc471cceb1b31231552effa0",
+  "target": "Linux",
+  "executable_sha256": "5fa6c9d49376f53ea87e4bcf5ad5536d0b4ec2aca5bdbff7e7227f3a7135801f",
+  "working_tree_dirty": false
+}

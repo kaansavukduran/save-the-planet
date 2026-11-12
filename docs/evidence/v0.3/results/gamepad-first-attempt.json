@@ -1,0 +1,506 @@
+{
+  "checks": [
+    {
+      "check": "Chapter a1l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a1l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l2",
+      "pass": true
+    },
+    {
+      "check": "Sanctuary traversed",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a3l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2.corridor_open",
+      "pass": false
+    }
+  ],
+  "errors": [
+    "Interaction failed a3l2.corridor_open {'active': 0, 'completed': [0, 1, 2, 3, 4], 'cooldown': 0, 'flags': {'a1l1.duru_arrived': True, 'a1l1.lamb_joined': True, 'a1l1.noise_off': True, 'a1l1.path_open': True, 'a1l1.tracks': True, 'a1l2.barrier_open': True, 'a1l2.escape_ready': True, 'a1l2.owl_joined': True, 'a1l2.route_crossed': True, 'a1l2.wolf_joined': True, 'a2l1.observation': True, 'a2l1.source_found': True, 'a2l1.source_stopped': True, 'a2l1.waste_moved': True, 'a2l2.crossing_safe': True, 'a2l2.filter_on': True, 'a2l2.flow_diverted': True, 'a2l2.monitor_started': True, 'a2l2.treatment_ready': True, 'a3l1.distance_kept': True, 'a3l1.native_seed': True, 'a3l1.passage_open': True, 'a3l1.traces': True, 'a3l1.wild_arrived': True, 'a3l2.machine_safe': True}, 'floor': True, 'focus': '', 'glide': 1.4, 'hub': False, 'input_method': 'gamepad', 'level': 5, 'menu': '', 'performance': {'draw_calls': 176, 'fps': 12, 'static_memory_bytes': 28586716}, 'shape_height': 54, 'storage_error': False, 'storage_paused': False, 'unlocked': [0, 2, 1, 3], 'vx': 0, 'vy': 0, 'x': 2449.26391601562, 'y': 439.925262451172}"
+  ],
+  "input": "gamepad",
+  "physical_gamepad": false,
+  "snapshots": [
+    {
+      "active": 0,
+      "completed": [],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "gamepad",
+      "level": 0,
+      "menu": "",
+      "performance": {
+        "draw_calls": 154,
+        "fps": 13,
+        "static_memory_bytes": 26696968
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3764.58349609375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 2,
+      "completed": [
+        0
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "gamepad",
+      "level": 1,
+      "menu": "",
+      "performance": {
+        "draw_calls": 130,
+        "fps": 12,
+        "static_memory_bytes": 27009212
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3737.0810546875,
+      "y": 439.925262451172
+    },
+    {
+      "active": 1,
+      "completed": [
+        0,
+        1
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "gamepad",
+      "level": 2,
+      "menu": "",
+      "performance": {
+        "draw_calls": 164,
+        "fps": 12,
+        "static_memory_bytes": 27621712
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3761.755859375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 3,
+      "completed": [
+        0,
+        1,
+        2
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "gamepad",
+      "level": 3,
+      "menu": "",
+      "performance": {
+        "draw_calls": 163,
+        "fps": 12,
+        "static_memory_bytes": 27920652
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3733.8427734375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 2,
+      "completed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "gamepad",
+      "level": 4,
+      "menu": "",
+      "performance": {
+        "draw_calls": 177,
+        "fps": 11,
+        "static_memory_bytes": 28445404
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3767.60473632812,
+      "y": 439.925262451172
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "viewport": [
+    1152,
+    648
+  ],
+  "renderer": "Chromium SwiftShader WebGL2",
+  "wall_seconds": 264.7425649880006
+}

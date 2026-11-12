@@ -1,0 +1,1083 @@
+{
+  "checks": [
+    {
+      "check": "Chapter a1l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a1l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l2",
+      "pass": true
+    },
+    {
+      "check": "Sanctuary traversed",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a2l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "Walked to a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a2l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a3l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a3l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "Walked to a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a3l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a4l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a4l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a4l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "Walked to a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a4l2",
+      "pass": true
+    },
+    {
+      "check": "Chapter a5l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a5l1",
+      "pass": true
+    },
+    {
+      "check": "Chapter a5l2 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "Walked to a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a5l2",
+      "pass": true
+    },
+    {
+      "check": "Final story_complete in actual browser",
+      "pass": true
+    },
+    {
+      "check": "Interactive epilogue in actual browser",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves all world facts",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves completed chapters",
+      "pass": true
+    },
+    {
+      "check": "Continue restores the expected destination",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "input": "keyboard",
+  "physical_gamepad": false,
+  "snapshots": [
+    {
+      "active": 0,
+      "completed": [],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 0,
+      "menu": "",
+      "performance": {
+        "draw_calls": 156,
+        "fps": 12,
+        "static_memory_bytes": 26636710
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3745.83618164062,
+      "y": 439.925262451172
+    },
+    {
+      "active": 2,
+      "completed": [
+        0
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 1,
+      "menu": "",
+      "performance": {
+        "draw_calls": 132,
+        "fps": 12,
+        "static_memory_bytes": 26904922
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3748.33178710938,
+      "y": 439.925262451172
+    },
+    {
+      "active": 1,
+      "completed": [
+        0,
+        1
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 2,
+      "menu": "",
+      "performance": {
+        "draw_calls": 166,
+        "fps": 15,
+        "static_memory_bytes": 27423498
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3745.0966796875,
+      "y": 439.925262451172
+    },
+    {
+      "active": 3,
+      "completed": [
+        0,
+        1,
+        2
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 3,
+      "menu": "",
+      "performance": {
+        "draw_calls": 163,
+        "fps": 13,
+        "static_memory_bytes": 27677710
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3720.07788085938,
+      "y": 439.925262451172
+    },
+    {
+      "active": 2,
+      "completed": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 4,
+      "menu": "",
+      "performance": {
+        "draw_calls": 177,
+        "fps": 13,
+        "static_memory_bytes": 27943306
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3746.85546875,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 5,
+      "menu": "",
+      "performance": {
+        "draw_calls": 160,
+        "fps": 15,
+        "static_memory_bytes": 28351526
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3726.34521484375,
+      "y": 439.925262451172
+    },
+    {
+      "active": 0,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 6,
+      "menu": "",
+      "performance": {
+        "draw_calls": 123,
+        "fps": 15,
+        "static_memory_bytes": 28548874
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3717.24975585938,
+      "y": 439.925262451172
+    },
+    {
+      "active": 3,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 7,
+      "menu": "",
+      "performance": {
+        "draw_calls": 165,
+        "fps": 23,
+        "static_memory_bytes": 28747454
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3717.34497070312,
+      "y": 439.925262451172
+    },
+    {
+      "active": 3,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true,
+        "a5l1.care_system_active": true,
+        "a5l1.harmful_line_isolated": true,
+        "a5l1.plant_meal_ready": true,
+        "a5l1.safe_exit_ready": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 8,
+      "menu": "",
+      "performance": {
+        "draw_calls": 123,
+        "fps": 26,
+        "static_memory_bytes": 28915556
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3722.59497070312,
+      "y": 439.925262451172
+    },
+    {
+      "active": 1,
+      "completed": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true,
+        "a1l2.barrier_open": true,
+        "a1l2.escape_ready": true,
+        "a1l2.owl_joined": true,
+        "a1l2.route_crossed": true,
+        "a1l2.wolf_joined": true,
+        "a2l1.observation": true,
+        "a2l1.source_found": true,
+        "a2l1.source_stopped": true,
+        "a2l1.waste_moved": true,
+        "a2l2.crossing_safe": true,
+        "a2l2.filter_on": true,
+        "a2l2.flow_diverted": true,
+        "a2l2.monitor_started": true,
+        "a2l2.treatment_ready": true,
+        "a3l1.distance_kept": true,
+        "a3l1.native_seed": true,
+        "a3l1.passage_open": true,
+        "a3l1.traces": true,
+        "a3l1.wild_arrived": true,
+        "a3l2.corridor_open": true,
+        "a3l2.machine_safe": true,
+        "a3l2.wild_arrived": true,
+        "a4l1.archive_read": true,
+        "a4l1.claim_read": true,
+        "a4l1.insufficient_evidence": true,
+        "a4l1.log_read": true,
+        "a4l2.animal_in_care": true,
+        "a4l2.care_zone_safe": true,
+        "a4l2.inner_latch": true,
+        "a4l2.mechanism_stopped": true,
+        "a5l1.care_system_active": true,
+        "a5l1.harmful_line_isolated": true,
+        "a5l1.plant_meal_ready": true,
+        "a5l1.safe_exit_ready": true,
+        "a5l2.exit_protected": true,
+        "a5l2.flow_rerouted": true,
+        "a5l2.inner_system_stopped": true,
+        "a5l2.pattern_observed": true
+      },
+      "floor": true,
+      "focus": "",
+      "glide": 1.4,
+      "hub": false,
+      "input_method": "keyboard",
+      "level": 9,
+      "menu": "",
+      "performance": {
+        "draw_calls": 138,
+        "fps": 24,
+        "static_memory_bytes": 29151104
+      },
+      "shape_height": 54,
+      "storage_error": false,
+      "storage_paused": false,
+      "unlocked": [
+        0,
+        2,
+        1,
+        3
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3726.5849609375,
+      "y": 439.925262451172
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "viewport": [
+    1152,
+    648
+  ],
+  "renderer": "Chromium SwiftShader WebGL2",
+  "wall_seconds": 336.13524765700095
+}

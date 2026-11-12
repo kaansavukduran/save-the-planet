@@ -1,0 +1,25 @@
+{
+  "url": "https://save-the-planet-ps3p5k5sk-vegan-axolotl.vercel.app",
+  "html_status": 200,
+  "build_status": 200,
+  "version": "0.4.0",
+  "source_commit": "a2058eaa27725c572cdd80420c8abb4108c14433",
+  "content_tag": "1827e59f2d7e46cf",
+  "working_tree_dirty": true,
+  "working_tree_changes": [
+    " M vercel.json"
+  ],
+  "inline_csp": true,
+  "branded_wordmark": true,
+  "version_label": true,
+  "headers": {
+    "cache-control": "no-cache",
+    "content-type": "text/html; charset=utf-8",
+    "x-content-type-options": "nosniff",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "permissions-policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+    "etag": "W/\"afb5cdd233a37ff5d66e5326ae38f67a\""
+  },
+  "remote_browser_play": "NOT TESTED",
+  "existing_sso_preserved": true
+}

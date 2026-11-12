@@ -1,0 +1,91 @@
+{
+  "checks": [
+    {
+      "check": "Fresh visit stores no game progress before an explicit choice",
+      "status": "PASS"
+    },
+    {
+      "check": "Policy permits WASM without general JavaScript eval",
+      "status": "PASS"
+    },
+    {
+      "check": "Untrusted inline script is actually blocked by CSP",
+      "status": "PASS"
+    },
+    {
+      "check": "F1 opens a semantic controls/privacy guide",
+      "status": "PASS"
+    },
+    {
+      "check": "Opening web help pauses the actual game and releases held movement",
+      "status": "PASS"
+    },
+    {
+      "check": "Text guide fits a small portrait viewport without horizontal overflow",
+      "status": "PASS"
+    },
+    {
+      "check": "Portrait help footer reserves space instead of covering instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "200% text help footer does not overlap the scrolling body",
+      "status": "PASS"
+    },
+    {
+      "check": "Text guide close action works at 200% text enlargement",
+      "status": "PASS"
+    },
+    {
+      "check": "Real storage write rejection becomes a visible native saving error",
+      "status": "PASS"
+    },
+    {
+      "check": "Retry saving recovers after browser storage becomes available",
+      "status": "PASS"
+    },
+    {
+      "check": "Cancel is the initial destructive-dialog action and preserves progress",
+      "status": "PASS"
+    },
+    {
+      "check": "Confirmed deletion removes both real browser snapshots",
+      "status": "PASS"
+    },
+    {
+      "check": "Deletion preserves data belonging to another application",
+      "status": "PASS"
+    },
+    {
+      "check": "Immediate reload cannot resurrect deleted progress from IndexedDB",
+      "status": "PASS"
+    },
+    {
+      "check": "Reload and focus do not recreate a save after erasure",
+      "status": "PASS"
+    },
+    {
+      "check": "Explicit New Journey starts a new persistent save after erasure",
+      "status": "PASS"
+    },
+    {
+      "check": "A newer save written after load survives focus-loss autosave",
+      "status": "PASS"
+    },
+    {
+      "check": "Retiring the legacy game worker preserves an unrelated application worker",
+      "status": "PASS"
+    },
+    {
+      "check": "The browser recorded the expected CSP rejection",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "expected_csp_blocks": [
+    "Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval' 'sha256-o7XBiCREDPKoCvo9drVqQ/OdtEgHzZn/EMcO20tiCBQ=''. Either the 'unsafe-inline' keyword, a hash ('sha256-kcAIvRDTlvPAIVP/gAgkOTj7jAwAakQwbYrwk7hY/40='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+  ],
+  "browser": "156.0.8078.79",
+  "physical_device": false,
+  "screen_reader": "NOT TESTED"
+}

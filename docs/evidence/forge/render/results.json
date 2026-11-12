@@ -1,0 +1,286 @@
+{
+  "checks": [
+    {
+      "check": "1152x648: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "1152x648: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "1152x648: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "1920x720: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "1920x720: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "1920x720: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "2560x720: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "2560x720: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "2560x720: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "390x1000: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "390x1000: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "390x1000: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "360x640: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "360x640: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "360x640: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: sky covers right and upper edges without clear-color gaps",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: resizing preserves actual body and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "844x390: actual hero stays on screen",
+      "status": "PASS"
+    },
+    {
+      "check": "1152x648: sky repaints during paused resizing",
+      "status": "PASS"
+    },
+    {
+      "check": "1152x648: paused resizing keeps pause and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "2560x720: sky repaints during paused resizing",
+      "status": "PASS"
+    },
+    {
+      "check": "2560x720: paused resizing keeps pause and progress",
+      "status": "PASS"
+    },
+    {
+      "check": "390x1000: sky repaints during paused resizing",
+      "status": "PASS"
+    },
+    {
+      "check": "390x1000: paused resizing keeps pause and progress",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "samples": [
+    {
+      "viewport_css": [
+        1152,
+        648
+      ],
+      "engine_viewport": [
+        960,
+        540
+      ],
+      "edge_pixels_rgba": [
+        [
+          131,
+          157,
+          139,
+          255
+        ],
+        [
+          131,
+          157,
+          139,
+          255
+        ]
+      ]
+    },
+    {
+      "viewport_css": [
+        1920,
+        720
+      ],
+      "engine_viewport": [
+        1440,
+        540
+      ],
+      "edge_pixels_rgba": [
+        [
+          131,
+          157,
+          139,
+          255
+        ],
+        [
+          123,
+          150,
+          136,
+          255
+        ]
+      ]
+    },
+    {
+      "viewport_css": [
+        2560,
+        720
+      ],
+      "engine_viewport": [
+        1920,
+        540
+      ],
+      "edge_pixels_rgba": [
+        [
+          52,
+          94,
+          97,
+          255
+        ],
+        [
+          123,
+          150,
+          136,
+          255
+        ]
+      ]
+    },
+    {
+      "viewport_css": [
+        390,
+        1000
+      ],
+      "engine_viewport": [
+        480,
+        1230
+      ],
+      "edge_pixels_rgba": [
+        [
+          55,
+          87,
+          103,
+          255
+        ],
+        [
+          55,
+          87,
+          103,
+          255
+        ]
+      ]
+    },
+    {
+      "viewport_css": [
+        360,
+        640
+      ],
+      "engine_viewport": [
+        480,
+        853
+      ],
+      "edge_pixels_rgba": [
+        [
+          116,
+          143,
+          132,
+          255
+        ],
+        [
+          108,
+          136,
+          129,
+          255
+        ]
+      ]
+    },
+    {
+      "viewport_css": [
+        844,
+        390
+      ],
+      "engine_viewport": [
+        1168,
+        540
+      ],
+      "edge_pixels_rgba": [
+        [
+          52,
+          94,
+          97,
+          255
+        ],
+        [
+          146,
+          170,
+          147,
+          255
+        ]
+      ]
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "renderer": "SwiftShader WebGL2",
+  "build": {
+    "game_version": "0.4.1",
+    "source_commit": "25afd67b5a35de1bfc4bceaf2d30835006ad2ae0",
+    "working_tree_dirty": true,
+    "working_tree_changes": [
+      " M .github/workflows/verify.yml",
+      " M README.md",
+      " M export_presets.cfg",
+      " M project.godot",
+      " M scripts/game.gd",
+      " M scripts/state.gd",
+      " M scripts/world.gd",
+      " M tests/browser_v14.py",
+      " M tests/quality.gd",
+      "?? docs/evidence/forge/",
+      "?? tests/browser_world_render.py"
+    ],
+    "content_tag": "91aaf3ba9659762f",
+    "files": {
+      "index.html": "49f68d4c4aeec498aedf7e167809fdcdd94329d56ad4103d48e26d4b3ecc4ddc",
+      "planet-91aaf3ba9659762f.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+      "planet-91aaf3ba9659762f.wasm": "9b772205387d214619428ef095c6c4319a4aa4514879ae411be515d405bad784",
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+      "planet-91aaf3ba9659762f.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+      "planet-91aaf3ba9659762f.js": "8ee40f1dfac8ea4d9828cbe4f17fbf4834ba3e7708c1fe5a96c3388977f5ef38",
+      "planet-91aaf3ba9659762f.pck": "c2b0f240db50895f1bc825ab02437e02dc9ede51d103c72676fe3c9fb0471957",
+      "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999"
+    }
+  },
+  "physical_device": "NOT TESTED"
+}

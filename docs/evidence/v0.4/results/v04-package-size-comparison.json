@@ -1,0 +1,11 @@
+{
+  "before": {
+    "content_tag": "71dae02c7e730b40",
+    "pck_bytes": 11377396
+  },
+  "after": {
+    "pck_bytes": 10507900,
+    "content_tag": "d7e9f6a9b38bcec9"
+  },
+  "scope": "Web excludes native boot images and imported copies of shell-only art/font; HTML still copies raw source files."
+}

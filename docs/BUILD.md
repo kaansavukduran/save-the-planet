@@ -1,0 +1,62 @@
+# Çalıştırma, export ve paketleme
+
+Godot **4.6.3 standard**, GDScript, Compatibility. Sürüm resmî release SHA512 listesiyle doğrulanır; `packaging/SHA512-SUMS-4.6.3.txt` değişmedi. Kaynak: https://github.com/godotengine/godot/releases/tag/4.6.3-stable .
+
+```sh
+godot --path .
+python3 packaging/build_web.py
+python3 -m http.server 8000 --directory build/web
+python3 packaging/build_native.py
+```
+
+`setup_godot.py`, motor ve eşleşen şablonları `.ci-godot/` içine indirir. Linux x86_64 build host gerekir. XDG konumları proje `work/` altında tutulur. İnternet yalnız resmî dosyaları edinmek içindir. Çalışma zamanı haricî hizmet, hesap veya sunucu gerektirmez.
+
+Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
+
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 8, sürüm 0.4.4. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+
+Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
+
+## Vercel
+
+Framework Other, `python3 packaging/build_web.py`, çıktı `build/web`. Tek iş parçacığı; COOP/COEP zorlanmaz. JS, WASM, PCK ve audio worklet adları ortak içerik kimliği taşır. HTML yeniden doğrulanır. Yükleme çubuğu Godot'un gerçek byte callback'ini kullanır; hata ve yeniden deneme düğmesi vardır. PWA kapalıdır; eski kök `sw.js` kontrolü temizlenir. Web kaydı IndexedDB dosyalarına ek olarak aynı origin üzerinde eşzamanlı localStorage snapshot/son geçerli yedek tutar. Bu güncelleme iki depoyu da silmez. Tam ekran ve ses kullanıcı etkileşimine bağlıdır. Iframe kullanırken `allow="autoplay; fullscreen; gamepad"` ver ve ayrıca tam sayfa açılış bağlantısı sun. Gerçek Vegan Türkiye alanında üçüncü taraf kayıt kalıcılığı ayrıca sınanmalıdır.
+
+## Testler
+
+```sh
+godot --headless --fixed-fps 60 --path . --script tests/campaign.gd
+godot --headless --fixed-fps 60 --path . --script tests/acceptance.gd
+godot --headless --path . --script tests/save_read.gd
+STP_WEB_QA=1 python3 packaging/build_web.py
+python3 tests/browser_campaign.py
+```
+
+QA web `build/web-qa` içine export-debug ile çıkar. `-- --qa` koşulunda sadece okunan test telemetrisi vardır. `build/web` release'tir ve bu koşulu sağlayamaz. Tarayıcı testleri Playwright + Chromium gerektirir; onlar oyun/runtime bağımlılığı değildir.
+
+## 0.2.0 doğrulanmış çıktılar
+
+Paket kaynak commit'i a87199ed085ae260f6a9a2dc151d74dee96c1bf1, üretim anında temiz çalışma ağacı. Gerçek release web ve temiz Linux pencere smoke testleri çalıştırıldı; Windows EXE/NSIS sadece üretim/arşiv/PE olarak doğrulandı. Android build betiği gerekli SDK/imza değişkenleri yokken BLOCKED verir. Güncel indirmeler docs/DELIVERY.md, yerel SHA manifesti docs/evidence/results/SHA256SUMS.json içinde.
+
+Son release smoke: `python3 tests/browser_release.py`. Bu test release klasörünü yerel HTTP sunucusuyla açar; ilk hedefi gerçek girişle yapar ve kayıt reload'unu sınar. Chromium/Playwright yalnız geliştirme test aracıdır. Native pencere kanıtları Xvfb 1280×720, Mesa ve xdotool ile temiz arşivden elde edildi; gerçek donanım testinin yerine geçmez.
+
+## 0.3.0 paket kaydı
+
+Son kaynak fe504a17bee8ab322fb28aced2bdb1159fcb2497. Gerçek web release/Linux/Windows+NSIS çıktı ve doğrulamaları DELIVERY.md / VALIDATION_0.3.md içinde. Önceki0.2 bölümleri tarihsel kanıttır. CSP hash'i export sonrası gerçek inline bootstrap'tan üretilir; genel JS unsafe-eval kullanılmaz. Native bridge ve testler CSP kapatılarak çalıştırılmaz. Hosting config vercel.json/.vercel runtime PCK'den hariçtir. BUILD.json ham çalışma ağacı farklarını da bildirir; Vercel'in kendi config değişikliği sessizce temiz diye etiketlenmez.
+
+Yeni testler: quality.gd, browser_quality.py, browser_gamepad_menus.py. web_performance.py izole kıyas içindir; işlev testlerini eşzamanlı çalıştırırken alınan FPS standalone hedef cihaz performansı değildir. tests/browser_wait.py CSP'yi kaldırmadan DevTools polling kullanır. Virtual gamepad fixture yalnız tuş/eksen üretir; fiziksel kol testinin yerine geçmez.
+
+## 0.4.0 / AIONIA v1.4 doğrulama
+
+Godot 4.6.3 altyapısı korunur. `STP_WEB_QA=1 python3 packaging/build_web.py` ayrı `build/web-qa` üretir; `--qa` telemetrisi release export'ta yoktur. `python3 tests/browser_v14.py`, `browser_quality.py`, `browser_gamepad_menus.py`, `browser_accessibility.py` ve `browser_shell.py` gerçek tarayıcı kullanır. Playwright 1.62.0; yerel Chromium varsa kullanılır, CI'da Playwright Chromium. `STP_CHROMIUM` ile yürütülebilir yol seçilebilir.
+
+Tam dokunmatik kampanya: `STP_TEST_INPUT=touch STP_TEST_VIEWPORT=360x640 STP_TEST_PORT=8031 python3 tests/browser_campaign.py`; yatay için `STP_TEST_VIEWPORT=844x390 STP_TEST_PORT=8034`. Hareket, aksiyon ve menüler CDP dokunması; hızlı çift zıplama compositor ACK gecikmesini aşmak için zamanlanmış DOM TouchEvent fixture kullanır. Aynı Godot DOM giriş/fizik yolu çalışır; dünya bayrağı/oyuncu koordinatı enjekte edilmez. Fiziksel telefon testi yerine geçmez. Test devam ederken web klasörünü yeniden export etmeyin; hash'li eski dosyaların silinmesi gerçek 404 üretir. Yazılım GPU ile performans ölçerken diğer oyun tarayıcılarını kapatın.
+
+Native boot PNG kabul eder; statik kaynak çilek kullanılır. Web shell ölçülebilir indirme durumunu gösterir. Yerel sistem fontu Web sandbox'ta kullanılamıyorsa okunabilir motor fallback'i çözülür; OS fontu bütün platformlarda doğrulandı denmez.
+
+Web shell'e ait çilek ve pixel font ham dosyaları içerik hash'iyle ayrı kopyalanır; bunların gereksiz Godot import kopyaları Web PCK'den çıkarılır. Native boot PNG'si native hedefte korunur; Web'de motorun alttaki statik splash'i kapalıdır. Lisanslar Web kökünde de bulunur. `STP_WEB_FOLDER=web-v14 STP_WEB_QA=1` bağımsız QA klasörü üretir; çalışan testin klasörünü yenilemeden başka export sınanabilir.
+
+## Karakter hizası regresyonu
+
+`godot --headless --fixed-fps 60 --path . --script tests/sprite_alignment.gd` gerçek Sprite2D texture alpha sınırını ve aynalanmış ayak hizasını ölçer. `STP_WEB_QA=1 STP_WEB_FOLDER=web-sprites-qa python3 packaging/build_web.py` sonrasında `python3 tests/browser_sprite_alignment.py` tam idle döngülerini ve normal oynanışı çalıştırır. Kaynak/türetilmiş PNG'ler korunur; derive_sprites.py hizalama metadata'sını günceller.
+
+Konuşma regresyonu: `godot --headless --path . --script tests/dialogue_audio.gd`; QA Web export sonrası `STP_TEST_WEB_DIR=build/web-qa python3 tests/browser_dialogue_audio.py`. Tarihsel gerçek 0.4.3 export varsa `STP_DIALOGUE_BASELINE=/path/to/export` eski sessiz konuşma karşılaştırmasını da çalıştırır. CI bu iki testi içerir.

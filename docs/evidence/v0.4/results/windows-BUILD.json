@@ -1,0 +1,8 @@
+{
+  "game_version": "0.4.0",
+  "engine": "4.6.3.stable.official.7d41c59c4",
+  "source_commit": "a2058eaa27725c572cdd80420c8abb4108c14433",
+  "target": "Windows",
+  "executable_sha256": "4547462f578dda292ed02ec23ac22169c4cf6baa68fcce0512d66320114b26f4",
+  "working_tree_dirty": false
+}

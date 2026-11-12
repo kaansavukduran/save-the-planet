@@ -1,0 +1,105 @@
+{
+  "checks": [
+    {
+      "check": "Chapter a1l1 reached",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "Walked to a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 mandatory world conditions",
+      "pass": true
+    },
+    {
+      "check": "Exit physically reached a1l1",
+      "pass": true
+    },
+    {
+      "check": "Playable slice completed through its real exit",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves all world facts",
+      "pass": true
+    },
+    {
+      "check": "Browser reload preserves completed chapters",
+      "pass": true
+    },
+    {
+      "check": "Continue restores the expected destination",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "active": 0,
+      "completed": [],
+      "cooldown": 0,
+      "flags": {
+        "a1l1.duru_arrived": true,
+        "a1l1.lamb_joined": true,
+        "a1l1.noise_off": true,
+        "a1l1.path_open": true,
+        "a1l1.tracks": true
+      },
+      "floor": true,
+      "glide": 1.4,
+      "hub": false,
+      "level": 0,
+      "menu": "",
+      "performance": {
+        "draw_calls": 154,
+        "fps": 20,
+        "static_memory_bytes": 28216643
+      },
+      "shape_height": 54,
+      "unlocked": [
+        0,
+        2
+      ],
+      "vx": 0,
+      "vy": 0,
+      "x": 3731.08569335938,
+      "y": 439.925262451172
+    }
+  ],
+  "browser": "156.0.8078.79",
+  "viewport": [
+    1152,
+    648
+  ],
+  "renderer": "Chromium SwiftShader WebGL2",
+  "wall_seconds": 49.444948694999766
+}

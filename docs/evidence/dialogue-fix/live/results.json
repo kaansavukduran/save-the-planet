@@ -1,0 +1,141 @@
+{
+  "checks": [
+    {
+      "check": "Public entry serves the actual 0.4.4 source without login",
+      "status": "PASS"
+    },
+    {
+      "check": "Shipping build has no debug QA bridge",
+      "status": "PASS"
+    },
+    {
+      "check": "Actual music PCM continues through the first conversation on the live site",
+      "status": "PASS"
+    },
+    {
+      "check": "The next actual interaction keeps music playing after its short cue has finished",
+      "status": "PASS"
+    },
+    {
+      "check": "Progress and audio preferences survive reload",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "audio_samples": [
+    [
+      {
+        "state": "running",
+        "rms": 0.014456734186022828
+      },
+      {
+        "state": "running",
+        "rms": 0.010002174110287823
+      },
+      {
+        "state": "running",
+        "rms": 0.005152839294019826
+      },
+      {
+        "state": "running",
+        "rms": 0.0008375794972594764
+      },
+      {
+        "state": "running",
+        "rms": 0.011567300872669746
+      },
+      {
+        "state": "running",
+        "rms": 0.0067679141862730646
+      },
+      {
+        "state": "running",
+        "rms": 0.002365989352931656
+      },
+      {
+        "state": "running",
+        "rms": 0.013867934601374407
+      },
+      {
+        "state": "running",
+        "rms": 0.009248463040401353
+      },
+      {
+        "state": "running",
+        "rms": 0.0041969859888813035
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0.005823443138341933
+      },
+      {
+        "state": "running",
+        "rms": 0.000851938651449496
+      },
+      {
+        "state": "running",
+        "rms": 0.01214421453348712
+      },
+      {
+        "state": "running",
+        "rms": 0.007035875226239656
+      },
+      {
+        "state": "running",
+        "rms": 0.002642682955185556
+      },
+      {
+        "state": "running",
+        "rms": 0.01339989929647329
+      },
+      {
+        "state": "running",
+        "rms": 0.008044381135344732
+      },
+      {
+        "state": "running",
+        "rms": 0.0033003866938340364
+      },
+      {
+        "state": "running",
+        "rms": 0.014720390232037006
+      },
+      {
+        "state": "running",
+        "rms": 0.00998976084232861
+      }
+    ]
+  ],
+  "build": {
+    "game_version": "0.4.4",
+    "source_commit": "808f1633dadf7868bc471cceb1b31231552effa0",
+    "working_tree_dirty": true,
+    "working_tree_changes": [
+      " M vercel.json"
+    ],
+    "content_tag": "02e6c55d5c97b401",
+    "files": {
+      "index.html": "b45883439c394e31fa375e473237c7114d6a3a7d39d64f059c0c7f8700c060c7",
+      "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "planet-02e6c55d5c97b401.js": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981",
+      "planet-02e6c55d5c97b401.wasm": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+      "planet-02e6c55d5c97b401.pck": "85e2b0fbd3fec15f45fa08b956f64c4bd2124de79fbc221594310b79fe23676d",
+      "planet-02e6c55d5c97b401.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "planet-02e6c55d5c97b401.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+      "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+      "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+      "sw.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458",
+      "index.service.worker.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458"
+    }
+  },
+  "browser": "156.0.8078.79",
+  "physical_audio_hardware": "NOT TESTED"
+}

@@ -1,0 +1,387 @@
+{
+  "checks": [
+    {
+      "check": "Hero 0 idle: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 idle: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0: blink cycle has no horizontal registration drift in either facing",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 run: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 run: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 jump: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 jump: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 interact: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 interact: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 rest: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 rest: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 roll: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0 roll: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 idle: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 idle: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1: blink cycle has no horizontal registration drift in either facing",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 run: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 run: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 jump: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 jump: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 interact: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 interact: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 rest: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 rest: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 roll: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 roll: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 dash: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1 dash: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 idle: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 idle: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2: blink cycle has no horizontal registration drift in either facing",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 run: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 run: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 jump: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 jump: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 interact: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 interact: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 rest: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 rest: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 roll: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2 roll: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 idle: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 idle: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3: blink cycle has no horizontal registration drift in either facing",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 run: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 run: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 jump: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 jump: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 interact: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 interact: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 rest: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 rest: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 roll: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 roll: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 glide: opaque feet never sink at any frame, facing or menu scale",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3 glide: animation never translates the sprite node away from its body",
+      "status": "PASS"
+    }
+  ],
+  "rendered_frame_configurations": 1248,
+  "samples": [
+    {
+      "hero": 0,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "idle",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 0,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "run",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 0,
+      "horizontal_extent": 0.000030517578125,
+      "pose": "jump",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 0,
+      "horizontal_extent": 5.62288665771484,
+      "pose": "interact",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 0,
+      "horizontal_extent": 0.0000346790660508134,
+      "pose": "rest",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 0,
+      "horizontal_extent": 0.000034332275390625,
+      "pose": "roll",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.000026702880859375,
+      "pose": "idle",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.000041961669921875,
+      "pose": "run",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.000030517578125,
+      "pose": "jump",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.000041961669921875,
+      "pose": "interact",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.000041961669921875,
+      "pose": "rest",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "roll",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 1,
+      "horizontal_extent": 0.0000319047407675299,
+      "pose": "dash",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "idle",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 0.000026702880859375,
+      "pose": "run",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 0.000026702880859375,
+      "pose": "jump",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 6.36207580566406,
+      "pose": "interact",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 3.30831527709961,
+      "pose": "rest",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 2,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "roll",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.0000294772061433246,
+      "pose": "idle",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.000026702880859375,
+      "pose": "run",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "jump",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.00003814697265625,
+      "pose": "interact",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.000041961669921875,
+      "pose": "rest",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.000034332275390625,
+      "pose": "roll",
+      "worst_contact_error": 0.0
+    },
+    {
+      "hero": 3,
+      "horizontal_extent": 0.000041961669921875,
+      "pose": "glide",
+      "worst_contact_error": 0.0
+    }
+  ]
+}

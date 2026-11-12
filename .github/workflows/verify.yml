@@ -1,0 +1,61 @@
+name: Godot verification
+on:
+  push:
+    branches: [main, codex/godot-story]
+  pull_request:
+permissions:
+  contents: read
+concurrency:
+  group: godot-${{ github.event.pull_request.head.ref || github.ref_name }}
+  cancel-in-progress: true
+jobs:
+  campaign:
+    runs-on: ubuntu-latest
+    env:
+      XDG_DATA_HOME: ${{ github.workspace }}/work/data
+      XDG_CONFIG_HOME: ${{ github.workspace }}/work/config
+      XDG_CACHE_HOME: ${{ github.workspace }}/work/cache
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Pinned engine, templates and web
+        run: python3 packaging/build_web.py
+      - name: All ten chapters and critical acceptance scenarios
+        run: |
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/campaign.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/acceptance.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script tests/save_read.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/quality.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/sprite_alignment.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/dialogue_audio.gd
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      XDG_DATA_HOME: ${{ github.workspace }}/work/data
+      XDG_CONFIG_HOME: ${{ github.workspace }}/work/config
+      XDG_CACHE_HOME: ${{ github.workspace }}/work/cache
+      STP_WEB_QA: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Pinned browser test runtime
+        run: |
+          python3 -m pip install playwright==1.62.0
+          python3 -m playwright install --with-deps chromium
+      - name: Real debug Web export
+        run: python3 packaging/build_web.py
+      - name: Animated sprite ground contact, mirroring and no frame drift
+        run: STP_TEST_WEB_DIR=build/web-qa python3 tests/browser_sprite_alignment.py
+      - name: Dialogue readability and uninterrupted measured audio
+        run: STP_TEST_WEB_DIR=build/web-qa python3 tests/browser_dialogue_audio.py
+      - name: Archived Canvas cache migration with preserved progress
+        run: |
+          STP_WEB_QA=0 STP_WEB_FOLDER=web-legacy python3 packaging/build_web.py
+          STP_TEST_WEB_DIR=build/web-legacy STP_TEST_OLD_WEB_DIR=build/web-legacy python3 tests/browser_legacy_upgrade.py
+      - name: AIONIA v1.4 responsive and appearance regressions
+        run: python3 tests/browser_v14.py
+      - name: Camera and sky across ultrawide, tall portrait and rotation
+        run: python3 tests/browser_world_render.py
+      - name: Privacy, storage recovery and enforced CSP
+        run: python3 tests/browser_quality.py
+      - name: Keyboard-free gamepad menus and hotplug
+        run: python3 tests/browser_gamepad_menus.py

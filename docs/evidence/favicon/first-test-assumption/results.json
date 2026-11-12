@@ -1,0 +1,78 @@
+{
+  "url": "http://127.0.0.1:8037",
+  "checks": [
+    {
+      "check": "Normal game entry still starts the Godot title screen",
+      "status": "PASS"
+    },
+    {
+      "check": "HTML explicitly exposes standard ICO, PNG and SVG icons",
+      "status": "FAIL"
+    },
+    {
+      "check": "favicon.ico is served as an actual image, not a missing route or HTML",
+      "status": "PASS"
+    },
+    {
+      "check": "favicon.png is served as an actual image, not a missing route or HTML",
+      "status": "PASS"
+    },
+    {
+      "check": "favicon.svg is served as an actual image, not a missing route or HTML",
+      "status": "PASS"
+    },
+    {
+      "check": "index.icon.png is served as an actual image, not a missing route or HTML",
+      "status": "PASS"
+    },
+    {
+      "check": "ICO and PNG preserve the current Godot project icon pixels",
+      "status": "PASS"
+    },
+    {
+      "check": "Vector icon is the unchanged existing planet artwork",
+      "status": "PASS"
+    },
+    {
+      "check": "Chromium successfully decodes all three icons at 128 x 128",
+      "status": "PASS"
+    },
+    {
+      "check": "New journey still creates the current save through the normal entry",
+      "status": "PASS"
+    }
+  ],
+  "assets": {
+    "favicon.ico": {
+      "status": 200,
+      "type": "image/vnd.microsoft.icon",
+      "sha256": "f71b28d84b09190079da535d6cae007851fbcf9400e90768c819dd7b83fdfd39",
+      "bytes": 4989,
+      "cache_control": null
+    },
+    "favicon.png": {
+      "status": 200,
+      "type": "image/png",
+      "sha256": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "bytes": 4967,
+      "cache_control": null
+    },
+    "favicon.svg": {
+      "status": 200,
+      "type": "image/svg+xml",
+      "sha256": "9ae2975538700364a6f9faae5570e3b6d9234aa5dde7903ae1b3b7a6a6832cf5",
+      "bytes": 330,
+      "cache_control": null
+    },
+    "index.icon.png": {
+      "status": 200,
+      "type": "image/png",
+      "sha256": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "bytes": 4967,
+      "cache_control": null
+    }
+  },
+  "errors": [],
+  "browser": "156.0.8078.79",
+  "dashboard_card": "NOT TESTED"
+}

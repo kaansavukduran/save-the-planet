@@ -1,0 +1,22 @@
+[
+  {
+    "script": "campaign",
+    "exit_code": 0,
+    "script_errors": false
+  },
+  {
+    "script": "acceptance",
+    "exit_code": 0,
+    "script_errors": false
+  },
+  {
+    "script": "save_read",
+    "exit_code": 0,
+    "script_errors": false
+  },
+  {
+    "script": "quality",
+    "exit_code": 0,
+    "script_errors": false
+  }
+]

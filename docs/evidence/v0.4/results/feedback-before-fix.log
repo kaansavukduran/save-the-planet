@@ -1,0 +1,11 @@
+Godot Engine v4.6.3.stable.official.7d41c59c4 - https://godotengine.org
+
+ERROR: Invalid-order interaction explains the missing safety step instead of being hidden by its context cue
+   at: push_error (core/variant/variant_utility.cpp:1024)
+   GDScript backtrace (most recent call first):
+       [0] check (res://tests/quality.gd:11)
+       [1] run (res://tests/quality.gd:100)
+       [2] ticks (res://tests/quality.gd:13)
+QUALITY CHECKS: 32 FAILURES: [{ "check": "Invalid-order interaction explains the missing safety step instead of being hidden by its context cue", "status": "FAIL" }]
+WARNING: ObjectDB instances leaked at exit (run with --verbose for details).
+   at: cleanup (core/object/object.cpp:2663)

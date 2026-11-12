@@ -1,0 +1,132 @@
+{
+  "checks": [
+    {
+      "check": "Malformed active hero recovers the real valid backup without a conversion error",
+      "status": "PASS"
+    },
+    {
+      "check": "Oversized disk save is skipped before loading; valid backup restores progress",
+      "status": "PASS"
+    },
+    {
+      "check": "Actual file write failure is reported",
+      "status": "PASS"
+    },
+    {
+      "check": "Saving failure remains visible in the running game's HUD",
+      "status": "PASS"
+    },
+    {
+      "check": "Failed checkpoint save never announces that it was saved",
+      "status": "PASS"
+    },
+    {
+      "check": "Retrying the real write restores successful save state",
+      "status": "PASS"
+    },
+    {
+      "check": "Newer file appearing after load is not overwritten by autosave",
+      "status": "PASS"
+    },
+    {
+      "check": "A free keyboard key can be reassigned",
+      "status": "PASS"
+    },
+    {
+      "check": "Conflicting key is rejected without losing the existing jump binding",
+      "status": "PASS"
+    },
+    {
+      "check": "Rebinding conflict is shown at the top of the actual menu, not below offscreen rows",
+      "status": "PASS"
+    },
+    {
+      "check": "Help shortcut remains available when rebinding",
+      "status": "PASS"
+    },
+    {
+      "check": "Interaction key can be rebound",
+      "status": "PASS"
+    },
+    {
+      "check": "Rebound key completes the real first interaction",
+      "status": "PASS"
+    },
+    {
+      "check": "RB switches the actual shared body to the next unlocked hero",
+      "status": "PASS"
+    },
+    {
+      "check": "LB returns to the previous hero",
+      "status": "PASS"
+    },
+    {
+      "check": "Gamepad button can be reassigned",
+      "status": "PASS"
+    },
+    {
+      "check": "Reassigned physical event path triggers the real ability",
+      "status": "PASS"
+    },
+    {
+      "check": "Active input hints reflect the new gamepad binding",
+      "status": "PASS"
+    },
+    {
+      "check": "Stick noise below the configured deadzone is ignored",
+      "status": "PASS"
+    },
+    {
+      "check": "Stick movement above the deadzone drives real physics",
+      "status": "PASS"
+    },
+    {
+      "check": "Controller disconnect handler releases held inputs and pauses; no automatic resume",
+      "status": "PASS"
+    },
+    {
+      "check": "Start from title settings returns to title instead of entering the unstarted world",
+      "status": "PASS"
+    },
+    {
+      "check": "Reduced motion also disables camera smoothing and variable look-ahead",
+      "status": "PASS"
+    },
+    {
+      "check": "Explicit local erasure removes primary and backup successfully",
+      "status": "PASS"
+    },
+    {
+      "check": "Focus loss and scene reload cannot recreate the deleted save",
+      "status": "PASS"
+    },
+    {
+      "check": "Erasure clears in-memory progress, dialogue history and preferences",
+      "status": "PASS"
+    },
+    {
+      "check": "Other local files survive game-data erasure",
+      "status": "PASS"
+    },
+    {
+      "check": "Replacing an unreadable or newer save requires a visible New Journey confirmation",
+      "status": "PASS"
+    },
+    {
+      "check": "Cancel from New Journey confirmation returns to title without starting or deleting data",
+      "status": "PASS"
+    },
+    {
+      "check": "Explicit New Game starts saving again",
+      "status": "PASS"
+    },
+    {
+      "check": "Gate interaction cue is visible before an invalid-order attempt",
+      "status": "PASS"
+    },
+    {
+      "check": "Invalid-order interaction explains the missing safety step instead of being hidden by its context cue",
+      "status": "PASS"
+    }
+  ]
+}

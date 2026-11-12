@@ -1,0 +1,826 @@
+{
+  "checks": [
+    {
+      "check": "Genuine old release reproduces silent dialogue while unpaused music is measurable",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: actual intro has a horizontal speaker, correct portrait and visible body",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: short intro needs no scrollbar",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: measured PCM continues during a real paused dialogue",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: music playback actually advances through the conversation",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: dialogue applies a gentle gain without changing the preference",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: reading keeps the world still",
+      "status": "PASS"
+    },
+    {
+      "check": "tr 2048x1024: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "tr 844x390: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "tr 390x844: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "tr 320x568: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: closing restores normal music volume",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: player-selected mute stays silent during the next real conversation",
+      "status": "PASS"
+    },
+    {
+      "check": "tr: mute and actual progress survive reload",
+      "status": "PASS"
+    },
+    {
+      "check": "en: actual intro has a horizontal speaker, correct portrait and visible body",
+      "status": "PASS"
+    },
+    {
+      "check": "en: short intro needs no scrollbar",
+      "status": "PASS"
+    },
+    {
+      "check": "en: measured PCM continues during a real paused dialogue",
+      "status": "PASS"
+    },
+    {
+      "check": "en: music playback actually advances through the conversation",
+      "status": "PASS"
+    },
+    {
+      "check": "en: dialogue applies a gentle gain without changing the preference",
+      "status": "PASS"
+    },
+    {
+      "check": "en: reading keeps the world still",
+      "status": "PASS"
+    },
+    {
+      "check": "en 2048x1024: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "en 844x390: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "en 390x844: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "en 320x568: header/body/gutter remain readable",
+      "status": "PASS"
+    },
+    {
+      "check": "en: closing restores normal music volume",
+      "status": "PASS"
+    },
+    {
+      "check": "en: player-selected mute stays silent during the next real conversation",
+      "status": "PASS"
+    },
+    {
+      "check": "en: mute and actual progress survive reload",
+      "status": "PASS"
+    },
+    {
+      "check": "Actual phone-layout touch interaction opens readable dialogue with continuing music",
+      "status": "PASS"
+    },
+    {
+      "check": "Touch Continue closes the real dialogue",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "snapshots": [
+    {
+      "baseline_paused_pcm": 0,
+      "baseline_unpaused_pcm": 0.022025473734916787
+    },
+    {
+      "body": "Her zamanki bulu\u015fmaya Duru gelmedi. \u015eu izler dereye gidiyor\u2026 \u00d6nce A/D ile y\u00fcr\u00fc, Space ile z\u0131pla. Kenardan d\u00fc\u015fersen yak\u0131ndaki bayra\u011fa d\u00f6nersin.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        800,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        812,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        812,
+        90
+      ],
+      "scrollbar_rect": [
+        886,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        740,
+        36
+      ]
+    },
+    {
+      "body": "Her zamanki bulu\u015fmaya Duru gelmedi. \u015eu izler dereye gidiyor\u2026 \u00d6nce A/D ile y\u00fcr\u00fc, Space ile z\u0131pla. Kenardan d\u00fc\u015fersen yak\u0131ndaki bayra\u011fa d\u00f6nersin.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        920,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        932,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        932,
+        90
+      ],
+      "scrollbar_rect": [
+        1006,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        860,
+        36
+      ]
+    },
+    {
+      "body": "Her zamanki bulu\u015fmaya Duru gelmedi. \u015eu izler dereye gidiyor\u2026 \u00d6nce A/D ile y\u00fcr\u00fc, Space ile z\u0131pla. Kenardan d\u00fc\u015fersen yak\u0131ndaki bayra\u011fa d\u00f6nersin.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        1008,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        1020,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        1020,
+        90
+      ],
+      "scrollbar_rect": [
+        1094,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        948,
+        36
+      ]
+    },
+    {
+      "body": "Her zamanki bulu\u015fmaya Duru gelmedi. \u015eu izler dereye gidiyor\u2026 \u00d6nce A/D ile y\u00fcr\u00fc, Space ile z\u0131pla. Kenardan d\u00fc\u015fersen yak\u0131ndaki bayra\u011fa d\u00f6nersin.",
+      "body_lines": 4,
+      "body_rect": [
+        30,
+        682,
+        408,
+        121
+      ],
+      "header_rect": [
+        30,
+        612,
+        420,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        30,
+        682,
+        420,
+        240
+      ],
+      "scrollbar_rect": [
+        450,
+        682,
+        8,
+        240
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        102,
+        624,
+        348,
+        36
+      ]
+    },
+    {
+      "body": "Her zamanki bulu\u015fmaya Duru gelmedi. \u015eu izler dereye gidiyor\u2026 \u00d6nce A/D ile y\u00fcr\u00fc, Space ile z\u0131pla. Kenardan d\u00fc\u015fersen yak\u0131ndaki bayra\u011fa d\u00f6nersin.",
+      "body_lines": 4,
+      "body_rect": [
+        30,
+        496,
+        408,
+        121
+      ],
+      "header_rect": [
+        30,
+        426,
+        420,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        30,
+        496,
+        420,
+        240
+      ],
+      "scrollbar_rect": [
+        450,
+        496,
+        8,
+        240
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        102,
+        438,
+        348,
+        36
+      ]
+    },
+    {
+      "body": "Duru missed our usual meeting. These tracks lead to the stream\u2026 Walk with A/D and jump with Space. A fall returns you to a nearby flag.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        800,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        812,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        812,
+        90
+      ],
+      "scrollbar_rect": [
+        886,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        740,
+        36
+      ]
+    },
+    {
+      "body": "Duru missed our usual meeting. These tracks lead to the stream\u2026 Walk with A/D and jump with Space. A fall returns you to a nearby flag.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        920,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        932,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        932,
+        90
+      ],
+      "scrollbar_rect": [
+        1006,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        860,
+        36
+      ]
+    },
+    {
+      "body": "Duru missed our usual meeting. These tracks lead to the stream\u2026 Walk with A/D and jump with Space. A fall returns you to a nearby flag.",
+      "body_lines": 2,
+      "body_rect": [
+        74,
+        354,
+        1008,
+        55
+      ],
+      "header_rect": [
+        74,
+        284,
+        1020,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        74,
+        354,
+        1020,
+        90
+      ],
+      "scrollbar_rect": [
+        1094,
+        354,
+        8,
+        90
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        146,
+        296,
+        948,
+        36
+      ]
+    },
+    {
+      "body": "Duru missed our usual meeting. These tracks lead to the stream\u2026 Walk with A/D and jump with Space. A fall returns you to a nearby flag.",
+      "body_lines": 4,
+      "body_rect": [
+        30,
+        682,
+        408,
+        121
+      ],
+      "header_rect": [
+        30,
+        612,
+        420,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        30,
+        682,
+        420,
+        240
+      ],
+      "scrollbar_rect": [
+        450,
+        682,
+        8,
+        240
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        102,
+        624,
+        348,
+        36
+      ]
+    },
+    {
+      "body": "Duru missed our usual meeting. These tracks lead to the stream\u2026 Walk with A/D and jump with Space. A fall returns you to a nearby flag.",
+      "body_lines": 4,
+      "body_rect": [
+        30,
+        496,
+        408,
+        121
+      ],
+      "header_rect": [
+        30,
+        426,
+        420,
+        60
+      ],
+      "page": 1,
+      "pages": 1,
+      "portrait": true,
+      "scroll_rect": [
+        30,
+        496,
+        420,
+        240
+      ],
+      "scrollbar_rect": [
+        450,
+        496,
+        8,
+        240
+      ],
+      "scrollbar_visible": false,
+      "speaker": "Aion",
+      "speaker_lines": 1,
+      "speaker_rect": [
+        102,
+        438,
+        348,
+        36
+      ]
+    }
+  ],
+  "pcm_samples": [
+    [
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0.022025473734916787
+      },
+      {
+        "state": "running",
+        "rms": 0.016771116612818916
+      },
+      {
+        "state": "running",
+        "rms": 0.011909620379202413
+      },
+      {
+        "state": "running",
+        "rms": 0.0065351262575229505
+      },
+      {
+        "state": "running",
+        "rms": 0.007744790726853065
+      },
+      {
+        "state": "running",
+        "rms": 0.01967753133302094
+      },
+      {
+        "state": "running",
+        "rms": 0.01341043332695853
+      },
+      {
+        "state": "running",
+        "rms": 0.00836267546303433
+      },
+      {
+        "state": "running",
+        "rms": 0.003175857053379241
+      },
+      {
+        "state": "running",
+        "rms": 0.021725208320636985
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0.011932953104273471
+      },
+      {
+        "state": "running",
+        "rms": 0.00839634800291086
+      },
+      {
+        "state": "running",
+        "rms": 0.004849673386690327
+      },
+      {
+        "state": "running",
+        "rms": 0.0016652216350916264
+      },
+      {
+        "state": "running",
+        "rms": 0.013117055148912458
+      },
+      {
+        "state": "running",
+        "rms": 0.008977441378026934
+      },
+      {
+        "state": "running",
+        "rms": 0.004892716487901727
+      },
+      {
+        "state": "running",
+        "rms": 0.0008375794972594764
+      },
+      {
+        "state": "running",
+        "rms": 0.012445761994636796
+      },
+      {
+        "state": "running",
+        "rms": 0.00832724887343158
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0.01486444975786373
+      },
+      {
+        "state": "running",
+        "rms": 0.010323725350056254
+      },
+      {
+        "state": "running",
+        "rms": 0.005599032445133869
+      },
+      {
+        "state": "running",
+        "rms": 0.0013892902373372857
+      },
+      {
+        "state": "running",
+        "rms": 0.014085743081424032
+      },
+      {
+        "state": "running",
+        "rms": 0.010872160962988738
+      },
+      {
+        "state": "running",
+        "rms": 0.007356809368057387
+      },
+      {
+        "state": "running",
+        "rms": 0.0033003866938340364
+      },
+      {
+        "state": "running",
+        "rms": 0.014720390232037006
+      },
+      {
+        "state": "running",
+        "rms": 0.010894126316584055
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      },
+      {
+        "state": "running",
+        "rms": 0
+      }
+    ],
+    [
+      {
+        "state": "running",
+        "rms": 0.012790395443353588
+      },
+      {
+        "state": "running",
+        "rms": 0.009608507815631726
+      },
+      {
+        "state": "running",
+        "rms": 0.00579541005058044
+      },
+      {
+        "state": "running",
+        "rms": 0.002341125778168125
+      },
+      {
+        "state": "running",
+        "rms": 0.013284932562680488
+      },
+      {
+        "state": "running",
+        "rms": 0.011567300872669746
+      },
+      {
+        "state": "running",
+        "rms": 0.007718357646801859
+      },
+      {
+        "state": "running",
+        "rms": 0.004566256952970681
+      },
+      {
+        "state": "running",
+        "rms": 0.0011109487145763719
+      },
+      {
+        "state": "running",
+        "rms": 0.013867934601374407
+      }
+    ]
+  ],
+  "browser": "156.0.8078.79",
+  "physical_audio_hardware": "NOT TESTED",
+  "note": "Pass-through WebAudio analyser measures actual PCM; no world facts or progress injected."
+}
