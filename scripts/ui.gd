@@ -198,7 +198,7 @@ func _process(dt: float) -> void:
 	for action in touch_boxes:
 		var pressed=Input.is_action_pressed(action)
 		touch_boxes[action].modulate=Color(1,1,1,1) if pressed else Color(0.85,0.9,0.9,1)
-	if toast_left>0 and prompt.text=="":toast_left-=dt
+	if toast_left>0 and menu_kind=="":toast_left-=dt
 	toast.visible=toast_left>0 and menu_kind==""
 	hud.visible=menu_kind==""
 	chapter.visible=menu_kind==""
@@ -237,8 +237,9 @@ func _process(dt: float) -> void:
 	var cue=State.text("Yap · ","Use · ") if Controls.input_method=="touch" else "["+game.key_name("interact")+"] "
 	if nearest and menu_kind=="":prompt.text=cue+tr_pair(nearest.label)
 	elif game.player.position.x>float(game.level_data.length)-180 and menu_kind=="":prompt.text=cue+State.text("Çıkış","Exit")
-	prompt_plate.visible=prompt.text!="" and menu_kind==""
-	toast.visible=toast_left>0 and menu_kind=="" and prompt.text==""
+	prompt_plate.visible=prompt.text!="" and menu_kind=="" and toast_left<=0
+	prompt.visible=prompt_plate.visible
+	toast.visible=toast_left>0 and menu_kind==""
 
 func flash(tr_text: String,en_text: String) -> void:
 	toast.text=State.text(tr_text,en_text);toast_left=4.5

@@ -36,3 +36,5 @@ Test sürücüsü onarımları oyun kusuru olarak sayılmaz: CDP touchEnd kalan 
 - STP-014-09: küçük portrede ses slider'ı dokunma yüksekliği; 68 mantıksal piksel, gerçek arayüzden ses değeri değiştirme/kayıt testi. Mobil otomatik kontroller kapalı diye etiketlenmez.
 
 Test sürücüsü hareketi, yetenekle hedef zaten tamamlandıysa rastgele bir koordinatta durmayı zorlamaz; tamamlanma hâlâ gerçek oyun işleyicisinin bayrağıdır. Gamepad yaklaşmada analog hassasiyet, dokunmada uçurumdan önce karakter seçimi kullanılır. Gerçek kayıttan devam koşusu, sıfır kayıttan koşu olarak etiketlenmez.
+
+- STP-014-10: fan durdurulmadan bahçe kapısı denenince güvenlik adımı geri bildiriminin bağlamsal kutu tarafından saklanması. Gerçek E girdili native kabul senaryosu önce FAIL verdi; geri bildirime kısa süre öncelik verildi ve diyalog/menü açıkken süresi tüketilmez. Aynı senaryo yeniden çalıştırılır.

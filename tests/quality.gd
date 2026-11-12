@@ -90,6 +90,14 @@ func run() -> void:
 	check(game.ui.menu_kind=="title" and paused and state.protected_future,"Cancel from New Journey confirmation returns to title without starting or deleting data")
 	state.new_game()
 	check(FileAccess.file_exists(state.path) and not state.storage_paused,"Explicit New Game starts saving again")
+	# Focused acceptance fixture: attempt the gate before stopping the fan.
+	# Position is arranged here; the interaction itself goes through real input.
+	controls.reset_keyboard(false);game.ui.close_panel();game.load_level(0,false,false)
+	game.ui.toast_left=0;game.player.position=Vector2(1050,440);await ticks(3)
+	check(game.ui.prompt_plate.visible,"Gate interaction cue is visible before an invalid-order attempt")
+	var interact_key=InputEventKey.new();interact_key.physical_keycode=KEY_E;interact_key.pressed=true;Input.parse_input_event(interact_key);await ticks(3)
+	interact_key=InputEventKey.new();interact_key.physical_keycode=KEY_E;interact_key.pressed=false;Input.parse_input_event(interact_key)
+	check(game.ui.toast.visible and not game.ui.prompt_plate.visible,"Invalid-order interaction explains the missing safety step instead of being hidden by its context cue")
 	state.erase_local_data();DirAccess.remove_absolute(ProjectSettings.globalize_path("user://unrelated-quality.txt"))
 	var out=FileAccess.open("res://work/quality-results.json",FileAccess.WRITE);out.store_string(JSON.stringify({"checks":checks},"  "));out.close()
 	var failures=checks.filter(func(item):return item.status=="FAIL")
