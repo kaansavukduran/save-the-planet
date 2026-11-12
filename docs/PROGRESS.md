@@ -4,11 +4,13 @@ Kullanıcı mevcut devam noktasından geliştirmeyi sürdürmeyi seçti. [FORGE.
 
 Native 120+24+38 ve ayrı kayıt, Web UI48 ve ekran/döndürme24 PASS. Yazılım GPU 60 FPS bütçesi hâlâ FAIL; debug CPU/fizik/çizim ayrımı kaydedildi, dünya komut hazırlama süresi GPU darboğazı kanıtı sayılmaz. Fiziksel platform testleri, Android mevcut imza ortamı, nihai kanon ve süre hedefi önceki gibi açık. Önceki teslimler kaynak commit'leriyle sabittir; yeni yamanın indirmeleri diye sunulmaz.
 
+Son oyun kaynağı e43b0964bd69b9223cc8704f9615bb7aaf34bf29. Kaynak CI iki işte PASS. Temiz Web/Linux/Windows+NSIS paketleri üretildi; sürüm/kaynak/CRC/ELF/PE/SHA 8/8, Linux pencere ve release3 PASS. Yeni Drive dosyaları/manifest metadata kontrol edildi; [güncel indirmeler](DELIVERY.md). Release 60 FPS kontrolü tekrar FAIL: medyan 33,4 ms/P95 50 ms. Bu dosyadan sonraki rapor commit'leri oyun kaynağını değiştirmez.
+
 ---
 
 # 0.4.0 · AIONIA v1.4 devam kaydı
 
-Son oyun kaynağı **a2058eaa27725c572cdd80420c8abb4108c14433**. [Teslim](DELIVERY.md), [gerçek testler](VALIDATION_0.4.md), [kontrol kararı](CONTROL_DECISION.md), [plan](PLAN_v0.4.md).
+Son oyun kaynağı **a2058eaa27725c572cdd80420c8abb4108c14433**. [Teslim](DELIVERY_0.4.md), [gerçek testler](VALIDATION_0.4.md), [kontrol kararı](CONTROL_DECISION.md), [plan](PLAN_v0.4.md).
 
 Kullanıcı D-pad + aksiyon düğmelerini açıkça seçti. Godot 4.6.3, dört mevcut karakter ve on bölüm/final korunur. Koyu/açık/sistem ve font tercihleri; portre/yatay kamera/HUD; dokunmatik ↓/yetenek/etkileşim/ikincil portre/pause; atlanabilir öğretim; sabit menü eylemleri; görünür güvenlik geri bildirimi; gerçek yüzde/sürüm ve hata kurtarmayla Fragaria web yükleme ekranı uygulandı. Gereksiz shell import kopyaları Web PCK'den çıkarıldı.
 

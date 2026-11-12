@@ -1,0 +1,19 @@
+{
+  "url": "https://save-the-planet-n1gwmooth-vegan-axolotl.vercel.app/",
+  "state": "READY",
+  "source_commit": "e43b0964bd69b9223cc8704f9615bb7aaf34bf29",
+  "html_status": 200,
+  "build_status": 200,
+  "game_version": "0.4.1",
+  "content_tag": "9c0eb2add6e6b6c0",
+  "raw_working_tree_dirty": true,
+  "raw_changes": [" M vercel.json"],
+  "config_excluded_from_runtime_pck": true,
+  "hash_csp_observed": true,
+  "cache_control": "no-cache",
+  "x_content_type_options": "nosniff",
+  "referrer_policy": "strict-origin-when-cross-origin",
+  "permissions_policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+  "authentication": "Existing Vercel protection retained; no cookies or bypass token recorded",
+  "remote_browser_gameplay": "NOT TESTED"
+}

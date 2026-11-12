@@ -1,20 +1,23 @@
-# Save the Planet 0.4.0 · geliştirme teslimi
+# Save the Planet 0.4.1 · geliştirme teslimi
 
-12 Kasım 2026. Son oyun kaynağı **a2058eaa27725c572cdd80420c8abb4108c14433**. Yerel Web/Linux/Windows export anında çalışma ağacı temizdi; BUILD.json kayıtları korunur. Sonraki test/rapor commit'leri oyun kodunu değiştirmez. AIONIA v1.4 kontrol seçimi kullanıcı onaylı D-pad + aksiyon düğmeleridir.
+12 Kasım 2026. Son oyun kaynağı **e43b0964bd69b9223cc8704f9615bb7aaf34bf29**. Web/Linux/Windows export sırasında yerel çalışma ağacı temizdi; BUILD kayıtları `evidence/forge/packages/` içinde. Sonraki rapor commit'leri oyun kodunu değiştirmez. Godot 4.6.3, mevcut sanat kaynakları ve onaylı D-pad + aksiyon düzeni korunur.
 
-- [Taslak PR #1](https://github.com/kaansavukduran/save-the-planet/pull/1).
-- [0.4 web önizleme](https://save-the-planet-ps3p5k5sk-vegan-axolotl.vercel.app): READY, HTML/BUILD 200 ve doğru kaynak/sürüm doğrulandı. Mevcut Vercel SSO nedeniyle hesap erişimi gerekebilir. Uzak tarayıcı oynanışı NOT TESTED.
-- [Web ZIP](https://drive.google.com/file/d/1-pZGlHhUqoW137970kGjteS4cHWjWpnv/view): **20.418.148 byte**. HTTP sunucusuyla aç; son release gerçek ilk görev/reload/telemetri yok 3/3 PASS.
-- [Linux x86_64 tar.gz](https://drive.google.com/file/d/1iqms0C8KBipic1MjM5klmpXnA5f3Z5-9/view): **38.106.529 byte**. Temiz klasörde gerçek Godot Xvfb/Mesa penceresi ve klavye/pause/portrait resize PASS. Dummy audio, fiziksel cihaz değildir.
-- [Windows portable ZIP](https://drive.google.com/file/d/1r43CGax0Cku7StlKNnHziVrO7oemgtvf/view): **47.056.164 byte**. PE x64/CRC/BUILD/SHA doğrulandı; Windows'ta çalıştırılmadı.
-- [Windows NSIS kurulum](https://drive.google.com/file/d/1Pygw2DSLd6Vo43F372zEzlLfsnBAa--z/view): **36.848.217 byte**. Gerçek kurulum paketi üretildi; Windows kurulum/kaldırma, resource-branding ve Authenticode kapıları açık.
-- [0.4 SHA-256 manifesti](https://drive.google.com/file/d/1Y86pcLG8A_D0zo1gj8vJVpim_nad5qFH/view).
-- [Drive test raporu](https://drive.google.com/file/d/1FLUuLKznFYInarLZjx4tCcYbyG0DoEAh/view).
-- [Dikey oyun görüntüsü · emülasyon](https://drive.google.com/file/d/1sBcr5Xq9sHxAJHjyBQmqCfJeOpTGjfeI/view).
-- [Kaynak CI PASS](https://github.com/kaansavukduran/save-the-planet/actions/runs/43274184288): native 120+24+32/ayrı kayıt ve browser 48+20+11.
+Geniş/uzun ekranlardaki gökyüzü boşluğu, görünür çevre sınırları, pause sırasında ekran döndürme ve tünelin aktif giriş ipucu düzeltildi. On bölüm/final/yaşam alanı ve mevcut kayıtlar korunur.
 
-Dört yeni Drive dosyasının adları, boyutları ve distribution klasörü metadata ile yeniden doğrulandı. Connector uzak checksum döndürmedi; **uzak hash doğrulandı denmez**. Yerel arşiv/ikili/SHA-256 doğrulandı. Sürümlü dosya adlarını kullanan manifest `evidence/v0.4/results/Drive-SHA256SUMS.json`; build klasörü adları için SHA256SUMS.json da korunur. Önceki [0.3](DELIVERY_0.3.md) ve [0.2](DELIVERY_0.2.md) paketleri değiştirilmedi.
+- [Taslak PR #1](https://github.com/kaansavukduran/save-the-planet/pull/1); main birleştirilmedi.
+- [0.4.1 Web önizleme](https://save-the-planet-n1gwmooth-vegan-axolotl.vercel.app): READY, HTML/BUILD HTTP 200, sürüm/kaynak/CSP/header kontrolü PASS. Mevcut Vercel SSO korunur; uzak tarayıcı oynanışı NOT TESTED.
+- [Web ZIP](https://drive.google.com/file/d/16e2F2Y1sfglAYAeJQB9s7c_tHFwZ9yzV/view): **20.418.877 byte**. HTTP sunucusuyla aç; son release ilk görev/kayıt reload/QA kapalı 3/3 PASS.
+- [Linux x86_64 tar.gz](https://drive.google.com/file/d/1L6Ux3U2AviWxio-4KhwI13NdSr3ifm12/view): **38.107.434 byte**. Temiz arşivden gerçek Godot penceresi, klavye hareket/zıplama/pause/portre resize PASS; Xvfb/Mesa/dummy audio, fiziksel cihaz değildir.
+- [Windows portable ZIP](https://drive.google.com/file/d/1BdCi7GH6wjowrBNtXA6maks5AoXN43c7/view): **47.056.816 byte**. CRC/PE x64/BUILD/SHA kontrolü PASS; Windows'ta çalıştırılmadı.
+- [Windows NSIS kurulum](https://drive.google.com/file/d/1ZbsE98Y39ap0nG0f3gZT4_UAX7XnhjdU/view): **36.846.435 byte**. Kurulum paketi üretildi; Windows kurulum/güncelleme/kaldırma ve Authenticode NOT TESTED.
+- [0.4.1 SHA-256 manifesti](https://drive.google.com/file/d/1Wj0gvINBfV1rnHYVYmJNDIcihJ2yBqBU/view).
+- [Drive doğrulama raporu](https://drive.google.com/file/d/17BHl8A_GAYNAL_DwiGp-cGVbhf68kS1r/view).
+- [Kaynak CI PASS](https://github.com/kaansavukduran/save-the-planet/actions/runs/43282344144): native kampanya/kabul/kayıt/kalite ve browser UI/ekran/mahremiyet/gamepad menü.
 
-Yerel release tag **1c7a12c8f53c1839**, sunucu tag **1827e59f2d7e46cf**. Aynı PCK ikilisi oldukları iddia edilmez. Sunucu raw worktree farkı yalnız platformun değiştirdiği vercel.json; bu dosya runtime PCK'den hariçtir. Mevcut SSO gevşetilmedi.
+Beş Drive dosyasının adı, boyutu ve hedef klasörü metadata ile yeniden doğrulandı. Connector uzak checksum sağlamadı; uzak hash doğrulandı denmez. Yerel arşivlerin SHA-256 değerleri doğrulandı. [Sürümlü adlarla manifest](evidence/forge/packages/Drive-SHA256SUMS.json), [Drive metadata kayıtları](evidence/forge/packages/drive-receipts.json).
 
-[Gerçek PASS / FAIL / NOT TESTED raporu](VALIDATION_0.4.md): üç tam browser turu 112+112+112 PASS; 60 FPS yazılım GPU bütçesi FAIL. Fiziksel telefon/tablet/Xbox/Windows/ses/ekran okuyucu NOT TESTED. Android SDK/imza ortamı eksik; APK yok. Nihai sanat onayları ve 2–3 saat içerik hedefi açık; üretim onayı verilmiş sayılmaz.
+Yerel Web tag **7fdfb912df9d9577**, Vercel tag **9c0eb2add6e6b6c0**; aynı PCK ikilisi oldukları iddia edilmez. Sunucunun ham worktree farkı yalnız platformun değiştirdiği vercel.json; runtime PCK'den hariçtir. Kimlik bilgisi veya bypass token kaydedilmez.
+
+[Gerçek PASS / FAIL / NOT TESTED raporu](VALIDATION_0.4.1.md), [devam noktası](../FORGE.md). Release yazılım GPU 60 FPS bütçesi hâlâ FAIL (33,4 ms medyan / 50 ms P95). Fiziksel telefon/tablet/Xbox/Windows/ses/ekran okuyucu ve insan playtest NOT TESTED. Android SDK/JDK/mevcut imza ortamı, nihai sanat ve 2–3 saat hedef süre açık; üretim onayı verilmiş sayılmaz.
+
+Önceki [0.4.0](DELIVERY_0.4.md), [0.3.0](DELIVERY_0.3.md) ve [0.2.0](DELIVERY_0.2.md) paketleri korunur.

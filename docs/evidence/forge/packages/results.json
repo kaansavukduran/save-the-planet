@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "check": "web: clean expected source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "linux: clean expected source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "windows: clean expected source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "SaveThePlanet-Web.zip: CRC",
+      "status": "PASS"
+    },
+    {
+      "check": "SaveThePlanet-Windows-Portable.zip: CRC",
+      "status": "PASS"
+    },
+    {
+      "check": "Linux clean archive contains ELF64 executable",
+      "status": "PASS"
+    },
+    {
+      "check": "Windows game contains x86_64 PE executable",
+      "status": "PASS"
+    },
+    {
+      "check": "All four distributable SHA256 digests match manifest",
+      "status": "PASS"
+    }
+  ],
+  "windows_runtime": "NOT TESTED",
+  "sizes": {
+    "SaveThePlanet-Windows-Portable.zip": 47056816,
+    "SaveThePlanet-Web.zip": 20418877,
+    "SaveThePlanet-Linux-x86_64.tar.gz": 38107434,
+    "SaveThePlanet-Setup.exe": 36846435
+  }
+}

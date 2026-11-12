@@ -12,7 +12,9 @@ A/D veya oklar hareket, Space zıplama, J yetenek, E etkileşim, 1–4 karakter,
 
 Korunan 0.3 özellikleri: görünür kayıt hata/kurtarma akışı; bozuk/büyük/yeni sürüm kaydı için koruma; açık onaylı yerel veri silme ve hızlı reload'da eski kaydın geri dönmesini engelleme; girişe göre ipuçları, gamepad remap/hotplug; kamera hareketini azaltma; semantik web rehberi ve hash tabanlı CSP. Reklam/analitik/oyun hesabı yoktur. [Mahremiyet ve güvenlik sınırları](docs/PRIVACY_AND_SECURITY.md).
 
-Web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 8000 --directory build/web`. Native paketleme: `python3 packaging/build_native.py`. [Build](docs/BUILD.md), [teslim/yayın durumu](docs/DELIVERY.md), [güncel ilerleme](docs/PROGRESS.md), [gerçek test raporu](docs/VALIDATION_0.4.md), [GDD](GDD.md).
+0.4.1 düzeltmeleri: ultrawide/uzun portre gökyüzü ve çevre çizimi, pause sırasında yeniden boyutlandırma, yeniden eşlemeye ve aktif girişe uyan tünel tabelası. Altı boyutta gerçek ekran regresyonu CI kapsamındadır; 60 FPS bütçesi açık kalır.
+
+Web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 8000 --directory build/web`. Native paketleme: `python3 packaging/build_native.py`. [Build](docs/BUILD.md), [teslim/yayın durumu](docs/DELIVERY.md), [güncel ilerleme](docs/PROGRESS.md), [gerçek test raporu](docs/VALIDATION_0.4.1.md), [GDD](GDD.md).
 
 [AIONIA güncel kaynak kaydı](docs/AIONIA_STANDARD.md), [ürün/hedef kullanıcı özeti](docs/DESIGN_BRIEF.md), [v1.4 uygulama planı](docs/PLAN_v0.4.md), [sanat kararları](docs/ART_BIBLE.md), [kanon sınırları](docs/LORE_LINKS.md). Güncel normatif belgenin gövdesi v1.4 olarak tamamen yeniden okundu; teknoloji bağımsız yaklaşım mevcut Godot oyununa uygulanır. Pixel art/karakterler bu mevcut AIONIA oyununa uygundur; başka bir teknoloji veya genel motor eklenmedi.
 

@@ -8,7 +8,7 @@ Proje: `kaansavukduran/save-the-planet`, Godot 4.6.3 / GDScript. AIONIA v1.4 ve 
 
 Debug QA, CPU kare/fizik ve dünya çizim komutlarını hazırlama sürelerini ayrıca raporlar. Sonuncusu GPU süresi değildir. Release QA köprüsü kapalı kalır.
 
-Güncel test sonuçları ve paket durumu: [0.4.1 doğrulaması](docs/VALIDATION_0.4.1.md). Önceki [0.4.0 paketleri](docs/DELIVERY.md) kaynak commit'iyle sabitlenmiştir; yeni yamanın paketleri diye sunulmaz.
+Son oyun kaynağı **e43b0964bd69b9223cc8704f9615bb7aaf34bf29**. Temiz kaynaktan Web/Linux/Windows portable+NSIS üretildi; arşiv/hash/source ve Linux gerçek pencere kontrolü PASS. Release ilk görev/reload/QA kapalı 3/3 PASS. Beş Drive dosyası ad/boyut/klasör metadata ile doğrulandı. [Teslim ve indirmeler](docs/DELIVERY.md), [0.4.1 doğrulaması](docs/VALIDATION_0.4.1.md), [kaynak CI PASS](https://github.com/kaansavukduran/save-the-planet/actions/runs/43282344144). Önceki [0.4.0 paketleri](docs/DELIVERY_0.4.md) kaynak commit'iyle sabittir.
 
 ## Açık kalite kapıları
 

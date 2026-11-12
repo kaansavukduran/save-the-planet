@@ -1,0 +1,59 @@
+{
+  "notes": {
+    "id": "1L0vy7AleiDNKn36SYuxdj6cZJH4dSLLe",
+    "title": "03_Gelistirme_ve_Test_Notlari",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": null,
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "11HTIQJ20qFytAryYpQKTLjhEn811IySE"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "project": {
+    "id": "11HTIQJ20qFytAryYpQKTLjhEn811IySE",
+    "title": "save-the-planet",
+    "mime_type": "application/vnd.google-apps.folder",
+    "size": null,
+    "url": null,
+    "file_or_folder": "folder",
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1cZxRqTob2e53E6ilMkND782KhIwXnMVJ"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  },
+  "report": {
+    "id": "17BHl8A_GAYNAL_DwiGp-cGVbhf68kS1r",
+    "title": "SaveThePlanet-0.4.1-Validation.md",
+    "mime_type": null,
+    "size": "4997",
+    "url": null,
+    "file_or_folder": null,
+    "created_time": null,
+    "modified_time": null,
+    "parent_ids": [
+      "1L0vy7AleiDNKn36SYuxdj6cZJH4dSLLe"
+    ],
+    "drive_id": null,
+    "current_user_can_share": null,
+    "has_augmented_permissions": null,
+    "shared": null,
+    "permissions": null,
+    "source_visibility_status": "access_not_verified"
+  }
+}
