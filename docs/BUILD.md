@@ -13,7 +13,7 @@ python3 packaging/build_native.py
 
 Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
 
-Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 2, sürüm 0.2.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 3, sürüm 0.3.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
 
 Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
 
@@ -38,3 +38,9 @@ QA web `build/web-qa` içine export-debug ile çıkar. `-- --qa` koşulunda sade
 Paket kaynak commit'i a87199ed085ae260f6a9a2dc151d74dee96c1bf1, üretim anında temiz çalışma ağacı. Gerçek release web ve temiz Linux pencere smoke testleri çalıştırıldı; Windows EXE/NSIS sadece üretim/arşiv/PE olarak doğrulandı. Android build betiği gerekli SDK/imza değişkenleri yokken BLOCKED verir. Güncel indirmeler docs/DELIVERY.md, yerel SHA manifesti docs/evidence/results/SHA256SUMS.json içinde.
 
 Son release smoke: `python3 tests/browser_release.py`. Bu test release klasörünü yerel HTTP sunucusuyla açar; ilk hedefi gerçek girişle yapar ve kayıt reload'unu sınar. Chromium/Playwright yalnız geliştirme test aracıdır. Native pencere kanıtları Xvfb 1280×720, Mesa ve xdotool ile temiz arşivden elde edildi; gerçek donanım testinin yerine geçmez.
+
+## 0.3.0 paket kaydı
+
+Son kaynak fe504a17bee8ab322fb28aced2bdb1159fcb2497. Gerçek web release/Linux/Windows+NSIS çıktı ve doğrulamaları DELIVERY.md / VALIDATION_0.3.md içinde. Önceki0.2 bölümleri tarihsel kanıttır. CSP hash'i export sonrası gerçek inline bootstrap'tan üretilir; genel JS unsafe-eval kullanılmaz. Native bridge ve testler CSP kapatılarak çalıştırılmaz. Hosting config vercel.json/.vercel runtime PCK'den hariçtir. BUILD.json ham çalışma ağacı farklarını da bildirir; Vercel'in kendi config değişikliği sessizce temiz diye etiketlenmez.
+
+Yeni testler: quality.gd, browser_quality.py, browser_gamepad_menus.py. web_performance.py izole kıyas içindir; işlev testlerini eşzamanlı çalıştırırken alınan FPS standalone hedef cihaz performansı değildir. tests/browser_wait.py CSP'yi kaldırmadan DevTools polling kullanır. Virtual gamepad fixture yalnız tuş/eksen üretir; fiziksel kol testinin yerine geçmez.

@@ -15,7 +15,12 @@
 | Çoklu dokunma/odak/tercihler | PASS | 12; gerçek Chromium girdileriyle yön+zıplama/yetenek; TR/EN/büyük metin/düşük efekt; canvas blur/reload. |
 | Shell yükleme/hata/iframe | PASS | 7; gerçek byte callback, WASM503 → Retry, AudioContext running ve iframe yardımından tam sayfa bağlantısı. Duyulabilir ses NOT TESTED. |
 | Export güncellemesi | PASS | Aynı origin üzerinde 39b831ddf9799703 → dd8a1a51569ad289, kayıt korundu; yalnız yeni engine dosyaları, 0 hata. |
-| Release/native paketler ve remote preview | NOT TESTED | 0.3 kaynak sabitlendikten sonra gerçek export/smoke test yapılacak; 0.2 paketleri 0.3 diye sunulmaz. |
+| Release web | PASS | Temiz fe504a1 kaynağı, gerçek release3/3: QA telemetrisi yok, ilk hedef gerçek klavye, reload kaydı. |
+| Native Linux | PASS | Aynı kaynak temiz arşiv, Xvfb/Mesa gerçek pencere/klavye: yeni oyun, hareket, zıplama ve pause görüntüleri incelendi. Fiziksel donanım/ses NOT TESTED. |
+| Windows paket üretimi | PASS | Gerçek PE64 export + NSIS; ZIP/tar/SHA/BUILD/izin doğrulandı. Windows çalıştırma/kurulum NOT TESTED. |
+| Vercel preview/header | PASS | READY, HTML/BUILD200, doğru source commit ve sürüm; CSP meta, nosniff/referrer/permissions-policy sunuluyor. Uzak browser oynanışı NOT TESTED. |
+| Drive teslimi | PASS | Dört0.3 paket ve yeni manifest; size/parent doğrulandı. Uzak hash connector tarafından sunulmadı. |
+| Android release | NOT TESTED | Betik gerçekten çalıştı, eksik ANDROID_HOME/JAVA_HOME/keystore path-user-password nedeniyle BLOCKED. APK üretilmedi. |
 
 ## Testin sınırı ve kalite kapıları
 
@@ -43,3 +48,9 @@ Aynı Linux/Chromium/SwiftShader, 1152×648 CSS/canvas, a1l1 başlangıcı ve bo
 Görsel incelemede dar ekran ve 200% metinde sticky rehber düğmesi içeriği örtüyordu. Rehber gövdesi ayrı scroll bölgesi, düğme ayrılmış footer alanı yapıldı. Ölçülmüş iki örtüşmeme kontrolüyle browser veri/güvenlik toplamı20/20, 0 beklenmedik hata; yeni görüntüler insan gözüyle incelendi.
 
 Vercel dirty kaydı araştırıldı: 2b3f16b sunucu manifesti `M vercel.json` ve `.vercel/` üretim metadata'sını bildirdi. İlk PCK'de `vercel.json` yolu gerçekten bulundu. Hosting yapılandırması/dot metadata tüm export preset'lerinden dışlandı ve `.vercel/` ignore edildi. Ham worktree değişimleri manifestte kalır; temiz kaynak veya eşit PCK hash'i doğrulanmadan iddia edilmez.
+
+## Son kaynak ve dağıtım
+
+Paket commit fe504a17bee8ab322fb28aced2bdb1159fcb2497, temiz yerel çalışma ağacı. [CI PASS](https://github.com/kaansavukduran/save-the-planet/actions/runs/43244440583). Web release bf1462ad1b2965d2 üzerinde3/3 smoke; yayın sürümünde test telemetrisi yok. Linux gerçek pencere görüntüleri evidence/v0.3/native altında; fiziksel ses değil Dummy backend. Windows yürütülmedi. Android guard çıktı metni ayrıca kaydedildi.
+
+[Preview](https://save-the-planet-dknkh61u8-vegan-axolotl.vercel.app)770dfbac902d81c4 kimliğiyle aynı source commit'i bildirir; raw dirty farkı M vercel.json olarak korunur. Native/paket ve sunucu PCK hash'lerinin eşit olduğu iddia edilmez. Provider config'in runtime PCK'den çıkarıldığı yerelde doğrulandı. Seçili HTTP başlıkları ve tüm kaynak kimlikleri sonuç JSON'unda; erişim koruması kaldırılmadı. Tam indirme bağlantıları DELIVERY.md içindedir.

@@ -17,10 +17,14 @@ AIONIA v1.1 teknoloji bağımsız talebi için mevcut Godot oyunu iyileştirildi
 
 ## Açık kapsam / devam noktası
 
-1. Doğrulanmış kaynak commit'ini sabitle; gerçek release web/Linux/Windows export'larını aynı commit'ten üret ve temiz paket/preview doğrulamasını yap. Sonuçlar gelmeden paketleri/uzak oynanışı tamamlandı sayma.
+1. Fiziksel hedef cihazlarda performans/erişilebilirlik ve tam kontrolcü akışını doğrula. Web/Native paketleri ve HTTP preview bu görevde üretildi/test edildi; uzak tarayıcı oynanışı ve fiziksel donanım onayları hâlâ açıktır.
 2. Fiziksel Xbox/kol, telefon, Windows kurulum/oynanış, duyulabilir ses ve ekran okuyucu testlerini yap. Sanal Gamepad API ve bulut görüntüleri fiziksel cihaz onayı değildir.
 3. Hedef 60 FPS için fiziksel cihaz profiler ölçümü ve anlamlı optimizasyon; bulut SwiftShader örnekleri hâlâ yaklaşık25 FPS. Toplam browser belleği/enerji/input latency NOT TESTED.
 4. Hedef oyun süresi, özel bakım/gözlem animasyonları, çevrenin son sanat geçişi ve Emre'nin doğrulanmış sprite kaynağı açıktır. Onaysız kanon/logoyu uydurma. Android için mevcut SDK/keystore ortamı olmadan release APK üretme.
 5. İnsanlarla yeni kullanıcı/ileri yaş/engelli/sessiz kullanım, keyif ve eğitim etkisini değerlendir. “Herkes için tamamen erişilebilir” ve final yayın kalitesi iddia edilmez. Bazı hızlı headless kapanışlarında audio cleanup uyarısı hâlâ görülebilir.
 
 Arka planda kendiliğinden devam sözü verilmez; bu dosya sonraki çalışmanın somut başlangıcıdır.
+
+## Son teslim kaydı
+
+fe504a17bee8ab322fb28aced2bdb1159fcb2497 temiz kaynak: web/Linux/Windows portable+NSIS üretildi; arşiv/hash/BUILD doğrulandı. Gerçek release web3/3 ve temiz Linux penceresi PASS. Drive0.3 dosyaları/manifesti boyut/klasörle doğrulandı; eski0.2 korundu. Vercel READY/HTTP200/header kontrolleri PASS; runtime config paket dışına alındı. Native CI120+24+ayrı kayıt+30 PASS. İndirmeler/SSO preview DELIVERY.md içinde. Kaynak kodu bu commit'te sabittir; sonraki belge commit'leri yeni oynanış sürümü değildir.
