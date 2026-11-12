@@ -112,7 +112,11 @@ func interact(ability: bool=false) -> void:
 			return
 		if not State.has_all(a.requires):ui.flash("Önce önceki güvenlik adımını tamamla.","Complete the preceding safety step first.");audio.cue(false);return
 		if not a.heroes.is_empty() and not a.heroes.any(func(h):return int(h)==State.active):
-			ui.flash("Bu düzenek için karakter "+str(int(a.heroes[0])+1)+" gerekli. Q ile takım menüsü.","This mechanism needs character "+str(int(a.heroes[0])+1)+". Q opens the party.");return
+			var needed=int(a.heroes[0])
+			var touch=Controls.input_method=="touch"
+			var hint_tr="Üstteki portreye dokun." if touch else "Takım: "+Controls.hint("party")+"."
+			var hint_en="Tap the portrait above." if touch else "Party: "+Controls.hint("party")+"."
+			ui.flash("Bu düzenek için "+["Aion","Kurt","Kuzu","Ömer"][needed]+" gerekli. "+hint_tr,"This mechanism needs "+["Aion","Wolf","Lamb","Owl"][needed]+". "+hint_en);return
 		if a.has("unlock") and not int(a.unlock) in State.unlocked:State.unlocked.append(int(a.unlock))
 		for flag in a.get("sets",[]):State.mark(flag)
 		if a.id=="a4l2.animal_in_care":State.animals["coast_patient"]={"habitat":"coast_care","status":"in_care"}
@@ -181,6 +185,7 @@ func publish_qa(dt: float) -> void:
 			var sample={"x":player.position.x,"y":player.position.y,"vx":player.velocity.x,"vy":player.velocity.y,"floor":player.is_on_floor(),"active":State.active,"cooldown":player.cooldown,"unlocked":State.unlocked,"flags":State.flags,"level":State.level,"hub":in_hub,"menu":ui.menu_kind,"completed":State.completed,"shape_height":player.body_shape.shape.size.y,"glide":player.glide_left}
 			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)}
 			sample.input_method=Controls.input_method
+			sample.jump_count=player.jumps
 			sample.held=Controls.KEYS.keys().filter(func(action):return Input.is_action_pressed(action))
 			sample.touch_ids=Controls.touch_ids
 			sample.layout=ui.layout_snapshot()

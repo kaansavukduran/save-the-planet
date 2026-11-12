@@ -10,6 +10,7 @@ boot_splash/image="res://assets/brand/fragaria-strawberry-reference.png"
 boot_splash/bg_color=Color(0,0,0,1)
 boot_splash/fullsize=true
 boot_splash/use_filter=false
+boot_splash/show_image.web=false
 
 [autoload]
 State="*res://scripts/state.gd"

@@ -1,4 +1,4 @@
-"""CDP touch input only. Read-only layout telemetry locates native controls.
+"""CDP touch plus timed DOM touch gesture fixture. Read-only layout telemetry locates controls.
 
 No keyboard events, game calls, save writes or progress injection.
 """
@@ -37,6 +37,26 @@ class TouchDriver:
             self.cdp.send('Input.dispatchTouchEvent',{'type':'touchEnd','touchPoints':[ended]})
     def release(self):
         self.points.clear();self.send('touchEnd')
+    def jump_pair(self):
+        """DOM touch fixture for a timed double press, through Godot's DOM listener.
+
+        Chromium's synchronous CDP ACKs can stretch the pair past a whole jump
+        in this software GPU environment. DOM timers preserve the input timing;
+        positions and world facts are never set. Physical devices are NOT TESTED.
+        """
+        if 'Space' in self.points:self.up('Space')
+        rect=self.state()['layout']['touch_rects']['jump'];point=self.point(rect)
+        point['id']=10000+self.next_id;self.next_id+=1
+        return self.page.evaluate("""async ({point,base})=>{
+          const canvas=document.getElementById('canvas'),wait=ms=>new Promise(r=>setTimeout(r,ms));
+          const make=p=>new Touch({identifier:p.id,target:canvas,clientX:p.x,clientY:p.y,pageX:p.x,pageY:p.y,screenX:p.x,screenY:p.y});
+          const held=base.map(make),finger=make(point),times=[];
+          const emit=(type,pressed)=>{times.push({type,t:performance.now()});canvas.dispatchEvent(new TouchEvent(type,{bubbles:true,cancelable:true,touches:pressed?[...held,finger]:held,targetTouches:pressed?[...held,finger]:held,changedTouches:[finger]}));};
+          emit('touchstart',true);await wait(400);emit('touchend',false);await wait(70);
+          emit('touchstart',true);await wait(180);
+          const sample=structuredClone(window.__planetQA);await wait(250);emit('touchend',false);
+          return {...sample,touch_fixture_timing:times};
+        }""",{'point':point,'base':list(self.points.values())})
     def press(self,key,delay=None):
         state=self.state();layout=state['layout']
         if key in ['1','2','3','4']:

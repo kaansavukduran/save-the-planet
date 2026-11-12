@@ -50,7 +50,7 @@ static func theme() -> Theme:
 	t.set_stylebox("hover","Button",box(Color("bfd4c4") if light else Color("345b66"),SAGE,11))
 	t.set_stylebox("pressed","Button",box(Color("a9c5b4") if light else Color("182b3c"),GOLD,11))
 	t.set_stylebox("disabled","Button",box(PANEL,Color("71857d"),11))
-	var f=box(Color(0,0,0,0),GOLD,11);f.set_border_width_all(3);f.shadow_size=0;t.set_stylebox("focus","Button",f)
+	var f=box(Color(0,0,0,0),GOLD,11);f.set_border_width_all(3);f.shadow_size=0;t.set_stylebox("focus","Button",f);t.set_stylebox("focus","HSlider",f)
 	var slider=StyleBoxFlat.new();slider.bg_color=Color("5a727b");slider.content_margin_top=3;slider.content_margin_bottom=3;t.set_stylebox("slider","HSlider",slider)
 	t.set_stylebox("panel","TooltipPanel",box(INK,GOLD,9))
 	return t

@@ -8,19 +8,20 @@ from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from pathlib import Path
-import json,time,os
+import json,time,os,hashlib
 ROOT=Path(__file__).resolve().parents[1]
 LEVELS=json.loads((ROOT/'data/levels.json').read_text());TARGET_COUNT=int(os.environ.get('STP_TEST_LEVELS','10'))
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
-PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');DEVICE=os.environ.get('STP_TEST_INPUT','keyboard');EVIDENCE=ROOT/'docs/evidence/v0.4'/(DEVICE+'-'+LANGUAGE+'-'+os.environ.get('STP_TEST_VIEWPORT','1152x648'));EVIDENCE.mkdir(parents=True,exist_ok=True)
+PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');DEVICE=os.environ.get('STP_TEST_INPUT','keyboard');SAVED_SESSION=os.environ.get('STP_BROWSER_STATE');EVIDENCE=ROOT/'docs/evidence/v0.4'/(DEVICE+'-'+LANGUAGE+'-'+os.environ.get('STP_TEST_VIEWPORT','1152x648')+('-resumed' if SAVED_SESSION else ''));EVIDENCE.mkdir(parents=True,exist_ok=True)
 server=ThreadingHTTPServer(('127.0.0.1',PORT),partial(Quiet,directory=str(ROOT/'build/web-qa')))
 Thread(target=server.serve_forever,daemon=True).start()
 errors=[];checks=[];snaps=[];started=time.monotonic()
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path=CHROMIUM,headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
  width,height=map(int,os.environ.get('STP_TEST_VIEWPORT','1152x648').split('x'))
- page=b.new_page(viewport={'width':width,'height':height},has_touch=DEVICE=='touch');page.set_default_timeout(15000)
+ context=b.new_context(viewport={'width':width,'height':height},has_touch=DEVICE=='touch',storage_state=SAVED_SESSION if SAVED_SESSION else None)
+ page=context.new_page();page.set_default_timeout(15000)
  page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  page.on('pageerror',lambda e:errors.append(str(e)))
  driver=VirtualGamepad(page) if DEVICE=='gamepad' else (TouchDriver(page) if DEVICE=='touch' else page.keyboard)
@@ -36,10 +37,11 @@ with sync_playwright() as p:
  def close_menu():
   s=state()
   if s['menu']!='':release();driver.press('Escape');page.wait_for_timeout(180)
- def walk(target):
+ def walk(target,action_id=None):
   last_x=None;stuck=0;jump_start=None;second=False;trace=0;deadline=time.monotonic()+(120 if DEVICE=="touch" else 48)
   while time.monotonic()<deadline:
    s=state()
+   if action_id and s['flags'].get(action_id):release();return True
    if s['menu']!='':close_menu();continue
    x=s['x'];dist=target-x
    if abs(dist)<(46 if DEVICE=='touch' else 21):
@@ -49,8 +51,13 @@ with sync_playwright() as p:
     if abs(target-state()['x'])<(68 if DEVICE=='touch' else 32):return True
     continue
    hold('d',dist>0);hold('a',dist<0)
+   if DEVICE=='gamepad':driver.steer((1 if dist>0 else -1)*max(.35,min(1,abs(dist)/180)))
    data=LEVELS[s['level']] if not s['hub'] else {'ground':[[0,440,2200,180]],'length':2200}
    t=data.get('tunnel',[]);inside=t and t[0]-65<x<t[0]+t[2]+40
+   if DEVICE=='touch' and not inside and s['active']!=0 and s['floor']:
+    # Choose a traversal hero safely before reaching a ledge. CDP portrait taps
+    # take time while the held direction otherwise walks off the edge.
+    release();driver.press('1');continue
    if inside:
     if s['active']!=2:driver.press('3')
     if s['cooldown']<=0:driver.press('j')
@@ -66,7 +73,8 @@ with sync_playwright() as p:
      if DEVICE=='gamepad':hold('d',False);hold('a',False)
      driver.press('1')
      if DEVICE=='gamepad':hold('d',dist>0);hold('a',dist<0)
-    hold('Space',True);jump_start=now;second=False
+    if DEVICE=='touch':driver.jump_pair();jump_start=None
+    else:hold('Space',True);jump_start=now;second=False
    if jump_start is not None:
     age=now-jump_start
     if age>0.24 and not second and 'Space' in held:
@@ -80,11 +88,18 @@ with sync_playwright() as p:
  try:
   page.goto('http://127.0.0.1:'+str(PORT));wait_js(page,'window.__planetQA?.menu === "title"',timeout=30000)
   if LANGUAGE=='en':
-   driver.press('ArrowDown');driver.press('Enter');page.wait_for_timeout(160);driver.press('Enter');page.wait_for_timeout(160)
-   driver.press('Escape');page.wait_for_timeout(180)
+   for _ in range(12):
+    if any(v in state().get('focus','') for v in ['Ayarlar','Settings']):break
+    driver.press('ArrowDown');page.wait_for_timeout(180)
+   driver.press('Enter');wait_js(page,'window.__planetQA.menu === "settings"')
+   driver.press('Enter');wait_js(page,'JSON.parse(localStorage.getItem("fragaria.save-the-planet.v2")).prefs.language === "en"')
+   driver.press('Escape');wait_js(page,'window.__planetQA.menu === "title"')
   page.screenshot(path=str(EVIDENCE/'title.png'))
   driver.press('Enter');page.wait_for_timeout(200);close_menu();page.wait_for_timeout(200)
-  for index,data in enumerate(LEVELS[:TARGET_COUNT]):
+  start_index=state()['level'] if SAVED_SESSION else 0
+  if SAVED_SESSION:check(start_index>0,'Resumed the unchanged browser session from an actual preceding run')
+  for index in range(start_index,TARGET_COUNT):
+   data=LEVELS[index]
    s=state()
    if s['hub']:
     close_menu();check(walk(2100),'Sanctuary traversed');driver.press('e');page.wait_for_timeout(240);close_menu()
@@ -94,7 +109,7 @@ with sync_playwright() as p:
     if state()['flags'].get(action['id']):continue
     deadline=time.monotonic()+13
     while not all(state()['flags'].get(k) for k in action['requires']) and time.monotonic()<deadline:page.wait_for_timeout(100)
-    check(walk(action['x']-(0 if DEVICE=='touch' else 36)),'Walked to '+action['id'])
+    check(walk(action['x']-(0 if DEVICE=='touch' else 36),action['id']),'Action range reached '+action['id'])
     if action['heroes']:driver.press(str(action['heroes'][0]+1));page.wait_for_timeout(180)
     driver.press('e');page.wait_for_timeout(230)
     check(state()['flags'].get(action['id']),action['id'])
@@ -122,6 +137,7 @@ with sync_playwright() as p:
  except Exception as e:
   errors.append(str(e));page.screenshot(path=str(EVIDENCE/'browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
  finally:
-  release();(ROOT/('work/browser-campaign-'+DEVICE+'-'+LANGUAGE+('-slice' if TARGET_COUNT<10 else '')+('-'+os.environ.get('STP_TEST_VIEWPORT','1152x648') if DEVICE=='touch' else '')+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'input':DEVICE,'physical_gamepad':False,'snapshots':snaps,'browser':b.version,'viewport':[width,height],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
+  page.context.storage_state(path=str(ROOT/('work/'+DEVICE+'-'+os.environ.get('STP_TEST_VIEWPORT','1152x648')+'-browser-state.json')))
+  release();(ROOT/('work/browser-campaign-'+DEVICE+'-'+LANGUAGE+('-slice' if TARGET_COUNT<10 else '')+('-resumed' if SAVED_SESSION else '')+('-'+os.environ.get('STP_TEST_VIEWPORT','1152x648') if DEVICE=='touch' else '')+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'started_level':locals().get('start_index',0),'saved_session_sha256':hashlib.sha256(Path(SAVED_SESSION).read_bytes()).hexdigest() if SAVED_SESSION else None,'build':json.loads((ROOT/'build/web-qa/BUILD.json').read_text()),'input':DEVICE,'touch_fixture':'CDP + timed DOM TouchEvent pairs; no progress injection' if DEVICE=='touch' else None,'physical_gamepad':False,'snapshots':snaps,'browser':b.version,'viewport':[width,height],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
 print('BROWSER RESULT',len(checks),'checks;',len(errors),'errors',flush=True)
 raise SystemExit(1 if errors or any(not c['pass'] for c in checks) else 0)

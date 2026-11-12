@@ -7,11 +7,11 @@ from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from pathlib import Path
-import json,re
+import json,re,os
 R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.4/v14';E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
-server=ThreadingHTTPServer(('127.0.0.1',8032),partial(Quiet,directory=str(R/'build/web-qa')));Thread(target=server.serve_forever,daemon=True).start()
+server=ThreadingHTTPServer(('127.0.0.1',8032),partial(Quiet,directory=str(R/os.environ.get('STP_TEST_WEB_DIR','build/web-qa'))));Thread(target=server.serve_forever,daemon=True).start()
 checks=[];errors=[];snapshots=[]
 def check(ok,label):
  checks.append({'check':label,'status':'PASS' if ok else 'FAIL'});print(label,ok,flush=True)
@@ -47,16 +47,22 @@ with sync_playwright() as p:
   touch.press('Enter');wait_js(page,'window.__planetQA.menu === "touch_intro"');check(True,'First-use touch teaching is shown')
   touch.press('Escape');wait_js(page,'window.__planetQA.menu === ""')
   check(prefs()['touch_intro_seen'],'Skip tutorial stores the first-use preference')
-  touch.down('d');wait_js(page,'window.__planetQA.x >= 370',timeout=6000);touch.up('d');page.wait_for_timeout(250);touch.press('e');wait_js(page,'window.__planetQA.flags["a1l1.noise_off"] === true')
+  touch.down('d');wait_js(page,'window.__planetQA.x >= 370',timeout=6000);touch.up('d');page.wait_for_timeout(250)
+  layout=state()['layout'];x,y,w,h=layout['prompt_rect'];px,py=layout['player_screen']
+  check(layout['prompt_visible'] and not (x<px+32 and x+w>px-32 and y<py and y+h>py-80),'Context action prompt does not cover the standing hero in portrait')
+  page.screenshot(path=str(E/'portrait-context-visible-hero.png'))
+  touch.press('e');wait_js(page,'window.__planetQA.flags["a1l1.noise_off"] === true')
   check(True,'Touch Use button invokes the actual fan interaction (previous failure regression)')
   while state()['menu']=='dialogue':touch.press('Escape')
   before=state();touch.down('d');touch.down('Space');page.wait_for_timeout(180);after=state()
   check(after['x']>before['x']+10 and after['y']<before['y']-10,'Portrait supports simultaneous touch movement and jump')
-  touch.up('Space');page.wait_for_timeout(110)
+  touch.up('Space');page.wait_for_timeout(120)
   check('right' in state()['held'] and state()['vx']>0,'Releasing the jump finger keeps the direction finger held')
-  touch.down('Space');page.wait_for_timeout(150);second=state()
-  check(second['vy']<-80 and second['y']<after['y']-15,'A separate second touch press produces Aion’s real double jump')
-  after=second
+  touch.up('d');page.wait_for_timeout(900)
+  touch.down('d');second=touch.jump_pair()
+  snapshots.append({'paired_jump':{k:second.get(k) for k in ['x','y','vy','jump_count','held','touch_fixture_timing']}})
+  check(second.get('jump_count')==2 and second['vy']<0,'A separate second touch press produces Aion’s real double jump')
+  after=state()
   saved_flags=after['flags'];saved_level=after['level'];saved_x=after['x']
   page.set_viewport_size({'width':844,'height':390});page.wait_for_timeout(400);touch.release()
   after=state();check(not after['layout']['portrait'] and after['level']==saved_level and after['flags']==saved_flags and abs(after['x']-saved_x)<60,'Rotation mid-jump keeps the world and position without reloading the level')
@@ -71,6 +77,20 @@ with sync_playwright() as p:
   # Preference flow uses native keyboard focus and actual buttons, never sets game state.
   touch.press('Escape');choose('Ayarlar');choose('Tema:');check(prefs()['theme']=='light' and state()['prefs']['light'],'Light theme applies through the real native settings button')
   page.screenshot(path=str(E/'light-settings-portrait.png'))
+  old_music=prefs()['music']
+  for _ in range(30):
+   if state().get('focus')=='Müzik':break
+   page.keyboard.press('ArrowDown');page.wait_for_timeout(220)
+  page.keyboard.press('ArrowRight');wait_js(page,'JSON.parse(localStorage.getItem("fragaria.save-the-planet.v2")).prefs.music > '+str(old_music))
+  slider=next(s for s in state()['layout']['sliders'] if s['name']=='Müzik')
+  scale=page.viewport_size['height']/state()['layout']['viewport'][1]
+  check(slider['rect'][3]*scale>=43.9 and abs(slider['value']-prefs()['music'])<.001,'Music slider has a 44px touch region and stores its real adjusted value')
+  page.screenshot(path=str(E/'light-audio-settings.png'))
+  choose('Geri');touch.press('Escape');wait_js(page,'window.__planetQA.menu === ""')
+  check(state()['prefs']['light'],'Light theme also applies during actual touch gameplay')
+  page.screenshot(path=str(E/'light-touch-gameplay.png'))
+  touch.down('d');page.wait_for_timeout(200);page.screenshot(path=str(E/'light-touch-pressed.png'));touch.up('d')
+  touch.press('Escape');choose('Ayarlar')
   choose('Tema:');check(prefs()['theme']=='system' and state()['prefs']['light'],'System theme follows a light browser preference')
   page.emulate_media(color_scheme='dark');wait_js(page,'window.__planetQA.prefs.light === false',timeout=5000)
   check(True,'System theme reacts to a changed browser preference without restarting')
@@ -84,7 +104,7 @@ with sync_playwright() as p:
  except Exception as e:
   errors.append(str(e));page.screenshot(path=str(E/'failure.png'));print('FAIL',str(e),flush=True)
  finally:
-  result={'checks':checks,'errors':errors,'snapshots':snapshots,'browser':b.version,'physical_phone':'NOT TESTED','physical_tablet':'NOT TESTED','system_font_web_note':'Godot SystemFont requested; browser sandbox may resolve an engine fallback, unlike native OS font lookup.'}
+  result={'checks':checks,'errors':errors,'snapshots':snapshots,'browser':b.version,'touch_input':'CDP plus timed DOM TouchEvent pairs; actual Godot input and physics, no progress injection','physical_phone':'NOT TESTED','physical_tablet':'NOT TESTED','system_font_web_note':'Godot SystemFont requested; browser sandbox may resolve an engine fallback, unlike native OS font lookup.'}
   (R/'work/browser-v14.json').write_text(json.dumps(result,indent=2));b.close();server.shutdown()
 print('V1.4 RESULT',len(checks),'checks',errors,flush=True)
 raise SystemExit(1 if errors or any(c['status']=='FAIL' for c in checks) else 0)

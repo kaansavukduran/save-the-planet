@@ -23,6 +23,9 @@ class VirtualGamepad:
     def button(self,index,pressed):
         self.connect()
         self.page.evaluate('([i,p])=>{const b=window.__inputPad.buttons[i];b.pressed=p;b.touched=p;b.value=p?1:0;window.__inputPad.timestamp=performance.now();}',[index,pressed])
+    def steer(self,value):
+        self.connect()
+        self.page.evaluate('(v)=>{window.__inputPad.axes[0]=v;window.__inputPad.timestamp=performance.now();}',value)
     def down(self,key):
         self.connect()
         if key in ['a','d']:

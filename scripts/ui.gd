@@ -89,13 +89,15 @@ func arrange() -> void:
 	for b in party_buttons:
 		b.custom_minimum_size=Vector2(72,66) if portrait else Vector2(62,56)
 		b.add_theme_constant_override("icon_max_width",43 if portrait else 35)
-	place(resource_label,Rect2(16 if touch or portrait else 302,246 if portrait else (212 if touch else v.y-56),v.x-32 if portrait else 620,62))
+	place(resource_label,Rect2(16 if touch or portrait else 302,246 if portrait else (212 if touch else v.y-70),v.x-32 if portrait else 620,62))
 	resource_label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	place(toast,Rect2(24,338 if portrait else 108,v.x-48 if portrait else minf(720,v.x-48),75 if portrait else 44))
-	var prompt_y=v.y-(320 if portrait else 187)
-	place(prompt_plate,Rect2(16 if portrait else 210,prompt_y,v.x-32 if portrait else v.x-420,82 if portrait else 64))
-	place(prompt,Rect2(28 if portrait else 225,prompt_y+8,v.x-56 if portrait else v.x-450,66 if portrait else 49))
-	place(save_status,Rect2(24 if portrait else v.x-260,380 if portrait else 70,v.x-48 if portrait else 235,68))
+	var status_x=24.0 if portrait or not touch else 320.0
+	var status_y=314.0 if portrait else 108.0
+	var status_width=v.x-48 if portrait else minf(720,v.x-308-status_x)
+	place(toast,Rect2(status_x,status_y,status_width,88))
+	place(prompt_plate,Rect2(status_x,status_y,status_width,88))
+	place(prompt,Rect2(status_x+12,status_y+8,status_width-24,72))
+	place(save_status,Rect2(16 if portrait else v.x-260,v.y-170 if portrait else 84,v.x-140 if portrait else 235,78))
 	if is_instance_valid(modal):
 		modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 		modal.offset_left=16 if portrait else 60;modal.offset_right=-16 if portrait else -60
@@ -113,7 +115,7 @@ func arrange() -> void:
 		title_friends[i].scale=Vector2.ONE*(0.8 if portrait else 1.1)
 
 func resize_buttons(node: Node,height: float) -> void:
-	if node is Button:node.custom_minimum_size.y=height
+	if node is Button or node is HSlider:node.custom_minimum_size.y=height
 	for child in node.get_children():resize_buttons(child,height)
 
 func layout_snapshot() -> Dictionary:
@@ -127,8 +129,9 @@ func layout_snapshot() -> Dictionary:
 	var v=get_viewport().get_visible_rect().size
 	var r=modal.get_global_rect() if is_instance_valid(modal) else Rect2()
 	var buttons=[]
-	if is_instance_valid(modal):collect_buttons(modal,buttons)
-	return {"buttons":buttons,"heroes":heroes,"pause":[pause_button.position.x,pause_button.position.y,pause_button.size.x,pause_button.size.y],"viewport":[v.x,v.y],"portrait":is_portrait(),"touch":Controls.touch_enabled(),"touch_rects":rects,"modal":[r.position.x,r.position.y,r.size.x,r.size.y],"player_screen":[game.player.get_global_transform_with_canvas().origin.x,game.player.get_global_transform_with_canvas().origin.y] if game.player else []}
+	var sliders=[]
+	if is_instance_valid(modal):collect_buttons(modal,buttons);collect_sliders(modal,sliders)
+	return {"buttons":buttons,"sliders":sliders,"heroes":heroes,"prompt_visible":prompt_plate.visible,"prompt_rect":[prompt_plate.position.x,prompt_plate.position.y,prompt_plate.size.x,prompt_plate.size.y],"pause":[pause_button.position.x,pause_button.position.y,pause_button.size.x,pause_button.size.y],"viewport":[v.x,v.y],"portrait":is_portrait(),"touch":Controls.touch_enabled(),"touch_rects":rects,"modal":[r.position.x,r.position.y,r.size.x,r.size.y],"player_screen":[game.player.get_global_transform_with_canvas().origin.x,game.player.get_global_transform_with_canvas().origin.y] if game.player else []}
 
 
 func collect_buttons(node: Node,result: Array) -> void:
@@ -138,7 +141,17 @@ func collect_buttons(node: Node,result: Array) -> void:
 	for child in node.get_children():collect_buttons(child,result)
 
 
-func tr_pair(pair: Array) -> String:return str(pair[0 if State.prefs.language=="tr" else 1])
+func collect_sliders(node: Node,result: Array) -> void:
+	if node is HSlider:
+		var r=node.get_global_rect()
+		result.append({"name":node.accessibility_name,"rect":[r.position.x,r.position.y,r.size.x,r.size.y],"value":node.value})
+	for child in node.get_children():collect_sliders(child,result)
+
+
+func tr_pair(pair: Array) -> String:
+	var value=str(pair[0 if State.prefs.language=="tr" else 1])
+	var ability=State.text("Güç","Skill") if Controls.input_method=="touch" else Controls.hint("ability")
+	return value.replace(" / J"," / "+ability)
 
 func apply_preferences() -> void:
 	var old_colors=[PlanetSkin.PAPER,PlanetSkin.GOLD,PlanetSkin.SAGE]
@@ -150,6 +163,12 @@ func apply_preferences() -> void:
 	prompt_plate.add_theme_stylebox_override("panel",PlanetSkin.box(PlanetSkin.INK,PlanetSkin.GOLD,10))
 	hud.add_theme_color_override("font_color",PlanetSkin.PAPER)
 	prompt.add_theme_color_override("font_color",PlanetSkin.PAPER)
+	save_status.add_theme_stylebox_override("normal",PlanetSkin.box(PlanetSkin.INK,PlanetSkin.GOLD,8))
+	save_status.add_theme_color_override("font_color",PlanetSkin.GOLD)
+	toast.add_theme_stylebox_override("normal",PlanetSkin.box(PlanetSkin.INK,PlanetSkin.SAGE,8))
+	toast.add_theme_color_override("font_color",PlanetSkin.PAPER)
+	toast.add_theme_color_override("font_shadow_color",Color.TRANSPARENT)
+	prompt.add_theme_color_override("font_shadow_color",Color.TRANSPARENT)
 	party_signature=""
 	if OS.has_feature("web"):
 		var appearance=JavaScriptBridge.get_interface("planetAppearance")
@@ -167,7 +186,7 @@ func apply_preferences() -> void:
 		for action in rects:
 			var box=Panel.new();box.position=rects[action].position;box.size=rects[action].size;box.mouse_filter=Control.MOUSE_FILTER_IGNORE
 			box.accessibility_name=Controls.action_name(action)
-			var st=StyleBoxFlat.new();st.bg_color=Color(0.09,0.23,0.27,0.72);st.set_border_width_all(2);st.border_color=Color("b9d0aa");box.add_theme_stylebox_override("panel",st)
+			var st=StyleBoxFlat.new();st.bg_color=PlanetSkin.PANEL;st.bg_color.a=0.96;st.set_border_width_all(2);st.border_color=PlanetSkin.SAGE;box.add_theme_stylebox_override("panel",st)
 			touch_layer.add_child(box);touch_boxes[action]=box
 			var label=Label.new();label.text={"left":"◀","right":"▶","down":"↓","jump":"↑","ability":State.text("Güç","Skill"),"interact":State.text("Yap","Use")}[action];label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);label.mouse_filter=Control.MOUSE_FILTER_IGNORE;box.add_child(label)
 
@@ -178,8 +197,8 @@ func _process(dt: float) -> void:
 		if State.prefs.theme=="system" and PlanetSkin.light==PlanetSkin.system_dark():apply_preferences()
 	for action in touch_boxes:
 		var pressed=Input.is_action_pressed(action)
-		touch_boxes[action].modulate=Color(1,1,1,1) if pressed else Color(0.75,0.85,0.85,0.85)
-	if toast_left>0:toast_left-=dt
+		touch_boxes[action].modulate=Color(1,1,1,1) if pressed else Color(0.85,0.9,0.9,1)
+	if toast_left>0 and prompt.text=="":toast_left-=dt
 	toast.visible=toast_left>0 and menu_kind==""
 	hud.visible=menu_kind==""
 	chapter.visible=menu_kind==""
@@ -201,7 +220,7 @@ func _process(dt: float) -> void:
 	var skills=[["Çift zıplama · akış","Double jump · flow"],["Depar · ağır düzenek","Dash · heavy mechanisms"],["Takla · alçak geçit","Roll · low tunnel"],["Süzülüş · gözlem","Glide · observe"]]
 	var party_hint=State.text("Portrelere dokun","Tap portraits") if touch else State.text("Takım [","Party [")+Controls.hint("party")+"]"
 	var ability_hint="" if touch else "["+Controls.hint("ability")+"] "
-	resource_label.text=hero+"  /  "+tr_pair(skills[State.active])+"\n"+party_hint+"  ·  "+ability_hint+("%.1f s"%game.player.cooldown if game.player.cooldown>0 else State.text("Yetenek hazır","Ability ready"))
+	resource_label.text=hero+"  /  "+tr_pair(skills[State.active])+"\n"+("" if touch else party_hint+"  ·  ")+ability_hint+("%.1f s"%game.player.cooldown if game.player.cooldown>0 else State.text("Yetenek hazır","Ability ready"))
 	if State.active==3:resource_label.text+="  /  %.1f s"%game.player.glide_left
 	var signature=str(State.active)+str(State.unlocked)
 	if signature!=party_signature:
@@ -215,9 +234,11 @@ func _process(dt: float) -> void:
 			button.add_theme_stylebox_override("normal",PlanetSkin.box((Color("b4cebc") if PlanetSkin.light else Color("385e63")) if State.active==i else PlanetSkin.PANEL,PlanetSkin.GOLD if State.active==i else Color("4e6c77"),7))
 	var nearest=game.nearest_action()
 	prompt.text=""
-	if nearest and menu_kind=="":prompt.text="["+game.key_name("interact")+"] "+tr_pair(nearest.label)
-	elif game.player.position.x>float(game.level_data.length)-180 and menu_kind=="":prompt.text="["+game.key_name("interact")+"] "+State.text("Çıkış","Exit")
+	var cue=State.text("Yap · ","Use · ") if Controls.input_method=="touch" else "["+game.key_name("interact")+"] "
+	if nearest and menu_kind=="":prompt.text=cue+tr_pair(nearest.label)
+	elif game.player.position.x>float(game.level_data.length)-180 and menu_kind=="":prompt.text=cue+State.text("Çıkış","Exit")
 	prompt_plate.visible=prompt.text!="" and menu_kind==""
+	toast.visible=toast_left>0 and menu_kind=="" and prompt.text==""
 
 func flash(tr_text: String,en_text: String) -> void:
 	toast.text=State.text(tr_text,en_text);toast_left=4.5
@@ -390,7 +411,8 @@ func show_settings() -> void:
 	button(State.text("Mod: ","Mode: ")+State.text("Hikâye" if State.prefs.story else "Standart","Story" if State.prefs.story else "Standard"),func():State.prefs.story=not State.prefs.story;State.save_preferences();show_settings())
 	button(State.text("Büyük metin: ","Large text: ")+State.text("Açık" if State.prefs.large_text else "Kapalı","On" if State.prefs.large_text else "Off"),func():State.prefs.large_text=not State.prefs.large_text;State.save_preferences();apply_preferences();show_settings())
 	button(State.text("Azaltılmış hareket ve efekt: ","Reduced motion and effects: ")+State.text("Açık" if State.prefs.reduced_effects else "Kapalı","On" if State.prefs.reduced_effects else "Off"),func():State.prefs.reduced_effects=not State.prefs.reduced_effects;State.save_preferences();apply_preferences();show_settings())
-	button(State.text("Dokunmatik kontroller: ","Touch controls: ")+State.text("Açık" if State.prefs.touch else "Kapalı","On" if State.prefs.touch else "Off"),func():State.prefs.touch=not State.prefs.touch;State.save_preferences();apply_preferences();show_settings())
+	var touch_status=State.text("Otomatik","Automatic") if Controls.touch_enabled() and not State.prefs.touch else State.text("Açık" if State.prefs.touch else "Kapalı","On" if State.prefs.touch else "Off")
+	button(State.text("Dokunmatik kontroller: ","Touch controls: ")+touch_status,func():State.prefs.touch=not State.prefs.touch;State.save_preferences();apply_preferences();show_settings())
 	var themes={"dark":State.text("Koyu","Dark"),"light":State.text("Açık","Light"),"system":State.text("Sistem","System")}
 	button(State.text("Tema: ","Theme: ")+themes[State.prefs.theme],func():
 		var modes=["dark","light","system"];State.prefs.theme=modes[(modes.find(State.prefs.theme)+1)%3];State.save_preferences();apply_preferences();show_settings())
@@ -401,7 +423,7 @@ func show_settings() -> void:
 	for key in ["music","sfx"]:
 		var row=HBoxContainer.new();list.add_child(row)
 		var label=Label.new();label.text=State.text("Müzik" if key=="music" else "Efekt","Music" if key=="music" else "Effects");label.custom_minimum_size.x=130;row.add_child(label)
-		var slider=HSlider.new();slider.min_value=0;slider.max_value=1;slider.step=0.05;slider.value=float(State.prefs[key]);slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL;slider.custom_minimum_size.y=44;slider.tooltip_text=label.text;row.add_child(slider)
+		var slider=HSlider.new();slider.min_value=0;slider.max_value=1;slider.step=0.05;slider.value=float(State.prefs[key]);slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL;slider.custom_minimum_size.y=68 if is_portrait() or Controls.touch_enabled() else 44;slider.tooltip_text=label.text;row.add_child(slider)
 		slider.accessibility_name=label.text
 		slider.value_changed.connect(func(value):State.prefs[key]=value;game.audio.apply();State.save_preferences())
 	button(State.text("Tam ekran / Pencere","Fullscreen / Window"),func():DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN))
@@ -409,7 +431,7 @@ func show_settings() -> void:
 	button(State.text("Gamepad düğmelerini düzenle","Gamepad bindings"),func():show_bindings("gamepad"))
 	var row=HBoxContainer.new();list.add_child(row)
 	var label=Label.new();label.text=State.text("Analog eşik","Stick deadzone");label.custom_minimum_size.x=180;row.add_child(label)
-	var deadzone=HSlider.new();deadzone.min_value=0.15;deadzone.max_value=0.5;deadzone.step=0.05;deadzone.value=State.prefs.deadzone;deadzone.size_flags_horizontal=Control.SIZE_EXPAND_FILL;deadzone.custom_minimum_size.y=44;deadzone.tooltip_text=State.text("Küçük çubuk hareketlerini yok say","Ignore small stick movements");row.add_child(deadzone)
+	var deadzone=HSlider.new();deadzone.min_value=0.15;deadzone.max_value=0.5;deadzone.step=0.05;deadzone.value=State.prefs.deadzone;deadzone.size_flags_horizontal=Control.SIZE_EXPAND_FILL;deadzone.custom_minimum_size.y=68 if is_portrait() or Controls.touch_enabled() else 44;deadzone.tooltip_text=State.text("Küçük çubuk hareketlerini yok say","Ignore small stick movements");row.add_child(deadzone)
 	deadzone.accessibility_name=label.text
 	deadzone.value_changed.connect(func(value):State.prefs.deadzone=value;Controls.apply_deadzone();State.save_preferences())
 	button(State.text("Nasıl oynanır?","How to play"),show_help)
@@ -463,8 +485,7 @@ func show_erase_confirm() -> void:
 			game.load_level(0,false,false)
 			show_title()
 		else:show_privacy())
-	erase.add_theme_stylebox_override("normal",PlanetSkin.box(Color("703a48"),PlanetSkin.GOLD,11))
-	for key in ["font_color","font_hover_color","font_focus_color"]:erase.add_theme_color_override(key,Color.WHITE)
+	PlanetSkin.primary(erase)
 
 func show_chapters() -> void:
 	open_panel(State.text("Beş perde · on bölüm","Five acts · ten chapters"),"chapters")
@@ -496,6 +517,7 @@ func _input(event: InputEvent) -> void:
 	# Native Button mouse emulation follows the first finger on Web. Handle
 	# gameplay portraits/pause explicitly so a second finger works while moving.
 	if event is InputEventScreenTouch and event.pressed and menu_kind=="":
+		Controls.set_method("touch")
 		if pause_button.get_global_rect().has_point(event.position):
 			show_pause();get_viewport().set_input_as_handled();return
 		for i in party_buttons.size():

@@ -15,7 +15,9 @@ def run(args):
 run(['--editor','--import','--quit'])
 run(['--quit-after','10'])
 qa=os.environ.get('STP_WEB_QA')=='1'
-out=ROOT/('build/web-qa' if qa else 'build/web');out.mkdir(parents=True,exist_ok=True)
+out=ROOT/'build'/os.environ.get('STP_WEB_FOLDER','web-qa' if qa else 'web')
+if out.resolve().parent!=(ROOT/'build').resolve():raise ValueError('Export folder must be directly inside build/')
+out.mkdir(parents=True,exist_ok=True)
 # Preserve no stale engine or data in this generated directory.
 for p in out.iterdir():
  if p.is_file():p.unlink()
@@ -36,6 +38,8 @@ for token,source in [("$STP_BRAND",ROOT/'assets/brand/fragaria-strawberry-refere
  shutil.copy2(source,out/name);html=html.replace(token,name)
 html=html.replace('$STP_VERSION',version)
 shutil.copy2(ROOT/'assets/fonts/PressStart2P-LICENSE.txt',out/'PressStart2P-LICENSE.txt')
+shutil.copy2(ROOT/'assets/fonts/LICENSE.txt',out/'FONT-LICENSE.txt')
+for notice in ['LICENSE','THIRD_PARTY_NOTICES.md']:shutil.copy2(ROOT/notice,out/notice)
 # Tie executable script permissions to this exact export; saved content is never eval'd.
 inline=re.findall(r'<script>([\s\S]*?)</script>',html)
 hashes=' '.join("'sha256-"+base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()+"'" for script in inline)

@@ -29,4 +29,10 @@ Son çalıştırılan sonuçlar VALIDATION_0.4.md'de; bu tablo eski bildirimi ç
 - STP-014-05: native Godot boot'un JPEG kabul etmemesi. Kaynak PNG referansı kullanılır; native statik açılış ve web ölçülebilir yükleme farkı açıkça kaydedilir.
 - STP-014-06: takılma zamanlayıcısının fatal yükleme hatasını gölgelemesi ve bootstrap JS dosyası yokken hata UI'sına ulaşılamaması. Browser shell hata/26 saniye/retry senaryoları.
 
-Test sürücüsü onarımları oyun kusuru olarak sayılmaz: CDP touchEnd kalan parmakları değil bitecek parmakları alır; iki zıplama basışı düşük FPS altında ayrı fizik adımı görmelidir; eski sabit 0.3.0 beklentisi proje sürümünden okunur. Test sırasında üretilen web klasörü yenilenmez; aksi takdirde eski içerik hash'leri 404 oluşturur.
+Test sürücüsü onarımları oyun kusuru olarak sayılmaz: CDP touchEnd kalan parmakları değil bitecek parmakları alır; senkron CDP ACK gecikmesi çift zıplamayı iki ayrı yer zıplamasına çevirebilir; hızlı çift zıplama zamanlanmış DOM TouchEvent fixture ile aynı Godot DOM giriş yolunda sınanır (güvenilir fiziksel olay/telefon testi değildir); eski sabit 0.3.0 beklentisi proje sürümünden okunur. Test sırasında üretilen web klasörü yenilenmez; aksi takdirde eski içerik hash'leri 404 oluşturur.
+
+- STP-014-07: açık temada dokunmatik tuşlarının koyu paneli koruması; tema rengine uyan %96 opak panel, iki temada okunabilir yazı/basılı durum ve görünür geri bildirim yüzeyi.
+- STP-014-08: etkileşim kutusunun ayakta duran karakteri kapatması; HUD altındaki durum alanına taşındı, portrait kamera boşluğu yeniden düzenlendi ve gerçek render konumuyla çakışmama testi eklendi.
+- STP-014-09: küçük portrede ses slider'ı dokunma yüksekliği; 68 mantıksal piksel, gerçek arayüzden ses değeri değiştirme/kayıt testi. Mobil otomatik kontroller kapalı diye etiketlenmez.
+
+Test sürücüsü hareketi, yetenekle hedef zaten tamamlandıysa rastgele bir koordinatta durmayı zorlamaz; tamamlanma hâlâ gerçek oyun işleyicisinin bayrağıdır. Gamepad yaklaşmada analog hassasiyet, dokunmada uçurumdan önce karakter seçimi kullanılır. Gerçek kayıttan devam koşusu, sıfır kayıttan koşu olarak etiketlenmez.

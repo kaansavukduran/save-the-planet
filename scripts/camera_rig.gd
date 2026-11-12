@@ -10,7 +10,7 @@ func adapt_view() -> void:
 	var portrait=view.y>view.x
 	# Keep feet above the touch region in portrait without moving the physics body.
 	# The sky expands upward; world coordinates and save checkpoints stay intact.
-	var feet=view.y-245.0 if portrait else 440.0
+	var feet=maxf(625.0,view.y-215.0) if portrait else 440.0
 	position.y=view.y/2.0-feet
 	limit_top=int(440.0-feet)
 	limit_bottom=int(limit_top+view.y)
