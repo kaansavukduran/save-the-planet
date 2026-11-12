@@ -1,9 +1,11 @@
-# AIONIA standardı · Drive v1.0
+# AIONIA · güncel normatif kaynak kaydı
 
-Kaynak: https://docs.google.com/document/d/16jj2cwbm8SiVWqDy3N3dzqxTlLoK7JR2_aH6hl4noWY
+Kaynak: https://docs.google.com/document/d/16jj2cwbm8SiVWqDy3N3dzqxTlLoK7JR2_aH6hl4noWY/edit
 
-AIONIA — EVREN, SANAT VE OYUN KALİTE STANDARTLARI
-Sürüm 1.0 | 12 Kasım 2026 | Statü: Kullanıcı kuruluş kararlarına dayalı normatif referans
+İstenen kapsam v1.1. 12.11.2026 tarihli okumada dosya başlığı v1.0, metin sürümü v1.2 idi; v1.1 teknoloji bağımsız bölümünü ve oyunla ilgili ek hükümleri içeriyor. Tek sekmenin tamamı (21.452 karakter) okundu. Önceki v1.0 snapshot source/AIONIA_v1.0_snapshot.md içinde korunur. Bu kayıt, bütün v1.2 kalite kapılarının geçtiği iddiası değildir.
+
+AIONIA — EVRENSEL DİJİTAL ÜRÜN, TASARIM VE KALİTE STANDARTLARI
+Sürüm 1.2 | 12 Kasım 2026 | Statü: Kullanıcı kuruluş kararlarına dayalı normatif referans
 Üst marka: Fragaria Interactive | Oyun yayın markası: Fragaria Games | Kurgu evreni: AIONIA
 
 0. KULLANIM KURALI
@@ -54,3 +56,63 @@ Her oyun bağımsız GitHub deposu olabilir. Projede /docs/AIONIA_STANDARD.md (b
 10. KAPSAM DIŞI VE DEĞİŞİKLİK YÖNETİMİ
 Bu standart bir oyun motoru geliştirme emri değildir. Yeni genel amaçlı engine, tüm oyun türleri için framework veya devasa lore ansiklopedisi zorunlu değildir. Sürüm değişiklikleri tarih, gerekçe ve önceki sürüm referansıyla kaydedilir. Kullanıcının açık onayı olmadan ana evren kimliği, marka hiyerarşisi ve mevcut karakterlerin temel tasarımı değiştirilmez.
 
+11. AIONIA EVRENSEL DİJİTAL ÜRÜN STANDARDI — v1.1 KAPSAM GÜNCELLEMESİ (12.11.2026)
+Bu bölüm, önceki oyun/Godot/pixel-art merkezli hükümleri kapsam bakımından GEÇERSİZ KILAR. AIONIA standartları yalnızca oyunlar için değildir: Flutter mobil uygulamaları, React/Vue/Svelte web siteleri, masaüstü araçları, SaaS, eğitim uygulamaları, interaktif deneyimler ve Godot oyunları dahil her dijital ürün için geçerlidir. AIONIA standardı bir yazılım çatısı, motor veya zorunlu teknoloji seçimi DEĞİLDİR. Ürün tipi, hedef kitle, güvenlik ve bakım gereksinimleri hangi teknolojiye uygunsa o seçilir. Godot, Flutter, React, native mobil veya başka bir teknoloji şart değildir.
+MARKA VE GÖRSEL KAPSAM: Fragaria Interactive ana marka; AIONIA adı ürünün AIONIA evrenine ait olduğunu veya AIONIA tasarım standardıyla geliştirildiğini bağlama göre ifade edebilir. AIONIA karakterleri, pixel art ve lore yalnızca uygun projelerde kullanılır. Bankacılık, sağlık, eğitim veya verimlilik uygulamalarına zorla maskot, oyunlaştırma, pixel art ya da epik anlatı eklenmez. Görsel kimlik: sıcak ama profesyonel, özgün ama sade, özenli ama gösterişten uzak; ürüne uygun renk, tipografi, boşluk, ikon, hareket ve bileşen sistemi. Marka görselleri yalnızca onaylı kaynaklardan alınır.
+HERKES İÇİN KULLANILABİLİRLİK: Yeni kullanıcı, ileri yaşta kullanıcı, düşük dijital okuryazarlık, engelli kullanıcı, küçük ekran, düşük performanslı cihaz, zayıf bağlantı ve farklı dil/yerel ayarlar hesaba katılır. “Herkes için uygun” mutlak bir iddia değil, açık hedef kullanıcı grupları ve erişilebilirlik testleriyle izlenen amaçtır. Açık dil, öngörülebilir gezinme, görünür durum, anlaşılır geri bildirim, geri alma/iptal, hata önleme ve kurtarma, mantıklı varsayılanlar, tutarlı bileşenler, klavye erişimi, ekran okuyucu etiketleri, odak göstergeleri, yeterli kontrast, metin büyütme, dokunma hedefleri, azaltılmış hareket, renk dışı durum işaretleri, erişilebilir formlar, boş/yükleniyor/hata/çevrimdışı durumları tasarlanır. Uygun olduğunda WCAG 2.2 AA hedef alınır; doğrulanmadan uyumluluk iddia edilmez.
+ÜRÜN TASARIM SÜRECİ: (1) Kullanıcı, görev ve bağlamı tanımla. (2) En önemli akışları ve bilgi mimarisini belirle. (3) Tasarım token'ları ve bileşenleri seç. (4) İlk çalışan uçtan uca akışı oluştur. (5) Kullanılabilirlik, erişilebilirlik, performans, güvenlik, gizlilik ve hata durumlarını test et. (6) Bulguları düzelt. (7) Gerçek sürüm/dağıtım durumunu raporla. Tasarım kararlarını gerçek kullanıcılara ve ürüne göre uyarlamak esastır.
+TEKNİK KALİTE: Kod okunabilir, test edilebilir, sürdürülebilir ve platform normlarına uygun olmalıdır. Mobilde dokunmatik gezinme, izinler, güvenli veri saklama ve farklı ekranlar; webde responsive düzen, semantik erişilebilirlik ve ağ hataları; masaüstünde klavye, pencere boyutlandırma ve yerel entegrasyon; oyunlarda kontrol hissi, animasyon, kamera ve oyun döngüsü ayrı ayrı değerlendirilir. Güvenlik ve mahremiyet, performans, pil/veri tüketimi ve lokalizasyon proje gereksinimleridir.
+CODEX KISA KOMUTUNUN YENİ ANLAMI: “AIONIA standartlarında geliştir” = önce bu belgenin en güncel sürümünü oku; ürünün türünü, kullanıcılarını ve mevcut teknolojisini denetle; teknoloji değiştirmeden veya motor üretmeden uygun tasarım sistemi, erişilebilirlik, sezgisel UX, güvenilir işlevsellik, özgün görsel kalite ve gerçek QA uygula. Pixel art, lore ve karakter kullanımı yalnızca istenen veya uygun AIONIA evreni ürünlerinde zorunlu olabilir. İlgisiz ürünlerde bu varlıkları kullanma. Test edilmemiş sonucu tamamlandı deme.
+DEĞİŞİKLİK KAYDI: v1.0 oyun ve Godot odaklıydı. v1.1 ile evrensel, teknoloji-bağımsız dijital ürün standardına genişletildi. Önceki bölümler yalnızca oyun/evren projelerine uygulanabilir uzmanlık ekleri olarak yorumlanır; çelişkide bu bölüm önceliklidir.
+
+12. OYUN REGRESYON STANDARDI — AION ENDLESS RUN
+AIONIA oyunları geliştirilirken önceki kullanıcı hata bildirimleri regresyon testlerine dönüştürülür. Aion Endless Run için özel kayıt: https://docs.google.com/document/d/1cpr6yIwVOq2F9rQBlG1sSvFf0Wu9Iir0lJ_KDnqA5lE/edit . Yeni sürümde karakter animasyonu, mobil kontroller, UI taşmaları, pixel-art tutarlılığı, denge, Fragaria etkinliği ve yükleme ekranı sorunları tekrar test edilmelidir. Önceki kullanıcı bildirimi güncel hata kanıtı değildir. PASS / FAIL / NOT TESTED ayrımı korunur. Oyun dışı ürünlere bu oyuna özgü testler zorla uygulanmaz.
+
+13. ZORUNLU GAMEPAD / XBOX KOLU STANDARDI (12.11.2026)
+AIONIA standardıyla geliştirilen HER OYUN, tasarım başlangıcından itibaren Xbox tarzı kontrolcü ve genel gamepad ile tam oynanabilir olacak şekilde planlanır. Bu zorunluluk oyunlar içindir; oyun dışı mobil/web uygulamalarında gamepad zorunlu değildir. Kontrolcüyle temel oynanış, ana menü, ayarlar, duraklatma, sonuç ekranı, diyalog, envanter ve ilgili tüm temel akışlar tamamlanabilir olmalıdır. Analog çubuk, D-pad, A/B/X/Y, omuz ve tetik tuşları türüne uygun atanır. Klavye/fare ve dokunmatik desteği korunur. Aktif giriş yöntemine göre tuş ipuçları güncellenir; odak göstergesi, menü gezinme, tuş yeniden atama, titreşim kapatma, uygun deadzone ve bağlantı kesilmesi/yeniden bağlanma davranışı uygulanır. Oyuncu kontrolcüyle klavye veya fareye mecbur bırakılmamalıdır. Web hedefinde Gamepad API/tarayıcı desteği ve gerçek Xbox kolu veya eşdeğer fiziksel cihazla doğrulama yapılır. PASS / FAIL / NOT TESTED kaydı olmadan gamepad uyumluluğu doğrulandı denmez. Xbox koluyla oynanabilme, Xbox konsoluna yayınlanabilme veya konsol sertifikasyonu anlamına gelmez.
+
+14. AIONIA v1.2 — BÜTÜNSEL UI/UX, TASARIM UYUMU VE KALİTE FORGE (12.11.2026)
+Bu bölüm v1.1'i genişletir ve oyun, Flutter, web, masaüstü, mobil, SaaS, eğitim ve diğer dijital ürünlerde geçerlidir. İlgili ürünün türüne göre uygulanır. Kullanıcının son açık talimatları önceliklidir. Genel amaç: kullanımı kolay, estetik, dengeli, bütünsel, erişilebilir ve özgün bir deneyim. “AI slop” sayılan rastgele şablon/asset karışımları kabul edilmez.
+
+14.1 ÜRÜN KİMLİĞİ VE TEMASAL BÜTÜNLÜK
+Her proje için tek sayfalık DESIGN_BRIEF hazırla: hedef kullanıcı, ana görev, hedef cihazlar, ton, üç tasarım sıfatı, kaçınılacak üç anti-pattern, marka/evren ilişkisi, örnek ekranlar. Ürün için tutarlı bir görsel dil oluştur: renk, tipografi, ikon ailesi, kenar biçimi, gölge, boşluk, grid, hareket, ses ve illüstrasyon aynı dünyaya ait hissettirmeli. İlgisiz maskot, fantastik efekt, gradient, emoji, kart, animasyon veya oyun öğesi sırf dekorasyon için eklenmez. Fragaria markası, AIONIA evreni ve bağımsız uygulama kimliği birbirine karıştırılmaz. Pixel art yalnızca ürünün bağlamına uygunsa kullanılır. Logo ve karakterler doğrulanmış kaynaklardan alınır; kaynak yoksa uydurulmaz.
+
+14.2 BİLGİ MİMARİSİ, KATEGORİLER VE BAŞLIKLAR
+Navigasyon önce kullanıcı görevlerine göre gruplanır; geliştirici kod modüllerine göre değil. Her kategori birbirinden anlamlı biçimde ayrılır, çakışmalar ve mükerrer girişler giderilir. Kategori adları kısa, anlaşılır, tutarlı ve yerelleştirilebilir olmalı; başlıklar hiyerarşik (sayfa > bölüm > alt bölüm), taranabilir ve içerikle doğrudan ilgili olmalı. Aynı işlev farklı yerlerde farklı adlarla sunulmaz. Menü derinliği gereksiz artırılmaz; önemli eylemler kolay bulunur. Breadcrumb, arama, filtre, sıralama ve sekmeler yalnızca içerik hacmi gerektiriyorsa eklenir. Her ekranın tek belirgin birincil eylemi bulunur; ikincil ve tehlikeli eylemler ayrılır. Bilgi yoğunluğu ürünün görevine göre dengelenir.
+
+14.3 GÖRSEL HİYERARŞİ VE DENGE
+Tutarlı spacing ölçeği, tipografi hiyerarşisi, hizalama ve okunabilir satır uzunluğu kullan. Görsel ağırlık işlev önemini yansıtmalı; rastgele büyütülmüş CTA, fazla büyük başlık, tekrar eden kartlar, gereksiz boşluk ve aşırı kalabalık engellenir. Bir ekranda benzer kartlar gerçekten karşılaştırılabilir içeriğe hizmet etmeli. Karanlık ve açık temalar, kontrast ve durum renkleri tasarlanır. Renk tek başına bilgi taşımamalı. Mikro animasyonlar geri bildirim için kullanılır; gösteriş amacıyla sürekli hareket, parıltı veya titreşim eklenmez. Reduced-motion seçeneğine saygı gösterilir.
+
+14.4 PLATFORM UYARLAMASI VE RESPONSIVE KALİTE
+Aynı ürünün mobil, tablet, masaüstü ve web sürümleri aynı işlevsel kimliği korur ama aynı piksel yerleşimini zorla kopyalamaz. Dar ekranlarda tek sütun, büyük ekranlarda uygun çok sütun, okunabilir içerik genişliği ve mantıklı gezinme tercih edilir. Safe-area, klavye açılması, ekran yönü, zoom, sistem yazı büyüklüğü, tarayıcı çubukları, katlanabilir cihazlar, fare/klavye/dokunmatik ve gerektiğinde gamepad hesaba katılır. Hiçbir kritik buton, isim, form alanı, menü veya sonuç paneli alt çubuk, çentik ya da sabit katman altında gizlenmez. Yatay kaydırma yalnızca gerçekten iki boyutlu içerik gerektiriyorsa kabul edilir. Breakpoint değerleri proje bazında belirlenir ve test edilir; sadece masaüstü ekran görüntüsünden mobil kalite iddia edilmez.
+
+14.5 HERKES İÇİN KULLANILABİLİRLİK VE ERİŞİLEBİLİRLİK
+İlk kez kullanan, deneyimli, yaşlı, düşük dijital okuryazarlıklı, farklı dil konuşan ve engelli kullanıcılar için anlaşılır dil ve öngörülebilir etkileşim hedeflenir. Açık etiket, açıklayıcı hata mesajı, geri alma/iptal, kayıp veri önleme, klavye odak sırası, görünür focus, ekran okuyucu etiketleri, metin büyütme, yeterli kontrast, büyük ve aralıklı dokunma alanları, alternatif giriş, renk dışında şekil/metin ile durum bildirimi ve hareket azaltma değerlendirilir. Web için uygun kapsamda WCAG 2.2 AA hedeflenir; otomatik test tek başına uyumluluk kanıtı değildir. WCAG 2.2 AA dokunma hedefi 24x24 CSS px veya tanımlı istisnalarla sağlanır; rahat kullanım için çoğu dokunmatik kontrolde 44x44 veya platformun önerdiği daha büyük alan hedeflenebilir. Metin için olağan AA kontrast hedefi 4.5:1, büyük metin için 3:1; ilgili UI sınırları için 3:1. Kaynak: https://www.w3.org/TR/WCAG22/ . Kullanıcı testleri ve ekran okuyucu testleri olmadan “herkes için tamamen erişilebilir” iddiası kurulmaz.
+
+14.6 ETKİLEŞİM DURUMLARI VE GERİ BİLDİRİM
+Her önemli bileşen normal, hover (uygunsa), focus, pressed, disabled, loading, success, error ve empty durumları için tasarlanır. İşlem devam ederken geri bildirim verilir, ancak sahte ilerleme yüzdesi gösterilmez. Formlar girilen veriyi korur; hata nerede ve nasıl düzeltileceği açıklanır. Yıkıcı işlemlerde uygun onay veya geri alma bulunur. İnternet kopması, yetki reddi, boş veri, zaman aşımı ve oturum sonu için anlamlı kurtarma yolu sağlanır. Kullanıcının kontrolü elinden alınmaz; beklenmedik pop-up, otomatik ses, zorunlu animasyon ve gereksiz bildirim kullanılmaz.
+
+14.7 ÖZGÜNLÜK VE ANTI-AI-SLOP KAPISI
+Yalnızca “modern, premium, şık” gibi belirsiz promptlarla teslim yapılmaz. Her tasarım kararı hedef görev, kullanıcı ve marka ile gerekçelendirilir. Aynı jenerik gradient/kart/badge/ikon kalıbının her projeye kopyalanması, tutarsız ikon aileleri, anlamsız metinler, sahte veriler, yanlış karakter sprite'ları, rastgele animasyonlar ve içerikten kopuk dekorasyon kalite kusurudur. Gerekirse tasarım sadeleştirilir. Özgünlük, aşırı süs değil, ayırt edici ama işlevsel etkileşim ve iyi sanat yönetimidir. Telif/lisans kaynağı olmayan asset kullanılmaz.
+
+14.8 BİLEŞEN VE DESIGN TOKEN SİSTEMİ
+Proje ölçeğine uygun renk token'ları (background/surface/text/primary/danger/success), tipografi ölçeği, boşluk ölçeği, köşe ve kenarlık sistemi, ikon boyutları, motion süreleri ve durum bileşenleri tanımlanır. Flutter Theme, CSS variables, Godot Theme veya platformun doğal tasarım sistemleriyle uygulanabilir. Yeni framework zorunlu değildir. Bileşenler tekrarlıysa ortaklaştırılır; tek kullanım için aşırı soyutlama yapılmaz. Tasarım token'ları hem açık hem koyu temada doğrulanır.
+
+14.9 ÖLÇÜLEBİLİR UX VE PERFORMANS
+Ana görev tamamlama oranı, görev süresi, hata oranı, yanlış dokunma, geri dönüş, okunabilirlik, açılış süresi, kaydırma/animasyon akıcılığı, bellek ve enerji kullanımı proje türüne göre ölçülür. Eşikler cihaz ve ürün hedeflerine göre önceden belirlenir; sahte skor veya doğrulanmamış yüzde verilmez. Oyunlarda kontrol hissi, input latency ve gamepad ile tam akış; uygulamalarda form, arama, filtre, kayıt, hata kurtarma ve veri bütünlüğü özellikle test edilir.
+
+14.10 TASARIM REGRESYONU VE GERÇEK CİHAZ QA
+Her ana ekran için referans ekran görüntüsü ve beklenen davranış kaydı tutulur. Küçük telefon, büyük telefon, tablet, masaüstü ve hedef web tarayıcıları için yatay/dikey, light/dark, uzun metin, Türkçe/İngilizce, 200% zoom/yazı büyütme, boş/hata/yükleniyor, klavye açılması ve giriş yöntemi senaryoları test edilir. Pixel fark testi tek başına yeterli değildir; işlevsel ve insan gözüyle değerlendirme gerekir. Eski kullanıcı şikâyetleri kalıcı regresyon vakalarına dönüştürülür. Her kontrol PASS / FAIL / NOT TESTED olarak raporlanır; kanıt ve sürüm belirtilir.
+
+14.11 KALİTE KAPILARI VE TESLİMAT
+Aşama A: mevcut ürün, geçmiş şikâyetler, kaynak assetler ve hedef kitle denetimi.
+Aşama B: bilgi mimarisi, ekran listesi, kullanıcı akışları ve tasarım ilkeleri.
+Aşama C: çalışan uçtan uca dikey dilim/temel görev.
+Aşama D: responsive ve erişilebilirlik testleri; tutarsızlık onarımı.
+Aşama E: performans, güvenlik, gizlilik, hata kurtarma, regresyon ve gerçek cihaz testleri.
+Aşama F: sürüm raporu; değişen dosyalar, ekran görüntüleri, PASS/FAIL/NOT TESTED, bilinen kusurlar ve yayın durumu.
+Kritik kullanıcı akışı FAIL iken ürün “tamamlandı” olarak sunulmaz. Kullanıcının açık talebi olmadan görsel kimlik, kategori isimleri veya ana gezinme kökten değiştirilmez.
+
+14.12 CODEX / GELİŞTİRİCİ İÇİN YORUM KURALI
+“AIONIA standartlarında geliştir” dendiğinde bu v1.2 bölümünü ve v1.1 genel kuralları oku. Önce proje türünü ve mevcut teknolojiyi tespit et. UI/UX, başlık/kategori düzeni, tematik bütünlük, cihaz uyumu, user-friendly ve erişilebilirlik, anti-AI-slop, test ve gerçek teslim kanıtı öncelikli olsun. Oyun ise zorunlu Xbox/gamepad standardı ve oyun regresyon kayıtlarını da uygula. Uygulama ise oyuna özgü pixel art, lore, gamepad ve motor şartlarını dayatma. Referanslara erişilemiyorsa erişilmiş gibi davranma.
+DEĞİŞİKLİK KAYDI: v1.2, v1.1'i UI/UX, bilgi mimarisi, tematik tutarlılık, platform adaptasyonu, erişilebilirlik, anti-AI-slop ve ölçülebilir kalite kapılarıyla genişletir. Çelişen eski oyun-merkezli genel hükümler yerine v1.2 kapsam yorumu geçerlidir.

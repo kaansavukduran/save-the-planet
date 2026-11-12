@@ -1,0 +1,52 @@
+{
+  "checks": [
+    {
+      "check": "Chromium exposes the native Gamepad API in a secure context",
+      "status": "PASS"
+    },
+    {
+      "check": "Start from title settings does not launch an unstarted game",
+      "status": "PASS"
+    },
+    {
+      "check": "A starts and B dismisses dialogue without keyboard input",
+      "status": "PASS"
+    },
+    {
+      "check": "Gamepad remap screen displays the actual reassigned RS label",
+      "status": "PASS"
+    },
+    {
+      "check": "Reassigned RS triggers the real gameplay ability through browser polling",
+      "status": "PASS"
+    },
+    {
+      "check": "Old X binding is removed after remapping",
+      "status": "PASS"
+    },
+    {
+      "check": "Gamepad API disconnect pauses the real game",
+      "status": "PASS"
+    },
+    {
+      "check": "Disconnect releases the held direction",
+      "status": "PASS"
+    },
+    {
+      "check": "Reconnect waits for explicit resume",
+      "status": "PASS"
+    },
+    {
+      "check": "Start resumes after reconnection",
+      "status": "PASS"
+    },
+    {
+      "check": "Gamepad remapping survives reload and a new journey",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "input": "virtual browser Gamepad API",
+  "physical_gamepad": "NOT TESTED",
+  "browser": "156.0.8078.79"
+}

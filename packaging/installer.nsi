@@ -1,4 +1,7 @@
 Unicode True
+!ifndef VERSION
+ !define VERSION "0.3.0"
+!endif
 Name "Save the Planet"
 OutFile "../dist/SaveThePlanet-Setup.exe"
 InstallDir "$LOCALAPPDATA\Fragaria Interactive\Save the Planet"
@@ -28,7 +31,7 @@ Section "Game"
  CreateShortcut "$SMPROGRAMS\Fragaria Interactive\Save the Planet.lnk" "$INSTDIR\SaveThePlanet.exe"
  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SaveThePlanet" "DisplayName" "Save the Planet"
  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SaveThePlanet" "UninstallString" '"$INSTDIR\Uninstall.exe"'
- WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SaveThePlanet" "DisplayVersion" "0.2.0"
+ WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SaveThePlanet" "DisplayVersion" "${VERSION}"
  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\SaveThePlanet" "Publisher" "Fragaria Interactive"
 SectionEnd
 Section "Uninstall"

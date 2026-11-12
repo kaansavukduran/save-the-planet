@@ -1,6 +1,6 @@
 """Real single-threaded Godot Web build, content-addressed engine/data assets."""
 from pathlib import Path
-import os,subprocess,hashlib,json,shutil
+import os,subprocess,hashlib,json,shutil,re,base64
 from setup_godot import setup
 ROOT=Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
@@ -30,7 +30,14 @@ for ext in ['js','wasm','pck']:
 html=html.replace('"executable":"index"',f'"executable":"planet-{tag}"')
 for p in list(out.glob('index.audio*.js')):
  new=p.name.replace('index.',f'planet-{tag}.',1);p.rename(out/new);html=html.replace(p.name,new)
+# Tie executable script permissions to this exact export; saved content is never eval'd.
+inline=re.findall(r'<script>([\s\S]*?)</script>',html)
+hashes=' '.join("'sha256-"+base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()+"'" for script in inline)
+policy="default-src 'self'; script-src 'self' 'wasm-unsafe-eval' "+hashes+"; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; connect-src 'self'; worker-src 'self' blob:; media-src 'self' blob:; object-src 'none'; base-uri 'none'; form-action 'none'"
+html=html.replace('<head>','<head>\n<meta http-equiv="Content-Security-Policy" content="'+policy+'">',1)
 (out/'index.html').write_text(html)
-manifest={'game_version':'0.2.0','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip()),'content_tag':tag,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
+version=re.search(r'^config/version="([^"]+)"$',(ROOT/'project.godot').read_text(),re.M).group(1)
+changes=subprocess.check_output(['git','status','--porcelain'],text=True).splitlines()
+manifest={'game_version':version,'source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'working_tree_dirty':bool(changes),'working_tree_changes':changes,'content_tag':tag,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
 (out/'BUILD.json').write_text(json.dumps(manifest,indent=2))
 print('Real Godot Web export:',out,tag)

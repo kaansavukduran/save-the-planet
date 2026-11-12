@@ -1,0 +1,66 @@
+{
+  "checks": [
+    {
+      "check": "10 Party menu blocks background movement and ability",
+      "pass": true
+    },
+    {
+      "check": "10 Menu accept does not jump in the world",
+      "pass": true
+    },
+    {
+      "check": "13 Settings reached using only keyboard",
+      "pass": true
+    },
+    {
+      "check": "14 English selected and saved",
+      "pass": true
+    },
+    {
+      "check": "14 Large text selected and saved",
+      "pass": true
+    },
+    {
+      "check": "15 Reduced effects selected and saved",
+      "pass": true
+    },
+    {
+      "check": "12 Touch layout enabled from settings",
+      "pass": true
+    },
+    {
+      "check": "12 Simultaneous direction + jump moves and jumps",
+      "pass": true
+    },
+    {
+      "check": "12 Simultaneous direction + ability works",
+      "pass": true
+    },
+    {
+      "check": "11 Window blur pauses the world",
+      "pass": true
+    },
+    {
+      "check": "11 Focus return has no stuck held direction",
+      "pass": true
+    },
+    {
+      "check": "08 TR/EN and accessibility preferences survive a browser reload",
+      "pass": true
+    }
+  ],
+  "errors": [],
+  "browser": "156.0.8078.79",
+  "viewports": [
+    [
+      1152,
+      648
+    ],
+    [
+      844,
+      390
+    ]
+  ],
+  "physical_gamepad": false,
+  "physical_phone": false
+}

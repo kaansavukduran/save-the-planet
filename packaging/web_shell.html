@@ -1,32 +1,121 @@
 <!doctype html>
 <html lang="tr">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="referrer" content="strict-origin-when-cross-origin">
 <title>$GODOT_PROJECT_NAME · Fragaria Games</title>
 <style>
-:root{color-scheme:dark;--ink:#142333;--panel:#1d3040;--paper:#f2e5c7;--gold:#efcd89;--sage:#8fb9a5;--berry:#a93f59}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--ink);color:var(--paper);font-family:system-ui,sans-serif;overflow:hidden}#canvas{display:block;width:100%;height:100%;outline:none;image-rendering:pixelated;touch-action:none}#loading{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at 70% 40%,#2d535e,var(--ink) 68%);z-index:10}#card{width:min(540px,calc(100% - 40px));padding:36px;border:2px solid #587780;box-shadow:8px 8px #0b1827;background:var(--panel)}.brand{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--gold)}h1{font-size:clamp(32px,7vw,54px);line-height:.98;letter-spacing:-.04em;margin:28px 0 20px}p{line-height:1.5;font-size:16px;margin:12px 0;color:var(--sage)}progress{appearance:none;width:100%;height:12px;border:1px solid #729887;background:#102131;margin:18px 0 4px}progress::-webkit-progress-bar{background:#102131}progress::-webkit-progress-value{background:var(--gold)}progress::-moz-progress-bar{background:var(--gold)}#bytes{font-size:12px;font-variant-numeric:tabular-nums}#notice{color:var(--paper);white-space:pre-wrap;overflow-wrap:anywhere;max-height:30vh;overflow:auto}button,a{font:inherit;color:var(--paper)}button{border:2px solid #d99093;background:var(--berry);padding:12px 18px;margin-top:14px;cursor:pointer}button:hover{background:#b9546b;color:#fff}details{font-size:12px;margin-top:12px;color:var(--sage)}#error-detail{white-space:pre-wrap;overflow-wrap:anywhere}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}#full-page{position:fixed;bottom:8px;right:14px;z-index:3;background:var(--ink);padding:8px}#footer{font-size:11px;margin-top:24px;letter-spacing:.05em;color:#a0b7b4}#retry[hidden],#full-page[hidden],#loading[hidden]{display:none}
+:root{color-scheme:dark;--ink:#142333;--panel:#1d3040;--paper:#f2e5c7;--gold:#efcd89;--sage:#8fb9a5;--berry:#a93f59}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;background:var(--ink);color:var(--paper);font-family:system-ui,sans-serif;overflow:hidden}
+#canvas{display:block;position:absolute;left:env(safe-area-inset-left);top:env(safe-area-inset-top);width:calc(100% - env(safe-area-inset-left) - env(safe-area-inset-right));height:calc(100% - env(safe-area-inset-top) - env(safe-area-inset-bottom));outline:none;image-rendering:pixelated;touch-action:none}
+#canvas:focus-visible{outline:2px solid var(--gold);outline-offset:-2px}
+#loading{position:fixed;inset:0;display:grid;place-items:center;padding:20px;overflow:auto;background:radial-gradient(ellipse at 70% 40%,#2d535e,var(--ink) 68%);z-index:10}
+#card{width:min(540px,100%);max-height:calc(100svh - 40px);overflow:auto;padding:32px;border:2px solid #587780;box-shadow:8px 8px #0b1827;background:var(--panel)}
+.brand{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--gold)}
+h1{font-size:clamp(32px,7vw,54px);line-height:.98;letter-spacing:-.04em;margin:28px 0 20px}
+h2{font-size:1.5rem;color:var(--paper)}h3{font-size:1.1875rem;color:var(--gold)}
+p,li,td,th{line-height:1.5;font-size:1rem}p{margin:12px 0;color:var(--sage)}
+progress{appearance:none;width:100%;height:12px;border:1px solid #729887;background:#102131;margin:18px 0 4px}
+progress::-webkit-progress-bar{background:#102131}progress::-webkit-progress-value{background:var(--gold)}progress::-moz-progress-bar{background:var(--gold)}
+#bytes{font-size:12px;font-variant-numeric:tabular-nums}#notice{color:var(--paper);white-space:pre-wrap;overflow-wrap:anywhere}
+button,a{font:inherit;color:var(--paper)}button{min-height:44px;border:2px solid #d99093;background:var(--berry);padding:10px 16px;cursor:pointer}
+button:hover{background:#b9546b;color:#fff}button:active{background:#703a48}
+button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+details{font-size:12px;margin:12px 0;color:var(--sage)}summary{min-height:28px;cursor:pointer}#error-detail{white-space:pre-wrap;overflow-wrap:anywhere}
+#footer{font-size:11px;margin-top:24px;letter-spacing:.05em;color:#a0b7b4}
+#help-toggle{position:fixed;z-index:11;width:44px;height:44px;padding:0;background:var(--panel);border-color:#8fb9a5;font-weight:bold}
+#help{width:min(700px,calc(100% - 24px));max-height:calc(100svh - 24px);overflow:auto;border:2px solid #8fb9a5;background:var(--panel);color:var(--paper);padding:24px}
+#help::backdrop{background:#0a1729d9}#help-close{position:sticky;bottom:0;margin-top:18px}
+table{border-collapse:collapse;table-layout:fixed;width:100%;text-align:left}td,th{border-bottom:1px solid #587780;padding:8px 4px;overflow-wrap:anywhere}
+#full-page{display:inline-block;min-height:44px;padding:10px 0}.muted{color:var(--sage)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
+[hidden]{display:none!important}
+@media(max-height:500px){#card{padding:20px}h1{font-size:36px;margin:16px 0}#footer{margin-top:16px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important}}
 </style>
 $GODOT_HEAD_INCLUDE
 </head>
 <body>
-<canvas id="canvas" tabindex="0" aria-label="Save the Planet oyun alanı / game canvas"></canvas>
-<section id="loading" aria-live="polite"><div id="card"><div class="brand">FRAGARIA GAMES / AIONIA</div><h1>SAVE THE<br>PLANET</h1><p id="status">Vadiye uzanan yol hazırlanıyor.<br>Preparing the path to the valley.</p><progress id="progress" aria-label="Gerçek indirme ilerlemesi / Download progress"></progress><p id="bytes">Oyun dosyaları bekleniyor / Waiting for game files</p><p id="notice" role="alert"></p><details id="details" hidden><summary>Teknik ayrıntı / Technical details</summary><div id="error-detail"></div></details><button id="retry" hidden onclick="location.reload()">Yeniden dene / Retry</button><div id="footer">FRAGARIA INTERACTIVE · SAVE THE PLANET 0.2.0</div></div></section>
-<a id="full-page" hidden target="_blank" rel="noopener">Tam sayfa aç / Open full page</a>
+<p id="game-summary" class="sr-only">Görsel bir platform oyunu. F1 ile metin tabanlı kontrol ve mahremiyet rehberini aç. <span lang="en">A visual platform game. Press F1 for the text controls and privacy guide.</span></p>
+<canvas id="canvas" tabindex="0" aria-label="Save the Planet oyun alanı / game canvas" aria-describedby="game-summary">Tarayıcı bu oyun alanını desteklemiyor. / This browser cannot display the game canvas.</canvas>
+<section id="loading" aria-label="Oyunun açılması / Game startup" aria-live="polite"><div id="card">
+<div class="brand">FRAGARIA GAMES / AIONIA</div><h1>SAVE THE<br>PLANET</h1>
+<p id="status">Vadiye uzanan yol hazırlanıyor.<br><span lang="en">Preparing the path to the valley.</span></p>
+<progress id="progress" aria-label="Gerçek indirme ilerlemesi / Download progress"></progress>
+<p id="bytes">Oyun dosyaları bekleniyor / Waiting for game files</p><p id="notice" role="alert"></p>
+<details id="details" hidden><summary>Teknik ayrıntı / Technical details</summary><div id="error-detail"></div></details>
+<button id="retry" type="button" hidden>Yeniden dene / Retry</button>
+<div id="footer">FRAGARIA INTERACTIVE · SAVE THE PLANET 0.3.0</div></div></section>
+<button id="help-toggle" type="button" aria-label="Yardım ve mahremiyet / Help and privacy (F1)" title="Yardım / Help (F1)">?</button>
+<dialog id="help" aria-labelledby="help-title">
+<h2 id="help-title" tabindex="-1">Yardım / <span lang="en">Help</span></h2>
+<p>Hedef sol üstte görünür. Güvenli yolu aç, hayvanın kendi hareketini bekle; yakındayken etkileşim tuşunu kullan. Hikâye modunda hatalar ilerlemeyi silmez.</p>
+<p lang="en">Follow the goal at the top left. Open a safe path and let the animal move on its own. Interact when nearby. In Story mode, mistakes do not erase progress.</p>
+<table><caption>Varsayılan kontroller / Default controls</caption><thead><tr><th scope="col">Eylem / Action</th><th scope="col">Klavye / Keyboard</th><th scope="col">Gamepad</th></tr></thead><tbody>
+<tr><th scope="row">Hareket / Move</th><td>A/D · ←/→</td><td>Sol çubuk / Left stick · D-pad</td></tr>
+<tr><th scope="row">Zıpla / Jump</th><td>Space</td><td>A</td></tr>
+<tr><th scope="row">Yetenek / Ability</th><td>J</td><td>X</td></tr>
+<tr><th scope="row">Etkileşim / Interact</th><td>E</td><td>B</td></tr>
+<tr><th scope="row">Takım / Party</th><td>Q · 1–4</td><td>Y · LB/RB</td></tr>
+<tr><th scope="row">Duraklat / Pause</th><td>Esc</td><td>Start</td></tr>
+<tr><th scope="row">Defter / Journal</th><td>Tab</td><td>View</td></tr>
+</tbody></table>
+<p>Tuş atamalarını, büyük yazıyı, azaltılmış hareketi, sesi ve dokunmatik kontrolleri oyun içi Ayarlar’dan düzenleyebilirsin. Dokunmatikte portreler karakter seçer; alt düğmeler hareket ve eylemler içindir. Yatay ekran daha geniş oyun alanı sağlar.</p>
+<p lang="en">Adjust bindings, large text, reduced motion, audio and touch controls in the game's Settings. On touchscreens, tap portraits to switch heroes and use the bottom controls to move and act. Landscape offers a wider play area.</p>
+<h3>Yerel veriler / <span lang="en">Local data</span></h3>
+<p>Oyun hesap, reklam veya analiz kullanmaz. İlerleme, ayarlar ve oyunun yazılmış konuşma geçmişi bu cihazda saklanır. Ayarlar → Yerel veriler bölümünden kayıt ve yedekleri silebilirsin. Eski tarayıcı dosyalarının geri gelmesini önlemek için yalnızca bir silme işareti tutulur; ilerleme içermez. Sunucu, dosya istekleri için erişim bilgilerini işleyebilir; bu kayıtlar ve tarayıcı önbelleği oyun içinden silinmez.</p>
+<p lang="en">The game uses no accounts, ads or analytics. Progress, settings and authored dialogue history are stored on this device. Use Settings → Local data to delete saves and backups. Only an erasure marker is retained to stop stale browser files restoring progress; it contains no progress. The host may process access data for file requests; host logs and browser caches are not deleted by the game.</p>
+<p class="muted">Oyun alanı görsel hareket takibi gerektirir; ekran okuyucuyla tam oynanış doğrulanmadı. / <span lang="en">Gameplay requires visual tracking; full screen-reader play has not been verified.</span></p>
+<a id="full-page" hidden target="_blank" rel="noopener">Tam sayfa aç / Open full page</a><br>
+<button id="help-close" type="button">Oyuna dön / Return to game</button>
+</dialog>
 <noscript>JavaScript gerekli / JavaScript is required.</noscript>
 <script src="$GODOT_URL"></script>
 <script>
-const GODOT_CONFIG = $GODOT_CONFIG;
-const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
-const engine = new Engine(GODOT_CONFIG);
-const loading=document.getElementById('loading'), progress=document.getElementById('progress');
-function failure(error,hint){document.getElementById('status').textContent='Yolculuk başlatılamadı / Could not start the journey';document.getElementById('notice').textContent=hint||'Oyun dosyaları açılamadı. Bağlantını kontrol edip yeniden dene. / Game files could not open. Check your connection and try again.';document.getElementById('error-detail').textContent=error?.message||String(error);document.getElementById('details').hidden=false;document.getElementById('retry').hidden=false;progress.hidden=true;loading.hidden=false;}
-if(window.self!==window.top){const a=document.getElementById('full-page');a.href=location.href;a.hidden=false;}
-window.addEventListener('error',e=>failure(e.error||e.message));
-window.addEventListener('unhandledrejection',e=>failure(e.reason));
-// Only the archived game's worker names are retired; no save storage is cleared.
-if('serviceWorker' in navigator)navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.filter(r=>r.active&&/\/(sw|index\.service\.worker)\.js$/.test(new URL(r.active.scriptURL).pathname)).map(r=>r.unregister()))).catch(()=>{});
+'use strict';
+// Small exception-safe bridge: no eval of saved content and no whole-origin clearing.
+const ERASE_MARKER='fragaria.save-the-planet.erase-marker';
+const OWN_KEYS=new Set(['fragaria.save-the-planet.v2','fragaria.save-the-planet.v2.bak']);
+window.planetStorage=Object.freeze({
+ read(key){try{return OWN_KEYS.has(key)&&localStorage.getItem(ERASE_MARKER)!=='1'?localStorage.getItem(key):null;}catch{return null;}},
+ write(key,value){try{if(!OWN_KEYS.has(key))return false;if(localStorage.getItem(ERASE_MARKER)==='1')for(const own of OWN_KEYS)localStorage.removeItem(own);localStorage.setItem(key,value);localStorage.removeItem(ERASE_MARKER);return true;}catch{return false;}},
+ erased(){try{return localStorage.getItem(ERASE_MARKER)==='1';}catch{return false;}},
+ erase_all(){try{localStorage.setItem(ERASE_MARKER,'1');for(const key of OWN_KEYS)localStorage.removeItem(key);return true;}catch{return false;}}
+});
+const GODOT_CONFIG=$GODOT_CONFIG;
+const GODOT_THREADS_ENABLED=$GODOT_THREADS_ENABLED;
+const engine=new Engine(GODOT_CONFIG);
+const canvas=document.getElementById('canvas'),loading=document.getElementById('loading'),progress=document.getElementById('progress');
+const help=document.getElementById('help'),helpToggle=document.getElementById('help-toggle');
+function positionHelp(){const r=canvas.getBoundingClientRect(),scale=Math.min(r.width/960,r.height/540);helpToggle.style.left=(r.left+(r.width-960*scale)/2+770*scale)+'px';helpToggle.style.top=(r.top+(r.height-540*scale)/2+12*scale)+'px';}
+function openHelp(){help.showModal();help.scrollTop=0;document.getElementById('help-title').focus({preventScroll:true});}
+helpToggle.addEventListener('click',openHelp);
+document.getElementById('help-close').addEventListener('click',()=>help.close());
+help.addEventListener('close',()=>canvas.focus());
+window.addEventListener('keydown',event=>{if(help.open){event.stopImmediatePropagation();return;}if(event.key==='F1'){event.preventDefault();event.stopImmediatePropagation();openHelp();}},true);
+window.addEventListener('keyup',event=>{if(help.open)event.stopImmediatePropagation();},true);
+window.addEventListener('resize',positionHelp);positionHelp();
+document.getElementById('retry').addEventListener('click',()=>location.reload());
+function failure(error,hint){
+ document.getElementById('status').textContent='Yolculuk başlatılamadı / Could not start the journey';
+ document.getElementById('notice').textContent=hint||'Oyun dosyaları açılamadı. Bağlantını kontrol edip yeniden dene. / Game files could not open. Check your connection and try again.';
+ document.getElementById('error-detail').textContent=error?.message||String(error);
+ document.getElementById('details').hidden=false;document.getElementById('retry').hidden=false;progress.hidden=true;loading.hidden=false;
+}
+if(window.self!==window.top){const link=document.getElementById('full-page');link.href=location.href;link.hidden=false;}
+window.addEventListener('error',event=>failure(event.error||event.message));
+window.addEventListener('unhandledrejection',event=>failure(event.reason));
+// Retire only archived game worker names; keep saves and other applications intact.
+if('serviceWorker' in navigator){const base=new URL('./',location.href);const retired=['sw.js','index.service.worker.js'].map(name=>new URL(name,base).href);navigator.serviceWorker.getRegistrations().then(items=>Promise.all(items.filter(item=>item.scope===base.href&&item.active&&retired.includes(item.active.scriptURL)).map(item=>item.unregister()))).catch(()=>{});}
 const missing=Engine.getMissingFeatures({threads:GODOT_THREADS_ENABLED});
 if(missing.length){failure('Required browser features: '+missing.join(', '),'Bu tarayıcı gerekli oyun özelliklerini desteklemiyor. Güncel bir tarayıcıyla aç. / This browser lacks required game features. Try an updated browser.');}
-else engine.startGame({onProgress:(current,total)=>{if(current>0&&total>0){progress.value=current;progress.max=total;if(current>=total)document.getElementById('status').textContent='İndirme tamamlandı, oyun açılıyor. / Download complete, starting the game.';document.getElementById('bytes').textContent=(current/1048576).toFixed(1)+' / '+(total/1048576).toFixed(1)+' MiB';}else{progress.removeAttribute('value');document.getElementById('bytes').textContent='Dosyalar yükleniyor / Loading files';}}}).then(()=>{loading.hidden=true;document.getElementById('canvas').focus();}).catch(failure);
+else engine.startGame({onProgress:(current,total)=>{
+ if(current>0&&total>0){progress.value=current;progress.max=total;
+  if(current>=total)document.getElementById('status').textContent='İndirme tamamlandı, oyun açılıyor. / Download complete, starting the game.';
+  document.getElementById('bytes').textContent=(current/1048576).toFixed(1)+' / '+(total/1048576).toFixed(1)+' MiB';
+ }else{progress.removeAttribute('value');document.getElementById('bytes').textContent='Dosyalar yükleniyor / Loading files';}
+}}).then(()=>{loading.hidden=true;canvas.focus();positionHelp();}).catch(failure);
 </script>
 </body></html>

@@ -1,6 +1,6 @@
-# Save the Planet · ART_BIBLE · 0.2.0
+# Save the Planet · ART_BIBLE · 0.3.0
 
-Normatif kaynak: [AIONIA v1.0](AIONIA_STANDARD.md), 12.11.2026. Proje kararları aşağıdadır; evrenin tamamı için yeni kanon değildir.
+Normatif kaynak: [güncel AIONIA kaydı](AIONIA_STANDARD.md), 12.11.2026. Proje kararları aşağıdadır; evrenin tamamı için yeni kanon değildir.
 
 ## Görsel karar
 
@@ -35,3 +35,9 @@ Sevimli karakter siluetleri, sakin ve okunaklı kurtarma alanları; uzak katmanl
 ## Kontrast kontrolü
 
 Hesaplanan sRGB metin oranları: kâğıt #f2e5c7 / ana düğme #a93f59 **4,74:1**; beyaz / hover #b9546b **4,62:1**; kâğıt / panel #1d3040 **10,85:1**; altın / gece #142333 **10,44:1**. İlk çilek düğme tonu 3,97:1 olduğu için koyulaştırıldı. Bu hesaplar bütün piksel/altyazı ve tüm ekranlarda erişilebilirlik onayı anlamına gelmez.
+
+## 0.3.0 platform uygulaması
+
+Mevcut görsel kimlik ve kaynak karakterler korunur. Sabit 960×540 viewport render'ı ve nearest ölçek; kamera/özgün sprite ölçüleri değişmez. UI gövde font override'ı her kare yerine tercihler değişince uygulanır. Web metin rehberi aynı renk/kenar/focus dilini semantik dialog/tabloyla taşır; rem yazılar 200% büyütmeyle sınanır. Oyun alanı safe-area insets içine yerleşir. Bu, bütün telefonlarda native oyunun metninin yeterince büyük olduğu veya çentiklerin fiziksel olarak test edildiği iddiası değildir.
+
+Aktif gamepad ipuçları ve okunaklı hata metni, yeni rastgele ikon/mascot eklemek yerine görevi açıklar. Pause düğmesi yalnız oynanışta görünür. Motion azaltma, dekor/yanıp sönme yanında kamera smoothing/bakış payını da sınırlar. Son sanat kapısı hâlâ açıktır.

@@ -15,13 +15,18 @@ func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_PAUSABLE
 	audio=PlanetAudio.new();add_child(audio)
 	ui=PlanetUI.new();ui.game=self;add_child(ui)
+	Controls.controller_lost.connect(func():
+		if ui.menu_kind=="title" or (ui.menu_kind in ["settings","bindings","privacy","help","erase"] and ui.settings_origin=="title"):
+			ui.show_title()
+			ui.paragraph(State.text("Kontrolcü bağlantısı kesildi. Yeniden bağlayabilir veya klavyeyi kullanabilirsin.","Controller disconnected. Reconnect or use the keyboard."))
+		else:
+			ui.show_pause()
+			ui.paragraph(State.text("Kontrolcü bağlantısı kesildi. Yeniden bağla veya klavyeyle devam et.","Controller disconnected. Reconnect or continue with the keyboard.")))
 	load_level(State.level,true,false)
 	ui.show_title()
 
 func key_name(action: String) -> String:
-	for e in InputMap.action_get_events(action):
-		if e is InputEventKey:return OS.get_keycode_string(e.physical_keycode)
-	return action
+	return Controls.hint(action)
 
 func clear_scene() -> void:
 	if is_instance_valid(world):remove_child(world);world.queue_free()
@@ -129,7 +134,9 @@ func _physics_process(dt: float) -> void:
 		for i in level_data.checkpoints.size():
 			var x=float(level_data.checkpoints[i])
 			if absf(player.position.x-x)<28 and player.is_on_floor() and absf(player.position.y-440)<4 and i!=last_cp:
-				last_cp=i;player.spawn=Vector2(x,440);State.checkpoints[level_data.id]=[x,440];State.save_game();ui.flash("Kontrol noktası · kayıt alındı","Checkpoint · saved")
+				last_cp=i;player.spawn=Vector2(x,440);State.checkpoints[level_data.id]=[x,440]
+				if State.save_game():ui.flash("Kontrol noktası · kayıt alındı","Checkpoint · saved")
+				else:ui.flash("Kontrol noktası bu oturumda korundu; kayıt sorunu var.","Checkpoint kept for this session; saving needs attention.")
 		if world.unsafe_at(player.position) and player.invulnerable<=0:
 			if State.prefs.story:
 				player.invulnerable=1.4;player.velocity=Vector2(-player.facing*130,-200);ui.flash("Uyarı: çark çalışıyor. İçi boşken güvenli.","Warning: active gear. Wait for the empty centre.")
@@ -142,6 +149,11 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("pause"):ui.show_pause();get_viewport().set_input_as_handled();return
 	if event.is_action_pressed("party"):ui.show_party();get_viewport().set_input_as_handled();return
 	if event.is_action_pressed("journal"):ui.show_journal();get_viewport().set_input_as_handled();return
+	if event.is_action_pressed("hero_next") or event.is_action_pressed("hero_prev"):
+		var index=State.unlocked.find(State.active)
+		var direction=1 if event.is_action_pressed("hero_next") else -1
+		player.switch_hero(int(State.unlocked[posmod(index+direction,State.unlocked.size())]))
+		get_viewport().set_input_as_handled();return
 	for i in 4:
 		if event.is_action_pressed("hero"+str(i)):player.switch_hero(i);get_viewport().set_input_as_handled();return
 	if event.is_action_pressed("interact"):interact();get_viewport().set_input_as_handled()
@@ -156,4 +168,10 @@ func publish_qa(dt: float) -> void:
 			qa_clock=0.0
 			var sample={"x":player.position.x,"y":player.position.y,"vx":player.velocity.x,"vy":player.velocity.y,"floor":player.is_on_floor(),"active":State.active,"cooldown":player.cooldown,"unlocked":State.unlocked,"flags":State.flags,"level":State.level,"hub":in_hub,"menu":ui.menu_kind,"completed":State.completed,"shape_height":player.body_shape.shape.size.y,"glide":player.glide_left}
 			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)}
-			JavaScriptBridge.eval("window.__planetQA="+JSON.stringify(sample))
+			sample.input_method=Controls.input_method
+			sample.storage_error=State.storage_error
+			sample.storage_paused=State.storage_paused
+			var focused=get_viewport().gui_get_focus_owner()
+			sample.focus=focused.accessibility_name if focused!=null else ""
+			var window=JavaScriptBridge.get_interface("window")
+			window.__planetQA=JavaScriptBridge.get_interface("JSON").parse(JSON.stringify(sample))

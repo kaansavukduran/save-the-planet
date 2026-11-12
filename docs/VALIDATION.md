@@ -1,3 +1,7 @@
+# Güncel rapor: 0.3.0
+
+[AIONIA v1.1 uygulaması ve gerçek sonuçlar](VALIDATION_0.3.md). Aşağıdaki metin 0.2.0 tarihsel kaydıdır; yeni sürümün sonucu yerine sayılmaz.
+
 # Gerçek doğrulama · 0.2.0 · 2026-11-12
 
 Godot 4.6.3.stable.official.7d41c59c4; Linux x86_64 (6.18.57), Chromium 156.0.8078.79, 1152×648, SwiftShader WebGL2 yazılım GPU. Telefon yerleşim kontrolü 844×390 emülasyondur; fiziksel cihaz testi değildir. Headless test, gerçek görüntü ve oynanış yerine sayılmaz.

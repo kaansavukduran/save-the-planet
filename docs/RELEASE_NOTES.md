@@ -1,3 +1,17 @@
+# Save the Planet 0.3.0 · geliştirme sürümü
+
+AIONIA v1.1 teknoloji bağımsız kalite yaklaşımı mevcut Godot oyununa uygulanır; kaynak dokümanın metni okumada v1.2 idi. Ürün/hedef gruplar, gerçek QA ve güvenlik/mahremiyet sınırları repoda kaydedildi.
+
+- Bozuk/büyük/yeni sürüm kaydını koruma, görünür yazma hatası ve gerçek retry; başarısız checkpoint kaydına başarılı mesaj yok.
+- Yerel ilerleme/ayar/geçmiş için iptal/onaylı silme, başka uygulama verisini koruma ve hızlı reload'da eski IDB kaydının geri gelmesini engelleme.
+- LB/RB, aktif giriş ipuçları, klavye/gamepad remap, çakışma mesajı, deadzone ve güvenli disconnect/reconnect; azaltılmış kamera hareketi.
+- Aynı görsel kimlikle semantik web yardım/mahremiyet rehberi, 200% metin ve küçük ekran düzeni. JS eval içermeyen depolama köprüsü, gerçek hash'li CSP, host güvenlik başlıkları ve scope'a bağlı eski worker temizliği.
+- Dört karakter/on bölüm/final ve kaynak görseller korunur. Başka motor, framework veya rastgele asset eklenmez.
+
+Sonuçlar VALIDATION_0.3.md, sınırlar PROGRESS.md, yayın/indirmeler DELIVERY.md içindedir. Fiziksel cihaz/kol/ekran okuyucu, son sanat/hedef süre ve Android release koşulları tamamlanmadı. 60FPS bulut hedefi karşılanmadı; final/evrensel erişilebilirlik onayı iddia edilmez.
+
+---
+
 # Save the Planet 0.2.0 · geliştirme sürümü
 
 Fragaria Interactive / Fragaria Games / AIONIA, 12 Kasım 2026.

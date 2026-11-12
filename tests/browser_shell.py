@@ -1,10 +1,11 @@
 """Exercise the genuine AIONIA loader, failure/retry, iframe and measured local rendering."""
+from browser_wait import wait_js
 from playwright.sync_api import sync_playwright
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from threading import Thread
 from pathlib import Path
 import json,time,statistics,platform
-R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/aionia';E.mkdir(exist_ok=True)
+R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.3/shell';E.mkdir(parents=True,exist_ok=True)
 class Handler(SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(R/'build/web-qa'),**kw)
  def log_message(self,*args):pass
@@ -20,7 +21,7 @@ with sync_playwright() as p:
  page.add_init_script('''(()=>{const A=window.AudioContext||window.webkitAudioContext;if(A)window.AudioContext=class extends A{constructor(...args){super(...args);window.__measuredAudioContext=this;}};})()''')
  try:
   started=time.perf_counter();page.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');page.screenshot(path=str(E/'loading.png'))
-  page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000);load_ms=(time.perf_counter()-started)*1000
+  wait_js(page,'window.__planetQA?.menu === "title"',timeout=30000);load_ms=(time.perf_counter()-started)*1000
   check(page.locator('#loading').is_hidden(),'Loader closes only after the engine starts')
   check(page.locator('#progress').get_attribute('max') is not None,'Progress used the real byte callback')
   page.keyboard.press('Enter');page.wait_for_timeout(180);page.keyboard.press('Escape');page.wait_for_timeout(300)
@@ -31,12 +32,12 @@ with sync_playwright() as p:
   perf={'environment':platform.platform(),'browser':b.version,'renderer':'Chromium SwiftShader WebGL2','viewport':[1152,648],'scene':'a1l1 start, player idle, local HTTP','load_ms_local':round(load_ms,1),'raf_median_ms':round(statistics.median(samples),2),'raf_p95_ms':round(sorted(samples)[int(len(samples)*.95)-1],2),'sample_frames':len(samples),'audio_context':audio,'godot_monitors':engine_metrics,'memory_scope':'Godot static allocator; not total browser/WASM memory','engine_total_memory':'NOT TESTED','physical_gpu':'NOT TESTED'}
   # A real failed WASM request must present a useful error and a working retry.
   bad=ctx.new_page();bad.route('**/*.wasm',lambda route:route.fulfill(status=503,body='QA simulated engine download failure'))
-  bad.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');bad.wait_for_function('!document.getElementById("retry").hidden',timeout=15000)
+  bad.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');wait_js(bad,'!document.getElementById("retry").hidden',timeout=15000)
   check(bad.locator('#notice').inner_text()!='','Failed engine download exposes an error message');bad.screenshot(path=str(E/'loader-error.png'))
-  bad.unroute('**/*.wasm');bad.locator('#retry').click();bad.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
+  bad.unroute('**/*.wasm');bad.locator('#retry').click();wait_js(bad,'window.__planetQA?.menu === "title"',timeout=30000)
   check(bad.locator('#loading').is_hidden(),'Retry reopens the real game after download recovers');bad.close()
-  embed=ctx.new_page();embed.goto('http://127.0.0.1:8019/embed-test');frame=embed.frames[1];frame.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
-  check(frame.locator('#full-page').is_visible(),'Iframe offers a full-page route')
+  embed=ctx.new_page();embed.goto('http://127.0.0.1:8019/embed-test');frame=embed.frames[1];wait_js(frame,'window.__planetQA?.menu === "title"',timeout=30000)
+  frame.locator('#help-toggle').click();check(frame.locator('#full-page').is_visible(),'Iframe help offers a full-page route');frame.locator('#help-close').click()
   frame.locator('canvas').focus();embed.keyboard.press('Enter');embed.wait_for_timeout(150);embed.keyboard.press('Escape');embed.wait_for_timeout(200)
   before=frame.evaluate('window.__planetQA.x');embed.keyboard.down('d');embed.wait_for_timeout(250);embed.keyboard.up('d');after=frame.evaluate('window.__planetQA.x')
   check(after>before+20,'Focused iframe receives real movement keys');embed.screenshot(path=str(E/'iframe.png'));embed.close()

@@ -22,6 +22,13 @@ var prompt_plate: PanelContainer
 var dialogue_pages: Array = []
 var party_signature=""
 var settings_origin="title"
+var binding_device="keyboard"
+var save_status: Label
+var title_hint: Label
+var dialogue_next: Button
+var dialogue_skip: Button
+var hint_revision=""
+var pause_button: Button
 
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
@@ -32,6 +39,7 @@ func _ready() -> void:
 	chapter=Label.new();chapter.position=Vector2(32,24);chapter.size=Vector2(625,22);chapter.add_theme_font_size_override("font_size",13);chapter.add_theme_color_override("font_color",PlanetSkin.GOLD);root.add_child(chapter)
 	hud=Label.new();hud.position=Vector2(32,47);hud.size=Vector2(625,50);hud.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;hud.add_theme_color_override("font_color",Color("f6efcc"));root.add_child(hud)
 	var menu=Button.new();menu.text="Ⅱ";menu.focus_mode=Control.FOCUS_NONE;menu.tooltip_text=State.text("Duraklat / Esc","Pause / Esc");menu.position=Vector2(890,12);menu.size=Vector2(48,44);menu.pressed.connect(show_pause);root.add_child(menu)
+	pause_button=menu
 	menu.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT);menu.offset_left=-68;menu.offset_right=-20;menu.offset_top=12;menu.offset_bottom=56
 	prompt_plate=PanelContainer.new();prompt_plate.mouse_filter=Control.MOUSE_FILTER_IGNORE;prompt_plate.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);prompt_plate.offset_left=210;prompt_plate.offset_right=-210;prompt_plate.offset_top=-187;prompt_plate.offset_bottom=-123;prompt_plate.add_theme_stylebox_override("panel",PlanetSkin.box(PlanetSkin.INK,PlanetSkin.GOLD,10));root.add_child(prompt_plate)
 	prompt=Label.new();prompt.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;prompt.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;prompt.set_anchors_and_offsets_preset(Control.PRESET_BOTTOM_WIDE);prompt.offset_top=-177;prompt.offset_bottom=-128;prompt.offset_left=225;prompt.offset_right=-225
@@ -41,6 +49,7 @@ func _ready() -> void:
 	for i in 4:
 		var b=Button.new();b.text=str(i+1);b.focus_mode=Control.FOCUS_NONE;b.custom_minimum_size=Vector2(62,56);b.expand_icon=true;b.add_theme_constant_override("icon_max_width",35);b.pressed.connect(func():game.player.switch_hero(i));party_bar.add_child(b);party_buttons.append(b)
 	resource_label=Label.new();resource_label.position=Vector2(300,482);resource_label.add_theme_font_size_override("font_size",14);root.add_child(resource_label)
+	save_status=Label.new();save_status.position=Vector2(700,70);save_status.size=Vector2(225,65);save_status.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;save_status.add_theme_color_override("font_color",PlanetSkin.GOLD);root.add_child(save_status)
 	dimmer=ColorRect.new();dimmer.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);dimmer.color=Color(0.025,0.055,0.09,0.55);dimmer.visible=false;root.add_child(dimmer)
 	touch_layer=Control.new();touch_layer.mouse_filter=Control.MOUSE_FILTER_IGNORE;root.add_child(touch_layer)
 	apply_preferences()
@@ -49,15 +58,18 @@ func tr_pair(pair: Array) -> String:return str(pair[0 if State.prefs.language=="
 
 func apply_preferences() -> void:
 	root.theme.default_font_size=22 if State.prefs.large_text else 18
+	hud.add_theme_font_size_override("font_size",22 if State.prefs.large_text else 18)
+	pause_button.accessibility_name=State.text("Duraklat","Pause")
 	game.audio.apply()
 	for child in touch_layer.get_children():child.queue_free()
 	if OS.has_feature("mobile") or State.prefs.touch:
 		var rects=Controls.touch_rects(get_viewport().get_visible_rect().size)
 		for action in rects:
 			var box=Panel.new();box.position=rects[action].position;box.size=rects[action].size;box.mouse_filter=Control.MOUSE_FILTER_IGNORE
+			box.accessibility_name=Controls.action_name(action)
 			var st=StyleBoxFlat.new();st.bg_color=Color(0.09,0.23,0.27,0.72);st.set_border_width_all(2);st.border_color=Color("b9d0aa");box.add_theme_stylebox_override("panel",st)
 			touch_layer.add_child(box)
-			var label=Label.new();label.text={"left":"◀","right":"▶","jump":"↑","ability":"J","interact":"E"}[action];label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);label.mouse_filter=Control.MOUSE_FILTER_IGNORE;box.add_child(label)
+			var label=Label.new();label.text={"left":"◀","right":"▶","jump":"↑","ability":State.text("Güç","Skill"),"interact":State.text("Yap","Use")}[action];label.horizontal_alignment=HORIZONTAL_ALIGNMENT_CENTER;label.vertical_alignment=VERTICAL_ALIGNMENT_CENTER;label.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);label.mouse_filter=Control.MOUSE_FILTER_IGNORE;box.add_child(label)
 
 func _process(dt: float) -> void:
 	if toast_left>0:toast_left-=dt
@@ -67,25 +79,31 @@ func _process(dt: float) -> void:
 	hud_plate.visible=menu_kind==""
 	party_bar.visible=menu_kind==""
 	resource_label.visible=menu_kind==""
+	pause_button.visible=menu_kind==""
 	prompt.visible=menu_kind==""
+	save_status.visible=State.storage_error
+	save_status.text=State.text("! Kayıt sorunu\nAyarlar → Yerel veriler","! Saving needs attention\nSettings → Local data")
+	refresh_hints()
 	if game.player==null:return
 	game.publish_qa(dt)
 	var title=tr_pair(game.level_data.title)
 	var hero=State.text(["Aion","Melun Bilge Kurt","Kuzu","Baykuş Ömer"][State.active],["Aion","Wise Wolf","Lamb","Ömer the Owl"][State.active])
 	chapter.text=(State.text("YAŞAM ALANI","SANCTUARY") if game.in_hub else State.text("PERDE ","ACT ")+str(int(game.level_data.act))+"  /  "+str(State.level+1).pad_zeros(2)+" · 10")+"   /   "+title
 	hud.text=game.goal_text()
-	hud.add_theme_font_size_override("font_size",18 if not State.prefs.large_text else 22)
 	var touch=OS.has_feature("mobile") or State.prefs.touch
 	party_bar.position=Vector2(16,152 if touch else 470)
 	resource_label.position=Vector2(16,212) if touch else Vector2(302,484)
 	var skills=[["Çift zıplama · akış","Double jump · flow"],["Depar · ağır düzenek","Dash · heavy mechanisms"],["Takla · alçak geçit","Roll · low tunnel"],["Süzülüş · gözlem","Glide · observe"]]
-	resource_label.text=hero+"  /  "+tr_pair(skills[State.active])+"\n"+State.text("Takım [Q]  ·  ","Party [Q]  ·  ")+("%.1f s"%game.player.cooldown if game.player.cooldown>0 else State.text("Yetenek hazır","Ability ready"))
+	var party_hint=State.text("Portrelere dokun","Tap portraits") if touch else State.text("Takım [","Party [")+Controls.hint("party")+"]"
+	var ability_hint="" if touch else "["+Controls.hint("ability")+"] "
+	resource_label.text=hero+"  /  "+tr_pair(skills[State.active])+"\n"+party_hint+"  ·  "+ability_hint+("%.1f s"%game.player.cooldown if game.player.cooldown>0 else State.text("Yetenek hazır","Ability ready"))
 	if State.active==3:resource_label.text+="  /  %.1f s"%game.player.glide_left
 	var signature=str(State.active)+str(State.unlocked)
 	if signature!=party_signature:
 		party_signature=signature
 		for i in 4:
 			var button: Button=party_buttons[i];button.disabled=not i in State.unlocked;button.text=str(i+1) if not button.disabled else "?"
+			button.accessibility_name=State.text(["Aion","Kurt","Kuzu","Ömer"][i],["Aion","Wolf","Lamb","Owl"][i])+" · "+tr_pair(skills[i])+(State.text(" · Henüz katılmadı"," · Not yet available") if button.disabled else "")
 			if not button.disabled:
 				button.icon=load("res://assets/derived/canonical-"+HeroVisual.HEROES[i]+"-0-0.png")
 			else:button.icon=null
@@ -98,6 +116,19 @@ func _process(dt: float) -> void:
 
 func flash(tr_text: String,en_text: String) -> void:
 	toast.text=State.text(tr_text,en_text);toast_left=4.5
+
+func refresh_hints() -> void:
+	var revision=Controls.input_method+str(State.prefs.language)+str(State.prefs.bindings)+str(State.prefs.gamepad_bindings)+menu_kind
+	if revision==hint_revision:return
+	hint_revision=revision
+	if is_instance_valid(title_hint):
+		title_hint.text=State.text("Hareket: ","Move: ")+Controls.hint("left")+" / "+Controls.hint("right")+"\n"+State.text("Zıpla: ","Jump: ")+Controls.hint("jump")+"  ·  "+State.text("Etkileşim: ","Interact: ")+Controls.hint("interact")
+	if is_instance_valid(dialogue_next):
+		dialogue_next.text=State.text("Devam   [","Continue   [")+Controls.menu_hint(true)+"]"
+		dialogue_next.accessibility_name=dialogue_next.text
+	if is_instance_valid(dialogue_skip):
+		dialogue_skip.text=State.text("Geç [","Skip [")+Controls.menu_hint(false)+"]"
+		dialogue_skip.accessibility_name=dialogue_skip.text
 
 func open_panel(title: String,kind: String) -> void:
 	close_panel(false)
@@ -117,6 +148,7 @@ func paragraph(value: String) -> Label:
 
 func button(value: String,callback: Callable,disabled: bool=false) -> Button:
 	var b=Button.new();b.text=value;b.alignment=HORIZONTAL_ALIGNMENT_LEFT;b.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;b.custom_minimum_size.y=46;b.size_flags_horizontal=Control.SIZE_EXPAND_FILL;b.disabled=disabled;b.pressed.connect(callback);list.add_child(b)
+	b.accessibility_name=value
 	if not disabled and list.get_children().filter(func(c):return c is Button and not c.disabled).size()==1:b.call_deferred("grab_focus")
 	return b
 
@@ -143,12 +175,13 @@ func show_title() -> void:
 			else:game.load_level(State.level,true))
 		PlanetSkin.primary(resume)
 	var start=button(State.text("Yeni yolculuk","New journey"),func():
-		if not State.flags.is_empty():show_new_confirm()
+		if not State.flags.is_empty() or State.protected_future or State.unknown_save:show_new_confirm()
 		else:start_new())
 	if State.flags.is_empty():PlanetSkin.primary(start)
 	button(State.text("Ayarlar ve kontroller","Settings and controls"),show_settings)
-	var hint=paragraph(State.text("A / D  Hareket   ·   Space  Zıpla\nE  Etkileşim   ·   Esc  Mola","A / D  Move   ·   Space  Jump\nE  Interact   ·   Esc  Pause"));hint.add_theme_font_size_override("font_size",13);hint.add_theme_color_override("font_color",PlanetSkin.SAGE)
-	var footer=paragraph("Fragaria Interactive  /  0.2.0");footer.add_theme_font_size_override("font_size",12);footer.add_theme_color_override("font_color",PlanetSkin.SAGE)
+	title_hint=paragraph("");title_hint.add_theme_font_size_override("font_size",13);title_hint.add_theme_color_override("font_color",PlanetSkin.SAGE)
+	var footer=paragraph("Fragaria Interactive  /  "+State.VERSION);footer.add_theme_font_size_override("font_size",12);footer.add_theme_color_override("font_color",PlanetSkin.SAGE)
+	hint_revision=""
 	if State.notice!="":paragraph(State.notice)
 
 func show_new_confirm() -> void:
@@ -213,36 +246,87 @@ func show_dialogue_page() -> void:
 		if dialogue_pages.is_empty():close_panel()
 		else:show_dialogue_page())
 	PlanetSkin.primary(next)
+	dialogue_next=next
 	if not dialogue_pages.is_empty():
 		var row=HBoxContainer.new();row.add_theme_constant_override("separation",12);list.add_child(row);next.reparent(row)
 		var skip=Button.new();skip.text=State.text("Geç [Esc]","Skip [Esc]");skip.custom_minimum_size=Vector2(150,46);skip.pressed.connect(func():close_panel());row.add_child(skip);next.call_deferred("grab_focus")
+		dialogue_skip=skip
+	hint_revision=""
 
 func show_settings() -> void:
 	if menu_kind in ["title","pause"]:settings_origin=menu_kind
 	open_panel(State.text("Ayarlar ve kontroller","Settings and controls"),"settings")
-	button("Türkçe / English",func():State.prefs.language="en" if State.prefs.language=="tr" else "tr";State.save_game();show_settings())
-	button(State.text("Mod: ","Mode: ")+State.text("Hikâye" if State.prefs.story else "Standart","Story" if State.prefs.story else "Standard"),func():State.prefs.story=not State.prefs.story;State.save_game();show_settings())
-	button(State.text("Büyük metin: ","Large text: ")+State.text("Açık" if State.prefs.large_text else "Kapalı","On" if State.prefs.large_text else "Off"),func():State.prefs.large_text=not State.prefs.large_text;State.save_game();apply_preferences();show_settings())
-	button(State.text("Azaltılmış efekt: ","Reduced effects: ")+State.text("Açık" if State.prefs.reduced_effects else "Kapalı","On" if State.prefs.reduced_effects else "Off"),func():State.prefs.reduced_effects=not State.prefs.reduced_effects;State.save_game();show_settings())
-	button(State.text("Dokunmatik kontroller: ","Touch controls: ")+State.text("Açık" if State.prefs.touch else "Kapalı","On" if State.prefs.touch else "Off"),func():State.prefs.touch=not State.prefs.touch;State.save_game();apply_preferences();show_settings())
+	button(State.text("Dil: Türkçe / English","Language: English / Türkçe"),func():State.prefs.language="en" if State.prefs.language=="tr" else "tr";State.save_preferences();apply_preferences();show_settings())
+	button(State.text("Mod: ","Mode: ")+State.text("Hikâye" if State.prefs.story else "Standart","Story" if State.prefs.story else "Standard"),func():State.prefs.story=not State.prefs.story;State.save_preferences();show_settings())
+	button(State.text("Büyük metin: ","Large text: ")+State.text("Açık" if State.prefs.large_text else "Kapalı","On" if State.prefs.large_text else "Off"),func():State.prefs.large_text=not State.prefs.large_text;State.save_preferences();apply_preferences();show_settings())
+	button(State.text("Azaltılmış hareket ve efekt: ","Reduced motion and effects: ")+State.text("Açık" if State.prefs.reduced_effects else "Kapalı","On" if State.prefs.reduced_effects else "Off"),func():State.prefs.reduced_effects=not State.prefs.reduced_effects;State.save_preferences();apply_preferences();show_settings())
+	button(State.text("Dokunmatik kontroller: ","Touch controls: ")+State.text("Açık" if State.prefs.touch else "Kapalı","On" if State.prefs.touch else "Off"),func():State.prefs.touch=not State.prefs.touch;State.save_preferences();apply_preferences();show_settings())
 	for key in ["music","sfx"]:
 		var row=HBoxContainer.new();list.add_child(row)
 		var label=Label.new();label.text=State.text("Müzik" if key=="music" else "Efekt","Music" if key=="music" else "Effects");label.custom_minimum_size.x=130;row.add_child(label)
-		var slider=HSlider.new();slider.min_value=0;slider.max_value=1;slider.step=0.05;slider.value=float(State.prefs[key]);slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL;slider.custom_minimum_size.y=38;row.add_child(slider)
-		slider.value_changed.connect(func(v):State.prefs[key]=v;game.audio.apply();State.save_game())
+		var slider=HSlider.new();slider.min_value=0;slider.max_value=1;slider.step=0.05;slider.value=float(State.prefs[key]);slider.size_flags_horizontal=Control.SIZE_EXPAND_FILL;slider.custom_minimum_size.y=44;slider.tooltip_text=label.text;row.add_child(slider)
+		slider.accessibility_name=label.text
+		slider.value_changed.connect(func(value):State.prefs[key]=value;game.audio.apply();State.save_preferences())
 	button(State.text("Tam ekran / Pencere","Fullscreen / Window"),func():DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED if DisplayServer.window_get_mode()==DisplayServer.WINDOW_MODE_FULLSCREEN else DisplayServer.WINDOW_MODE_FULLSCREEN))
-	button(State.text("Tuşları yeniden ata","Rebind keys"),show_bindings)
+	button(State.text("Klavye tuşlarını düzenle","Keyboard bindings"),func():show_bindings("keyboard"))
+	button(State.text("Gamepad düğmelerini düzenle","Gamepad bindings"),func():show_bindings("gamepad"))
+	var row=HBoxContainer.new();list.add_child(row)
+	var label=Label.new();label.text=State.text("Analog eşik","Stick deadzone");label.custom_minimum_size.x=180;row.add_child(label)
+	var deadzone=HSlider.new();deadzone.min_value=0.15;deadzone.max_value=0.5;deadzone.step=0.05;deadzone.value=State.prefs.deadzone;deadzone.size_flags_horizontal=Control.SIZE_EXPAND_FILL;deadzone.custom_minimum_size.y=44;deadzone.tooltip_text=State.text("Küçük çubuk hareketlerini yok say","Ignore small stick movements");row.add_child(deadzone)
+	deadzone.accessibility_name=label.text
+	deadzone.value_changed.connect(func(value):State.prefs.deadzone=value;Controls.apply_deadzone();State.save_preferences())
+	button(State.text("Nasıl oynanır?","How to play"),show_help)
+	button(State.text("Yerel veriler ve mahremiyet","Local data and privacy"),show_privacy)
 	button(State.text("Geri","Back"),settings_back)
 
 func settings_back() -> void:
 	if settings_origin=="title":show_title()
 	else:show_pause()
 
-func show_bindings() -> void:
-	open_panel(State.text("Klavye eşlemesi","Keyboard bindings"),"bindings")
-	for action in Controls.KEYS:
-		button(action+" : "+game.key_name(action),func():pending_binding=action;paragraph(State.text("Yeni tuşa bas. Esc iptal eder.","Press a new key. Esc cancels.")))
+func show_help() -> void:
+	open_panel(State.text("Nasıl oynanır?","How to play"),"help")
+	paragraph(State.text("Sol üstteki hedefi izle. Güvenli yolu aç; hayvanın kendi hareketini bekle. Yaklaşınca görünen etkileşim tuşunu kullan. Hikâye modunda hata yapmak ilerlemeyi silmez.","Follow the goal at the top left. Open a safe path and let the animal move on its own. Use the interaction hint when nearby. In Story mode, mistakes do not erase progress."))
+	for action in ["left","right","jump","ability","interact","party","pause","journal","hero_prev","hero_next"]:
+		paragraph(Controls.action_name(action)+"  /  "+Controls.hint(action,"keyboard")+"  /  "+Controls.hint(action,"gamepad"))
+	paragraph(State.text("Aion: çift zıplama. Kurt: depar. Kuzu: takla. Ömer: zıplamayı basılı tutarak sınırlı süzülme. Karakter değiştirmek havadaki hakları yenilemez. Dokunmatikte alt düğmeler hareket/eylemler, portreler karakter seçimidir. Bu sürüm titreşim göndermez.","Aion: double jump. Wolf: dash. Lamb: roll. Owl: hold jump for limited glide. Switching never restores air resources. On touchscreens, use the bottom controls and tap portraits to switch heroes. This version sends no vibration."))
 	button(State.text("Geri","Back"),show_settings)
+
+func show_bindings(device: String="keyboard") -> void:
+	binding_device=device
+	open_panel(State.text("Gamepad düğmeleri","Gamepad bindings") if device=="gamepad" else State.text("Klavye tuşları","Keyboard bindings"),"bindings")
+	var actions=Controls.REMAPPABLE_PAD if device=="gamepad" else Controls.KEYS.keys()
+	for action in actions:
+		if device=="keyboard" and action in ["hero_prev","hero_next"]:continue
+		button(Controls.action_name(action)+" : "+Controls.hint(action,device),func():
+			pending_binding=action
+			paragraph(State.text("Yeni düğmeye bas. Start veya Esc iptal eder.","Press a new button. Start or Esc cancels.") if device=="gamepad" else State.text("Yeni tuşa bas. Esc iptal eder.","Press a new key. Esc cancels.")))
+	button(State.text("Varsayılanları geri getir","Restore defaults"),func():
+		if device=="gamepad":Controls.reset_gamepad()
+		else:Controls.reset_keyboard()
+		show_bindings(device))
+	button(State.text("Geri","Back"),show_settings)
+
+func show_privacy() -> void:
+	open_panel(State.text("Yerel veriler ve mahremiyet","Local data and privacy"),"privacy")
+	paragraph(State.text("Bu oyun hesap, reklam, analiz veya oyun içi takip kullanmaz. İlerleme, ayarlar ve oyunun kendi konuşma geçmişi bu cihazda/tarayıcıda saklanır. Başka cihaza otomatik aktarılmaz. Silme sonrası, eski tarayıcı kaydının geri dönmesini önleyen ilerlemesiz bir işaret kalabilir.","This game uses no accounts, ads, analytics or in-game tracking. Progress, settings and the game's authored dialogue history are stored on this device/browser. They do not sync to other devices. After deletion, a marker without progress may remain to prevent old browser data returning."))
+	paragraph(State.text("Web sunucusu dosya istekleri için IP ve tarayıcı gibi erişim verilerini işleyebilir. Tarayıcı önbelleği ve sunucu erişim kayıtları aşağıdaki işlemle silinmez. Ortak cihazda işin bittiğinde yerel oyun verilerini silebilirsin.","The web host may process access data such as IP and browser information for file requests. Browser caches and server logs are not removed by the action below. On a shared device, you can delete the local game data when finished."))
+	if State.notice!="":paragraph(State.notice)
+	if State.storage_error and not State.storage_paused:
+		button(State.text("Kaydı yeniden dene","Retry saving"),func():State.save_game();show_privacy())
+	button(State.text("Bu oyunun yerel verilerini sil…","Delete this game's local data…"),show_erase_confirm)
+	button(State.text("Geri","Back"),show_settings)
+
+func show_erase_confirm() -> void:
+	open_panel(State.text("Yerel oyun verileri silinsin mi?","Delete local game data?"),"erase")
+	paragraph(State.text("İlerleme, ayarlar, konuşma geçmişi ve bu oyunun kayıt yedekleri silinecek. Bu işlem geri alınamaz. Başka uygulamaların verilerine dokunulmaz.","Progress, settings, dialogue history and this game's save backups will be deleted. This cannot be undone. Data belonging to other apps is preserved."))
+	button(State.text("İptal","Cancel"),show_privacy)
+	var erase=button(State.text("Yerel verileri sil","Delete local data"),func():
+		if State.erase_local_data():
+			Controls.reset_keyboard(false);Controls.reset_gamepad(false);Controls.apply_deadzone()
+			game.load_level(0,false,false)
+			show_title()
+		else:show_privacy())
+	erase.add_theme_stylebox_override("normal",PlanetSkin.box(Color("703a48"),PlanetSkin.GOLD,11))
 
 func show_chapters() -> void:
 	open_panel(State.text("Beş perde · on bölüm","Five acts · ten chapters"),"chapters")
@@ -251,6 +335,13 @@ func show_chapters() -> void:
 		var allowed=i==0 or (i-1) in State.completed or State.flags.get("story_complete",false)
 		button(str(i+1)+" · "+tr_pair(d.title)+(" ✓" if i in State.completed else ""),func():close_panel();game.load_level(i,true),not allowed)
 	button(State.text("Geri","Back"),show_pause)
+
+func binding_result(ok: bool) -> void:
+	show_bindings(binding_device)
+	if not ok:
+		var warning=paragraph(Controls.binding_notice)
+		warning.add_theme_color_override("font_color",PlanetSkin.GOLD)
+		list.move_child(warning,1)
 
 func show_journal() -> void:
 	open_panel(State.text("Ömer’in defteri","Ömer’s journal"),"journal")
@@ -264,17 +355,33 @@ func show_journal() -> void:
 	button(State.text("Geri","Back"),show_pause)
 
 func _input(event: InputEvent) -> void:
-	if pending_binding!="" and event is InputEventKey and event.pressed and not event.echo:
-		if event.physical_keycode!=KEY_ESCAPE:Controls.rebind(pending_binding,event.physical_keycode)
-		pending_binding="";get_viewport().set_input_as_handled();show_bindings();return
+	if pending_binding!="":
+		if event is InputEventKey and event.pressed and not event.echo:
+			var ok=true
+			if event.physical_keycode!=KEY_ESCAPE and binding_device=="keyboard":ok=Controls.rebind(pending_binding,event.physical_keycode)
+			elif event.physical_keycode!=KEY_ESCAPE:return
+			pending_binding="";get_viewport().set_input_as_handled();binding_result(ok)
+			return
+		if event is InputEventJoypadButton and event.pressed and binding_device=="gamepad":
+			var ok=true
+			if event.button_index!=JOY_BUTTON_START:ok=Controls.rebind_gamepad(pending_binding,event.button_index)
+			pending_binding="";get_viewport().set_input_as_handled();binding_result(ok)
+			return
+		if event is InputEventJoypadMotion:get_viewport().set_input_as_handled();return
+	if event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_F1:
+		if menu_kind in ["title",""]:settings_origin="title" if menu_kind=="title" else "pause"
+		show_help();get_viewport().set_input_as_handled();return
 	if menu_kind!="" and (event.is_action_pressed("pause") or event.is_action_pressed("ui_cancel")):
 		get_viewport().set_input_as_handled()
 		if menu_kind=="title":return
-		# Start is a direct pause toggle; Escape/B navigate one menu level back.
+		if menu_kind=="new":show_title();return
 		if event is InputEventJoypadButton and event.button_index==JOY_BUTTON_START:
+			if settings_origin=="title" and menu_kind in ["settings","bindings","privacy","help","erase"]:
+				show_title();return
 			close_panel();return
 		if menu_kind=="settings":settings_back();return
-		if menu_kind=="bindings":show_settings();return
+		if menu_kind in ["bindings","help","privacy"]:show_settings();return
+		if menu_kind=="erase":show_privacy();return
 		close_panel();return
 	if menu_kind=="dialogue" and event.is_action_pressed("interact"):
 		get_viewport().set_input_as_handled()

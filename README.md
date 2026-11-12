@@ -1,19 +1,19 @@
 # Save the Planet
 
-Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik ilişkileri eylem ve sonuçlarla ele alan Godot 4.6.3 / GDScript platform macerası. Dört karakter, beş perde, on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.2.0 geliştirme sürümü**; hedef oyun süresi, görsel son kalite ve tüm fiziksel platform testleri henüz tamamlanmadı.
+Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik neden-sonuç ilişkisini eylemlerle ele alan **Godot 4.6.3 / GDScript** platform macerası. Dört karakter, beş perde/on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.3.0 geliştirme sürümü**; nihai sanat, hedef süre ve fiziksel platform QA henüz tamamlanmadı.
 
 ```sh
 godot --path .
 ```
 
-A/D veya oklar hareket, Space zıplama, J yetenek, E etkileşim, 1–4 karakter, Q takım, Esc duraklat, Tab defter; S/aşağı platformdan inme. Takım menüsü durdurur. Tuşlar ayarlardan değişir. Gamepad ve isteğe bağlı dokunmatik kontroller vardır.
+A/D veya oklar hareket, Space zıplama, J yetenek, E etkileşim, 1–4 karakter, Q takım, Esc duraklat, Tab defter; S/aşağı platformdan inme. Gamepad: sol çubuk/D-pad, A zıplama, X yetenek, B etkileşim/geri, Y takım, LB/RB karakter, Start pause/devam, View defter. Ayarlardan klavye/gamepad atamaları, analog eşik, ses, büyük metin, azaltılmış hareket ve dokunmatik düzen değişir. Web'de **F1 / ?** metin rehberi açar.
 
-Gerçek web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 8000 --directory build/web`. Native paketleme: `python3 packaging/build_native.py`. [Build ve platform ayrıntıları](docs/BUILD.md), [uygulama planı](docs/IMPLEMENTATION_PLAN.md), [gerçek ilerleme ve devam noktası](docs/PROGRESS.md), [doğrulama](docs/VALIDATION.md), [güncel tasarım](GDD.md).
+0.3 yenilikleri: görünür kayıt hata/kurtarma akışı; bozuk/büyük/yeni sürüm kaydı için koruma; açık onaylı yerel veri silme ve hızlı reload'da eski kaydın geri dönmesini engelleme; girişe göre ipuçları, gamepad remap/hotplug; kamera hareketini azaltma; semantik web rehberi ve hash tabanlı CSP. Reklam/analitik/oyun hesabı yoktur. [Mahremiyet ve güvenlik sınırları](docs/PRIVACY_AND_SECURITY.md).
 
-Eski Canvas uygulaması `legacy/` içinde korunur; yeni oyun gerçekten `project.godot` ve `scenes/main.tscn` üzerinden çalışır. Dağıtım çıktısı Godot WASM/PCK'dir. PWA/çevrimdışı web desteği iddia edilmez. Kayıt yerel cihaz/tarayıcıya aittir.
+Web export: `python3 packaging/build_web.py`, ardından `python3 -m http.server 8000 --directory build/web`. Native paketleme: `python3 packaging/build_native.py`. [Build](docs/BUILD.md), [teslim/yayın durumu](docs/DELIVERY.md), [güncel ilerleme](docs/PROGRESS.md), [gerçek test raporu](docs/VALIDATION_0.3.md), [GDD](GDD.md).
 
-Kanonik görsellerin kaynakları ve dönüşümleri [assets/provenance.json](assets/provenance.json), kullanım koşulları [LICENSE](LICENSE), [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) ve [varlık envanteri](docs/ASSETS.md) içindedir. Kaynak depo: https://github.com/kaansavukduran/save-the-planet .
+[AIONIA güncel kaynak kaydı](docs/AIONIA_STANDARD.md), [ürün/hedef kullanıcı özeti](docs/DESIGN_BRIEF.md), [v1.1 uygulama planı](docs/AIONIA_V11_PLAN.md), [sanat kararları](docs/ART_BIBLE.md), [kanon sınırları](docs/LORE_LINKS.md). İstenen v1.1 teknoloji bağımsız yaklaşımı uygulanır; kaynak belgenin metni okumada v1.2 idi. Pixel art/karakterler bu mevcut AIONIA oyununa uygundur; başka bir teknoloji veya genel motor eklenmedi.
 
-AIONIA standartları ve kaynak paftaları incelendi; [sanat kararları](docs/ART_BIBLE.md), [oyuncu vaadi ve döngüsü](docs/GAME_DESIGN.md), [kanon sınırları](docs/LORE_LINKS.md) kayıtlıdır. Bu sürüm onaylanmamış logo/karakter varyantlarını kesin kanon ilan etmez. Emre’nin doğrulanmış animasyon kaynağı, nihai sanat geçişi, hedef süre ve fiziksel cihaz testleri açıktır.
+Eski Canvas kaynakları `legacy/` altında korunur. Yeni oyun `project.godot` / `scenes/main.tscn` üzerinden gerçek Godot'tur. PWA/çevrimdışı web sözü yoktur. Fiziksel Xbox/telefon/Windows, ekran okuyucuyla tam oyun ve insan katılımcı testleri yapılmadı; evrensel erişilebilirlik veya WCAG 2.2 AA sertifikası iddia edilmez. Android release SDK/keystore ortamı eksiktir. Emre'nin doğrulanmış sprite'ı ve final logo/varyant onayları hâlâ açıktır; yeni tasarım uydurulmadı.
 
-[0.2.0 paketleri ve web preview](docs/DELIVERY.md) · [PASS / FAIL / NOT TESTED raporu](docs/VALIDATION.md). Windows dosyaları üretilmiş fakat Windows'ta çalıştırılmamıştır; Android release engellidir.
+Kaynak/lisans: [provenance](assets/provenance.json), [LICENSE](LICENSE), [üçüncü taraf bildirimleri](THIRD_PARTY_NOTICES.md), [varlık envanteri](docs/ASSETS.md). Önceki sürüm paketleri [0.2 teslim kaydında](docs/DELIVERY_0.2.md) kalır; 0.3 diye sunulmaz.

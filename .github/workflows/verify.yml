@@ -21,3 +21,4 @@ jobs:
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/campaign.gd
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/acceptance.gd
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script tests/save_read.gd
+          .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/quality.gd
