@@ -4,12 +4,13 @@ from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from pathlib import Path
-import json,time
+import json,time,os
 ROOT=Path(__file__).resolve().parents[1]
 LEVELS=json.loads((ROOT/'data/levels.json').read_text())
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
-server=ThreadingHTTPServer(('127.0.0.1',8013),partial(Quiet,directory=str(ROOT/'build/web-qa')))
+PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');EVIDENCE=ROOT/'docs/evidence'/LANGUAGE;EVIDENCE.mkdir(parents=True,exist_ok=True)
+server=ThreadingHTTPServer(('127.0.0.1',PORT),partial(Quiet,directory=str(ROOT/'build/web-qa')))
 Thread(target=server.serve_forever,daemon=True).start()
 errors=[];checks=[];snaps=[];started=time.monotonic()
 with sync_playwright() as p:
@@ -60,9 +61,12 @@ with sync_playwright() as p:
    page.wait_for_timeout(85)
   release();print('WALK FAILED',target,state(),flush=True);return False
  try:
-  page.goto('http://127.0.0.1:8013');page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
-  (ROOT/'docs/evidence').mkdir(exist_ok=True)
-  page.screenshot(path=str(ROOT/'docs/evidence/title.png'))
+  page.goto('http://127.0.0.1:'+str(PORT));page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
+  if LANGUAGE=='en':
+   page.keyboard.press('ArrowDown');page.keyboard.press('Enter');page.wait_for_timeout(160);page.keyboard.press('Enter');page.wait_for_timeout(160)
+   for _ in range(7):page.keyboard.press('ArrowDown')
+   page.keyboard.press('Enter');page.wait_for_timeout(180)
+  page.screenshot(path=str(EVIDENCE/'title.png'))
   page.keyboard.press('Enter');page.wait_for_timeout(200);close_menu();page.wait_for_timeout(200)
   for index,data in enumerate(LEVELS):
    s=state()
@@ -79,27 +83,27 @@ with sync_playwright() as p:
     page.keyboard.press('e');page.wait_for_timeout(230)
     check(state()['flags'].get(action['id']),action['id'])
     if not state()['flags'].get(action['id']):raise RuntimeError('Interaction failed '+action['id']+' '+str(state()))
-    page.screenshot(path=str(ROOT/'docs/evidence'/(data['id']+'-dialogue.png')))
+    page.screenshot(path=str(EVIDENCE/(data['id']+'-dialogue.png')))
     close_menu()
     if action.get('timer'):page.wait_for_timeout(4300)
    deadline=time.monotonic()+12
    while not all(state()['flags'].get(k) for k in data['required']) and time.monotonic()<deadline:page.wait_for_timeout(100)
    check(all(state()['flags'].get(k) for k in data['required']),data['id']+' mandatory world conditions')
    check(walk(data['length']-100),'Exit physically reached '+data['id'])
-   snaps.append(state());page.screenshot(path=str(ROOT/'docs/evidence'/(data['id']+'-exit.png')))
+   snaps.append(state());page.screenshot(path=str(EVIDENCE/(data['id']+'-exit.png')))
    page.keyboard.press('e');page.wait_for_timeout(260);close_menu()
   check(state()['flags'].get('story_complete'),'Final story_complete in actual browser')
   check(state()['hub'],'Interactive epilogue in actual browser')
-  page.screenshot(path=str(ROOT/'docs/evidence/epilogue.png'))
+  page.screenshot(path=str(EVIDENCE/'epilogue.png'))
   # Close and reload the real IndexedDB-backed game; its state must survive.
   expected=state()['flags'];page.reload();page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
   check(state()['flags']==expected,'Browser reload preserves all world facts')
   check(len(state()['completed'])==10,'Browser reload preserves ten completed chapters')
   page.keyboard.press('Enter');page.wait_for_timeout(250);close_menu();check(state()['hub'],'Continue after ending returns to sanctuary')
-  page.screenshot(path=str(ROOT/'docs/evidence/reloaded.png'))
+  page.screenshot(path=str(EVIDENCE/'reloaded.png'))
  except Exception as e:
-  errors.append(str(e));page.screenshot(path=str(ROOT/'docs/evidence/browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
+  errors.append(str(e));page.screenshot(path=str(EVIDENCE/'browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
  finally:
-  release();(ROOT/'work/browser-campaign.json').write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
+  release();(ROOT/('work/browser-campaign-'+LANGUAGE+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
 print('BROWSER RESULT',len(checks),'checks;',len(errors),'errors',flush=True)
 raise SystemExit(1 if errors or any(not c['pass'] for c in checks) else 0)

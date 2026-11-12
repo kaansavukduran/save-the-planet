@@ -72,10 +72,10 @@ func open_panel(title: String,kind: String) -> void:
 	menu_kind=kind;get_tree().paused=true;Controls.release_all()
 	if game.player:game.player.buffer=0;game.player.velocity=Vector2.ZERO
 	modal=PanelContainer.new();modal.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT);modal.offset_left=60;modal.offset_right=-60;modal.offset_top=38;modal.offset_bottom=-38
-	if kind=="dialogue":modal.offset_top=get_viewport().get_visible_rect().size.y-240;modal.offset_bottom=-24
+	if kind=="dialogue":modal.offset_top=get_viewport().get_visible_rect().size.y-(380 if State.prefs.large_text else 270);modal.offset_bottom=-24
 	if kind=="title":modal.offset_left=42;modal.offset_top=85;modal.offset_right=-get_viewport().get_visible_rect().size.x+490;modal.offset_bottom=-45
 	root.add_child(modal)
-	var scroll=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;modal.add_child(scroll)
+	var scroll=ScrollContainer.new();scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED;scroll.follow_focus=true;modal.add_child(scroll)
 	list=VBoxContainer.new();list.size_flags_horizontal=Control.SIZE_EXPAND_FILL;list.add_theme_constant_override("separation",9);scroll.add_child(list)
 	var label=Label.new();label.text=title;label.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART;label.add_theme_font_size_override("font_size",26);list.add_child(label)
 
