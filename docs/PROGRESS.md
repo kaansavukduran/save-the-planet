@@ -1,6 +1,6 @@
 # Gerçek ilerleme · 2026-11-12 · 0.2.0
 
-**Oynanabilir geliştirme sürümü.** Godot 4.6.3 üzerinde dört karakter, beş perde/on bölüm ve gezilebilir final uygulandı. İlk kesitte durulmadı. Tam yayın kalitesi, hedef oyun süresi ve bütün AIONIA kapıları tamamlandı denmez.
+**Oynanabilir geliştirme sürümü.** [Taslak PR #1](https://github.com/kaansavukduran/save-the-planet/pull/1) açıldı; çalışma dalı codex/godot-story, main birleştirilmedi. Godot 4.6.3 üzerinde dört karakter, beş perde/on bölüm ve gezilebilir final uygulandı. İlk kesitte durulmadı. Tam yayın kalitesi, hedef oyun süresi ve bütün AIONIA kapıları tamamlandı denmez.
 
 | Aşama | Gerçek durum | Kanıt / açık |
 |---|---|---|
