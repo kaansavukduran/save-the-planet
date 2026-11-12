@@ -1,4 +1,4 @@
-# Önceki oyun bildirimlerinin bu projeye uygulanması · 0.3.0
+# Önceki oyun bildirimlerinin bu projeye uygulanması · 0.4.0
 
 Kaynak tamamen okundu: https://docs.google.com/document/d/1cpr6yIwVOq2F9rQBlG1sSvFf0Wu9Iir0lJ_KDnqA5lE/edit . Bildirimler Aion Endless Run geçmişine aittir; Save the Planet'te güncel hata oldukları varsayılmaz. Referans depoda origin https://github.com/kaansavukduran/aion_endless_run.git olarak doğrulandı; kaynak belgedeki tireli URL otomatik doğru kabul edilmedi. Bu görevde referans depoya yazılmadı.
 
@@ -11,11 +11,22 @@ Kaynak tamamen okundu: https://docs.google.com/document/d/1cpr6yIwVOq2F9rQBlG1sS
 | AER-005 taşmalar | Native modal scroll yalnız içerik sığmadığında kullanılır. Web rehberi dar portrede ve 200% metinle sınanır. Bütün oyun ekranlarının bütün cihazlarda taşmasız olduğu iddia edilmez. |
 | AER-006 alt çubuk | Dokunmatik açıkken portreler yukarı alınır; ses/ayar kontrolleri odakla kaydırılır. Fiziksel notch/alt çubuk NOT TESTED; HTML canvas safe-area insets uygular. |
 | AER-007 görsel bütünlük | Mevcut AIONIA paleti, keskin çerçeveler ve özgün karakterler korunur; yeni rastgele asset veya onaysız logo yok. Son sanat kapısı açık. |
-| AER-008 portre/yatay performans | Metin rehberi portrede kullanılabilir; platform oyunu yatay önceliklidir. Küçük portrede tam oyun ergonomisi ve fiziksel telefon FPS NOT TESTED. |
+| AER-008 portre/yatay performans | Ayrı portre/yatay oyun alanı, HUD/kamera ve kontrol yerleşimi uygulanır. Tam dokunmatik kampanya iki yönde çalıştırılır; bitmemiş test PASS sayılmaz. Fiziksel telefon FPS NOT TESTED. |
 | AER-009 cüce yoğunluğu | KAPSAM DIŞI: bu oyunda mantar tetiklemeli cüce spawn sistemi yok. |
 | AER-010 20 saniyelik endless seviye | KAPSAM DIŞI: bu ürün on bölümlük hikâye platform oyunudur. |
 | AER-011 100. seviye kutlaması | KAPSAM DIŞI: endless seviye/boss ödül/XP sistemi yok; doğrulanmamış sekiz karakter/logo eklenmez. |
-| AER-012 yükleme | Gerçek byte ilerlemesi, Fragaria Games metni, sürüm, hata/yeniden deneme; zayıf indirme senaryosu sınanır. Firefox mobil ve offline PWA NOT TESTED; PWA kapalıdır. |
+| AER-012 yükleme | Referansa dayalı siyah çilek/Fragaria Interactive/pixel yazı, gerçek byte ilerlemesine bağlı on segment/yüzde/sürüm, hata/yeniden deneme; bootstrap JS/WASM hatası, stall ve offline senaryoları sınanır. Firefox mobil ve offline PWA NOT TESTED; PWA kapalıdır. |
 | AER-013 Xbox/gamepad | LB/RB, remap, deadzone, aktif ipucu ve güvenli disconnect eklenir. Tarayıcı Gamepad API fixture'ı sadece giriş üretir. Fiziksel Xbox/kol doğrulaması NOT TESTED; konsol yayını iddia edilmez. |
 
-Son çalıştırılan sonuçlar VALIDATION_0.3.md'de; bu tablo eski bildirimi çözüldü saymak yerine kapsamı ve kanıt sınırını korur.
+Son çalıştırılan sonuçlar VALIDATION_0.4.md'de; bu tablo eski bildirimi çözüldü saymak yerine kapsamı ve kanıt sınırını korur.
+
+## Save the Planet v1.4 geliştirmesinde yakalanan regresyonlar
+
+- STP-014-01: dokunmatik Yap düğmesinin yalnız polling durumunu değiştirip etkileşim işleyicisini çağırmaması. Düzeltilen doğrudan sinyal; ilk fan görevi browser_v14.py içinde gerçek dokunmayla kontrol edilir.
+- STP-014-02: yürürken ikinci parmakla portre seçiminin web fare emülasyonuna bağlı kalması. Gameplay portreleri doğrudan ScreenTouch alır; tam kampanyada Kuzu tüneli ve diğer zorunlu hero görevleri sınanır.
+- STP-014-03: kısa yatay ekranda devam/geri eylemlerinin kaydırılan gövdede kaybolması. Godot konteynerleriyle sabit eylem alanı; beş ekran boyutunda pause, diyalog ve ayarlar testi.
+- STP-014-04: her yeniden temalamada yeni SystemFont nesnesi üretiminin font hatası oluşturması. Font nesneleri yeniden kullanılır; native 120+24+30 test loglarında font hatası aranır.
+- STP-014-05: native Godot boot'un JPEG kabul etmemesi. Kaynak PNG referansı kullanılır; native statik açılış ve web ölçülebilir yükleme farkı açıkça kaydedilir.
+- STP-014-06: takılma zamanlayıcısının fatal yükleme hatasını gölgelemesi ve bootstrap JS dosyası yokken hata UI'sına ulaşılamaması. Browser shell hata/26 saniye/retry senaryoları.
+
+Test sürücüsü onarımları oyun kusuru olarak sayılmaz: CDP touchEnd kalan parmakları değil bitecek parmakları alır; iki zıplama basışı düşük FPS altında ayrı fizik adımı görmelidir; eski sabit 0.3.0 beklentisi proje sürümünden okunur. Test sırasında üretilen web klasörü yenilenmez; aksi takdirde eski içerik hash'leri 404 oluşturur.

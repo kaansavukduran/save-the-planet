@@ -1,3 +1,17 @@
+# 0.4.0 · AIONIA v1.4 devam kaydı
+
+12 Kasım 2026. Kullanıcının v1.4 talebi için belge tamamen okundu. İşlevsel Godot altyapısı, dört kaynak karakter ve on bölüm korunur. [Uygulama planı](PLAN_v0.4.md), [kontrol kararı](CONTROL_DECISION.md).
+
+Uygulananlar: koyu/açık/sistem teması ve font tercihleri; portre/yatay için ayrı çözünürlük, kamera ve menü/HUD; otomatik dokunmatik algılama, aşağı inme, kısa atlanabilir öğretim ve basılı durum; yürürken ikinci parmakla portre seçimi; sabit devam/geri/diyalog eylemleri; gerçek yüzdeyle segmentli siyah Fragaria web yükleme ekranı. Native açılış ayrı statik PNG referansıdır; yüzde uydurulmaz. Kaynak logo nihai onayı bekler. Web motoru yerel sistem fontu yerine fallback çözebilir; bu sınır saklanmaz.
+
+Doğrulama sürüyor. İlk çalıştırılan v1.4 tarayıcı paketi 43 kontrol, gamepad menü paketi 11 kontrol, native 120+24+30 ve ayrı süreçte kayıt PASS verdi. Tam dokunmatik kampanya henüz bitmeden PASS yazılmaz. Bulunan gerçek etkileşim/ikincil dokunma ve kaydırılan eylem sorunları düzeltilerek regresyonlara eklendi. Nihai sürüm kanıtı [0.4 raporunda](VALIDATION_0.4.md) toplanır.
+
+**Kontrol tercihi: APPROVED.** Kullanıcı 12 Kasım 2026 tarihinde “D-pad + aksiyon düğmeleri (Önerilen)” yanıtını açıkça verdi. Ana mobil kontrol şeması budur; klavye ve Xbox/gamepad korunur. Ayrıntı CONTROL_DECISION.md içindedir.
+
+Devam: gerçek telefon/tablet/Xbox/Windows ve ekran okuyucu doğrulaması; hedef GPU performansı; nihai logo/varyant ve Emre sprite onayı; 2–3 saat hedef içerik süresi. Android release SDK/keystore olmadan APK tamamlandı sayılmaz. Önceki sürüm sonuçları aşağıdaki tarihsel kayıttadır.
+
+---
+
 # Güncel ilerleme · 0.3.0 · 12 Kasım 2026
 
 AIONIA v1.1 teknoloji bağımsız talebi için mevcut Godot oyunu iyileştirildi. Kaynak URL'nin metni v1.2, başlığı v1.0 olarak okundu; fark kaydedildi. [Taslak PR #1](https://github.com/kaansavukduran/save-the-planet/pull/1) korunur; main birleştirilmedi. Önceki durum PROGRESS_0.2.md içinde.

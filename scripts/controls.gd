@@ -1,6 +1,7 @@
 extends Node
 signal method_changed
 signal controller_lost
+signal touch_interact
 const KEYS = {"left":[KEY_A,KEY_LEFT],"right":[KEY_D,KEY_RIGHT],"down":[KEY_S,KEY_DOWN],"jump":[KEY_SPACE],"ability":[KEY_J],"interact":[KEY_E],"party":[KEY_Q],"pause":[KEY_ESCAPE],"journal":[KEY_TAB],"hero0":[KEY_1],"hero1":[KEY_2],"hero2":[KEY_3],"hero3":[KEY_4],"hero_prev":[],"hero_next":[]}
 const PAD = {"jump":JOY_BUTTON_A,"ability":JOY_BUTTON_X,"interact":JOY_BUTTON_B,"party":JOY_BUTTON_Y,"pause":JOY_BUTTON_START,"journal":JOY_BUTTON_BACK,"left":JOY_BUTTON_DPAD_LEFT,"right":JOY_BUTTON_DPAD_RIGHT,"down":JOY_BUTTON_DPAD_DOWN,"hero_prev":JOY_BUTTON_LEFT_SHOULDER,"hero_next":JOY_BUTTON_RIGHT_SHOULDER}
 const REMAPPABLE_PAD = ["jump","ability","interact","party","journal","hero_prev","hero_next"]
@@ -12,6 +13,7 @@ var binding_notice = ""
 
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_ALWAYS
+	if touch_enabled():set_method("touch")
 	for action in KEYS:
 		InputMap.add_action(action)
 	reset_keyboard(false)
@@ -43,13 +45,14 @@ func pad_name(code: int) -> String:
 
 func hint(action: String,method: String="") -> String:
 	var device=input_method if method=="" else method
+	if device=="touch":return action_name(action)
 	for event in InputMap.action_get_events(action):
 		if device=="gamepad" and event is InputEventJoypadButton:return pad_name(event.button_index)
 		if device!="gamepad" and event is InputEventKey:return OS.get_keycode_string(event.physical_keycode)
 	return "LB / RB" if action.begins_with("hero") else action_name(action)
 
 func menu_hint(accept: bool) -> String:
-	return ("A" if accept else "B") if input_method=="gamepad" else ("Enter" if accept else "Esc")
+	return State.text("Dokun","Tap") if input_method=="touch" else (("A" if accept else "B") if input_method=="gamepad" else ("Enter" if accept else "Esc"))
 
 func set_method(method: String) -> void:
 	if input_method!=method:
@@ -137,9 +140,16 @@ func _notification(what: int) -> void:
 		release_all()
 		State.save_game()
 
+func touch_enabled() -> bool:
+	if OS.has_feature("mobile") or State.prefs.touch:return true
+	if OS.has_feature("web"):
+		var appearance=JavaScriptBridge.get_interface("planetAppearance")
+		if appearance!=null:return bool(appearance.touchDevice())
+	return false
+
 func touch_rects(size: Vector2) -> Dictionary:
-	var side=clampf(size.x/12.0,48,76)
-	return {"left":Rect2(18,size.y-side-16,side,side),"right":Rect2(24+side,size.y-side-16,side,side),"jump":Rect2(size.x-side-18,size.y-side-16,side,side),"ability":Rect2(size.x-2*side-26,size.y-side-16,side,side),"interact":Rect2(size.x-side-18,size.y-2*side-24,side,side)}
+	var side=72.0 if size.y>size.x else clampf(size.x/12.0,64,76)
+	return {"left":Rect2(18,size.y-side-16,side,side),"right":Rect2(24+side,size.y-side-16,side,side),"down":Rect2(30+2*side,size.y-side-16,side,side),"jump":Rect2(size.x-side-18,size.y-side-16,side,side),"ability":Rect2(size.x-2*side-26,size.y-side-16,side,side),"interact":Rect2(size.x-side-18,size.y-2*side-24,side,side)}
 
 func _input(event: InputEvent) -> void:
 	if (event is InputEventKey or (event is InputEventMouseButton and event.device>=0)) and event.is_pressed():set_method("keyboard")
@@ -147,7 +157,7 @@ func _input(event: InputEvent) -> void:
 		controller_device=event.device
 		set_method("gamepad")
 	if event is InputEventScreenTouch and event.pressed:set_method("touch")
-	if not (OS.has_feature("mobile") or State.prefs.touch):return
+	if not (touch_enabled()):return
 	if event is InputEventScreenTouch:
 		if event.pressed and not get_tree().paused:
 			var rects=touch_rects(get_viewport().get_visible_rect().size)
@@ -155,6 +165,7 @@ func _input(event: InputEvent) -> void:
 				if rects[action].has_point(event.position):
 					touch_ids[event.index]=action
 					Input.action_press(action)
+					if action=="interact":touch_interact.emit()
 					get_viewport().set_input_as_handled()
 					break
 		elif touch_ids.has(event.index):

@@ -22,3 +22,25 @@ jobs:
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/acceptance.gd
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --path . --script tests/save_read.gd
           .ci-godot/engine/Godot_v4.6.3-stable_linux.x86_64 --headless --fixed-fps 60 --path . --script tests/quality.gd
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      XDG_DATA_HOME: ${{ github.workspace }}/work/data
+      XDG_CONFIG_HOME: ${{ github.workspace }}/work/config
+      XDG_CACHE_HOME: ${{ github.workspace }}/work/cache
+      STP_WEB_QA: '1'
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+      - name: Pinned browser test runtime
+        run: |
+          python3 -m pip install playwright==1.62.0
+          python3 -m playwright install --with-deps chromium
+      - name: Real debug Web export
+        run: python3 packaging/build_web.py
+      - name: AIONIA v1.4 responsive and appearance regressions
+        run: python3 tests/browser_v14.py
+      - name: Privacy, storage recovery and enforced CSP
+        run: python3 tests/browser_quality.py
+      - name: Keyboard-free gamepad menus and hotplug
+        run: python3 tests/browser_gamepad_menus.py

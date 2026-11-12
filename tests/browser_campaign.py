@@ -1,6 +1,8 @@
 """Real browser, keyboard, WebGL and Godot physics. Read-only QA telemetry; never inject progress."""
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from virtual_gamepad import VirtualGamepad
+from touch_driver import TouchDriver
 from playwright.sync_api import sync_playwright
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
@@ -11,16 +13,17 @@ ROOT=Path(__file__).resolve().parents[1]
 LEVELS=json.loads((ROOT/'data/levels.json').read_text());TARGET_COUNT=int(os.environ.get('STP_TEST_LEVELS','10'))
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
-PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');DEVICE=os.environ.get('STP_TEST_INPUT','keyboard');EVIDENCE=ROOT/'docs/evidence/v0.3'/(DEVICE+'-'+LANGUAGE);EVIDENCE.mkdir(parents=True,exist_ok=True)
+PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');DEVICE=os.environ.get('STP_TEST_INPUT','keyboard');EVIDENCE=ROOT/'docs/evidence/v0.4'/(DEVICE+'-'+LANGUAGE+'-'+os.environ.get('STP_TEST_VIEWPORT','1152x648'));EVIDENCE.mkdir(parents=True,exist_ok=True)
 server=ThreadingHTTPServer(('127.0.0.1',PORT),partial(Quiet,directory=str(ROOT/'build/web-qa')))
 Thread(target=server.serve_forever,daemon=True).start()
 errors=[];checks=[];snaps=[];started=time.monotonic()
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
- page=b.new_page(viewport={'width':1152,'height':648});page.set_default_timeout(15000)
+ b=p.chromium.launch(executable_path=CHROMIUM,headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
+ width,height=map(int,os.environ.get('STP_TEST_VIEWPORT','1152x648').split('x'))
+ page=b.new_page(viewport={'width':width,'height':height},has_touch=DEVICE=='touch');page.set_default_timeout(15000)
  page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  page.on('pageerror',lambda e:errors.append(str(e)))
- driver=VirtualGamepad(page) if DEVICE=='gamepad' else page.keyboard
+ driver=VirtualGamepad(page) if DEVICE=='gamepad' else (TouchDriver(page) if DEVICE=='touch' else page.keyboard)
  held=set()
  def hold(key,yes):
   if yes and key not in held:driver.down(key);held.add(key)
@@ -34,16 +37,16 @@ with sync_playwright() as p:
   s=state()
   if s['menu']!='':release();driver.press('Escape');page.wait_for_timeout(180)
  def walk(target):
-  last_x=None;stuck=0;jump_start=None;second=False;deadline=time.monotonic()+48
+  last_x=None;stuck=0;jump_start=None;second=False;trace=0;deadline=time.monotonic()+(120 if DEVICE=="touch" else 48)
   while time.monotonic()<deadline:
    s=state()
    if s['menu']!='':close_menu();continue
    x=s['x'];dist=target-x
-   if abs(dist)<21:
+   if abs(dist)<(46 if DEVICE=='touch' else 21):
     release();driver.down('s');page.wait_for_timeout(650);driver.up('s')
     # Gamepad polling and platform carry can move after the last telemetry sample.
     # Confirm the settled body is actually near the target before interacting.
-    if abs(target-state()['x'])<32:return True
+    if abs(target-state()['x'])<(68 if DEVICE=='touch' else 32):return True
     continue
    hold('d',dist>0);hold('a',dist<0)
    data=LEVELS[s['level']] if not s['hub'] else {'ground':[[0,440,2200,180]],'length':2200}
@@ -56,6 +59,8 @@ with sync_playwright() as p:
    else:stuck=0
    last_x=x
    now=time.monotonic()
+   if DEVICE=='touch' and stuck>5 and now-trace>3:
+    trace=now;print('TOUCH TRACE',{'x':x,'y':s['y'],'held':s.get('held'),'touch_ids':s.get('touch_ids'),'driver':driver.points,'phase':jump_start,'stuck':stuck},flush=True)
    if not inside and s['floor'] and (stuck>2 or gap) and jump_start is None:
     if s['active']!=0:
      if DEVICE=='gamepad':hold('d',False);hold('a',False)
@@ -64,7 +69,9 @@ with sync_playwright() as p:
     hold('Space',True);jump_start=now;second=False
    if jump_start is not None:
     age=now-jump_start
-    if age>0.24 and not second:hold('Space',False)
+    if age>0.24 and not second and 'Space' in held:
+     hold('Space',False)
+     if DEVICE=='touch':page.wait_for_timeout(100) # Separate the two presses by a rendered physics tick.
     if age>0.30 and not second:
      hold('Space',True);second=True
     if age>0.7:hold('Space',False);jump_start=None
@@ -87,7 +94,7 @@ with sync_playwright() as p:
     if state()['flags'].get(action['id']):continue
     deadline=time.monotonic()+13
     while not all(state()['flags'].get(k) for k in action['requires']) and time.monotonic()<deadline:page.wait_for_timeout(100)
-    check(walk(action['x']-36),'Walked to '+action['id'])
+    check(walk(action['x']-(0 if DEVICE=='touch' else 36)),'Walked to '+action['id'])
     if action['heroes']:driver.press(str(action['heroes'][0]+1));page.wait_for_timeout(180)
     driver.press('e');page.wait_for_timeout(230)
     check(state()['flags'].get(action['id']),action['id'])
@@ -115,6 +122,6 @@ with sync_playwright() as p:
  except Exception as e:
   errors.append(str(e));page.screenshot(path=str(EVIDENCE/'browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
  finally:
-  release();(ROOT/('work/browser-campaign-'+DEVICE+'-'+LANGUAGE+('-slice' if TARGET_COUNT<10 else '')+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'input':DEVICE,'physical_gamepad':False,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
+  release();(ROOT/('work/browser-campaign-'+DEVICE+'-'+LANGUAGE+('-slice' if TARGET_COUNT<10 else '')+('-'+os.environ.get('STP_TEST_VIEWPORT','1152x648') if DEVICE=='touch' else '')+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'input':DEVICE,'physical_gamepad':False,'snapshots':snaps,'browser':b.version,'viewport':[width,height],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
 print('BROWSER RESULT',len(checks),'checks;',len(errors),'errors',flush=True)
 raise SystemExit(1 if errors or any(not c['pass'] for c in checks) else 0)

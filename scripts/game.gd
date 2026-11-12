@@ -13,8 +13,11 @@ var qa_clock=0.0
 
 func _ready() -> void:
 	process_mode=Node.PROCESS_MODE_PAUSABLE
+	get_tree().root.size_changed.connect(resize_view)
+	resize_view()
 	audio=PlanetAudio.new();add_child(audio)
 	ui=PlanetUI.new();ui.game=self;add_child(ui)
+	Controls.touch_interact.connect(interact)
 	Controls.controller_lost.connect(func():
 		if ui.menu_kind=="title" or (ui.menu_kind in ["settings","bindings","privacy","help","erase"] and ui.settings_origin=="title"):
 			ui.show_title()
@@ -24,6 +27,15 @@ func _ready() -> void:
 			ui.paragraph(State.text("Kontrolcü bağlantısı kesildi. Yeniden bağla veya klavyeyle devam et.","Controller disconnected. Reconnect or continue with the keyboard.")))
 	load_level(State.level,true,false)
 	ui.show_title()
+
+func resize_view() -> void:
+	var window=get_tree().root
+	var portrait=window.size.y>window.size.x
+	var target=Vector2i(480,800) if portrait else Vector2i(960,540)
+	if window.content_scale_size!=target:
+		Controls.release_all()
+		window.content_scale_size=target
+
 
 func key_name(action: String) -> String:
 	return Controls.hint(action)
@@ -169,6 +181,10 @@ func publish_qa(dt: float) -> void:
 			var sample={"x":player.position.x,"y":player.position.y,"vx":player.velocity.x,"vy":player.velocity.y,"floor":player.is_on_floor(),"active":State.active,"cooldown":player.cooldown,"unlocked":State.unlocked,"flags":State.flags,"level":State.level,"hub":in_hub,"menu":ui.menu_kind,"completed":State.completed,"shape_height":player.body_shape.shape.size.y,"glide":player.glide_left}
 			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)}
 			sample.input_method=Controls.input_method
+			sample.held=Controls.KEYS.keys().filter(func(action):return Input.is_action_pressed(action))
+			sample.touch_ids=Controls.touch_ids
+			sample.layout=ui.layout_snapshot()
+			sample.prefs={"theme":State.prefs.theme,"font":State.prefs.font,"font_resolved":PlanetSkin.FONT.get_font_name(),"light":PlanetSkin.light}
 			sample.storage_error=State.storage_error
 			sample.storage_paused=State.storage_paused
 			var focused=get_viewport().gui_get_focus_owner()

@@ -239,7 +239,7 @@ func draw_animal(p: Vector2,habitat: String,walk: bool) -> void:
 	if habitat=="forest":draw_colored_polygon(PackedVector2Array([p+Vector2(-16,-17),p+Vector2(-44,-27),p+Vector2(-30,-7)]),body)
 
 func _label(pos: Vector2,value: String,color: Color,size: int=16) -> void:
-	draw_string(preload("res://assets/fonts/DejaVuSans.ttf"),pos,value,HORIZONTAL_ALIGNMENT_LEFT,-1,size,color)
+	draw_string(PlanetSkin.FONT,pos,value,HORIZONTAL_ALIGNMENT_LEFT,-1,size,color)
 
 func draw_grey_wheel() -> void:
 	var centre=Vector2(2100,220)

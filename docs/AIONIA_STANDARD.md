@@ -2,7 +2,8 @@
 
 Kaynak: https://docs.google.com/document/d/16jj2cwbm8SiVWqDy3N3dzqxTlLoK7JR2_aH6hl4noWY/edit
 
-İstenen kapsam v1.1. 12.11.2026 tarihli okumada dosya başlığı v1.0, metin sürümü v1.2 idi; v1.1 teknoloji bağımsız bölümünü ve oyunla ilgili ek hükümleri içeriyor. Tek sekmenin tamamı (21.452 karakter) okundu. Önceki v1.0 snapshot source/AIONIA_v1.0_snapshot.md içinde korunur. Bu kayıt, bütün v1.2 kalite kapılarının geçtiği iddiası değildir.
+12.11.2026: belgenin tamamı yeniden okundu; başlık metadatası v1.0, gövdesi **v1.4**. Tam güncel metin [v1.4 snapshot](source/AIONIA_v1.4_2026-11-12.txt) içinde; aşağıdaki v1.2 metni önceki uygulamanın tarihsel kaydıdır. Çelişkide v1.4 ve kullanıcının güncel talimatı geçerlidir. Kontrol seçimi [karar kaydında](CONTROL_DECISION.md) izlenir. Tüm kalite kapılarının geçtiği iddiası değildir.
+
 
 AIONIA — EVRENSEL DİJİTAL ÜRÜN, TASARIM VE KALİTE STANDARTLARI
 Sürüm 1.2 | 12 Kasım 2026 | Statü: Kullanıcı kuruluş kararlarına dayalı normatif referans

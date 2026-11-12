@@ -66,3 +66,7 @@ Five new original AI-assisted PNG outputs are included unchanged as canonical-ai
 ## 0.12 mobility and contact animations
 
 Two unchanged original AI-assisted PNG outputs, agility-wolf.png and agility-owl.png, add64 drawn poses. Original owner turnaround and accepted canonical references are recorded in AGILITY-PROVENANCE.json along with hashes, silhouette spans and reviewed near-eye registrations. Wolf gallop, bite, claw and sprint bite; owl calm glide, two forward wing attacks and airborne beak. No source PNG is retouched; contact-only claw lines are original runtime drawing. Aion/sheep artwork remains unchanged.
+
+## Press Start 2P
+
+Decorative loader typography by CodeMan38, SIL Open Font License 1.1. Source: https://github.com/google/fonts/tree/main/ofl/pressstart2p. License: assets/fonts/PressStart2P-LICENSE.txt.

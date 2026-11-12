@@ -30,6 +30,12 @@ for ext in ['js','wasm','pck']:
 html=html.replace('"executable":"index"',f'"executable":"planet-{tag}"')
 for p in list(out.glob('index.audio*.js')):
  new=p.name.replace('index.',f'planet-{tag}.',1);p.rename(out/new);html=html.replace(p.name,new)
+version=re.search(r'^config/version="([^"]+)"$',(ROOT/'project.godot').read_text(),re.M).group(1)
+for token,source in [("$STP_BRAND",ROOT/'assets/brand/fragaria-strawberry-reference.jpg'),("$STP_PIXEL_FONT",ROOT/'assets/fonts/PressStart2P-Regular.ttf')]:
+ name=source.stem+'-'+hashlib.sha256(source.read_bytes()).hexdigest()[:12]+source.suffix
+ shutil.copy2(source,out/name);html=html.replace(token,name)
+html=html.replace('$STP_VERSION',version)
+shutil.copy2(ROOT/'assets/fonts/PressStart2P-LICENSE.txt',out/'PressStart2P-LICENSE.txt')
 # Tie executable script permissions to this exact export; saved content is never eval'd.
 inline=re.findall(r'<script>([\s\S]*?)</script>',html)
 hashes=' '.join("'sha256-"+base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()+"'" for script in inline)

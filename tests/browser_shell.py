@@ -1,11 +1,12 @@
 """Exercise the genuine AIONIA loader, failure/retry, iframe and measured local rendering."""
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from threading import Thread
 from pathlib import Path
 import json,time,statistics,platform
-R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.3/shell';E.mkdir(parents=True,exist_ok=True)
+R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.4/shell';E.mkdir(parents=True,exist_ok=True)
 class Handler(SimpleHTTPRequestHandler):
  def __init__(self,*a,**kw):super().__init__(*a,directory=str(R/'build/web-qa'),**kw)
  def log_message(self,*args):pass
@@ -16,7 +17,7 @@ class Handler(SimpleHTTPRequestHandler):
 server=ThreadingHTTPServer(('127.0.0.1',8019),Handler);Thread(target=server.serve_forever,daemon=True).start();checks=[];unexpected=[]
 def check(ok,label):checks.append({'check':label,'status':'PASS' if ok else 'FAIL'});print(label,ok,flush=True)
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
+ b=p.chromium.launch(executable_path=CHROMIUM,headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
  ctx=b.new_context(viewport={'width':1152,'height':648});page=ctx.new_page();page.on('pageerror',lambda e:unexpected.append(str(e)))
  page.add_init_script('''(()=>{const A=window.AudioContext||window.webkitAudioContext;if(A)window.AudioContext=class extends A{constructor(...args){super(...args);window.__measuredAudioContext=this;}};})()''')
  try:
@@ -34,8 +35,24 @@ with sync_playwright() as p:
   bad=ctx.new_page();bad.route('**/*.wasm',lambda route:route.fulfill(status=503,body='QA simulated engine download failure'))
   bad.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');wait_js(bad,'!document.getElementById("retry").hidden',timeout=15000)
   check(bad.locator('#notice').inner_text()!='','Failed engine download exposes an error message');bad.screenshot(path=str(E/'loader-error.png'))
+  failed_notice=bad.locator('#notice').inner_text();bad.wait_for_timeout(26000)
+  check(bad.locator('#notice').inner_text()==failed_notice and 'başlatılamadı' in bad.locator('#status').inner_text(),'A fatal download error is not later replaced by a slow-loading hint')
   bad.unroute('**/*.wasm');bad.locator('#retry').click();wait_js(bad,'window.__planetQA?.menu === "title"',timeout=30000)
   check(bad.locator('#loading').is_hidden(),'Retry reopens the real game after download recovers');bad.close()
+  script_failure=ctx.new_page();script_failure.route('**/planet-*.js',lambda route:route.fulfill(status=503,body='QA engine script failure'))
+  script_failure.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');wait_js(script_failure,'!document.getElementById("retry").hidden',timeout=15000)
+  check('başlatma dosyası' in script_failure.locator('#notice').inner_text(),'A failed bootstrap script presents a clear recovery action instead of hanging')
+  script_failure.unroute('**/planet-*.js');script_failure.locator('#retry').click();wait_js(script_failure,'window.__planetQA?.menu === "title"')
+  check(script_failure.locator('#loading').is_hidden(),'Retry recovers after a failed engine script');script_failure.close()
+  waiting=ctx.new_page();held_requests=[]
+  waiting.route('**/*.pck',lambda route:held_requests.append(route))
+  waiting.goto('http://127.0.0.1:8019',wait_until='domcontentloaded');waiting.wait_for_timeout(27000)
+  check('uzun sürüyor' in waiting.locator('#notice').inner_text() and waiting.locator('#retry').is_visible(),'A genuinely stalled download exposes a wait/retry message')
+  ctx.set_offline(True);waiting.wait_for_timeout(200)
+  check('Bağlantı yok' in waiting.locator('#notice').inner_text(),'Browser offline state gives explicit connection feedback during loading')
+  ctx.set_offline(False)
+  for pending in held_requests:pending.abort()
+  waiting.close()
   embed=ctx.new_page();embed.goto('http://127.0.0.1:8019/embed-test');frame=embed.frames[1];wait_js(frame,'window.__planetQA?.menu === "title"',timeout=30000)
   frame.locator('#help-toggle').click();check(frame.locator('#full-page').is_visible(),'Iframe help offers a full-page route');frame.locator('#help-close').click()
   frame.locator('canvas').focus();embed.keyboard.press('Enter');embed.wait_for_timeout(150);embed.keyboard.press('Escape');embed.wait_for_timeout(200)

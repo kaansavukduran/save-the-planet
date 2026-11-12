@@ -1,4 +1,4 @@
-# Save the Planet · ürün ve tasarım özeti · 0.3.0
+# Save the Planet · ürün ve tasarım özeti · 0.4.0
 
 **Amaç:** Dört arkadaşın yetenekleriyle güvenli yollar açılan, yardımın sonuçlarının bireylerin kendi hareketlerinde görüldüğü bir platform macerası. Hayvan hakları, vegan alternatif ve ekolojik neden-sonuç ilişkisi eylemlerle işlenir.
 
@@ -8,7 +8,7 @@
 
 **Teknoloji:** Mevcut Godot 4.6.3/GDScript, Compatibility; web WASM, Linux/Windows export, Android release hazırlığı. Motor veya framework değiştirilmez. Native Theme/Control/Camera2D ve tarayıcının semantik dialog'u kullanılır; çalışma zamanına yeni kütüphane eklenmez.
 
-**Cihazlar:** Öncelik yatay masaüstü/tarayıcı ve yatay dokunmatik. Küçük portrede metin rehberi kullanılabilir; platform oyununun küçük portre ergonomisi ve fiziksel telefon performansı doğrulanmadı. Xbox tipi genel gamepad tam akış hedefidir; sanal olaylar ve tarayıcı Gamepad API testi fiziksel kol onayı yerine geçmez.
+**Cihazlar:** Masaüstü/tarayıcı ve hem dikey hem yatay mobil oyun. Portrede ayrı 480×800 taban alan, yatayda 960×540 taban alan; oran genişledikçe viewport genişler. Kamera, hedef, portreler ve en az 44 CSS piksel hedeflenen D-pad/aksiyon kontrolleri yeniden yerleşir. Fiziksel telefon ergonomisi ve performansı henüz doğrulanmadı. Xbox tipi genel gamepad tam akış hedefidir; sanal olaylar ve tarayıcı Gamepad API testi fiziksel kol onayı yerine geçmez.
 
 **Ton:** Sıcak, okunaklı, meraklı. Üç sıfat: sakin, tutarlı, özgün. Kaçınılanlar: hayvanı puana/işçiye dönüştürme; rastgele grafik/marka kolajı; kaydedilmediği halde kaydedildi geri bildirimi.
 

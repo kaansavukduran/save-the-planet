@@ -19,6 +19,7 @@ for target,folder,exe in [('Linux','linux','SaveThePlanet.x86_64'),('Windows','w
  (out/'BUILD.json').write_text(json.dumps(meta,indent=2))
  for name in ['LICENSE','THIRD_PARTY_NOTICES.md']:shutil.copy2(ROOT/name,out/name)
  shutil.copy2(ROOT/'assets/fonts/LICENSE.txt',out/'FONT-LICENSE.txt')
+ shutil.copy2(ROOT/'assets/fonts/PressStart2P-LICENSE.txt',out/'PressStart2P-LICENSE.txt')
  (out/'README.txt').write_text('Save the Planet '+version+' / Fragaria Interactive\nRun '+exe+'\nA/D arrows move; Space jump; J ability; E interact; 1-4 heroes; Q party; Esc pause; Tab journal; S down through platform.\nSource: https://github.com/kaansavukduran/save-the-planet\nSaves: Godot user data, local device only.\n')
  if target=='Windows':
   with zipfile.ZipFile(ROOT/'dist/SaveThePlanet-Windows-Portable.zip','w',zipfile.ZIP_DEFLATED) as z:

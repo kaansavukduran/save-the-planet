@@ -1,4 +1,4 @@
-# Save the Planet · ART_BIBLE · 0.3.0
+# Save the Planet · ART_BIBLE · 0.4.0
 
 Normatif kaynak: [güncel AIONIA kaydı](AIONIA_STANDARD.md), 12.11.2026. Proje kararları aşağıdadır; evrenin tamamı için yeni kanon değildir.
 
@@ -12,7 +12,7 @@ Sevimli karakter siluetleri, sakin ve okunaklı kurtarma alanları; uzak katmanl
 - Dünya paleti: gece laciverti #142333, derin arduvaz #233b4a, sisli petrol #456b76, adaçayı #7caa9c, yaprak #5c8a70, güneş/etkileşim #efcd89, kâğıt #f2e5c7; ana eylem için çilek tonlu #a93f59. Çilek referansından renk ilişkisi alınır; bu görsel son onaylı logo ilan edilmez.
 - Işık üst soldan, gölge sağ alttan. Etkileşim objesi aydınlık kenar + şekil/ikon; dekor daha düşük kontrast. Oynanabilir zemin açık üst çizgiyle seçilir.
 - Uzak sırt, ağaç ve ön plan farklı paralaks hızlarında; karakter ve tehlike düzlemi sabittir. Kamera bakış yönünü yumuşakça izler, karakter değişimi kamerayı yenilemez.
-- Arayüz: keskin piksel çerçeveler, sıcak kâğıt metni, lacivert zemin, altın odak; 44 px ve üzeri temel düğme hedefi. 17/18 px gövde, 22 px büyük metin; DejaVu Türkçe glifleri ve lisansı korunur. Hiyerarşi renk yanında boyut, çerçeve ve metinle sağlanır.
+- Arayüz: keskin piksel çerçeveler, sıcak kâğıt metni, lacivert zemin, altın odak; 44 px ve üzeri temel düğme hedefi. Normal arayüz OS sistem fontu ister; yerleşik DejaVu erişilebilir alternatif/fallback olarak korunur. Gövde yatayda 18, portrede 20 mantıksal piksel, büyük metin 22/24. Godot Web yerel font erişimi yerine motor fallback fontuna çözebilir. İlk açılış koyu; açık/sistem seçimi saklanır. Hiyerarşi renk yanında boyut, çerçeve ve metinle sağlanır.
 - Pixel-perfect hedef doğal 1×/2× ölçeklerde doğrulanır. Telefon için küçülme gerektiğinde nearest filtre ve ayrı kontrol yerleşimi kullanılır; her fiziksel boyutta matematiksel tamsayı ölçek varmış gibi raporlanmaz.
 
 ## Kaynak ve onay matrisi
@@ -41,3 +41,7 @@ Hesaplanan sRGB metin oranları: kâğıt #f2e5c7 / ana düğme #a93f59 **4,74:1
 Mevcut görsel kimlik ve kaynak karakterler korunur. Sabit 960×540 viewport render'ı ve nearest ölçek; kamera/özgün sprite ölçüleri değişmez. UI gövde font override'ı her kare yerine tercihler değişince uygulanır. Web metin rehberi aynı renk/kenar/focus dilini semantik dialog/tabloyla taşır; rem yazılar 200% büyütmeyle sınanır. Oyun alanı safe-area insets içine yerleşir. Bu, bütün telefonlarda native oyunun metninin yeterince büyük olduğu veya çentiklerin fiziksel olarak test edildiği iddiası değildir.
 
 Aktif gamepad ipuçları ve okunaklı hata metni, yeni rastgele ikon/mascot eklemek yerine görevi açıklar. Pause düğmesi yalnız oynanışta görünür. Motion azaltma, dekor/yanıp sönme yanında kamera smoothing/bakış payını da sınırlar. Son sanat kapısı hâlâ açıktır.
+
+## 0.4.0 yükleme sanat yönü
+
+AIONIA v1.4 §§18–19 ve gerçek Drive yükleme referansı incelendi. Tam siyah, değişmeden kopyalanmış çilek, Fragaria Interactive, OFL Press Start 2P dekoratif yazı; on segmentli kırmızı/pembe/yeşil/açık gri bar. Yüzde ve sürüm gerçek callback/proje değeridir. Web ve native açılış aynı mekanizmaymış gibi sunulmaz. Kaynak/hash ve nihai onay sınırları assets/brand/README.md içinde. Normal UI pixel fontuna geçirilmez; karakter tasarımları değiştirilmez.

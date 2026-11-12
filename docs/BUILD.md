@@ -13,7 +13,7 @@ python3 packaging/build_native.py
 
 Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
 
-Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 3, sürüm 0.3.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 4, sürüm 0.4.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
 
 Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
 
@@ -44,3 +44,11 @@ Son release smoke: `python3 tests/browser_release.py`. Bu test release klasörü
 Son kaynak fe504a17bee8ab322fb28aced2bdb1159fcb2497. Gerçek web release/Linux/Windows+NSIS çıktı ve doğrulamaları DELIVERY.md / VALIDATION_0.3.md içinde. Önceki0.2 bölümleri tarihsel kanıttır. CSP hash'i export sonrası gerçek inline bootstrap'tan üretilir; genel JS unsafe-eval kullanılmaz. Native bridge ve testler CSP kapatılarak çalıştırılmaz. Hosting config vercel.json/.vercel runtime PCK'den hariçtir. BUILD.json ham çalışma ağacı farklarını da bildirir; Vercel'in kendi config değişikliği sessizce temiz diye etiketlenmez.
 
 Yeni testler: quality.gd, browser_quality.py, browser_gamepad_menus.py. web_performance.py izole kıyas içindir; işlev testlerini eşzamanlı çalıştırırken alınan FPS standalone hedef cihaz performansı değildir. tests/browser_wait.py CSP'yi kaldırmadan DevTools polling kullanır. Virtual gamepad fixture yalnız tuş/eksen üretir; fiziksel kol testinin yerine geçmez.
+
+## 0.4.0 / AIONIA v1.4 doğrulama
+
+Godot 4.6.3 altyapısı korunur. `STP_WEB_QA=1 python3 packaging/build_web.py` ayrı `build/web-qa` üretir; `--qa` telemetrisi release export'ta yoktur. `python3 tests/browser_v14.py`, `browser_quality.py`, `browser_gamepad_menus.py`, `browser_accessibility.py` ve `browser_shell.py` gerçek tarayıcı kullanır. Playwright 1.62.0; yerel Chromium varsa kullanılır, CI'da Playwright Chromium. `STP_CHROMIUM` ile yürütülebilir yol seçilebilir.
+
+Tam dokunmatik kampanya: `STP_TEST_INPUT=touch STP_TEST_VIEWPORT=360x640 STP_TEST_PORT=8031 python3 tests/browser_campaign.py`; yatay için `STP_TEST_VIEWPORT=844x390 STP_TEST_PORT=8034`. Eylemler gerçek CDP dokunmasıdır, bayrak/koordinat enjekte edilmez. Test devam ederken web klasörünü yeniden export etmeyin; hash'li eski dosyaların silinmesi gerçek 404 üretir. Yazılım GPU ile performans ölçerken diğer oyun tarayıcılarını kapatın.
+
+Native boot PNG kabul eder; statik kaynak çilek kullanılır. Web shell ölçülebilir indirme durumunu gösterir. Yerel sistem fontu Web sandbox'ta kullanılamıyorsa okunabilir motor fallback'i çözülür; OS fontu bütün platformlarda doğrulandı denmez.

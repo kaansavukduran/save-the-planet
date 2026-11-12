@@ -4,6 +4,7 @@ from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
 import os, json, statistics, time, platform
 
@@ -14,7 +15,7 @@ class Quiet(SimpleHTTPRequestHandler):
 server=ThreadingHTTPServer(('127.0.0.1',8023),partial(Quiet,directory=str(folder)))
 Thread(target=server.serve_forever,daemon=True).start()
 with sync_playwright() as p:
-    b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,
+    b=p.chromium.launch(executable_path=CHROMIUM,headless=True,
         args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
     page=b.new_page(viewport={'width':1152,'height':648})
     start=time.perf_counter();page.goto('http://127.0.0.1:8023')

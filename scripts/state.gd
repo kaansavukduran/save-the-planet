@@ -2,9 +2,9 @@ extends Node
 ## Durable world facts survive retries. Checkpoints store safe feet positions only.
 signal changed
 const SCHEMA = 2
-const VERSION = "0.3.0"
+const VERSION = "0.4.0"
 const MAX_SAVE_BYTES = 262144
-const DEFAULT_PREFS = {"language":"tr", "story":true, "large_text":false, "reduced_effects":false, "music":0.35, "sfx":0.65, "touch":false, "bindings":{}, "gamepad_bindings":{}, "deadzone":0.25}
+const DEFAULT_PREFS = {"language":"tr", "story":true, "large_text":false, "reduced_effects":false, "music":0.35, "sfx":0.65, "touch":false, "bindings":{}, "gamepad_bindings":{}, "deadzone":0.25, "theme":"dark", "font":"system", "touch_intro_seen":false}
 var path = "user://planet-save.json"
 var flags: Dictionary = {}
 var animals: Dictionary = {}
@@ -88,6 +88,8 @@ func valid(d: Variant) -> bool:
 		if d.prefs.has(key):
 			var value=d.prefs[key]
 			if (not value is float and not value is int) or not is_finite(float(value)):return false
+	for key in ["theme","font"]:
+		if d.prefs.has(key) and not d.prefs[key] in ({"theme":["dark","light","system"],"font":["system","bundled"]}[key]):return false
 	for key in ["bindings","gamepad_bindings"]:
 		var bindings=d.prefs.get(key,{})
 		if not bindings is Dictionary or bindings.size()>20:return false

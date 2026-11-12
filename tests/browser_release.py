@@ -4,11 +4,12 @@ from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
 import json
 
 ROOT = Path(__file__).resolve().parents[1]
-E=ROOT/'docs/evidence/v0.3/release';E.mkdir(parents=True,exist_ok=True)
+E=ROOT/'docs/evidence/v0.4/release';E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
     def log_message(self, *args): pass
 
@@ -16,7 +17,7 @@ server = ThreadingHTTPServer(('127.0.0.1', 8021), partial(Quiet, directory=str(R
 Thread(target=server.serve_forever, daemon=True).start()
 checks, errors = [], []
 with sync_playwright() as p:
-    browser = p.chromium.launch(executable_path='/usr/bin/chromium', headless=True,
+    browser = p.chromium.launch(executable_path=CHROMIUM, headless=True,
         args=['--no-sandbox', '--enable-unsafe-swiftshader', '--use-angle=swiftshader'])
     page = browser.new_page(viewport={'width':1152,'height':648})
     page.on('pageerror', lambda e: errors.append(str(e)))

@@ -1,13 +1,14 @@
 """Real browser privacy, recovery and security flows with enforced production CSP."""
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from pathlib import Path
-import json
+import json,re
 
-ROOT=Path(__file__).resolve().parents[1];E=ROOT/'docs/evidence/v0.3/quality';E.mkdir(parents=True,exist_ok=True)
+ROOT=Path(__file__).resolve().parents[1];E=ROOT/'docs/evidence/v0.4/quality';E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
     def log_message(self,*args):pass
     def do_GET(self):
@@ -20,7 +21,7 @@ checks=[];errors=[];csp_blocks=[];expected_csp=[False]
 def check(ok,label):
     checks.append({'check':label,'status':'PASS' if ok else 'FAIL'});print(label,ok,flush=True)
 with sync_playwright() as p:
-    browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
+    browser=p.chromium.launch(executable_path=CHROMIUM,headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
     context=browser.new_context(viewport={'width':1152,'height':648})
     context.add_init_script('''(()=>{const write=Storage.prototype.setItem;Storage.prototype.setItem=function(key,value){if(window.__denyGameSave&&key.startsWith('fragaria.save-the-planet.'))throw new DOMException('QA denied storage','QuotaExceededError');return write.call(this,key,value);};})()''')
     page=context.new_page();page.on('pageerror',lambda e:errors.append(str(e)))
@@ -34,7 +35,7 @@ with sync_playwright() as p:
         for _ in range(32):
             if fragment.lower() in state().get('focus','').lower():
                 page.keyboard.press('Enter');page.wait_for_timeout(180);return
-            page.keyboard.press('ArrowDown');page.wait_for_timeout(90)
+            page.keyboard.press('ArrowDown');page.wait_for_timeout(220)
         raise AssertionError('Keyboard focus could not reach '+fragment+'; '+str(state()))
     def settings():
         if state()['menu']=='':page.keyboard.press('Escape');page.wait_for_timeout(150)
@@ -86,7 +87,7 @@ with sync_playwright() as p:
         check(state()['flags']=={} and state()['completed']==[],'Immediate reload cannot resurrect deleted progress from IndexedDB')
         check(page.evaluate('localStorage.getItem("fragaria.save-the-planet.v2")===null'),'Reload and focus do not recreate a save after erasure')
         page.keyboard.press('Enter');page.wait_for_timeout(200);page.keyboard.press('Escape');page.wait_for_timeout(150)
-        check(page.evaluate('JSON.parse(localStorage.getItem("fragaria.save-the-planet.v2")).game_version==="0.3.0"'),'Explicit New Journey starts a new persistent save after erasure')
+        check(page.evaluate('JSON.parse(localStorage.getItem("fragaria.save-the-planet.v2")).game_version')==re.search(r'config/version="([^"]+)"',(ROOT/'project.godot').read_text())[1],'Explicit New Journey starts a new persistent save after erasure')
         page.evaluate('''()=>{const key='fragaria.save-the-planet.v2';const d=JSON.parse(localStorage.getItem(key));d.schema_version=99;localStorage.setItem(key,JSON.stringify(d));}''')
         page.locator('canvas').evaluate('(c)=>c.blur()');page.wait_for_timeout(250)
         check(page.evaluate('JSON.parse(localStorage.getItem("fragaria.save-the-planet.v2")).schema_version===99'),'A newer save written after load survives focus-loss autosave')

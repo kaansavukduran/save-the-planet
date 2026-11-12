@@ -1,18 +1,19 @@
 """Real keyboard/menu/multitouch/focus checks against the debug QA Web build."""
 from browser_wait import wait_js
+from browser_runtime import CHROMIUM
 from playwright.sync_api import sync_playwright
 from http.server import ThreadingHTTPServer,SimpleHTTPRequestHandler
 from functools import partial
 from threading import Thread
 from pathlib import Path
 import json
-R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.3/accessibility';E.mkdir(parents=True,exist_ok=True)
+R=Path(__file__).resolve().parents[1];E=R/'docs/evidence/v0.4/accessibility';E.mkdir(parents=True,exist_ok=True)
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 server=ThreadingHTTPServer(('127.0.0.1',8015),partial(Quiet,directory=str(R/'build/web-qa')));Thread(target=server.serve_forever,daemon=True).start()
 checks=[];errors=[]
 with sync_playwright() as p:
- b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
+ b=p.chromium.launch(executable_path=CHROMIUM,headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
  page=b.new_page(viewport={'width':1152,'height':648},has_touch=True)
  page.on('console',lambda m:errors.append(m.text) if m.type=='error' else None)
  page.on('pageerror',lambda e:errors.append(str(e)))
