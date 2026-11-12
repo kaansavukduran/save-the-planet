@@ -1,0 +1,8 @@
+{
+  "id": "dpl_CthDpExHmaxYWUNACGcT8dtYtrEX",
+  "target": "production",
+  "state": "READY",
+  "entry": "https://save-the-planet-mauve.vercel.app/play",
+  "source_commit": "00e1c954b5b9d847d2dd16da690f464a3bf4bfec",
+  "content_tag": "aa344c7b47fb0663"
+}

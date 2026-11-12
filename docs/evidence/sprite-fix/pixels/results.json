@@ -1,0 +1,227 @@
+{
+  "checks": [
+    {
+      "check": "Archived release reproduces visible sinking",
+      "status": "PASS"
+    },
+    {
+      "check": "Live Aion never paints below the ground over multiple blink cycles",
+      "status": "PASS"
+    },
+    {
+      "check": "Live Owl never paints below the ground over multiple idle cycles",
+      "status": "PASS"
+    }
+  ],
+  "measurements": [
+    {
+      "label": "before",
+      "url": "http://127.0.0.1:8046/",
+      "max_aion_pixels_below_road": 480,
+      "max_owl_pixels_below_road": 48,
+      "samples": [
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 480,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 159,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 480,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 480,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 159,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 480,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 159,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 48
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 480,
+          "owl_pixels_below_road": 0
+        }
+      ]
+    },
+    {
+      "label": "after",
+      "url": "https://save-the-planet-mauve.vercel.app/play",
+      "max_aion_pixels_below_road": 0,
+      "max_owl_pixels_below_road": 0,
+      "samples": [
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        },
+        {
+          "aion_pixels_below_road": 0,
+          "owl_pixels_below_road": 0
+        }
+      ]
+    }
+  ],
+  "note": "Actual release screenshots, no QA bridge. At 1152x648 the road is y528; sampled y530..561. Color masks select Aion pink and owl orange while excluding meadow terrain."
+}

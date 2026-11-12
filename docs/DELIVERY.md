@@ -1,27 +1,24 @@
-# Save the Planet 0.4.1 · geliştirme teslimi
+# Save the Planet 0.4.3 · karakter kayması düzeltmesi
 
-**Güncel Web: [v0.4.2 /play girişini aç](https://save-the-planet-mauve.vercel.app/play).** Eski Canvas önbelleği için hotfix yayımlandı: eski ziyaretçi14, canlı5, telefon boyutu/dokunmatik4 PASS. [Hotfix kaydı](HOTFIX_0.4.2.md). Aşağıdaki 0.4.1 native paketleri ve tarihsel yayın kaydı korunur; yeni native paket üretildiği iddia edilmez.
+Oyna: https://save-the-planet-mauve.vercel.app/play?v=0.4.3
 
-**Kullanıcı onayıyla yayında:** [Tarayıcıda oyna](https://save-the-planet-mauve.vercel.app) · [GitHub release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1). Ana adres giriş istemez; canlı ilk görev/kayıt testi 5/5 PASS. [Yayın kaydı](RELEASE_0.4.1.md). GitHub ikili yüklemesi 401 verdiği için release aşağıdaki doğrulanmış Drive paketlerine bağlanır.
+Göz kırpma ve animasyon sırasında aşağı/yanlara kayan karakterlerin ayak/gövde hizası düzeltildi. Sprite düğümü fizik kökünde kalır, yön değişimi aynı pivotta yapılır. Özgün kaynak ve türetilmiş PNG dosyaları değiştirilmedi. Kayıt şeması, fizik, hızlar ve kontroller korunur.
 
-12 Kasım 2026. Son oyun kaynağı **e43b0964bd69b9223cc8704f9615bb7aaf34bf29**. Web/Linux/Windows export sırasında yerel çalışma ağacı temizdi; BUILD kayıtları `evidence/forge/packages/` içinde. Sonraki rapor commit'leri oyun kodunu değiştirmez. Godot 4.6.3, mevcut sanat kaynakları ve onaylı D-pad + aksiyon düzeni korunur.
+Gerçek testler: Sprite2D/alpha 56 kontrol ve 1.248 kare-yön-ölçek birleşimi; tarayıcı animasyonu/oynanış 19; native kampanya120/kabul24/kalite38 ve ayrı kayıt PASS. Canlı ilk görev/kayıt5, telefon boyutunda dokunmatik4, eski/yeni release pikselleri3 PASS. Eski Aion/Baykuş'taki aşağı taşma canlı yeni sürümde görülmedi. CI iki işte PASS: https://github.com/kaansavukduran/save-the-planet/actions/runs/43302513627
 
-Geniş/uzun ekranlardaki gökyüzü boşluğu, görünür çevre sınırları, pause sırasında ekran döndürme ve tünelin aktif giriş ipucu düzeltildi. On bölüm/final/yaşam alanı ve mevcut kayıtlar korunur.
+Yeni paketler, ad/boyut/klasör metadata ile doğrulanan Drive indirmeleri:
+- Web ZIP: https://drive.google.com/file/d/1ikQH_YvAIrCdkWAuGgitYyMkG45t23PN/view
+- Linux x86_64: https://drive.google.com/file/d/1qWPf4PzbylaON-GvPVXX_4USk4DsGK-J/view
+- Windows portable x64: https://drive.google.com/file/d/1H-J_Glg7xYDaS1AGkG26U8l66XF1sjRq/view
+- Windows Setup: https://drive.google.com/file/d/11EY5eHS0JB3sfbTiKJ-GsDGe2kKXeV76/view
+- SHA-256: https://drive.google.com/file/d/1Woxi84xOdGiUSQ68kXpV4tDNqmwR4xhz/view
 
-- [Taslak PR #1](https://github.com/kaansavukduran/save-the-planet/pull/1); main birleştirilmedi.
-- [0.4.1 Web önizleme](https://save-the-planet-n1gwmooth-vegan-axolotl.vercel.app): READY, HTML/BUILD HTTP 200, sürüm/kaynak/CSP/header kontrolü PASS. Mevcut Vercel SSO korunur; uzak tarayıcı oynanışı NOT TESTED.
-- [Web ZIP](https://drive.google.com/file/d/16e2F2Y1sfglAYAeJQB9s7c_tHFwZ9yzV/view): **20.418.877 byte**. HTTP sunucusuyla aç; son release ilk görev/kayıt reload/QA kapalı 3/3 PASS.
-- [Linux x86_64 tar.gz](https://drive.google.com/file/d/1L6Ux3U2AviWxio-4KhwI13NdSr3ifm12/view): **38.107.434 byte**. Temiz arşivden gerçek Godot penceresi, klavye hareket/zıplama/pause/portre resize PASS; Xvfb/Mesa/dummy audio, fiziksel cihaz değildir.
-- [Windows portable ZIP](https://drive.google.com/file/d/1BdCi7GH6wjowrBNtXA6maks5AoXN43c7/view): **47.056.816 byte**. CRC/PE x64/BUILD/SHA kontrolü PASS; Windows'ta çalıştırılmadı.
-- [Windows NSIS kurulum](https://drive.google.com/file/d/1ZbsE98Y39ap0nG0f3gZT4_UAX7XnhjdU/view): **36.846.435 byte**. Kurulum paketi üretildi; Windows kurulum/güncelleme/kaldırma ve Authenticode NOT TESTED.
-- [0.4.1 SHA-256 manifesti](https://drive.google.com/file/d/1Wj0gvINBfV1rnHYVYmJNDIcihJ2yBqBU/view).
-- [Drive doğrulama raporu](https://drive.google.com/file/d/17BHl8A_GAYNAL_DwiGp-cGVbhf68kS1r/view).
-- [Kaynak CI PASS](https://github.com/kaansavukduran/save-the-planet/actions/runs/43282344144): native kampanya/kabul/kayıt/kalite ve browser UI/ekran/mahremiyet/gamepad menü.
+Kaynak: 00e1c954b5b9d847d2dd16da690f464a3bf4bfec. Paket bütünlüğü/source8 ve temiz Linux pencere PASS. Windows çalıştırma ve fiziksel telefon/Xbox NOT TESTED. Android/imza, nihai sanat, hedef süre ve 60 FPS kapıları açık. Geliştirme ön sürümüdür; önceki release'ler korunur. Paketler GitHub asset'i olarak değil Drive bağlantılarıyla sunulur.
 
-Beş Drive dosyasının adı, boyutu ve hedef klasörü metadata ile yeniden doğrulandı. Connector uzak checksum sağlamadı; uzak hash doğrulandı denmez. Yerel arşivlerin SHA-256 değerleri doğrulandı. [Sürümlü adlarla manifest](evidence/forge/packages/Drive-SHA256SUMS.json), [Drive metadata kayıtları](evidence/forge/packages/drive-receipts.json).
+## Paketi açma ve doğrulama sınırı
 
-Yerel Web tag **7fdfb912df9d9577**, Vercel tag **9c0eb2add6e6b6c0**; aynı PCK ikilisi oldukları iddia edilmez. Sunucunun ham worktree farkı yalnız platformun değiştirdiği vercel.json; runtime PCK'den hariçtir. Kimlik bilgisi veya bypass token kaydedilmez.
+Windows Setup dosyasına çift tıkla; portable ZIP'i açıp SaveThePlanet.exe çalıştır. Linux arşivini açıp SaveThePlanet.x86_64 çalıştır. Web ZIP için HTTP sunucusu kullan veya canlı oyun bağlantısını aç.
 
-[Gerçek PASS / FAIL / NOT TESTED raporu](VALIDATION_0.4.1.md), [devam noktası](../FORGE.md). Release yazılım GPU 60 FPS bütçesi hâlâ FAIL (33,4 ms medyan / 50 ms P95). Fiziksel telefon/tablet/Xbox/Windows/ses/ekran okuyucu ve insan playtest NOT TESTED. Android SDK/JDK/mevcut imza ortamı, nihai sanat ve 2–3 saat hedef süre açık; üretim onayı verilmiş sayılmaz.
+Yerel export sırasında çalışma ağacı temizdi; BUILD kayıtları ve yerel SHA256 doğrulandı. Dört paket ve manifestin Drive adı/boyutu/proje klasörü metadata ile kontrol edildi. Uzak checksum connector'dan dönmedi; uzak hash doğrulandı denmez. Gerçek kayıtlar evidence/sprite-fix/packages altında.
 
-Önceki [0.4.0](DELIVERY_0.4.md), [0.3.0](DELIVERY_0.3.md) ve [0.2.0](DELIVERY_0.2.md) paketleri korunur.
+[Ayrıntılı testler](SPRITE_FIX_0.4.3.md), [devam noktası](../FORGE.md). Önceki [0.4.1](DELIVERY_0.4.1.md), [0.4.2 Web](HOTFIX_0.4.2.md), [0.4.0](DELIVERY_0.4.md), [0.3.0](DELIVERY_0.3.md) ve [0.2.0](DELIVERY_0.2.md) korunur. Sonraki rapor commit'leri oyun kodunu değiştirmez.

@@ -1,0 +1,43 @@
+{
+  "checks": [
+    {
+      "check": "web: clean source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "linux: clean source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "windows: clean source and version",
+      "status": "PASS"
+    },
+    {
+      "check": "SaveThePlanet-Web.zip: CRC",
+      "status": "PASS"
+    },
+    {
+      "check": "SaveThePlanet-Windows-Portable.zip: CRC",
+      "status": "PASS"
+    },
+    {
+      "check": "Linux ELF64",
+      "status": "PASS"
+    },
+    {
+      "check": "Windows PE64",
+      "status": "PASS"
+    },
+    {
+      "check": "Four package SHA256 digests",
+      "status": "PASS"
+    }
+  ],
+  "sizes": {
+    "SaveThePlanet-Windows-Portable.zip": 47057213,
+    "SaveThePlanet-Web.zip": 20420419,
+    "SaveThePlanet-Linux-x86_64.tar.gz": 38107359,
+    "SaveThePlanet-Setup.exe": 36846483
+  },
+  "windows_runtime": "NOT TESTED"
+}

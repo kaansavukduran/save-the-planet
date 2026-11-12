@@ -30,4 +30,14 @@ Native test, yalnız JSON değerini değil Sprite2D'nin gerçek texture alpha s�
 
 Kanıt: `evidence/sprite-fix/`. Önce/sonra paftaları teşhis için oluşturulmuştur; oyun grafikleri yeniden çizilmiş değildir. İlk snapshot test yardımcısı Sprite2D.offset'ı hesaba katmıyordu; gerçek render dönüşümüyle düzeltildi. Bu test yardımcısı hatası oyun hatası olarak sayılmaz.
 
-Fiziksel telefon/Xbox/Windows testleri ve önceki 60 FPS/sanat/hedef süre kapıları açık kalır. Canlı yayın/CI sonucu tamamlandığında bu kayda eklenir; henüz çalıştırılmayan paket tamamlanmış gösterilmez.
+## Canlı yayın ve paketler
+
+[Güncel oyunu aç](https://save-the-planet-mauve.vercel.app/play?v=0.4.3). Production `dpl_CthDpExHmaxYWUNACGcT8dtYtrEX` READY; kaynak `00e1c954b5b9d847d2dd16da690f464a3bf4bfec`, tag `aa344c7b47fb0663`. [Kaynak CI](https://github.com/kaansavukduran/save-the-planet/actions/runs/43302513627) campaign/browser işleri PASS; yeni native ve browser hizalama regresyonları kapsamda.
+
+Gerçek release pikselleriyle ayrıca karşılaştırıldı: 24 eski sürüm görüntüsünde Aion için en çok 480, Baykuş için 48 renk pikseli yolun altındaki örnek alana taşıyordu. Aynı 24 canlı 0.4.3 görüntüsünde iki karakter için değer **0**. `evidence/sprite-fix/pixels/` gerçek screenshot'ları ve renk maskesi/aralık sınırlarını içerir; QA köprüsü kullanılmadı. Bu ölçüm fiziksel cihaz veya bütün görüntü koşulları için garanti değildir.
+
+Kullanıcının gönderdiği görüntünün 2048×1024 çözünürlüğünde de 16 canlı kare ölçüldü: iki karakterin yol altındaki örnek alana taşan renk pikseli yine **0**, v0.4.3 başlığı doğrulandı. `evidence/sprite-fix/user-resolution/`.
+
+Canlı ilk görev/kayıt/release5 ve 390×844 dokunmatik4 PASS; öğretim atlama adımı Escape ile yapıldı, fiziksel telefon değildir. Temiz kaynaktan Web/Linux/Windows portable+NSIS üretildi. Paket kaynak/sürüm/CRC/ELF/PE/SHA8 ve temiz Linux gerçek pencere PASS. Dört paket+manifest Drive metadata ile ad/boyut/klasör açısından doğrulandı; uzak checksum connector'dan gelmedi.
+
+Fiziksel telefon/Xbox/Windows testleri ve önceki 60 FPS/sanat/hedef süre kapıları açık kalır. [Teslim ve indirmeler](DELIVERY.md). Sonraki rapor commit'leri test edilen oyun kodunu değiştirmez.

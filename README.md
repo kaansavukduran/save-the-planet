@@ -1,8 +1,8 @@
 # Save the Planet
 
-**[Güncel oyunu aç](https://save-the-planet-mauve.vercel.app/play)** · [0.4.1 native indirmeleri](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1) · [0.4.2 Web düzeltmesi](docs/HOTFIX_0.4.2.md)
+**[Güncel oyunu aç · v0.4.3](https://save-the-planet-mauve.vercel.app/play?v=0.4.3)** · [Release ve indirmeler](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.3) · [Karakter hizası ve gerçek testler](docs/SPRITE_FIX_0.4.3.md)
 
-Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik neden-sonuç ilişkisini eylemlerle ele alan **Godot 4.6.3 / GDScript** platform macerası. Dört karakter, beş perde/on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.4.2 Web / 0.4.1 native geliştirme sürümleri**; nihai sanat, hedef süre ve fiziksel platform QA henüz tamamlanmadı. Güncel devam kaydı: [FORGE.md](FORGE.md).
+Fragaria Interactive / Fragaria Games / AIONIA. Hayvan hakları, veganlık ve ekolojik neden-sonuç ilişkisini eylemlerle ele alan **Godot 4.6.3 / GDScript** platform macerası. Dört karakter, beş perde/on bölüm, ziyaret edilebilir yaşam alanı ve kayıtlı final. **0.4.3 geliştirme sürümü**; nihai sanat, hedef süre ve fiziksel platform QA henüz tamamlanmadı. Güncel devam kaydı: [FORGE.md](FORGE.md).
 
 ```sh
 godot --path .

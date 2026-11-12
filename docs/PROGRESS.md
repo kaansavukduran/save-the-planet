@@ -1,6 +1,8 @@
 # 0.4.3 · animasyon hizası
 
-Kullanıcının aşağı/yanlara kayma hatası gerçek animasyon karelerinde doğrulandı. Aion idle alt sınır +16,15 px; Baykuş yatay salınım 12,38 px. Göz pivotları yerine gövde/taban kaydı ve sabit Sprite2D kökü. Kaynak/türev PNG byte'ları korundu. Alpha/render56 (1.248 birleşim), browser19, native120+24+38 ve ayrı kayıt PASS. [Devam ve kanıt](SPRITE_FIX_0.4.3.md); henüz canlı test yapılmış sayılmaz.
+Kullanıcının aşağı/yanlara kayma hatası gerçek animasyon karelerinde doğrulandı. Aion idle alt sınır +16,15 px; Baykuş yatay salınım 12,38 px. Göz pivotları yerine gövde/taban kaydı ve sabit Sprite2D kökü. Kaynak/türev PNG byte'ları korundu. Alpha/render56 (1.248 birleşim), browser19, native120+24+38 ve ayrı kayıt PASS. [Devam ve kanıt](SPRITE_FIX_0.4.3.md).
+
+Yayın tamamlandı: kaynak00e1c954b5b9d847d2dd16da690f464a3bf4bfec, production READY. Canlı5, dokunmatik4, release görüntü karşılaştırması3, CI iki iş PASS. Web/Linux/Windows yeni paketleri üretildi; paket8 ve Linux gerçek pencere PASS, Drive metadata doğrulandı. [Oyna](https://save-the-planet-mauve.vercel.app/play?v=0.4.3). Önceki paragraf yerel doğrulama aşamasıdır; bu paragraf yayın sonucunu kaydeder.
 
 # 0.4.2 · eski ziyaretçi düzeltmesi
 
