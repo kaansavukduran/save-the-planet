@@ -1,0 +1,216 @@
+{
+  "uploads": [
+    {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1zPYufZ_zAHt0bMQ4x6zvHOR-yagNuTM_",
+      "title": "SaveThePlanet-0.4.4-Web.zip",
+      "file_name": "SaveThePlanet-0.4.4-Web.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/1zPYufZ_zAHt0bMQ4x6zvHOR-yagNuTM_/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1zPYufZ_zAHt0bMQ4x6zvHOR-yagNuTM_",
+        "title": "SaveThePlanet-0.4.4-Web.zip",
+        "file_name": "SaveThePlanet-0.4.4-Web.zip",
+        "mime_type": "application/zip",
+        "url": "https://drive.google.com/file/d/1zPYufZ_zAHt0bMQ4x6zvHOR-yagNuTM_/view?usp=drivesdk",
+        "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+      }
+    },
+    {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1ANtELqbxY3l07g1njpSOz-wXWOu42cMB",
+      "title": "SaveThePlanet-0.4.4-Linux-x86_64.tar.gz",
+      "file_name": "SaveThePlanet-0.4.4-Linux-x86_64.tar.gz",
+      "mime_type": "application/gzip",
+      "url": "https://drive.google.com/file/d/1ANtELqbxY3l07g1njpSOz-wXWOu42cMB/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1ANtELqbxY3l07g1njpSOz-wXWOu42cMB",
+        "title": "SaveThePlanet-0.4.4-Linux-x86_64.tar.gz",
+        "file_name": "SaveThePlanet-0.4.4-Linux-x86_64.tar.gz",
+        "mime_type": "application/gzip",
+        "url": "https://drive.google.com/file/d/1ANtELqbxY3l07g1njpSOz-wXWOu42cMB/view?usp=drivesdk",
+        "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+      }
+    },
+    {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1iHG_gOZZnT8kl9n6rgYCpzOTReV9IT8R",
+      "title": "SaveThePlanet-0.4.4-Windows-Portable.zip",
+      "file_name": "SaveThePlanet-0.4.4-Windows-Portable.zip",
+      "mime_type": "application/zip",
+      "url": "https://drive.google.com/file/d/1iHG_gOZZnT8kl9n6rgYCpzOTReV9IT8R/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1iHG_gOZZnT8kl9n6rgYCpzOTReV9IT8R",
+        "title": "SaveThePlanet-0.4.4-Windows-Portable.zip",
+        "file_name": "SaveThePlanet-0.4.4-Windows-Portable.zip",
+        "mime_type": "application/zip",
+        "url": "https://drive.google.com/file/d/1iHG_gOZZnT8kl9n6rgYCpzOTReV9IT8R/view?usp=drivesdk",
+        "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+      }
+    },
+    {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1ymTI6DId11YUa6Fu17pMsIPULHdmRdFh",
+      "title": "SaveThePlanet-0.4.4-Setup.exe",
+      "file_name": "SaveThePlanet-0.4.4-Setup.exe",
+      "mime_type": "application/vnd.microsoft.portable-executable",
+      "url": "https://drive.google.com/file/d/1ymTI6DId11YUa6Fu17pMsIPULHdmRdFh/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1ymTI6DId11YUa6Fu17pMsIPULHdmRdFh",
+        "title": "SaveThePlanet-0.4.4-Setup.exe",
+        "file_name": "SaveThePlanet-0.4.4-Setup.exe",
+        "mime_type": "application/vnd.microsoft.portable-executable",
+        "url": "https://drive.google.com/file/d/1ymTI6DId11YUa6Fu17pMsIPULHdmRdFh/view?usp=drivesdk",
+        "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+      }
+    },
+    {
+      "accepted_input": "file_uri",
+      "success": true,
+      "id": "1EEWFtmv8XpEXf1GwesKd1C2OspwlQuGy",
+      "title": "SaveThePlanet-0.4.4-SHA256SUMS.json",
+      "file_name": "SaveThePlanet-0.4.4-SHA256SUMS.json",
+      "mime_type": "application/json",
+      "url": "https://drive.google.com/file/d/1EEWFtmv8XpEXf1GwesKd1C2OspwlQuGy/view?usp=drivesdk",
+      "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N",
+      "structuredContent": {
+        "accepted_input": "file_uri",
+        "success": true,
+        "id": "1EEWFtmv8XpEXf1GwesKd1C2OspwlQuGy",
+        "title": "SaveThePlanet-0.4.4-SHA256SUMS.json",
+        "file_name": "SaveThePlanet-0.4.4-SHA256SUMS.json",
+        "mime_type": "application/json",
+        "url": "https://drive.google.com/file/d/1EEWFtmv8XpEXf1GwesKd1C2OspwlQuGy/view?usp=drivesdk",
+        "parent_id": "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+      }
+    }
+  ],
+  "metadata": [
+    {
+      "status": "fulfilled",
+      "value": {
+        "id": "1zPYufZ_zAHt0bMQ4x6zvHOR-yagNuTM_",
+        "title": "SaveThePlanet-0.4.4-Web.zip",
+        "mime_type": null,
+        "size": "20422360",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "id": "1ANtELqbxY3l07g1njpSOz-wXWOu42cMB",
+        "title": "SaveThePlanet-0.4.4-Linux-x86_64.tar.gz",
+        "mime_type": null,
+        "size": "38109485",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "id": "1iHG_gOZZnT8kl9n6rgYCpzOTReV9IT8R",
+        "title": "SaveThePlanet-0.4.4-Windows-Portable.zip",
+        "mime_type": null,
+        "size": "47059241",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "id": "1ymTI6DId11YUa6Fu17pMsIPULHdmRdFh",
+        "title": "SaveThePlanet-0.4.4-Setup.exe",
+        "mime_type": null,
+        "size": "36848685",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    },
+    {
+      "status": "fulfilled",
+      "value": {
+        "id": "1EEWFtmv8XpEXf1GwesKd1C2OspwlQuGy",
+        "title": "SaveThePlanet-0.4.4-SHA256SUMS.json",
+        "mime_type": null,
+        "size": "409",
+        "url": null,
+        "file_or_folder": null,
+        "created_time": null,
+        "modified_time": null,
+        "parent_ids": [
+          "1HrVhKqvpbLFJ1wv4svJxlJIRZPXsKV5N"
+        ],
+        "drive_id": null,
+        "current_user_can_share": null,
+        "has_augmented_permissions": null,
+        "shared": null,
+        "permissions": null,
+        "source_visibility_status": "access_not_verified"
+      }
+    }
+  ]
+}

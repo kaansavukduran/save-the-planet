@@ -1,6 +1,6 @@
 # 0.4.4 · konuşma okunabilirliği ve müzik
 
-Kullanıcının dikine Kurt ve müziğin kesilmesi hatası yeniden üretildi. Başlık 1 px / 5 satır; Audio process PAUSABLE. Sabit isim/portre ve footer, ayrı gutter'lı gövde; konuşmacı/sayfa sürekliliği, kesilmeyen müzik ve 220 ms gain geçişi. Native181, browser29, mevcut120+24+38+56/ayrı kayıt PASS. [Test ve devam](DIALOGUE_FIX_0.4.4.md). Canlı yayın henüz bu aşamada doğrulanmış sayılmaz.
+Kullanıcının dikine Kurt ve müziğin kesilmesi hatası yeniden üretildi. Başlık 1 px / 5 satır; Audio process PAUSABLE. Sabit isim/portre ve footer, ayrı gutter'lı gövde; konuşmacı/sayfa sürekliliği, kesilmeyen müzik ve 220 ms gain geçişi. Native181, browser29, mevcut120+24+38+56/ayrı kayıt PASS. [Test ve devam](DIALOGUE_FIX_0.4.4.md). Production READY: https://save-the-planet-mauve.vercel.app/play?v=0.4.4 . Canlı5/dokunmatik4/paket8/Linux gerçek pencere PASS. Kaynak808f1633dadf7868bc471cceb1b31231552effa0, kaynak CI iki iş PASS. [Teslim](DELIVERY.md).
 
 # 0.4.3 · animasyon hizası
 

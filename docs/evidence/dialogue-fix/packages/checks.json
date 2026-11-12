@@ -1,0 +1,34 @@
+[
+  {
+    "check": "web version/source/clean export",
+    "status": "PASS"
+  },
+  {
+    "check": "linux version/source/clean export",
+    "status": "PASS"
+  },
+  {
+    "check": "windows version/source/clean export",
+    "status": "PASS"
+  },
+  {
+    "check": "SaveThePlanet-Web.zip CRC",
+    "status": "PASS"
+  },
+  {
+    "check": "SaveThePlanet-Windows-Portable.zip CRC",
+    "status": "PASS"
+  },
+  {
+    "check": "Linux executable ELF64",
+    "status": "PASS"
+  },
+  {
+    "check": "Windows executable PE x64",
+    "status": "PASS"
+  },
+  {
+    "check": "All four package SHA256 hashes",
+    "status": "PASS"
+  }
+]

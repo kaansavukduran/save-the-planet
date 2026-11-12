@@ -22,4 +22,12 @@
 - Kurt'la gerçek hareket/E etkileşimi TR/EN Godot X11/Mesa penceresinde açılıp görüntülendi. Pencere 2048×1024, iç Godot viewport 1080×540'tır; `visual/tr-wolf.png` ve `en-wolf.png` iç viewport görüntüleridir. Bölüm başlangıcı test fixture'ında ikinci bölüme ayarlanır, etkileşim normal handler'dır.
 - Native kampanya120, kabul24, kalite38, sprite56 ve ayrı süreç kayıt açma PASS. Önceki karakter hizası regresyonu korunur.
 
-Kanıt `evidence/dialogue-fix/` altında. Fiziksel cihaz, duyulan ses, ekran okuyucu ve önceki performans/sanat/hedef süre kapıları açık kalır. Canlı yayın sonucu tamamlandığında eklenir; çalıştırılmamış paket/test tamamlanmış sayılmaz.
+Kanıt `evidence/dialogue-fix/` altında. Fiziksel cihaz, duyulan ses, ekran okuyucu ve önceki performans/sanat/hedef süre kapıları açık kalır. Çalıştırılmamış paket/test tamamlanmış sayılmaz.
+
+## Canlı yayın · 13 Kasım 2026
+
+Production READY, kaynak `808f1633dadf7868bc471cceb1b31231552effa0`. [Oyna](https://save-the-planet-mauve.vercel.app/play?v=0.4.4). Canlı normal yeni oyun/görev etkileşimi **5/5 PASS**, dokunmatik portre/görev/döndürme/reload **4/4 PASS**. Gerçek ilk konuşmada RMS tepe0,01446, görev konuşmasında0,01472; efektin bitmesinden sonra müzik sürer. JS hatası0; shipping QA köprüsü yok. Canlı Kurt konuşmasına ilerleme enjekte edilmedi; Kurt/Wolf doğrulaması yukarıdaki gerçek native etkileşim ve debug browser layout testleridir.
+
+[Kaynak CI](https://github.com/kaansavukduran/save-the-planet/actions/runs/43315063362) campaign/browser işleri PASS. Yeni Web/Linux/Windows paket kontrolü8/8 PASS; temiz Linux arşivi gerçek X11/Mesa penceresinde test edildi (Dummy audio; fiziksel ses testi değildir). Drive beş dosyada ad/boyut/klasör metadata PASS, yerel SHA doğrulandı; uzak checksum alınmadı. [Paketler](DELIVERY.md).
+
+Canlı BUILD source aynı, content_tag02e6c55d5c97b401. Vercel yalnız vercel.json'u değiştirmiş olarak raporlar; dirty=true gizlenmez. Yerel temiz üç export metadata'sı kanıtta; PCK byte eşitliği iddia edilmez. Yayın/yerel test ve üretim kayıtları evidence/dialogue-fix altında korunur. Önceki performans FAIL ve fiziksel cihaz/ses/Windows/insan erişilebilirliği NOT TESTED durumları değişmez.

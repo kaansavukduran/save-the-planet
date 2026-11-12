@@ -1,0 +1,5 @@
+{'check': 'Public entry serves the actual 0.4.4 source without login', 'status': 'PASS'}
+{'check': 'Shipping build has no debug QA bridge', 'status': 'PASS'}
+{'check': 'Actual music PCM continues through the first conversation on the live site', 'status': 'PASS'}
+{'check': 'The next actual interaction keeps music playing after its short cue has finished', 'status': 'PASS'}
+{'check': 'Progress and audio preferences survive reload', 'status': 'PASS'}

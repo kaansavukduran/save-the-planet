@@ -13,7 +13,7 @@ python3 packaging/build_native.py
 
 Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
 
-Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 7, sürüm 0.4.3. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 8, sürüm 0.4.4. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
 
 Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
 
@@ -58,3 +58,5 @@ Web shell'e ait çilek ve pixel font ham dosyaları içerik hash'iyle ayrı kopy
 ## Karakter hizası regresyonu
 
 `godot --headless --fixed-fps 60 --path . --script tests/sprite_alignment.gd` gerçek Sprite2D texture alpha sınırını ve aynalanmış ayak hizasını ölçer. `STP_WEB_QA=1 STP_WEB_FOLDER=web-sprites-qa python3 packaging/build_web.py` sonrasında `python3 tests/browser_sprite_alignment.py` tam idle döngülerini ve normal oynanışı çalıştırır. Kaynak/türetilmiş PNG'ler korunur; derive_sprites.py hizalama metadata'sını günceller.
+
+Konuşma regresyonu: `godot --headless --path . --script tests/dialogue_audio.gd`; QA Web export sonrası `STP_TEST_WEB_DIR=build/web-qa python3 tests/browser_dialogue_audio.py`. Tarihsel gerçek 0.4.3 export varsa `STP_DIALOGUE_BASELINE=/path/to/export` eski sessiz konuşma karşılaştırmasını da çalıştırır. CI bu iki testi içerir.
