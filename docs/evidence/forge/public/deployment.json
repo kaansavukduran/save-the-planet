@@ -1,0 +1,12 @@
+{
+  "id": "dpl_DMPNrWeKQScazFSWkwhNUecj8L1j",
+  "target": "production",
+  "state": "READY",
+  "canonical_url": "https://save-the-planet-mauve.vercel.app",
+  "deployment_url": "https://save-the-planet-ajcndcpm4-vegan-axolotl.vercel.app",
+  "source_commit": "18beed6ac8eab4fc592849f2037517d239b2fa9e",
+  "content_tag": "bcf65934d8e9723c",
+  "approval": "User explicitly approved publication in this conversation on 2026-11-12",
+  "public_without_auth_or_bypass": true,
+  "preview_protection_changed": false
+}

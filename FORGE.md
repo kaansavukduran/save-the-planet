@@ -1,5 +1,7 @@
 # Save the Planet · geliştirme devam kaydı
 
+**Onaylı 0.4.1 yayında:** https://save-the-planet-mauve.vercel.app · [GitHub release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1). Vercel production READY; canlı ilk görev/kayıt/QA kapalı testleri 5/5 PASS. [Yayın kaydı](docs/RELEASE_0.4.1.md). Aşağıdaki açık kalite kapıları geçerlidir.
+
 Proje: `kaansavukduran/save-the-planet`, Godot 4.6.3 / GDScript. AIONIA v1.4 ve kullanıcının onayladığı D-pad + aksiyon düğmeleri geçerlidir. Mevcut dört karakterin kaynakları korunur; başka projelerdeki tasarım/anahtar/onaylar bu oyun için yetki sayılmaz.
 
 ## 0.4.1 · ekran çizimi ve giriş ipuçları

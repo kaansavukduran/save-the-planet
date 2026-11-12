@@ -1,0 +1,5 @@
+{'check': 'Public canonical URL opens without Vercel login or bypass token', 'status': 'PASS'}
+{'check': 'Public build is the approved 0.4.1 commit', 'status': 'PASS'}
+{'check': 'Public release has no QA bridge', 'status': 'PASS'}
+{'check': 'Real keyboard movement and interaction complete the first objective on Vercel', 'status': 'PASS'}
+{'check': 'Live progress survives reload on the public origin', 'status': 'PASS'}

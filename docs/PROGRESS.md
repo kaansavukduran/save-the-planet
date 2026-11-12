@@ -1,5 +1,7 @@
 # 0.4.1 · Forge devamı
 
+Kullanıcı release/Vercel yayınını açıkça onayladı. Production READY: https://save-the-planet-mauve.vercel.app ; giriş/bypass istemeyen canlı Chromium ilk görev/kayıt testi **5/5 PASS**. [Yayın ve release kaydı](RELEASE_0.4.1.md); yeni test/rapor dosyaları oyun kodunu değiştirmez.
+
 Kullanıcı mevcut devam noktasından geliştirmeyi sürdürmeyi seçti. [FORGE.md](../FORGE.md), [plan](PLAN_v0.4.1.md), [gerçek testler](VALIDATION_0.4.1.md). Görünür kamera alanına göre gökyüzü ve çevre sınırları, pause sırasında ekran döndürme ve girişe göre tünel tabelası düzeltildi. Eski gerçek pakette yakalanan üç ekran hatasının kanıtları korundu. Yeni ekran regresyonu CI'ya eklendi. Godot, kanonik sanat, D-pad kararı, fizik ve kayıt checkpoint'leri korunur.
 
 Native 120+24+38 ve ayrı kayıt, Web UI48 ve ekran/döndürme24 PASS. Yazılım GPU 60 FPS bütçesi hâlâ FAIL; debug CPU/fizik/çizim ayrımı kaydedildi, dünya komut hazırlama süresi GPU darboğazı kanıtı sayılmaz. Fiziksel platform testleri, Android mevcut imza ortamı, nihai kanon ve süre hedefi önceki gibi açık. Önceki teslimler kaynak commit'leriyle sabittir; yeni yamanın indirmeleri diye sunulmaz.

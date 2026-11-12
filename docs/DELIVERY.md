@@ -1,5 +1,7 @@
 # Save the Planet 0.4.1 · geliştirme teslimi
 
+**Kullanıcı onayıyla yayında:** [Tarayıcıda oyna](https://save-the-planet-mauve.vercel.app) · [GitHub release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1). Ana adres giriş istemez; canlı ilk görev/kayıt testi 5/5 PASS. [Yayın kaydı](RELEASE_0.4.1.md). GitHub ikili yüklemesi 401 verdiği için release aşağıdaki doğrulanmış Drive paketlerine bağlanır.
+
 12 Kasım 2026. Son oyun kaynağı **e43b0964bd69b9223cc8704f9615bb7aaf34bf29**. Web/Linux/Windows export sırasında yerel çalışma ağacı temizdi; BUILD kayıtları `evidence/forge/packages/` içinde. Sonraki rapor commit'leri oyun kodunu değiştirmez. Godot 4.6.3, mevcut sanat kaynakları ve onaylı D-pad + aksiyon düzeni korunur.
 
 Geniş/uzun ekranlardaki gökyüzü boşluğu, görünür çevre sınırları, pause sırasında ekran döndürme ve tünelin aktif giriş ipucu düzeltildi. On bölüm/final/yaşam alanı ve mevcut kayıtlar korunur.

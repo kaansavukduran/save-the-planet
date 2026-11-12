@@ -1,0 +1,15 @@
+{
+  "url": "https://save-the-planet-mauve.vercel.app",
+  "checks": [
+    {
+      "check": "Public canonical URL opens without Vercel login or bypass token",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "APIRequestContext.get: connect ECONNREFUSED 64.29.17.67:443\nCall log:\n  - \u2192 GET https://save-the-planet-mauve.vercel.app/BUILD.json\n    - user-agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) HeadlessChrome/156.0.0.0 Safari/537.36\n    - accept: */*\n    - accept-encoding: gzip,deflate,br\n"
+  ],
+  "build": {},
+  "browser": "156.0.8078.79",
+  "physical_device": "NOT TESTED"
+}
