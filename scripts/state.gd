@@ -2,7 +2,7 @@ extends Node
 ## Durable world facts survive retries. Checkpoints store safe feet positions only.
 signal changed
 const SCHEMA = 2
-const VERSION = "0.1.0"
+const VERSION = "0.2.0"
 var path = "user://planet-save.json"
 var flags: Dictionary = {}
 var animals: Dictionary = {}

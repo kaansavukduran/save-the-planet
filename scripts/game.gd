@@ -36,7 +36,7 @@ func install_scene(data: Dictionary,spawn: Vector2) -> void:
 		audio.cue();interact(true))
 	player.feedback.connect(ui.flash)
 	player.retried.connect(func():attempts+=1;ui.flash("Yakındaki güvenli noktadasın. Dünya değişiklikleri korunur.","Back at a safe checkpoint. World changes remain."))
-	var cam=Camera2D.new();cam.name="Camera2D";cam.position=Vector2(135,-170);cam.position_smoothing_enabled=true;cam.position_smoothing_speed=8;cam.limit_left=0;cam.limit_right=int(data.length);cam.limit_top=0;cam.limit_bottom=540;player.add_child(cam);cam.reset_smoothing()
+	var cam=PlanetCamera.new();cam.name="Camera2D";cam.position=Vector2(135,-170);cam.position_smoothing_enabled=true;cam.position_smoothing_speed=8;cam.limit_left=0;cam.limit_right=int(data.length);cam.limit_top=0;cam.limit_bottom=540;player.add_child(cam);cam.reset_smoothing()
 	ui.apply_preferences()
 
 func load_level(index: int,continuing: bool=true,dialogue: bool=true) -> void:
@@ -123,6 +123,7 @@ func _physics_process(dt: float) -> void:
 	if player==null:return
 	play_seconds+=dt
 	player.wind=world.wind_at(player.position)
+	world.camera_x=player.get_node("Camera2D").get_screen_center_position().x-get_viewport().get_visible_rect().size.x/2
 	if not in_hub:
 		if level_data.id=="a1l2" and player.position.x>float(level_data.route_threshold):State.mark("a1l2.route_crossed")
 		for i in level_data.checkpoints.size():
@@ -154,4 +155,5 @@ func publish_qa(dt: float) -> void:
 		if qa_clock>0.1:
 			qa_clock=0.0
 			var sample={"x":player.position.x,"y":player.position.y,"vx":player.velocity.x,"vy":player.velocity.y,"floor":player.is_on_floor(),"active":State.active,"cooldown":player.cooldown,"unlocked":State.unlocked,"flags":State.flags,"level":State.level,"hub":in_hub,"menu":ui.menu_kind,"completed":State.completed,"shape_height":player.body_shape.shape.size.y,"glide":player.glide_left}
+			sample.performance={"fps":Engine.get_frames_per_second(),"static_memory_bytes":Performance.get_monitor(Performance.MEMORY_STATIC),"draw_calls":Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)}
 			JavaScriptBridge.eval("window.__planetQA="+JSON.stringify(sample))

@@ -6,7 +6,7 @@ from threading import Thread
 from pathlib import Path
 import json,time,os
 ROOT=Path(__file__).resolve().parents[1]
-LEVELS=json.loads((ROOT/'data/levels.json').read_text())
+LEVELS=json.loads((ROOT/'data/levels.json').read_text());TARGET_COUNT=int(os.environ.get('STP_TEST_LEVELS','10'))
 class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 PORT=int(os.environ.get('STP_TEST_PORT','8013'));LANGUAGE=os.environ.get('STP_TEST_LANGUAGE','tr');EVIDENCE=ROOT/'docs/evidence'/LANGUAGE;EVIDENCE.mkdir(parents=True,exist_ok=True)
@@ -64,11 +64,10 @@ with sync_playwright() as p:
   page.goto('http://127.0.0.1:'+str(PORT));page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
   if LANGUAGE=='en':
    page.keyboard.press('ArrowDown');page.keyboard.press('Enter');page.wait_for_timeout(160);page.keyboard.press('Enter');page.wait_for_timeout(160)
-   for _ in range(7):page.keyboard.press('ArrowDown')
-   page.keyboard.press('Enter');page.wait_for_timeout(180)
+   page.keyboard.press('Escape');page.wait_for_timeout(180)
   page.screenshot(path=str(EVIDENCE/'title.png'))
   page.keyboard.press('Enter');page.wait_for_timeout(200);close_menu();page.wait_for_timeout(200)
-  for index,data in enumerate(LEVELS):
+  for index,data in enumerate(LEVELS[:TARGET_COUNT]):
    s=state()
    if s['hub']:
     close_menu();check(walk(2100),'Sanctuary traversed');page.keyboard.press('e');page.wait_for_timeout(240);close_menu()
@@ -92,18 +91,20 @@ with sync_playwright() as p:
    check(walk(data['length']-100),'Exit physically reached '+data['id'])
    snaps.append(state());page.screenshot(path=str(EVIDENCE/(data['id']+'-exit.png')))
    page.keyboard.press('e');page.wait_for_timeout(260);close_menu()
-  check(state()['flags'].get('story_complete'),'Final story_complete in actual browser')
-  check(state()['hub'],'Interactive epilogue in actual browser')
-  page.screenshot(path=str(EVIDENCE/'epilogue.png'))
+  if TARGET_COUNT==10:
+   check(state()['flags'].get('story_complete'),'Final story_complete in actual browser')
+   check(state()['hub'],'Interactive epilogue in actual browser')
+   page.screenshot(path=str(EVIDENCE/'epilogue.png'))
+  else:check(TARGET_COUNT-1 in state()['completed'],'Playable slice completed through its real exit')
   # Close and reload the real IndexedDB-backed game; its state must survive.
   expected=state()['flags'];page.reload();page.wait_for_function('window.__planetQA?.menu === "title"',timeout=30000)
   check(state()['flags']==expected,'Browser reload preserves all world facts')
-  check(len(state()['completed'])==10,'Browser reload preserves ten completed chapters')
-  page.keyboard.press('Enter');page.wait_for_timeout(250);close_menu();check(state()['hub'],'Continue after ending returns to sanctuary')
+  check(len(state()['completed'])==TARGET_COUNT,'Browser reload preserves completed chapters')
+  page.keyboard.press('Enter');page.wait_for_timeout(250);close_menu();check(state()['hub'] if TARGET_COUNT==10 else state()['level']==TARGET_COUNT,'Continue restores the expected destination')
   page.screenshot(path=str(EVIDENCE/'reloaded.png'))
  except Exception as e:
   errors.append(str(e));page.screenshot(path=str(EVIDENCE/'browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
  finally:
-  release();(ROOT/('work/browser-campaign-'+LANGUAGE+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
+  release();(ROOT/('work/browser-campaign-'+LANGUAGE+('-slice' if TARGET_COUNT<10 else '')+'.json')).write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
 print('BROWSER RESULT',len(checks),'checks;',len(errors),'errors',flush=True)
 raise SystemExit(1 if errors or any(not c['pass'] for c in checks) else 0)

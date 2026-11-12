@@ -1,0 +1,37 @@
+AIONIA REFERANS DİZİNİ | 12.11.2026
+Durum: KOPYALAR HAZIR; GÖRSEL KANON ONAYI BEKLİYOR.
+Ana klasör: https://drive.google.com/drive/folders/1CXbBM41DUkPYJwyuKTdcsmW2UmjKBE95
+Standartlar: https://docs.google.com/document/d/16jj2cwbm8SiVWqDy3N3dzqxTlLoK7JR2_aH6hl4noWY/edit
+
+MARKA HİYERARŞİSİ
+Fragaria Interactive ana marka; Fragaria Games oyun yayın markası; AIONIA kurgu evrenidir. Yeni oyun motoru geliştirme zorunluluğu yoktur.
+
+KOPYALANAN REFERANSLAR
+01_Fragaria_Logo: Fragaria_Cilek_Gorsel_Referansi.jpg. Bu dosyanın resmî son logo olduğu doğrulanmadı.
+02_Aion: canonical-base, ana karakter referansı, modelleme varyant A/B, turnaround, canonical sprite, motion sprite.
+03_Kurt: modelleme paftası, canonical sprite, motion sprite.
+04_Kuzu: modelleme paftası v01/v02, canonical sprite, motion sprite.
+05_Baykus_Omer: modelleme paftası, canonical sprite, motion sprite.
+06_Tavsan_Emre: modelleme paftası. Bu karakterin sprite sheet dosyası henüz kopyalanmadı / doğrulanmadı.
+Kaynaklar farklı eski/alternatif sürümler içerebilir. Dosya adındaki “canonical” sözcüğü kullanıcı onayı yerine geçmez.
+
+CODEX ÇALIŞMA KURALI
+“AIONIA standartlarında oyun geliştir” talimatında:
+1. Önce 00_Standartlar klasöründeki güncel belgeyi oku.
+2. İlgili karakterlerin bu arşivdeki pafta ve sprite referanslarını incele.
+3. Kullanıcının açıkça onayladığı varyantı kullan; onay belirsizse tasarımı keyfî değiştirme.
+4. Sevimli, derin ve epik özgün pixel art; tutarlı animasyon, UI ve oynanış.
+5. Godot kullan; yeni oyun motoru üretme.
+6. Oynanabilir dikey dilim ve gerçek web testleriyle doğrula.
+7. Testleri PASS / FAIL / NOT TESTED olarak raporla.
+8. Orijinal kaynak dosyaları koru; yeni varlıklar için kaynak, lisans ve sürüm bilgisi ekle.
+
+EKSİK DOĞRULAMALAR
+- Fragaria çilek görselinin resmî logo olarak onayı.
+- Aion ve diğer karakterlerde son onaylı pafta/renk/varyantın seçimi.
+- Tavşan Emre sprite ve animasyon dosyalarının tespiti.
+- T pozunun her karakterde ayrı mevcut olup olmadığının görsel teyidi.
+- Codex'in bu Drive klasörüne gerçekten erişiminin ve repo içi standart referansının testi.
+
+Kayıt notu: Bu dizin görsel kopyaların varlığını doğrular, sanat onayını değil.
+

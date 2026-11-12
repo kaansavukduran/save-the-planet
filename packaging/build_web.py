@@ -30,16 +30,7 @@ for ext in ['js','wasm','pck']:
 html=html.replace('"executable":"index"',f'"executable":"planet-{tag}"')
 for p in list(out.glob('index.audio*.js')):
  new=p.name.replace('index.',f'planet-{tag}.',1);p.rename(out/new);html=html.replace(p.name,new)
-html=html.replace('<title>Save the Planet</title>','<title>Save the Planet · Fragaria Interactive</title>')
-# Native progress callback remains intact; error text is visible and retry is real.
-html=html.replace('</body>','<noscript>Save the Planet requires JavaScript / JavaScript gerekli.</noscript></body>')
-html=html.replace('</head>','''<style>body{background:#173b43!important}#status{background:#173b43!important}#status-notice{color:#f5e8bb!important}#status-splash{image-rendering:pixelated}#planet-brand{position:fixed;left:18px;bottom:8px;font:12px sans-serif;color:#b7c9af;pointer-events:none;z-index:2}</style></head>''')
-html=html.replace('<body>','<body><button id="planet-retry" hidden onclick="location.reload()" style="position:fixed;bottom:40px;left:20px;z-index:99">Yeniden dene / Retry</button><a id="planet-full-page" hidden target="_blank" rel="noopener" style="position:fixed;right:10px;bottom:6px;z-index:4;color:#f5e8bb">Tam sayfa / Full page</a><div id="planet-brand">SAVE THE PLANET · FRAGARIA INTERACTIVE</div>')
-html=html.replace("function displayFailureNotice(err) {", "function displayFailureNotice(err) { document.getElementById('planet-retry').hidden=false;")
-# Old Canvas game's service worker must not intercept the new runtime on an existing origin.
-cleanup="""<script>if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.filter(r=>r.active&&/\\/(sw|index.service.worker)\\.js$/.test(new URL(r.active.scriptURL).pathname)).map(r=>r.unregister())));}window.addEventListener('error',()=>{document.getElementById('planet-retry').hidden=false;});window.addEventListener('unhandledrejection',()=>{document.getElementById('planet-retry').hidden=false;});if(window.self!==window.top){const a=document.getElementById("planet-full-page");a.hidden=false;a.href=location.href;}</script>"""
-html=html.replace('</body>',cleanup+'</body>')
 (out/'index.html').write_text(html)
-manifest={'game_version':'0.1.0','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip()),'content_tag':tag,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
+manifest={'game_version':'0.2.0','source_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip()),'content_tag':tag,'files':{p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in out.iterdir() if p.is_file()}}
 (out/'BUILD.json').write_text(json.dumps(manifest,indent=2))
 print('Real Godot Web export:',out,tag)

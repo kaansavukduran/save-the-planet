@@ -12,3 +12,10 @@ Başlangıç: hedef main e415cb4da85ebd7fbce8b46abe9b67acbc976c4d, temiz çalı�
 6. M6: Resmî SHA ile eşleşen export şablonları; web, Linux, Windows portable/kurulum; Android imza ve araç zinciri durumuna göre release. Üretim ile platformda oynanış testini ayrı raporla.
 
 İçerik süresi ölçülmeden 15–20 dakika veya 2–3 saat tamamlandı denmez. M3 son teslim sınırı değildir. Kapsamın açık işleri PROGRESS.md'de taşınır.
+
+## AIONIA 0.2.0 uygulama sırası
+
+1. 00_BAŞLA, standart ve 19 görseli incele; dosya hash'lerini, onay farklarını ve Emre eksikliğini kaydet.
+2. İlk bölüme ortak native tema, hedef HUD, portreli takım, konuşmacılı diyalog, erişilebilir odak ve yumuşak kamera uygula.
+3. Aynı görsel kuralları on bölüme taşı; gerçek TR/EN kampanyalarını, dokunmayı, kayıt güncellemesini ve yükleme/hata akışını test et.
+4. Ölçülen performansla final sürümün temiz paketlerini ve korumalı preview'ını doğrula. Tasarım onayı, uzunluk, fiziksel cihaz ve Android açıklarını tamamlanmış saymadan devam noktasına taşı.

@@ -1,27 +1,28 @@
-# Gerçek ilerleme · 2026-11-12
+# Gerçek ilerleme · 2026-11-12 · 0.2.0
 
-Durum: Godot 0.1.0 geliştirme sürümü. M3'te durulmadı; beş perde / on bölüm ve etkileşimli epilog uygulandı. Yayın kalitesinin ve hedef sürenin tamamlandığı iddia edilmez.
+**Oynanabilir geliştirme sürümü.** Godot 4.6.3 üzerinde dört karakter, beş perde/on bölüm ve gezilebilir final uygulandı. İlk kesitte durulmadı. Tam yayın kalitesi, hedef oyun süresi ve bütün AIONIA kapıları tamamlandı denmez.
 
-| Aşama | Durum | Kanıt / kalan |
+| Aşama | Gerçek durum | Kanıt / açık |
 |---|---|---|
-| M0 inceleme | Uygulandı | Temiz e415cb4 başlangıcı; kaynak 03fd1f4. Eski uygulama legacy/ içinde korunur. Menüde hareket hatası gerçek Chromium'da ölçüldü. |
-| M1 Godot temel | Uygulandı, derlendi, açıldı | 4.6.3 + resmî SHA512 şablonları; tek gövde, kamera, giriş, kayıt. |
-| M2 dört karakter | Uygulandı, kritik senaryolar geçti | Paylaşılan hava kaynakları; depar hız sınırı; tünelde büyük gövdeyi reddetme; 361 kayıtlı animasyon karesi. |
-| M3 ilk iki bölüm | Senaryolar tamamlandı | Headless fizik ve gerçek Chromium klavye ile iki bölüm + yaşam alanı. Süre 15–20 dakika hedefi henüz karşılanmış sayılmaz. |
-| M4 kalan sekiz + final | Uygulandı; headless kampanya geçti | 118 kontrol, 10 zorunlu hedef kümesi ve çıkış, story_complete, dört birey durumu. Gerçek tarayıcı tüm kampanya testi sürüyor. |
-| M5 bütünlük | Kısmen doğrulandı | 19 kritik kabul kontrolü geçti. TR/EN, büyük metin, dokunmatik, fiziksel gamepad, düşük efekt ve tam görsel kapsam doğrulaması açık. |
-| M6 paketler / yayın | Hazırlanıyor | Gerçek web export açıldı. Linux/Windows portable ve NSIS kurulum betikleri hazır. Android SDK + özel release imza ayarları yok; APK üretilmedi. |
+| M0 kaynaklar | İncelendi | Temiz e415cb4 başlangıcı; referans 03fd1f4, legacy korunur. Brief tablolarıyla tam okundu. AIONIA 00_BAŞLA/v1.0 ve 19 pafta incelendi. |
+| M1 Godot temel | Uygulandı, derlendi, açıldı | Resmî 4.6.3/SHA512; tek gövde/kamera, giriş, atomik kayıt + web snapshot. |
+| M2 dört karakter | Uygulandı, senaryolar geçti | 361 kayıtlı kare; sonlu hava kaynakları, hız sınırı, güvenli tünel geçişi. Yeni varyantlar kesin kanon seçilmedi. |
+| M3 ilk iki bölüm | Gerçek oynanışla doğrulandı | Duru ve dört arkadaş, iki rota, yaşam alanı. İlk bölüm son arayüzle yeniden 15/15 kontrol. 15–20 dakika hedefi karşılanmadı. |
+| M4 diğer sekiz + final | Uygulandı, senaryolar tamamlandı | 120 headless kontrol; TR/EN gerçek Chromium kampanyaları 112'şer kontrol, hata yok; final/reload/devam. |
+| M5 kullanılabilirlik/AIONIA | İyileştirildi, kısmen doğrulandı | Native tema/HUD/portre/diyalog/yükleme/hata, kamera/animasyon zamanlaması. 24 kritik +12 erişilebilirlik +7 shell kontrolü PASS. Son sanat/cihaz performansı açık. |
+| M6 paket/yayın | Son sürüm hazırlanıyor | 0.2 kodu sabitlenince Linux/Windows/web paketleri yeniden üretilecek. Android release SDK/imza yapılandırması yok; APK yok. |
 
-## Bilinen sınırlar
+## Devam eden açık işler
 
-- Her bölüm şimdilik kısa, kompakt oynanışa sahiptir. 8–12 dakika/bölüm ve 2–3 saat toplam hedefi doğrulanmadı; bu hedeflere ulaşıldığı söylenmez.
-- Ana karakter animasyonları kanonik kaynaklardan; küçük hayvanlar ve insan destekçiler basit özgün pixel çizimdir. Özel gözlem/kapak açma/bakım için daha ayrıntılı pozlar hâlâ sanat iyileştirmesi gerektirir.
-- Gri Çark finali üç aşamalı görev ve tehlike dizisidir; tek büyük, ayrıntılı animasyonlu boss görseli yoktur.
-- İsteğe bağlı ustalık için üst rotalar vardır; ayrı başarı/ustalık kayıt sistemi henüz yoktur.
-- PWA/çevrimdışı web sözü verilmez; bu sürüm PWA değildir. Native paketler yerel kaynak içerir.
-- Android release anahtarı yaratılmadı/değiştirilmedi. Fiziksel Android ve Windows testleri yapılmadı.
-- İnsan katılımcılı oynanış/eğitim etkisi testi yapılmadı.
+- Kompakt bölümlerin anlamlı keşif/parkur/bakım etkileşimleriyle genişlemesi: 8–12 dakika/bölüm ve 2–3 saat toplam hedefi **karşılanmadı**. Süreyi boş bekleme veya metinle şişirme.
+- Dört karakterin özel gözlem, sakin yaklaşma, bakım/kapak pozları ve daha ayrıntılı bireysel hayvan/insan sanatı eksik. Genel etkileşim pozu tam özel animasyon diye sunulmaz.
+- Emre'nin TASLAK 01 model paftası incelendi; doğrulanmış sprite/animasyon kaynağı yok. Kimlik/logoyu yeniden uydurma. 00_BAŞLA son logo ve varyant onaylarını açık bırakıyor; yalnız bu onaya bağlı tasarım kararları bekler, bağımsız işler sürdürülebilir.
+- Son çevre/sprite ayrıntı yoğunluğu ve doğal piksel ölçeği sanat geçişi, daha ayrıntılı Gri Çark final yönetimi açıktır. Rastgele hazır grafik eklenmedi.
+- Yazılım GPU'da 60 FPS hedefi FAIL: izole Chromium/Godot ölçümü 25 FPS. Fiziksel GPU/telefon performansı ve toplam bellek NOT TESTED. Ölçümleri docs/VALIDATION.md'de ortamıyla raporla.
+- Android ANDROID_HOME/JAVA_HOME + mevcut release keystore yapılandırması eksik. Yeni imza kimliği yaratılmadı. Windows kurulum/oynanış, fiziksel gamepad/telefon ve Android arka plan/ses dönüşü NOT TESTED.
+- İnsan katılımcılı ilk dakika anlama, keyif, sessiz kullanım ve eğitim etkisi testleri NOT TESTED. Ayrı ustalık/başarı kayıt sistemi henüz yok.
+- PWA kapalı; çevrimdışı web iddiası yok. Bazı önceki headless kapanışlarında audio cleanup uyarısı görüldü; son acceptance'da tekrarlanmadı, bütün yollar için çözüldü denmez.
 
-## Devam noktası
+## Somut devam noktası
 
-Gerçek Chromium kampanya sonucunu docs/VALIDATION.md'ye aktar; yeni hata varsa düzelt. Dokunmatik, odak, TR/EN, büyük metin ve kayıttan devamı gerçek tarayıcıda sına. Linux/Windows paketlerini üret ve Linux paketini temiz klasörden aç. Vercel hedefini doğrula, test edilmiş dalı preview olarak yayımla. Ardından süre, sanat ve fiziksel cihaz açıklarını kapat. Tam sonuçları bu dosyada güncelle; arka planda kendiliğinden devam sözü verme.
+Önce test edilmiş 0.2 kaynak commit'inden web/Linux/Windows portable/NSIS üret; Linux'u temiz klasörden gerçek pencereyle aç, paket hash/metadata kayıtlarını yenile. Vercel preview HTTP/BUILD kimliğini doğrula, Drive'a yalnız son çıktıları koy ve incelemeye hazır draft PR aç. Ardından bu dosyadaki açık süre/sanat/cihaz işlerini sırayla kapat. Test edilmemiş platformları PASS sayma. Sonuçlar docs/VALIDATION.md ve evidence/results içinde. Arka planda kendiliğinden devam sözü verilmez.

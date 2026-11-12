@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>$GODOT_PROJECT_NAME · Fragaria Games</title>
+<style>
+:root{color-scheme:dark;--ink:#142333;--panel:#1d3040;--paper:#f2e5c7;--gold:#efcd89;--sage:#8fb9a5;--berry:#a93f59}*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:var(--ink);color:var(--paper);font-family:system-ui,sans-serif;overflow:hidden}#canvas{display:block;width:100%;height:100%;outline:none;image-rendering:pixelated;touch-action:none}#loading{position:fixed;inset:0;display:grid;place-items:center;background:radial-gradient(ellipse at 70% 40%,#2d535e,var(--ink) 68%);z-index:10}#card{width:min(540px,calc(100% - 40px));padding:36px;border:2px solid #587780;box-shadow:8px 8px #0b1827;background:var(--panel)}.brand{font-size:12px;font-weight:700;letter-spacing:.18em;color:var(--gold)}h1{font-size:clamp(32px,7vw,54px);line-height:.98;letter-spacing:-.04em;margin:28px 0 20px}p{line-height:1.5;font-size:16px;margin:12px 0;color:var(--sage)}progress{appearance:none;width:100%;height:12px;border:1px solid #729887;background:#102131;margin:18px 0 4px}progress::-webkit-progress-bar{background:#102131}progress::-webkit-progress-value{background:var(--gold)}progress::-moz-progress-bar{background:var(--gold)}#bytes{font-size:12px;font-variant-numeric:tabular-nums}#notice{color:var(--paper);white-space:pre-wrap;overflow-wrap:anywhere;max-height:30vh;overflow:auto}button,a{font:inherit;color:var(--paper)}button{border:2px solid #d99093;background:var(--berry);padding:12px 18px;margin-top:14px;cursor:pointer}button:hover{background:#b9546b;color:#fff}details{font-size:12px;margin-top:12px;color:var(--sage)}#error-detail{white-space:pre-wrap;overflow-wrap:anywhere}button:focus-visible,a:focus-visible{outline:3px solid var(--gold);outline-offset:4px}#full-page{position:fixed;bottom:8px;right:14px;z-index:3;background:var(--ink);padding:8px}#footer{font-size:11px;margin-top:24px;letter-spacing:.05em;color:#a0b7b4}#retry[hidden],#full-page[hidden],#loading[hidden]{display:none}
+</style>
+$GODOT_HEAD_INCLUDE
+</head>
+<body>
+<canvas id="canvas" tabindex="0" aria-label="Save the Planet oyun alanı / game canvas"></canvas>
+<section id="loading" aria-live="polite"><div id="card"><div class="brand">FRAGARIA GAMES / AIONIA</div><h1>SAVE THE<br>PLANET</h1><p id="status">Vadiye uzanan yol hazırlanıyor.<br>Preparing the path to the valley.</p><progress id="progress" aria-label="Gerçek indirme ilerlemesi / Download progress"></progress><p id="bytes">Oyun dosyaları bekleniyor / Waiting for game files</p><p id="notice" role="alert"></p><details id="details" hidden><summary>Teknik ayrıntı / Technical details</summary><div id="error-detail"></div></details><button id="retry" hidden onclick="location.reload()">Yeniden dene / Retry</button><div id="footer">FRAGARIA INTERACTIVE · SAVE THE PLANET 0.2.0</div></div></section>
+<a id="full-page" hidden target="_blank" rel="noopener">Tam sayfa aç / Open full page</a>
+<noscript>JavaScript gerekli / JavaScript is required.</noscript>
+<script src="$GODOT_URL"></script>
+<script>
+const GODOT_CONFIG = $GODOT_CONFIG;
+const GODOT_THREADS_ENABLED = $GODOT_THREADS_ENABLED;
+const engine = new Engine(GODOT_CONFIG);
+const loading=document.getElementById('loading'), progress=document.getElementById('progress');
+function failure(error,hint){document.getElementById('status').textContent='Yolculuk başlatılamadı / Could not start the journey';document.getElementById('notice').textContent=hint||'Oyun dosyaları açılamadı. Bağlantını kontrol edip yeniden dene. / Game files could not open. Check your connection and try again.';document.getElementById('error-detail').textContent=error?.message||String(error);document.getElementById('details').hidden=false;document.getElementById('retry').hidden=false;progress.hidden=true;loading.hidden=false;}
+if(window.self!==window.top){const a=document.getElementById('full-page');a.href=location.href;a.hidden=false;}
+window.addEventListener('error',e=>failure(e.error||e.message));
+window.addEventListener('unhandledrejection',e=>failure(e.reason));
+// Only the archived game's worker names are retired; no save storage is cleared.
+if('serviceWorker' in navigator)navigator.serviceWorker.getRegistrations().then(rs=>Promise.all(rs.filter(r=>r.active&&/\/(sw|index\.service\.worker)\.js$/.test(new URL(r.active.scriptURL).pathname)).map(r=>r.unregister()))).catch(()=>{});
+const missing=Engine.getMissingFeatures({threads:GODOT_THREADS_ENABLED});
+if(missing.length){failure('Required browser features: '+missing.join(', '),'Bu tarayıcı gerekli oyun özelliklerini desteklemiyor. Güncel bir tarayıcıyla aç. / This browser lacks required game features. Try an updated browser.');}
+else engine.startGame({onProgress:(current,total)=>{if(current>0&&total>0){progress.value=current;progress.max=total;if(current>=total)document.getElementById('status').textContent='İndirme tamamlandı, oyun açılıyor. / Download complete, starting the game.';document.getElementById('bytes').textContent=(current/1048576).toFixed(1)+' / '+(total/1048576).toFixed(1)+' MiB';}else{progress.removeAttribute('value');document.getElementById('bytes').textContent='Dosyalar yükleniyor / Loading files';}}}).then(()=>{loading.hidden=true;document.getElementById('canvas').focus();}).catch(failure);
+</script>
+</body></html>

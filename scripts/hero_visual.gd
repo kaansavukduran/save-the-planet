@@ -20,7 +20,7 @@ func refresh() -> void:
 	var atlas="canonical-"+HEROES[hero]
 	var row=0
 	match pose:
-		"run":row=1
+		"run","walk":row=1
 		"jump","rise","fall":row=2
 		"land":row=2
 		"interact":row=3
@@ -41,4 +41,5 @@ func refresh() -> void:
 		var factor=float(f.scale)*0.72
 		sprite.scale=Vector2(factor*facing,factor)
 		sprite.position=Vector2(float(f.offset[0])*facing,float(f.offset[1]))*0.72
+		sprite.position=sprite.position.round()
 		return

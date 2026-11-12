@@ -1,0 +1,487 @@
+{
+  "checks": [
+    {
+      "check": "Campaign reached chapter 1",
+      "pass": true
+    },
+    {
+      "check": "a1l1 physically reached a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1 interaction a1l1.noise_off",
+      "pass": true
+    },
+    {
+      "check": "a1l1 physically reached a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1 interaction a1l1.path_open",
+      "pass": true
+    },
+    {
+      "check": "a1l1 physically reached a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1 interaction a1l1.lamb_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l1 physically reached a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 interaction a1l1.tracks",
+      "pass": true
+    },
+    {
+      "check": "a1l1 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a1l1 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a1l1 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 2",
+      "pass": true
+    },
+    {
+      "check": "a1l2 physically reached a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2 interaction a1l2.wolf_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2 physically reached a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2 interaction a1l2.owl_joined",
+      "pass": true
+    },
+    {
+      "check": "a1l2 physically reached a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "a1l2 interaction a1l2.barrier_open",
+      "pass": true
+    },
+    {
+      "check": "a1l2 physically reached a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2 interaction a1l2.escape_ready",
+      "pass": true
+    },
+    {
+      "check": "a1l2 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a1l2 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a1l2 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 3",
+      "pass": true
+    },
+    {
+      "check": "a2l1 physically reached a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "a2l1 interaction a2l1.waste_moved",
+      "pass": true
+    },
+    {
+      "check": "a2l1 physically reached a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "a2l1 interaction a2l1.source_found",
+      "pass": true
+    },
+    {
+      "check": "a2l1 physically reached a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "a2l1 interaction a2l1.source_stopped",
+      "pass": true
+    },
+    {
+      "check": "a2l1 physically reached a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1 interaction a2l1.observation",
+      "pass": true
+    },
+    {
+      "check": "a2l1 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a2l1 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a2l1 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 4",
+      "pass": true
+    },
+    {
+      "check": "a2l2 physically reached a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "a2l2 interaction a2l2.flow_diverted",
+      "pass": true
+    },
+    {
+      "check": "a2l2 physically reached a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "a2l2 interaction a2l2.filter_on",
+      "pass": true
+    },
+    {
+      "check": "a2l2 physically reached a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "a2l2 interaction a2l2.monitor_started",
+      "pass": true
+    },
+    {
+      "check": "a2l2 physically reached a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2 interaction a2l2.crossing_safe",
+      "pass": true
+    },
+    {
+      "check": "a2l2 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a2l2 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a2l2 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 5",
+      "pass": true
+    },
+    {
+      "check": "a3l1 physically reached a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "a3l1 interaction a3l1.traces",
+      "pass": true
+    },
+    {
+      "check": "a3l1 physically reached a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "a3l1 interaction a3l1.passage_open",
+      "pass": true
+    },
+    {
+      "check": "a3l1 physically reached a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "a3l1 interaction a3l1.native_seed",
+      "pass": true
+    },
+    {
+      "check": "a3l1 physically reached a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1 interaction a3l1.distance_kept",
+      "pass": true
+    },
+    {
+      "check": "a3l1 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a3l1 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a3l1 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 6",
+      "pass": true
+    },
+    {
+      "check": "a3l2 physically reached a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "a3l2 interaction a3l2.machine_safe",
+      "pass": true
+    },
+    {
+      "check": "a3l2 physically reached a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2 interaction a3l2.corridor_open",
+      "pass": true
+    },
+    {
+      "check": "a3l2 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a3l2 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a3l2 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 7",
+      "pass": true
+    },
+    {
+      "check": "a4l1 physically reached a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 interaction a4l1.claim_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 physically reached a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 interaction a4l1.log_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 physically reached a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 interaction a4l1.archive_read",
+      "pass": true
+    },
+    {
+      "check": "a4l1 physically reached a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1 interaction a4l1.insufficient_evidence",
+      "pass": true
+    },
+    {
+      "check": "a4l1 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a4l1 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a4l1 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 8",
+      "pass": true
+    },
+    {
+      "check": "a4l2 physically reached a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "a4l2 interaction a4l2.mechanism_stopped",
+      "pass": true
+    },
+    {
+      "check": "a4l2 physically reached a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "a4l2 interaction a4l2.inner_latch",
+      "pass": true
+    },
+    {
+      "check": "a4l2 physically reached a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "a4l2 interaction a4l2.care_zone_safe",
+      "pass": true
+    },
+    {
+      "check": "a4l2 physically reached a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2 interaction a4l2.animal_in_care",
+      "pass": true
+    },
+    {
+      "check": "a4l2 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a4l2 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a4l2 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 9",
+      "pass": true
+    },
+    {
+      "check": "a5l1 physically reached a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 interaction a5l1.safe_exit_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 physically reached a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "a5l1 interaction a5l1.harmful_line_isolated",
+      "pass": true
+    },
+    {
+      "check": "a5l1 physically reached a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "a5l1 interaction a5l1.care_system_active",
+      "pass": true
+    },
+    {
+      "check": "a5l1 physically reached a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 interaction a5l1.plant_meal_ready",
+      "pass": true
+    },
+    {
+      "check": "a5l1 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a5l1 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a5l1 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "Campaign reached chapter 10",
+      "pass": true
+    },
+    {
+      "check": "a5l2 physically reached a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "a5l2 interaction a5l2.pattern_observed",
+      "pass": true
+    },
+    {
+      "check": "a5l2 physically reached a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "a5l2 interaction a5l2.flow_rerouted",
+      "pass": true
+    },
+    {
+      "check": "a5l2 physically reached a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "a5l2 interaction a5l2.inner_system_stopped",
+      "pass": true
+    },
+    {
+      "check": "a5l2 physically reached a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2 interaction a5l2.exit_protected",
+      "pass": true
+    },
+    {
+      "check": "a5l2 all mandatory conditions",
+      "pass": true
+    },
+    {
+      "check": "a5l2 physically reached exit",
+      "pass": true
+    },
+    {
+      "check": "a5l2 exit persisted",
+      "pass": true
+    },
+    {
+      "check": "story_complete saved after chapter ten",
+      "pass": true
+    },
+    {
+      "check": "All ten chapters completed",
+      "pass": true
+    },
+    {
+      "check": "One Duru, two wildlife individuals, one coastal patient",
+      "pass": true
+    },
+    {
+      "check": "Interactive epilogue sanctuary reached",
+      "pass": true
+    }
+  ],
+  "failures": [],
+  "retries": 0,
+  "simulated_seconds": 216.166666666731
+}

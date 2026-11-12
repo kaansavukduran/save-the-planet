@@ -48,7 +48,7 @@ func switch_hero(id: int) -> bool:
 func retry() -> void:
 	position=spawn;velocity=Vector2.ZERO;jumps=0;glide_left=1.4;dash_time=0;roll_time=0;buffer=0;coyote=0;invulnerable=1.2;set_short(false)
 	var cam=get_node_or_null("Camera2D")
-	if cam:cam.reset_smoothing()
+	if cam:cam.reset_smoothing();cam.force_update_scroll()
 	retried.emit()
 
 func _physics_process(dt: float) -> void:
@@ -90,6 +90,6 @@ func _physics_process(dt: float) -> void:
 	move_and_slide();position.x=maxf(20,position.x)
 	if position.y>650:retry()
 	visual.hero=State.active;visual.facing=facing
-	visual.pose="glide" if gliding else ("dash" if dash_time>0 else ("roll" if body_shape.shape.size.y<40 else ("interact" if action_time>0 else (("rise" if velocity.y<0 else "fall") if not is_on_floor() else ("land" if landing>0 else ("run" if absf(velocity.x)>15 else "idle"))))))
-	visual.modulate.a=0.55 if invulnerable>0 and int(invulnerable*12)%2==0 else 1.0
+	visual.pose="glide" if gliding else ("dash" if dash_time>0 else ("roll" if body_shape.shape.size.y<40 else ("interact" if action_time>0 else (("rise" if velocity.y<0 else "fall") if not is_on_floor() else ("land" if landing>0 else (("run" if absf(velocity.x)>110 else "walk") if absf(velocity.x)>15 else "idle"))))))
+	visual.modulate.a=0.55 if invulnerable>0 and not State.prefs.reduced_effects and int(invulnerable*12)%2==0 else 1.0
 	was_floor=is_on_floor()

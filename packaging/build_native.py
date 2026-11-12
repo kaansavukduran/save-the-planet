@@ -14,11 +14,11 @@ for target,folder,exe in [('Linux','linux','SaveThePlanet.x86_64'),('Windows','w
  p=out/exe
  if not p.is_file() or p.stat().st_size<1000000:raise RuntimeError('Export missing: '+str(p))
  if target=='Linux':p.chmod(0o755)
- meta={'game_version':'0.1.0','engine':'4.6.3.stable.official.7d41c59c4','source_commit':source,'target':target,'executable_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip())}
+ meta={'game_version':'0.2.0','engine':'4.6.3.stable.official.7d41c59c4','source_commit':source,'target':target,'executable_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'working_tree_dirty':bool(subprocess.check_output(['git','status','--porcelain'],text=True).strip())}
  (out/'BUILD.json').write_text(json.dumps(meta,indent=2))
  for name in ['LICENSE','THIRD_PARTY_NOTICES.md']:shutil.copy2(ROOT/name,out/name)
  shutil.copy2(ROOT/'assets/fonts/LICENSE.txt',out/'FONT-LICENSE.txt')
- (out/'README.txt').write_text('Save the Planet 0.1.0 / Fragaria Interactive\nRun '+exe+'\nA/D arrows move; Space jump; J ability; E interact; 1-4 heroes; Q party; Esc pause; Tab journal; S down through platform.\nSource: https://github.com/kaansavukduran/save-the-planet\nSaves: Godot user data, local device only.\n')
+ (out/'README.txt').write_text('Save the Planet 0.2.0 / Fragaria Interactive\nRun '+exe+'\nA/D arrows move; Space jump; J ability; E interact; 1-4 heroes; Q party; Esc pause; Tab journal; S down through platform.\nSource: https://github.com/kaansavukduran/save-the-planet\nSaves: Godot user data, local device only.\n')
  if target=='Windows':
   with zipfile.ZipFile(ROOT/'dist/SaveThePlanet-Windows-Portable.zip','w',zipfile.ZIP_DEFLATED) as z:
    for p in out.iterdir():

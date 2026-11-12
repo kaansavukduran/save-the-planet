@@ -3,6 +3,7 @@ extends Node2D
 signal animal_arrived
 var spec: Dictionary = {}
 var clock=0.0
+var camera_x=0.0
 var solids: Array = []
 var gates: Array = []
 var moving: Array = []
@@ -83,37 +84,12 @@ func unsafe_at(p: Vector2) -> bool:
 func _draw() -> void:
 	if spec.is_empty():return
 	var palette=PALETTES[spec.biome];var end=float(spec.length)
-	# Art uses stepped silhouettes and integer geometry; collision tops have a light rim.
-	draw_rect(Rect2(-1000,-500,end+2500,1200),Color(palette[0]))
-	draw_rect(Rect2(-1000,180,end+2500,500),Color(palette[1]))
-	draw_circle(Vector2(690,100),46,Color("f5e8b7"))
-	for x in range(80,int(end)+500,550):
-		var y=80+posmod(x,100)
-		draw_rect(Rect2(x,y,120,14),Color("d8e7cb"));draw_rect(Rect2(x+18,y-13,65,14),Color("d8e7cb"))
-	for x in range(-300,int(end)+900,320):
-		var h=100+posmod(x*7,95)
-		draw_colored_polygon(PackedVector2Array([Vector2(x,345),Vector2(x+70,220-h/3.0),Vector2(x+100,220-h/3.0),Vector2(x+120,180-h/4.0),Vector2(x+150,180-h/4.0),Vector2(x+240,345)]),Color(palette[2]))
-	for x in range(100,int(end),230):
-		if spec.biome in ["workshop","town","finale"]:
-			draw_rect(Rect2(x,265,130,170),Color(palette[2]).darkened(0.08))
-			draw_rect(Rect2(x-8,253,146,12),Color(palette[3]))
-			for w in range(14,115,32):draw_rect(Rect2(x+w,286,16,26),Color("e5cf98"))
-			if spec.biome!="town":
-				draw_rect(Rect2(x+90,206,18,58),Color(palette[3]));draw_rect(Rect2(x+85,202,28,8),Color(palette[3]).lightened(0.2))
-		else:
-			draw_rect(Rect2(x+30,250,16,190),Color("695e55"))
-			for y in range(160,295,28):
-				var width=80+(y-160)*0.38
-				var left=x+38-width/2
-				draw_rect(Rect2(left,y,width,33),Color(palette[3]))
-				draw_rect(Rect2(left+7,y-7,width-14,10),Color(palette[3]).lightened(0.13))
-				for j in 5:
-					draw_rect(Rect2(left+10+j*(width-20)/5,y+6,7,4),Color(palette[3]).lightened(0.2))
-			draw_rect(Rect2(x+34,310,6,95),Color("97836b"))
+	draw_backdrop(palette,end)
 	if spec.has("water"):
 		var w=spec.water;var polluted=not State.flags.get("a2l1.source_stopped",false) and spec.id=="a2l1"
 		draw_rect(Rect2(w[0],w[1],w[2],w[3]),Color("6e637b" if polluted else "518fa4"))
 		for x in range(int(w[0]),int(w[0]+w[2]),55):
+			if not visible_x(x):continue
 			draw_line(Vector2(x,w[1]+8),Vector2(x+25,w[1]+8),Color("c3dedd"),2)
 	if spec.id=="a2l1":
 		var stopped=State.flags.get("a2l1.source_stopped",false)
@@ -133,10 +109,13 @@ func _draw() -> void:
 		terrain(Rect2(m.body.position-m.size/2,m.size),palette,true)
 		draw_line(m.origin-m.amplitude,m.origin+m.amplitude,Color("edf1d3"),2)
 	for cp in spec.checkpoints:
+		if not visible_x(cp):continue
 		draw_rect(Rect2(cp,378,4,62),Color("e9dfc4"));draw_colored_polygon(PackedVector2Array([Vector2(cp+4,378),Vector2(cp+38,385),Vector2(cp+4,399)]),Color("2c8778"))
 	for x in range(70,int(end),95):
+		if not visible_x(x):continue
 		draw_rect(Rect2(x,432,3,8),Color("567b55"));draw_rect(Rect2(x-3,428,9,5),Color("eacb86"))
 	for x in range(250,int(end)-100,610):
+		if x<camera_x-150 or x>camera_x+1100:continue
 		var name="log" if spec.biome in ["meadow","forest"] else "rocks"
 		var texture: Texture2D=props[name]
 		draw_texture_rect(texture,Rect2(x,397,85,43),false,Color(1,1,1,0.85))
@@ -160,12 +139,14 @@ func _draw() -> void:
 	for a in spec.actions:draw_mechanism(a)
 	for g in spec.get("gates",[]):
 		var r=g.rect
+		if not visible_x(r[0]):continue
 		if not State.flags.get(g.flag,false):
 			draw_rect(Rect2(r[0],r[1],r[2],r[3]),Color("465762"))
 			for y in range(int(r[1]),int(r[1]+r[3]),14):draw_line(Vector2(r[0],y),Vector2(r[0]+r[2],y+10),Color("e7bd75"),4)
 		else:draw_line(Vector2(r[0],440),Vector2(r[0]+55,420),Color("768577"),8)
 	var disabled=State.flags.get(spec.get("hazard_disable",""),false)
 	for h in spec.hazards:
+		if not visible_x(h[0]):continue
 		var pos=Vector2(h[0]+h[2]/2,438)
 		var phase=0 if disabled else danger_phase()
 		var c=Color("da7064" if phase==2 else ("edc470" if phase==1 else "668a80"))
@@ -193,10 +174,15 @@ func terrain(r: Rect2,palette: Array,raised: bool) -> void:
 		draw_texture_rect(texture,Rect2(r.position+Vector2(-4,-6),Vector2(r.size.x+8,65)),false)
 		draw_line(r.position,r.position+Vector2(r.size.x,0),Color("f5e6b8"),3)
 	for x in range(int(r.position.x)+8,int(r.end.x),32):
+		if not visible_x(x):continue
 		draw_rect(Rect2(x,r.position.y+18,16,4),Color(palette[4]).darkened(0.12))
 		if not raised:draw_rect(Rect2(x+12,r.position.y+42,8,5),Color(palette[4]).darkened(0.25))
 
+func visible_x(x: float) -> bool:
+	return x>=camera_x-180 and x<=camera_x+1140
+
 func draw_mechanism(a: Dictionary) -> void:
+	if not visible_x(float(a.x)):return
 	var p=Vector2(a.x,a.y);var done=State.flags.get(a.id,false)
 	var c=Color("80c39d" if done else "eac677")
 	if a.kind=="friend":return
@@ -275,3 +261,53 @@ func draw_grey_wheel() -> void:
 		var p=centre+Vector2(-60+i*60,155)
 		draw_rect(Rect2(p,Vector2(40,14)),Color("83bd98" if i<stage else "a1a69b"))
 	_label(centre+Vector2(-77,-145),State.text("GRİ ÇARK · ","GREY WHEEL · ")+str(stage)+" / 3",Color("f1e6bd"),18)
+
+func draw_backdrop(palette: Array,end: float) -> void:
+	# Palette roles and stepped silhouettes are shared by all ten chapters.
+	var sky_top=Color("203b52").lerp(Color(palette[0]),0.20)
+	var sky_bottom=Color(palette[1]).darkened(0.08)
+	for i in 18:
+		draw_rect(Rect2(camera_x-16,-300+i*44,1010,45),sky_top.lerp(sky_bottom,float(i)/17.0))
+	var sun=Vector2(camera_x+745,111)
+	draw_rect(Rect2(sun+Vector2(-34,-42),Vector2(68,84)),Color("e5d6a1"))
+	draw_rect(Rect2(sun+Vector2(-42,-29),Vector2(84,58)),Color("e5d6a1"))
+	for layer in 3:
+		var parallax=[0.84,0.62,0.38][layer]
+		var color=[Color("62838a"),Color("476e78"),Color("2c5360")][layer]
+		for x in range(-600,int(end)+1000,300):
+			var base=roundf(x+camera_x*parallax)
+			if base<camera_x-400 or base>camera_x+1300:continue
+			var h=110+posmod(x*7+layer*45,95)
+			var y=265+layer*38
+			var points=PackedVector2Array([Vector2(base,440),Vector2(base,y+30),Vector2(base+30,y+30),Vector2(base+30,y),Vector2(base+60,y),Vector2(base+60,y-h/3.0),Vector2(base+100,y-h/3.0),Vector2(base+100,y-h/2.0),Vector2(base+145,y-h/2.0),Vector2(base+145,y-h/3.0),Vector2(base+200,y-h/3.0),Vector2(base+200,y),Vector2(base+280,y),Vector2(base+280,440)])
+			draw_colored_polygon(points,color)
+	# Small distant silhouettes are project-local scenery, not new canon locations.
+	for x in range(300,int(end)+600,730):
+		var px=roundf(x+camera_x*0.68)
+		if px<camera_x-120 or px>camera_x+1100:continue
+		draw_rect(Rect2(px,246,20,85),Color("3c606c"));draw_rect(Rect2(px+27,222,13,109),Color("3c606c"));draw_rect(Rect2(px+2,264,38,10),Color("6f9394"))
+	for x in range(90,int(end)+250,265):
+		if x<camera_x-180 or x>camera_x+1140:continue
+		if spec.biome in ["workshop","town","finale"]:
+			draw_rect(Rect2(x,285,145,155),Color("3a5664"));draw_rect(Rect2(x-6,276,157,12),Color("67818b"))
+			for w in range(15,133,30):
+				draw_rect(Rect2(x+w,302,14,22),Color("b5b58e"));draw_rect(Rect2(x+w,345,14,25),Color("6e9295"))
+			draw_rect(Rect2(x+96,219,18,59),Color("3a5664"));draw_rect(Rect2(x+89,213,32,8),Color("829d9c"))
+		else:draw_tree(Vector2(x,440),posmod(x,3))
+	# Foreground roots and grass use larger silhouettes, not a repeated noisy texture.
+	for x in range(0,int(end),38):
+		if not visible_x(x):continue
+		draw_rect(Rect2(x,432,3,8),Color("618e78"));draw_line(Vector2(x,435),Vector2(x-5,429),Color("86aa83"),2)
+		if posmod(x,5)==0:draw_rect(Rect2(x-2,427,7,4),Color("d6c28e"))
+
+func draw_tree(foot: Vector2,variant: int) -> void:
+	var top=foot+Vector2(0,-160-variant*13)
+	draw_rect(Rect2(foot+Vector2(-10,-180),Vector2(20,180)),Color("516660"))
+	draw_rect(Rect2(foot+Vector2(-7,-160),Vector2(4,143)),Color("879077"))
+	for offset in [Vector2(-15,8),Vector2(24,-40),Vector2(-16,-79)]:
+		var p=top+offset
+		var points=PackedVector2Array([p+Vector2(-54,8),p+Vector2(-54,-12),p+Vector2(-42,-12),p+Vector2(-42,-30),p+Vector2(-22,-30),p+Vector2(-22,-43),p+Vector2(14,-43),p+Vector2(14,-33),p+Vector2(37,-33),p+Vector2(37,-14),p+Vector2(53,-14),p+Vector2(53,8),p+Vector2(40,8),p+Vector2(40,27),p+Vector2(13,27),p+Vector2(13,36),p+Vector2(-24,36),p+Vector2(-24,25),p+Vector2(-44,25),p+Vector2(-44,8)])
+		draw_colored_polygon(points,Color("345e61"))
+		draw_rect(Rect2(p+Vector2(-30,-28),Vector2(48,7)),Color("5f8b7e"));draw_rect(Rect2(p+Vector2(-41,-12),Vector2(29,8)),Color("517f75"));draw_rect(Rect2(p+Vector2(10,9),Vector2(28,6)),Color("416d69"))
+		for i in 5:draw_rect(Rect2(p+Vector2(-27+i*13,-4-posmod(i*7,13)),Vector2(5,3)),Color("729887"))
+	draw_line(foot+Vector2(-27,-1),foot+Vector2(0,-12),Color("5c7465"),5);draw_line(foot+Vector2(0,-12),foot+Vector2(25,-1),Color("5c7465"),5)

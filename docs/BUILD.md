@@ -13,13 +13,13 @@ python3 packaging/build_native.py
 
 Native çıktılar `dist/SaveThePlanet-Windows-Portable.zip`, `dist/SaveThePlanet-Setup.exe`, `dist/SaveThePlanet-Linux-x86_64.tar.gz`; ek web arşivi `dist/SaveThePlanet-Web.zip`. Windows/Linux PCK ikiliye gömülür. NSIS kurulum EXE'si kullanıcı klasörüne kurar, Başlat kısayolu ve kaldırıcı oluşturur; oyun kayıtlarını silmez. NSIS yoksa kurulum üretilemediği açıkça yazılır. Windows Authenticode yapılandırılmadı.
 
-Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 1, sürüm 0.1.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
+Android yalnız release akışı: `python3 packaging/build_android.py`. Paket ID: `com.fragariainteractive.savetheplanet`, kod 2, sürüm 0.2.0. İlk Godot Android kimliği; eski depoda Android projesi/APK bulunmuyordu. Sonraki sürümlerde değiştirilmemeli. Gerekli SDK ve imza değişkenleri betiğin hata mesajında adlarıyla listelenir. Anahtar/parola repoya girmez. Hazır imza kimliği yokken yeni anahtar otomatik oluşturulmaz.
 
 Kanonik sprite üretimi: Pillow ile `python3 packaging/derive_sprites.py`. Kaynak paftalar değiştirilmez; alfa koşuları ve anatomik hizalama kaydı kullanılır. Prop türevlerinin kaynak satır/sütunları `docs/ASSETS.md` içinde kayıtlıdır.
 
 ## Vercel
 
-Framework Other, `python3 packaging/build_web.py`, çıktı `build/web`. Tek iş parçacığı; COOP/COEP zorlanmaz. JS, WASM, PCK ve audio worklet adları ortak içerik kimliği taşır. HTML yeniden doğrulanır. Yükleme çubuğu Godot'un gerçek byte callback'ini kullanır; hata ve yeniden deneme düğmesi vardır. PWA kapalıdır; eski kök `sw.js` kontrolü temizlenir. Bu güncelleme IndexedDB kaydını silmez. Tam ekran ve ses kullanıcı etkileşimine bağlıdır. Iframe kullanırken `allow="autoplay; fullscreen; gamepad"` ver ve ayrıca tam sayfa açılış bağlantısı sun. Gerçek Vegan Türkiye alanında üçüncü taraf kayıt kalıcılığı ayrıca sınanmalıdır.
+Framework Other, `python3 packaging/build_web.py`, çıktı `build/web`. Tek iş parçacığı; COOP/COEP zorlanmaz. JS, WASM, PCK ve audio worklet adları ortak içerik kimliği taşır. HTML yeniden doğrulanır. Yükleme çubuğu Godot'un gerçek byte callback'ini kullanır; hata ve yeniden deneme düğmesi vardır. PWA kapalıdır; eski kök `sw.js` kontrolü temizlenir. Web kaydı IndexedDB dosyalarına ek olarak aynı origin üzerinde eşzamanlı localStorage snapshot/son geçerli yedek tutar. Bu güncelleme iki depoyu da silmez. Tam ekran ve ses kullanıcı etkileşimine bağlıdır. Iframe kullanırken `allow="autoplay; fullscreen; gamepad"` ver ve ayrıca tam sayfa açılış bağlantısı sun. Gerçek Vegan Türkiye alanında üçüncü taraf kayıt kalıcılığı ayrıca sınanmalıdır.
 
 ## Testler
 

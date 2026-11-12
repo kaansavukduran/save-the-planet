@@ -18,4 +18,6 @@ Kayıt şema 2: sabit kimlikli dünya bayrakları, birey durumu, açılmış kar
 
 Kontroller A/D/oklar, Space, J, E, 1–4, Q, Esc, Tab; S/aşağı tek yönlü platformdan inme. Klavye yeniden atanır. Gamepad soyut eylemler, dokunmatik bağımsız temas kimlikleri kullanır. Hikâye ve standart mod; ayrı müzik/efekt, büyük metin, azaltılmış efekt, konuşma geçmişi.
 
-Hedef süreler 8–12 dakika/bölüm ve 2–3 saat toplamdır; mevcut kompakt 0.1.0 bunları karşılamış sayılmaz. Gerçek doğrulama ve açık sanat/platform işleri `docs/PROGRESS.md` ve `docs/VALIDATION.md` içindedir.
+Hedef süreler 8–12 dakika/bölüm ve 2–3 saat toplamdır; mevcut kompakt 0.2.0 bunları karşılamış sayılmaz. Gerçek doğrulama ve açık sanat/platform işleri `docs/PROGRESS.md` ve `docs/VALIDATION.md` içindedir.
+
+AIONIA standartları `docs/AIONIA_STANDARD.md`, proje sanat kararları `docs/ART_BIBLE.md`, kanon/onay sınırları `docs/LORE_LINKS.md` içinde. Fragaria Interactive üst marka, Fragaria Games yayıncı, AIONIA evrendir. Paletli native arayüz, hedef/etkileşim ayrımı, konuşmacılı sayfalı diyalog, gerçek ilerlemeli yükleme ve kurtarılabilir hata ekranı kullanılır. Kamera yumuşak yön bakışı tek gövdeyi izler. Azaltılmış efekt hasar yanıp sönmesini de kapatır.

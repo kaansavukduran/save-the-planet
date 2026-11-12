@@ -1,0 +1,13 @@
+{
+  "opened": true,
+  "display": "Xvfb 1280x720x24",
+  "window": "6291459",
+  "actions": [
+    "Return new game",
+    "Return skip dialogue",
+    "D movement",
+    "Space jump",
+    "Esc pause"
+  ],
+  "physical_device": false
+}
