@@ -11,6 +11,7 @@ var actor_done=false
 var actors: Array = []
 var timer=0.0
 var props: Dictionary = {}
+var mechanism_times: Dictionary = {}
 const PALETTES={"meadow":["95c7bd","c8dfb3","446c72","355c51","e4d5a7"],"workshop":["8daab2","d4c8a6","596a79","45505c","bc9570"],"river":["80b7cd","bce2d4","446b7d","356c65","ddce9d"],"forest":["80b0a6","bbd5aa","3d6463","284d46","bea47c"],"town":["c4b2bd","ead1af","68748b","56686f","d6b492"],"coast":["82bdce","e5dec1","557d90","426578","e6cfa3"],"finale":["768f9c","c6b8ad","4f5a70","344e58","bdac8d"]}
 
 func solid(rect: Rect2,animated: bool=false) -> PhysicsBody2D:
@@ -50,6 +51,7 @@ func _physics_process(dt: float) -> void:
 	for g in gates:
 		if is_instance_valid(g.body) and State.flags.get(g.flag,false):g.body.queue_free()
 	for a in spec.get("actions",[]):
+		if State.flags.get(a.id,false):mechanism_times[a.id]=minf(1.0,float(mechanism_times.get(a.id,0.0))+dt*2.5)
 		if a.has("timer") and State.flags.get(a.id,false) and not State.flags.get(a.timer_flag,false):
 			timer+=dt
 			if timer>=float(a.timer):State.mark(a.timer_flag)
@@ -60,6 +62,11 @@ func _physics_process(dt: float) -> void:
 			if actor_x>=float(a.to):
 				actor_done=true;State.animals[a.id]={"habitat":a.habitat,"status":"safe"};State.mark(a.arrived);animal_arrived.emit()
 	queue_redraw()
+
+func wind_at(p: Vector2) -> Vector2:
+	for w in spec.get("wind",[]):
+		if Rect2(w[0],w[1],w[2],w[3]).has_point(p):return Vector2(0,-95)
+	return Vector2.ZERO
 
 func danger_phase() -> int:
 	# Explicit warning before each active interval, then a generous safe interval.
@@ -145,6 +152,11 @@ func _draw() -> void:
 		for i in 18:
 			var fx=fmod(i*239+clock*7,end);var fy=130+posmod(i*47,210)+sin(clock+i)*10
 			draw_rect(Rect2(fx,fy,2,2),Color(0.95,0.88,0.6,0.45))
+	for w in spec.get("wind",[]):
+		for i in 6:
+			var x=float(w[0])+30+i*float(w[2])/6;var y=float(w[1])+fmod(clock*35+i*30,float(w[3]))
+			draw_line(Vector2(x,y+18),Vector2(x,y),Color("cee6df"),2);draw_line(Vector2(x,y),Vector2(x-5,y+6),Color("cee6df"),2);draw_line(Vector2(x,y),Vector2(x+5,y+6),Color("cee6df"),2)
+	if spec.id=="a5l2":draw_grey_wheel()
 	for a in spec.actions:draw_mechanism(a)
 	for g in spec.get("gates",[]):
 		var r=g.rect
@@ -202,6 +214,18 @@ func draw_mechanism(a: Dictionary) -> void:
 			draw_circle(p+Vector2(0,-49),19,c);draw_line(p+Vector2(-14,-49),p+Vector2(14,-49),Color("426f81"),5)
 			if done:
 				for i in 3:draw_rect(Rect2(p+Vector2(-16+i*12,-30+fmod(clock*35+i*8,23)),Vector2(4,6)),Color("a8dfdf"))
+		"hatch":
+			draw_rect(Rect2(p+Vector2(-32,-16),Vector2(64,16)),Color("31424d"))
+			var opening=float(mechanism_times.get(a.id,1.0 if done else 0.0))
+			var end=p+Vector2(30-48*opening,-20-48*opening)
+			draw_line(p+Vector2(-32,-18),end,Color("8e9c9c"),10)
+			draw_line(p+Vector2(-18,-15),p+Vector2(-18,-4),c,3)
+		"seed":
+			draw_rect(Rect2(p+Vector2(-40,-12),Vector2(80,12)),Color("88664e"))
+			for i in 4:
+				draw_rect(Rect2(p+Vector2(-30+i*18,-15),Vector2(5,4)),Color("c9ac6c"))
+				if done:
+					draw_line(p+Vector2(-28+i*18,-12),p+Vector2(-28+i*18,-23),Color("80aa76"),2);draw_rect(Rect2(p+Vector2(-33+i*18,-25),Vector2(10,5)),Color("80aa76"))
 		"meal":
 			draw_rect(Rect2(p+Vector2(-50,-43),Vector2(100,8)),Color("866851"));draw_circle(p+Vector2(0,-49),15,Color("eee2ba"))
 			for i in 5:draw_rect(Rect2(p+Vector2(-10+i*4,-51+(i%2)*4),Vector2(4,4)),Color("9a793a" if done else "a8b4ad"))
@@ -230,3 +254,24 @@ func draw_animal(p: Vector2,habitat: String,walk: bool) -> void:
 
 func _label(pos: Vector2,value: String,color: Color,size: int=16) -> void:
 	draw_string(preload("res://assets/fonts/DejaVuSans.ttf"),pos,value,HORIZONTAL_ALIGNMENT_LEFT,-1,size,color)
+
+func draw_grey_wheel() -> void:
+	var centre=Vector2(2100,220)
+	var stopped=State.flags.get("a5l2.inner_system_stopped",false)
+	var stage=3 if State.flags.get("a5l2.exit_protected",false) else (2 if stopped else (1 if State.flags.get("a5l2.pattern_observed",false) else 0))
+	var rotation_clock=0.0 if stopped else clock*0.24
+	# One visible machine spans the three objective stages; live subsystems have their own signs.
+	draw_rect(Rect2(centre+Vector2(-150,-100),Vector2(300,300)),Color("384c58"))
+	for i in 16:
+		var angle=rotation_clock+i*TAU/16
+		var tip=centre+Vector2(cos(angle),sin(angle))*123
+		draw_rect(Rect2(tip-Vector2(11,11),Vector2(22,22)),Color("b8a279"))
+	draw_circle(centre,110,Color("bc9e70"));draw_circle(centre,92,Color("425b62"))
+	for i in 8:
+		var angle=rotation_clock+i*TAU/8
+		draw_line(centre,centre+Vector2(cos(angle),sin(angle))*90,Color("80928f"),14)
+	draw_circle(centre,30,Color("7dbb99" if stopped else "d78d70"))
+	for i in 3:
+		var p=centre+Vector2(-60+i*60,155)
+		draw_rect(Rect2(p,Vector2(40,14)),Color("83bd98" if i<stage else "a1a69b"))
+	_label(centre+Vector2(-77,-145),State.text("GRİ ÇARK · ","GREY WHEEL · ")+str(stage)+" / 3",Color("f1e6bd"),18)

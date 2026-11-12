@@ -122,6 +122,7 @@ func finish_level() -> void:
 func _physics_process(dt: float) -> void:
 	if player==null:return
 	play_seconds+=dt
+	player.wind=world.wind_at(player.position)
 	if not in_hub:
 		if level_data.id=="a1l2" and player.position.x>float(level_data.route_threshold):State.mark("a1l2.route_crossed")
 		for i in level_data.checkpoints.size():
@@ -145,7 +146,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):interact();get_viewport().set_input_as_handled()
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED] and is_instance_valid(ui) and ui.menu_kind=="":ui.show_pause()
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_WINDOW_FOCUS_OUT] and is_instance_valid(ui) and ui.menu_kind=="":ui.show_pause()
 
 func publish_qa(dt: float) -> void:
 	if OS.is_debug_build() and OS.has_feature("web") and OS.get_cmdline_user_args().has("--qa"):

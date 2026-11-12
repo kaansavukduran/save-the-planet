@@ -43,6 +43,6 @@ else:print('BLOCKED Windows installer: NSIS missing')
 with zipfile.ZipFile(ROOT/'dist/SaveThePlanet-Web.zip','w',zipfile.ZIP_DEFLATED) as z:
  for p in (ROOT/'build/web').iterdir():
   if p.is_file():z.write(p,p.name)
-manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'dist').iterdir() if p.is_file() and p.name!='SHA256SUMS.json'}
+manifest={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in (ROOT/'dist').iterdir() if p.is_file() and not p.name.startswith('.') and p.name!='SHA256SUMS.json'}
 (ROOT/'dist/SHA256SUMS.json').write_text(json.dumps(manifest,indent=2))
 print(json.dumps(manifest,indent=2))

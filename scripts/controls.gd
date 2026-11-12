@@ -7,6 +7,8 @@ func _ready() -> void:
 		InputMap.add_action(action)
 		for key in KEYS[action]:
 			var e=InputEventKey.new();e.physical_keycode=key;InputMap.action_add_event(action,e)
+	for pair in [["ui_accept",JOY_BUTTON_A],["ui_cancel",JOY_BUTTON_B]]:
+		var menu_event=InputEventJoypadButton.new();menu_event.button_index=pair[1];InputMap.action_add_event(pair[0],menu_event)
 	var buttons={"down":JOY_BUTTON_DPAD_DOWN,"jump":JOY_BUTTON_A,"ability":JOY_BUTTON_X,"interact":JOY_BUTTON_B,"party":JOY_BUTTON_Y,"pause":JOY_BUTTON_START,"journal":JOY_BUTTON_BACK,"left":JOY_BUTTON_DPAD_LEFT,"right":JOY_BUTTON_DPAD_RIGHT}
 	for a in buttons:
 		var e=InputEventJoypadButton.new();e.button_index=buttons[a];InputMap.action_add_event(a,e)
@@ -27,7 +29,7 @@ func release_all() -> void:
 	touch_ids.clear()
 
 func _notification(what: int) -> void:
-	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED]:
+	if what in [NOTIFICATION_APPLICATION_FOCUS_OUT,NOTIFICATION_APPLICATION_PAUSED,NOTIFICATION_WM_WINDOW_FOCUS_OUT]:
 		release_all();State.save_game()
 
 func touch_rects(size: Vector2) -> Dictionary:

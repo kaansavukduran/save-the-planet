@@ -22,6 +22,7 @@ var landing=0.0
 var was_floor=false
 var blocked=false
 var drop_time=0.0
+var wind=Vector2.ZERO
 func _ready() -> void:
 	body_shape=CollisionShape2D.new();body_shape.shape=RectangleShape2D.new();body_shape.shape.size=Vector2(30,54);body_shape.position.y=-27;add_child(body_shape)
 	visual=HeroVisual.new();add_child(visual)
@@ -82,8 +83,10 @@ func _physics_process(dt: float) -> void:
 	else:velocity.x=move_toward(velocity.x,axis*SPEED,1800*dt)
 	velocity.x=clampf(velocity.x,-420,420)
 	velocity.y=minf(velocity.y+GRAVITY*dt,700)
-	var gliding=State.active==3 and not on_floor and velocity.y>0 and Input.is_action_pressed("jump") and glide_left>0
-	if gliding:velocity.y=minf(velocity.y,85);glide_left=maxf(0,glide_left-dt)
+	var using_current=State.active==3 and wind.y<0 and not on_floor and Input.is_action_pressed("jump") and glide_left>0
+	var gliding=State.active==3 and not on_floor and (velocity.y>0 or using_current) and Input.is_action_pressed("jump") and glide_left>0
+	if gliding:
+		velocity.y=-95 if using_current else minf(velocity.y,85);glide_left=maxf(0,glide_left-dt)
 	move_and_slide();position.x=maxf(20,position.x)
 	if position.y>650:retry()
 	visual.hero=State.active;visual.facing=facing

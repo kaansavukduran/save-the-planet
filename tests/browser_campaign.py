@@ -11,7 +11,7 @@ class Quiet(SimpleHTTPRequestHandler):
  def log_message(self,*args):pass
 server=ThreadingHTTPServer(('127.0.0.1',8013),partial(Quiet,directory=str(ROOT/'build/web-qa')))
 Thread(target=server.serve_forever,daemon=True).start()
-errors=[];checks=[];snaps=[]
+errors=[];checks=[];snaps=[];started=time.monotonic()
 with sync_playwright() as p:
  b=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox','--enable-unsafe-swiftshader','--use-angle=swiftshader'])
  page=b.new_page(viewport={'width':1152,'height':648});page.set_default_timeout(15000)
@@ -100,6 +100,6 @@ with sync_playwright() as p:
  except Exception as e:
   errors.append(str(e));page.screenshot(path=str(ROOT/'docs/evidence/browser-failure.png'));print('BROWSER FAILURE',str(e),flush=True)
  finally:
-  release();(ROOT/'work/browser-campaign.json').write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','real_seconds':time.monotonic()},indent=2));b.close();server.shutdown()
+  release();(ROOT/'work/browser-campaign.json').write_text(json.dumps({'checks':checks,'errors':errors,'snapshots':snaps,'browser':b.version,'viewport':[1152,648],'renderer':'Chromium SwiftShader WebGL2','wall_seconds':time.monotonic()-started},indent=2));b.close();server.shutdown()
 print('BROWSER RESULT',len(checks),'checks;',len(errors),'errors',flush=True)
 raise SystemExit(1 if errors or any(not c['pass'] for c in checks) else 0)

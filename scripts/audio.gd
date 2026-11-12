@@ -24,3 +24,8 @@ func apply() -> void:
 	if sfx:sfx.volume_linear=float(State.prefs.sfx)
 func cue(success: bool=true) -> void:
 	sfx.stream=tone(660 if success else 180,0.2);sfx.play()
+
+func _exit_tree() -> void:
+	# Release paused loop playback before the AudioServer shuts down.
+	if is_instance_valid(music):music.stop();music.stream=null
+	if is_instance_valid(sfx):sfx.stop();sfx.stream=null

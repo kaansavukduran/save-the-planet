@@ -142,5 +142,5 @@ func save_game() -> bool:
 			JavaScriptBridge.eval("try{localStorage.setItem("+JSON.stringify(WEB_KEY+".bak")+","+JSON.stringify(previous)+")}catch(e){}")
 		var stored=JavaScriptBridge.eval("(()=>{try{localStorage.setItem("+key_literal+","+JSON.stringify(raw)+");return true}catch(e){return false}})()")
 		JavaScriptBridge.force_fs_sync()
-		if stored!=true:notice="Tarayıcı anlık yedeği yazılamadı; dosya kaydı kullanılıyor. / Browser snapshot unavailable; using file persistence."
+		if not bool(stored):notice="Tarayıcı anlık yedeği yazılamadı; dosya kaydı kullanılıyor. / Browser snapshot unavailable; using file persistence."
 	return true

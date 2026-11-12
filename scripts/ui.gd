@@ -199,7 +199,7 @@ func _input(event: InputEvent) -> void:
 	if pending_binding!="" and event is InputEventKey and event.pressed and not event.echo:
 		if event.physical_keycode!=KEY_ESCAPE:Controls.rebind(pending_binding,event.physical_keycode)
 		pending_binding="";get_viewport().set_input_as_handled();show_bindings();return
-	if menu_kind!="" and event.is_action_pressed("pause"):
+	if menu_kind!="" and (event.is_action_pressed("pause") or event.is_action_pressed("ui_cancel")):
 		get_viewport().set_input_as_handled()
 		if menu_kind=="title":return
 		close_panel();return

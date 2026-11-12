@@ -59,6 +59,30 @@ func run() -> void:
 	p.position=m.body.position-Vector2(0,float(m.size.y)/2);p.velocity=Vector2.ZERO;await ticks(12)
 	var old_x=p.position.x;p.switch_hero(3);await ticks(35)
 	check(p.is_on_floor() and absf(p.position.x-old_x)>10,"06 Moving platform carries the switched character")
+	# A visible updraft uses the same finite glide budget.
+	game.load_level(7,false,false);p=game.player;p.switch_hero(3);p.position=Vector2(1800,300);p.jumps=2
+	Input.action_press("jump");await ticks(30)
+	check(p.position.y<285 and p.glide_left<1.4,"03 Owl rides a marked air current")
+	var exhausted=false
+	for i in 130:
+		await ticks(1)
+		if p.glide_left<=0.01:exhausted=true;break
+	Input.action_release("jump")
+	check(exhausted,"03 Air current cannot bypass the finite glide budget")
+	# The early barrier also has a physically traversable upper route.
+	game.load_level(1,false,false);p=game.player;p.switch_hero(0);p.position=Vector2(1480,440);p.velocity=Vector2.ZERO;await ticks(3)
+	state.flags.erase("a1l2.barrier_open");state.flags.erase("a1l2.route_crossed")
+	Input.action_press("right");await press("jump",24);await ticks(2);await press("jump",27);await ticks(40);Input.action_release("right")
+	check(p.position.x>1750 and state.flags.get("a1l2.route_crossed",false) and not state.flags.get("a1l2.barrier_open",false),"18 Upper route bypasses the still-closed heavy barrier")
+	# Virtual gamepad events exercise native GUI and gameplay mappings.
+	game.ui.show_pause();await ticks(2)
+	for i in 3:
+		var down=InputEventJoypadButton.new();down.button_index=JOY_BUTTON_DPAD_DOWN;down.pressed=true;Input.parse_input_event(down);await ticks(1);down=InputEventJoypadButton.new();down.button_index=JOY_BUTTON_DPAD_DOWN;down.pressed=false;Input.parse_input_event(down);await ticks(1)
+	var accept=InputEventJoypadButton.new();accept.button_index=JOY_BUTTON_A;accept.pressed=true;Input.parse_input_event(accept);await ticks(1);accept=InputEventJoypadButton.new();accept.button_index=JOY_BUTTON_A;accept.pressed=false;Input.parse_input_event(accept);await ticks(2)
+	print("GAMEPAD MENU ",game.ui.menu_kind," FOCUS ",root.get_viewport().gui_get_focus_owner())
+	check(game.ui.menu_kind=="settings","13 Gamepad D-pad and A reach Settings")
+	var start=InputEventJoypadButton.new();start.button_index=JOY_BUTTON_START;start.pressed=true;Input.parse_input_event(start);await ticks(2);start=InputEventJoypadButton.new();start.button_index=JOY_BUTTON_START;start.pressed=false;Input.parse_input_event(start)
+	check(game.ui.menu_kind=="" and not paused,"13 Gamepad Start resumes gameplay")
 	# A recovery must snap both physics position and camera target.
 	p.position=Vector2(3500,600);p.retry();await ticks(2)
 	check(p.position.distance_to(p.spawn)<3,"08 Retry returns to a safe checkpoint immediately")
