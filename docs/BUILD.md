@@ -32,3 +32,9 @@ python3 tests/browser_campaign.py
 ```
 
 QA web `build/web-qa` içine export-debug ile çıkar. `-- --qa` koşulunda sadece okunan test telemetrisi vardır. `build/web` release'tir ve bu koşulu sağlayamaz. Tarayıcı testleri Playwright + Chromium gerektirir; onlar oyun/runtime bağımlılığı değildir.
+
+## 0.2.0 doğrulanmış çıktılar
+
+Paket kaynak commit'i a87199ed085ae260f6a9a2dc151d74dee96c1bf1, üretim anında temiz çalışma ağacı. Gerçek release web ve temiz Linux pencere smoke testleri çalıştırıldı; Windows EXE/NSIS sadece üretim/arşiv/PE olarak doğrulandı. Android build betiği gerekli SDK/imza değişkenleri yokken BLOCKED verir. Güncel indirmeler docs/DELIVERY.md, yerel SHA manifesti docs/evidence/results/SHA256SUMS.json içinde.
+
+Son release smoke: `python3 tests/browser_release.py`. Bu test release klasörünü yerel HTTP sunucusuyla açar; ilk hedefi gerçek girişle yapar ve kayıt reload'unu sınar. Chromium/Playwright yalnız geliştirme test aracıdır. Native pencere kanıtları Xvfb 1280×720, Mesa ve xdotool ile temiz arşivden elde edildi; gerçek donanım testinin yerine geçmez.

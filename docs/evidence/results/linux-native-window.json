@@ -4,7 +4,7 @@
   "window": "6291459",
   "actions": [
     "Return new game",
-    "Return skip dialogue",
+    "Escape skip dialogue",
     "D movement",
     "Space jump",
     "Esc pause"

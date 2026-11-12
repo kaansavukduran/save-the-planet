@@ -1,28 +1,32 @@
 {
-  "version": "0.1.0",
-  "source_commit": "d154003dfda176fbb0aefd48034ae4d0ad65aec3",
-  "archives_valid": true,
-  "linux_executable_permission": true,
+  "version": "0.2.0",
+  "source_commit": "a87199ed085ae260f6a9a2dc151d74dee96c1bf1",
+  "working_tree_dirty_at_build": false,
+  "archives_valid": "PASS",
+  "linux_executable_permission": "PASS",
+  "installer_built": "PASS",
+  "windows_installer_execution": "NOT TESTED",
+  "windows_game_execution": "NOT TESTED",
   "artifacts": [
     {
       "name": "SaveThePlanet-Windows-Portable.zip",
-      "bytes": 45253731,
-      "sha256": "3ebbd351ceaddfc9cae9033c5e63bb7cbc5b10059f112b71f50fa10fb4d7de66"
+      "bytes": 45659249,
+      "sha256": "f09be963563ff8562f6f848251c8663dc6746b30c1bf7f9fcdea1fa9b7f1b7ba"
     },
     {
       "name": "SaveThePlanet-Web.zip",
-      "bytes": 18707545,
-      "sha256": "8f6ac85676f6ffa0f36b87c94801df0c8b52b27ecdc9c8322d88877565fc5ec4"
+      "bytes": 19113358,
+      "sha256": "0880e0d876088855be1524323d54fdcae504a6e029c2f5a96a53e9300b15839a"
     },
     {
       "name": "SaveThePlanet-Linux-x86_64.tar.gz",
-      "bytes": 36306695,
-      "sha256": "3e2d0ef94e2d6f5b46e3e88a65af9d8b1823a2f2f75aa56a4802344ce80c239a"
+      "bytes": 36711541,
+      "sha256": "36b4ea1b1a0b03555ddeb02bb491ddc2579afde4444b14a9391629fe8aa35fbf"
     },
     {
       "name": "SaveThePlanet-Setup.exe",
-      "bytes": 35112714,
-      "sha256": "6446bca1b4e113959d56fcd5d5b64e1e3723aefd7c239402a53027a5f6afb19d"
+      "bytes": 35518227,
+      "sha256": "2bf37b37bf445caec3f1e1504379c65330b19aa1467ce9ae0cd32f39c41babae"
     }
   ]
 }

@@ -15,8 +15,10 @@ Godot 4.6.3.stable.official.7d41c59c4; Linux x86_64 (6.18.57), Chromium 156.0.80
 | tests/browser_accessibility.py | PASS | 12 kontrol: klavyeyle ayarlar, büyük metin/TR-EN/düşük efekt kaydı, yön+zıplama ve yön+yetenek çoklu dokunma, gerçek canvas blur ve takılı tuşu bırakma. |
 | tests/browser_shell.py | PASS | 7 kontrol: gerçek byte ilerlemesi, motor açılınca yüklemeyi kapatma, kullanıcı girdisiyle AudioContext running, kasıtlı WASM 503 hatası, yeniden denemeyle gerçek oyunu açma, iframe tam sayfa bağlantısı ve odaklı hareket. Fiziksel duyulabilir ses testi değildir. |
 | tests/web_update.py | PASS | Aynı origin üzerinde 39b831ddf9799703 → b49818f97a604eef gerçek farklı export'ları; dünya kaydı korunur, yalnız yeni JS/WASM/PCK indirilir, 0 hata. |
-| Nihai Linux/Windows paketleri | NOT TESTED | Son sürüm kaynak sabitlemesinden sonra tekrar üretilecek; önceki 0.1 çıktısı 0.2 kanıtı değildir. |
-| Vercel son preview | NOT TESTED | Bu sürüm push sonrası BUILD.json ve HTTP durumu doğrulanacak. Önceki preview test edilmişti; yeni sürüm diye sunulmaz. |
+| Nihai Linux/Windows paketleri | PASS | Temiz a87199e kaynağından 0.2 export; arşiv bütünlüğü, SHA-256, BUILD kaynak/target kimliği, Linux çalıştırma izni ve Windows PE x64 doğrulandı. Linux temiz klasörden Xvfb/Mesa penceresinde açıldı; gerçek klavyeyle hareket/zıplama/pause görüntüleri incelendi. Windows üzerinde EXE/kurulum çalıştırma NOT TESTED. |
+| Vercel son preview | PASS | a87199e için READY; yetkili connector ile HTML ve BUILD.json HTTP 200, doğru kaynak commit/0.2.0 ve HTML içerik kimliği. Mevcut SSO korunur. Uzak tarayıcı oynanışı NOT TESTED. |
+| Release web smoke | PASS | tests/browser_release.py: telemetri yok, gerçek klavyeyle fan hedefi, hemen reload ile kayıt; 3/3 kontrol, 0 konsol/JS hatası. |
+| Drive aktarımı | PASS | Dört 0.2 paket ve güncellenen SHA manifesti yüklenip dosya boyutu/hedef klasörü yeniden okundu. Connector uzak checksum alanını sunmadı; uzak hash doğrulandı denmez. |
 
 QA telemetrisi yalnız debug export + --qa için salt okunurdur; testler dünya ilerlemesini JS ile yazmaz. Release sürümü bu kanalı açmaz. Tam kampanyaların QA içerik kimliği 554c9cc6eff9003c; sonraki renk/çizim kırpma sürümü b49818f97a604eef ilk bölüm, erişilebilirlik, yükleme/hata ve güncelleme testlerinden geçti. Son gamepad Start düzeltmesi headless sanal gamepad olaylarıyla doğrulandı.
 
@@ -45,7 +47,7 @@ PASS yalnız açıklanan ortam/kapsam için geçerlidir. Eksiksiz son sanat ve f
 | 17 Kanıt | PASS | Kaynak/tarih/birim/kapsam görünür kurgu kayıtları; yeterli kanıt yok sonucu ilerletiyor, zorunlu quiz/onay yok. |
 | 18 Alternatif rota | PASS | Ağır bariyer kapalıyken gerçek üst parkurdan aşma headless testi. |
 | 19 Tam hikâye | PASS | 10 zorunlu hedef/çıkış, story_complete, etkileşimli final TR/EN gerçek tarayıcıda. Hedef 2–3 saat süre karşılanmadı. |
-| 20 Temiz paket | NOT TESTED | 0.2 paket smoke testi bekleniyor; platformda çalıştırma ile yalnız paket üretimi ayrı tutulur. |
+| 20 Temiz paket | PASS | 0.2 ZIP/tar üyeleri, hash/BUILD, ELF/PE türü/izinler; gerçek release web ve temiz Linux pencere smoke testi. Windows çalıştırma NOT TESTED. |
 | 21 Web güncellemesi | PASS | Aynı origin kayıt + yeni hash'li dosyalar, sıfır hata. |
 | 22 Çevrimdışı/PWA | NOT TESTED | PWA kapalı; web çevrimdışı açılış sözü yok. |
 | 23 Android arka plan dönüşü | NOT TESTED | Release SDK/keystore yapılandırması eksik; fiziksel Android çalıştırılmadı. |
@@ -66,10 +68,20 @@ Dünya süslerinin ekran dışı çizimleri sınırlandı; zemin/ot ayrıntılar
 | C Dikey dilim | PASS | İlk bölüm gerçek motor, giriş, animasyon, UI, ses bağlamı, kurtarma/çıkış/kayıt ile oynandı. |
 | D Tam içerik ve son sanat | FAIL | On bölüm oynanır; hedef süre ve tam özgün sanat/özel animasyon işleri tamamlanmadı. |
 | E Hedef cihaz QA | NOT TESTED | Bulut/otomasyon testleri var; fiziksel telefon, gamepad, Windows ve insan katılımcı testi yok. |
-| F Nihai yayın | NOT TESTED | Son paket/preview doğrulaması ve nihai platform/sanat kapıları henüz açık. |
+| F Nihai yayın | FAIL | Web/Linux/Windows paketleri ve korumalı preview doğrulandı; bütün hedef platformlar için final yayın kapısı açık: Android release yok, fiziksel Windows/telefon QA yapılmadı, sanat/süre hedefleri bitmedi. |
 
 ## Bulunan ve düzeltilen hatalar
 
 Başlangıç Canvas oyununda menü arkasında hareket vardı; yeni Godot pause sistemiyle gerçek testte giderildi. Web ilk export'unda worklet 404, hemen reload kaybı ve oyun kolunda A kabul eksikliği bulundu/düzeltildi. AIONIA geçişinde Ayarlar geri hedefi düzeltildikten sonra Start bir üst menüye dönerek oyunu duraklatılmış bırakıyordu; son kritik test bunu ve buna bağlı dört sonraki kontrolü FAIL verdi. Start doğrudan devam, Escape/B geri olarak düzeltildi; tekrarında 24/24 PASS. İlk ana düğme kontrastı 3,97:1 idi; koyulaştırılıp 4,74:1 yapıldı. İlk ham indirme hatası kullanıcı mesajı ve isteğe bağlı teknik ayrıntı ile değiştirildi.
 
 Bazı önceki hızlı headless kapanışlarında AudioStreamWAV/PlaybackWAV için ObjectDB cleanup uyarısı görüldü. Son acceptance çalıştırmasında tekrar etmedi; bütün kapanış yollarında çözüldüğü iddia edilmez. Oynanış testlerinde JS/parse hatası yok. İnsanlarla keyif, sıkılma, öğretim etkisi ve karşılaştırmalı Aion Endless Run testi yapılmadı.
+
+## Paket ve dağıtım kanıtı
+
+Kaynak kod commit: `a87199ed085ae260f6a9a2dc151d74dee96c1bf1`; paket üretim anında çalışma ağacı temiz. Yerel release web kimliği `7be7892d191477ca`; gerçek release smoke testi bu çıktıyı oynadı. [GitHub CI](https://github.com/kaansavukduran/save-the-planet/actions/runs/43228077335) PASS (web export + 120 kampanya + 24 kritik + ayrı kayıt süreci). Paketler evidence/results/packages.json ve SHA256SUMS.json ile kayıtlıdır.
+
+[Vercel preview](https://save-the-planet-ktkxh1rc2-vegan-axolotl.vercel.app) aynı kaynak commit'ini, sürüm 0.2.0 ve `d6efeb0a71532833` sunucu içerik kimliğini bildirir. Sunucuda `working_tree_dirty: true` olduğu manifestte aynen korunmuştur; yerel paketle aynı PCK hash'i iddia edilmez. HTML yeni hash'i referanslıyor. Uzak derleme için hangi üretilen/import dosyasının değiştiği araştırılacak; bu preview temiz paket kanıtı yerine kullanılmaz. Erişim koruması değiştirilmedi, uzak uçtan uca browser testi NOT TESTED.
+
+Paket boyutları: web ZIP 19.113.358 byte; Linux tar.gz 36.711.541 byte; Windows portable ZIP 45.659.249 byte; Windows NSIS 35.518.227 byte. Yükleyicide engine/data için gözlenen sıkıştırılmamış toplam yaklaşık 43,4 MiB; yerel başlangıç ağ üzerinden gerçek kullanıcı indirme süresi değildir. Linux testinde ses Dummy backend idi; gerçek hoparlör testi NOT TESTED. Xvfb/Mesa V-Sync desteklemiyor uyarısı verdi; native 60 FPS garantisi çıkarılmaz.
+
+Android build betiği gerçekten çalıştırıldı ve eksik ANDROID_HOME, JAVA_HOME, GODOT_ANDROID_KEYSTORE_RELEASE_PATH/USER/PASSWORD nedeniyle açık BLOCKED hatasıyla çıktı. APK oluşturulmadı; debug veya imzasız çıktı release diye sunulmadı.

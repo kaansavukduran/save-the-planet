@@ -10,7 +10,7 @@
 | M3 ilk iki bölüm | Gerçek oynanışla doğrulandı | Duru ve dört arkadaş, iki rota, yaşam alanı. İlk bölüm son arayüzle yeniden 15/15 kontrol. 15–20 dakika hedefi karşılanmadı. |
 | M4 diğer sekiz + final | Uygulandı, senaryolar tamamlandı | 120 headless kontrol; TR/EN gerçek Chromium kampanyaları 112'şer kontrol, hata yok; final/reload/devam. |
 | M5 kullanılabilirlik/AIONIA | İyileştirildi, kısmen doğrulandı | Native tema/HUD/portre/diyalog/yükleme/hata, kamera/animasyon zamanlaması. 24 kritik +12 erişilebilirlik +7 shell kontrolü PASS. Son sanat/cihaz performansı açık. |
-| M6 paket/yayın | Son sürüm hazırlanıyor | 0.2 kodu sabitlenince Linux/Windows/web paketleri yeniden üretilecek. Android release SDK/imza yapılandırması yok; APK yok. |
+| M6 paket/yayın | Üretildi; preview yayımlandı; Android engelli | a87199e temiz kaynak: gerçek web/Linux/Windows portable + NSIS. Web release smoke ve temiz Linux penceresi PASS. Drive dosyaları/boyutları ve Vercel HTML/BUILD doğrulandı. Windows çalıştırma NOT TESTED; Android SDK/imza yok. |
 
 ## Devam eden açık işler
 
@@ -25,4 +25,10 @@
 
 ## Somut devam noktası
 
-Önce test edilmiş 0.2 kaynak commit'inden web/Linux/Windows portable/NSIS üret; Linux'u temiz klasörden gerçek pencereyle aç, paket hash/metadata kayıtlarını yenile. Vercel preview HTTP/BUILD kimliğini doğrula, Drive'a yalnız son çıktıları koy ve incelemeye hazır draft PR aç. Ardından bu dosyadaki açık süre/sanat/cihaz işlerini sırayla kapat. Test edilmemiş platformları PASS sayma. Sonuçlar docs/VALIDATION.md ve evidence/results içinde. Arka planda kendiliğinden devam sözü verilmez.
+1. Fiziksel hedef GPU/telefon üzerinde profiler ile 60 FPS ve toplam bellek ölç; buluttaki 25 FPS sonucunu cihaz garantisi olarak kullanma. Vercel import sonrası dirty dosyayı izole et; uzak tarayıcı oynanışını ayrıca test et.
+2. Mevcut karakterleri değiştirmeden özel etkileşim pozlarını ve çevrenin son sanat geçişini tamamla. Emre sprite'ı ve son logo/varyant onayı yalnız doğrulanmış kaynakla ilerler; bağımsız işler için bekleme gerekmez.
+3. On bölümün kompakt parkurunu anlamlı keşif, güvenlik ve bakım kararlarıyla genişlet; gerçek oyuncularla süre/öğrenme/keyif ölç. 2–3 saat hedefini yapay beklemeyle doldurma.
+4. Mevcut release keystore ve Android SDK ortamı sağlandığında gerçek imzalı APK üret; fiziksel Android arka plan/ses/kayıt dönüşü, Windows kurulum/kaldırma ve gamepad testlerini yap.
+5. İnsan katılımcıyla ilk dakika, sessiz kullanım, büyük yazı ve dokunmatik ergonomiyi değerlendir. AIONIA D/E/F kapılarını ancak gerçek kanıtla kapat.
+
+Paket kaynak commit'i a87199ed085ae260f6a9a2dc151d74dee96c1bf1. Sonraki teslim belgesi/test kanıtı commit'leri oynanış kodunu değiştirmez. [Teslim dosyaları ve bağlantılar](DELIVERY.md), [doğrulama](VALIDATION.md), evidence/results günceldir. Arka planda kendiliğinden devam sözü verilmez.

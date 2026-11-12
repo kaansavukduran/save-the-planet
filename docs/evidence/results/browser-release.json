@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "check": "Shipping build has no QA telemetry",
+      "status": "PASS"
+    },
+    {
+      "check": "Shipping build reaches and completes its first goal using real input",
+      "status": "PASS"
+    },
+    {
+      "check": "Shipping build preserves first-goal progress across reload",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "build": {
+    "game_version": "0.2.0",
+    "source_commit": "a87199ed085ae260f6a9a2dc151d74dee96c1bf1",
+    "working_tree_dirty": false,
+    "content_tag": "7be7892d191477ca",
+    "files": {
+      "index.html": "d7a20e964bcca323d9e5fceaf65cfac84ababe0ba71f17750a4ffa4682b90126",
+      "planet-7be7892d191477ca.wasm": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+      "planet-7be7892d191477ca.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "planet-7be7892d191477ca.js": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981",
+      "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "planet-7be7892d191477ca.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "planet-7be7892d191477ca.pck": "cdc532cbe14c6fe76e94061a0ee8b03c262bfdea7398efb0811eb08e86f31c4a"
+    }
+  }
+}
