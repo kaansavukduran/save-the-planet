@@ -1,3 +1,7 @@
+# 0.4.2 · eski ziyaretçi düzeltmesi
+
+Kullanıcının fotoğraflarındaki eski Canvas, gerçek arşiv HTML/worker ve bir saatlik cache ile yeniden üretildi. Yeni `/play` girişi ve kayıt silmeyen hedefli worker/cache emekliliği: 14/14 PASS. [Hotfix kaydı](HOTFIX_0.4.2.md). Henüz fiziksel telefon testi yapılmış sayılmaz; önceki 0.4.1 indirmeleri korunur.
+
 # 0.4.1 · Forge devamı
 
 Kullanıcı release/Vercel yayınını açıkça onayladı. Production READY: https://save-the-planet-mauve.vercel.app ; giriş/bypass istemeyen canlı Chromium ilk görev/kayıt testi **5/5 PASS**. [Yayın ve release kaydı](RELEASE_0.4.1.md); yeni test/rapor dosyaları oyun kodunu değiştirmez.

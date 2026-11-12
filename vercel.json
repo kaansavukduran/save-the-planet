@@ -3,6 +3,13 @@
   "framework": null,
   "buildCommand": "python3 packaging/build_web.py",
   "outputDirectory": "build/web",
+  "redirects": [
+    {"source": "/", "destination": "/play", "permanent": false},
+    {"source": "/play/", "destination": "/play", "permanent": false}
+  ],
+  "rewrites": [
+    {"source": "/play", "destination": "/index.html"}
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -38,6 +45,18 @@
           "value": "no-cache"
         }
       ]
+    },
+    {
+      "source": "/play",
+      "headers": [{"key": "Cache-Control", "value": "no-store"}]
+    },
+    {
+      "source": "/sw.js",
+      "headers": [{"key": "Cache-Control", "value": "no-store"}]
+    },
+    {
+      "source": "/index.service.worker.js",
+      "headers": [{"key": "Cache-Control", "value": "no-store"}]
     },
     {
       "source": "/planet-(.*)",

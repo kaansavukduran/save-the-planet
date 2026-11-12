@@ -12,6 +12,7 @@ var attempts=0
 var qa_clock=0.0
 
 func _ready() -> void:
+	get_window().title="Save the Planet · v"+State.VERSION
 	process_mode=Node.PROCESS_MODE_PAUSABLE
 	get_tree().root.size_changed.connect(resize_view)
 	resize_view()

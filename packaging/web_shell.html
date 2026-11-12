@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <meta name="referrer" content="strict-origin-when-cross-origin">
-<title>$GODOT_PROJECT_NAME · Fragaria Games</title>
+<title>$GODOT_PROJECT_NAME · v$STP_VERSION · Fragaria Games</title>
 <style>
 :root{color-scheme:dark;--ink:#142333;--panel:#1d3040;--paper:#f2e5c7;--gold:#efcd89;--sage:#8fb9a5;--berry:#a93f59}
 *{box-sizing:border-box}
@@ -62,6 +62,7 @@ $GODOT_HEAD_INCLUDE
 <dialog id="help" aria-labelledby="help-title">
 <div id="help-body" tabindex="0" role="region" aria-label="Rehber içeriği / Guide content">
 <h2 id="help-title" tabindex="-1">Yardım / <span lang="en">Help</span></h2>
+<p id="release-version" class="muted">Save the Planet · v$STP_VERSION</p>
 <p>Hedef sol üstte görünür. Güvenli yolu aç, hayvanın kendi hareketini bekle; yakındayken etkileşim tuşunu kullan. Hikâye modunda hatalar ilerlemeyi silmez.</p>
 <p lang="en">Follow the goal at the top left. Open a safe path and let the animal move on its own. Interact when nearby. In Story mode, mistakes do not erase progress.</p>
 <table><caption>Varsayılan kontroller / Default controls</caption><thead><tr><th scope="col">Eylem / Action</th><th scope="col">Klavye / Keyboard</th><th scope="col">Gamepad</th></tr></thead><tbody>
@@ -126,7 +127,7 @@ if(window.self!==window.top){const link=document.getElementById('full-page');lin
 window.addEventListener('error',event=>failure(event.error||event.message));
 window.addEventListener('unhandledrejection',event=>failure(event.reason));
 // Retire only archived game worker names; keep saves and other applications intact.
-if('serviceWorker' in navigator){const base=new URL('./',location.href);const retired=['sw.js','index.service.worker.js'].map(name=>new URL(name,base).href);navigator.serviceWorker.getRegistrations().then(items=>Promise.all(items.filter(item=>item.scope===base.href&&item.active&&retired.includes(item.active.scriptURL)).map(item=>item.unregister()))).catch(()=>{});}
+if('serviceWorker' in navigator){const base=new URL('./',location.href);const retired=['sw.js','index.service.worker.js'].map(name=>new URL(name,base).href);(async()=>{const items=await navigator.serviceWorker.getRegistrations();await Promise.all(items.filter(item=>item.scope===base.href&&item.active&&retired.includes(item.active.scriptURL)).map(item=>item.unregister()));await caches.delete('save-the-planet-v1');if(location.pathname===new URL('play',base).pathname)await Promise.allSettled([base.href,new URL('index.html',base).href].map(url=>fetch(url,{cache:'reload',credentials:'same-origin'})));})().catch(()=>{});}
 let lastProgress=performance.now();let stalled=false;
 stalledTimer=setInterval(()=>{if(!startupFailed&&!loading.hidden&&performance.now()-lastProgress>20000){stalled=true;document.getElementById('notice').textContent='Yükleme beklenenden uzun sürüyor. Bekleyebilir veya yeniden deneyebilirsin. / Loading is taking longer than expected. Wait or retry.';document.getElementById('retry').hidden=false;}},5000);
 window.addEventListener('offline',()=>{if(!loading.hidden){document.getElementById('notice').textContent='Bağlantı yok. Dosyalar için bağlantını kontrol et ve yeniden dene. / Offline. Check your connection and retry.';document.getElementById('retry').hidden=false;}});

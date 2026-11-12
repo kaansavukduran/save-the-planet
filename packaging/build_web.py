@@ -40,6 +40,10 @@ html=html.replace('$STP_VERSION',version)
 shutil.copy2(ROOT/'assets/fonts/PressStart2P-LICENSE.txt',out/'PressStart2P-LICENSE.txt')
 shutil.copy2(ROOT/'assets/fonts/LICENSE.txt',out/'FONT-LICENSE.txt')
 for notice in ['LICENSE','THIRD_PARTY_NOTICES.md']:shutil.copy2(ROOT/notice,out/notice)
+# Old visitors can still have a cache-first worker serving the archived Canvas HTML.
+# Keep both original worker URLs alive long enough to retire those registrations.
+for name in ['sw.js','index.service.worker.js']:
+ shutil.copy2(ROOT/'packaging/retire_service_worker.js',out/name)
 # Tie executable script permissions to this exact export; saved content is never eval'd.
 inline=re.findall(r'<script>([\s\S]*?)</script>',html)
 hashes=' '.join("'sha256-"+base64.b64encode(hashlib.sha256(script.encode()).digest()).decode()+"'" for script in inline)

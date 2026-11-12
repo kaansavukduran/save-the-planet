@@ -41,6 +41,10 @@ jobs:
           python3 -m playwright install --with-deps chromium
       - name: Real debug Web export
         run: python3 packaging/build_web.py
+      - name: Archived Canvas cache migration with preserved progress
+        run: |
+          STP_WEB_QA=0 STP_WEB_FOLDER=web-legacy python3 packaging/build_web.py
+          STP_TEST_WEB_DIR=build/web-legacy STP_TEST_OLD_WEB_DIR=build/web-legacy python3 tests/browser_legacy_upgrade.py
       - name: AIONIA v1.4 responsive and appearance regressions
         run: python3 tests/browser_v14.py
       - name: Camera and sky across ultrawide, tall portrait and rotation

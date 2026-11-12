@@ -1,0 +1,80 @@
+{
+  "checks": [
+    {
+      "check": "Create actual first-goal progress without injecting game state",
+      "status": "PASS"
+    },
+    {
+      "check": "Exact archived Canvas interface from the user screenshot is cached and controlled",
+      "status": "PASS"
+    },
+    {
+      "check": "Reproduce failure: cache-first worker still shows Canvas while server serves Godot",
+      "status": "PASS"
+    }
+  ],
+  "errors": [
+    "Locator.wait_for: Timeout 30000ms exceeded.\nCall log:\n  - waiting for locator(\"#loading\")\n"
+  ],
+  "worker_requests": [
+    {
+      "path": "/other/sw.js",
+      "phase": "old-godot",
+      "directory": "/workspace/save-the-planet/build/web"
+    },
+    {
+      "path": "/sw.js",
+      "phase": "legacy",
+      "directory": "/workspace/save-the-planet/legacy"
+    },
+    {
+      "path": "/sw.js",
+      "phase": "fixed",
+      "directory": "/workspace/save-the-planet/build/web-cachefix"
+    },
+    {
+      "path": "/other/sw.js",
+      "phase": "fixed",
+      "directory": "/workspace/save-the-planet/build/web-cachefix"
+    }
+  ],
+  "before_fix_status": "FAIL: archived Canvas persists with current 0.4.1 server",
+  "new_build": {
+    "game_version": "0.4.2",
+    "source_commit": "3dd55a6792504739dc357492778089074ad3d9f9",
+    "working_tree_dirty": true,
+    "working_tree_changes": [
+      " M export_presets.cfg",
+      " M packaging/build_web.py",
+      " M packaging/web_shell.html",
+      " M project.godot",
+      " M scripts/state.gd",
+      " M vercel.json",
+      "?? docs/evidence/legacy-upgrade/",
+      "?? packaging/retire_service_worker.js",
+      "?? tests/browser_legacy_upgrade.py"
+    ],
+    "content_tag": "b4e80af0a0c0e197",
+    "files": {
+      "planet-b4e80af0a0c0e197.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "planet-b4e80af0a0c0e197.js": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981",
+      "index.html": "cb7bb422e00f125b0097bce185459dcac911c165a98e5986318e75402a7716f7",
+      "planet-b4e80af0a0c0e197.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "index.service.worker.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458",
+      "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+      "planet-b4e80af0a0c0e197.wasm": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+      "planet-b4e80af0a0c0e197.pck": "bb78b68145b945c4c4f01616d63a5fc07479e161bf7207e0f43f04fd2af612a2",
+      "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "sw.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458"
+    }
+  },
+  "browser": "156.0.8078.79",
+  "physical_phone": "NOT TESTED"
+}
