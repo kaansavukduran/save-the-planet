@@ -13,7 +13,7 @@ AIONIA v1.1 teknoloji bağımsız talebi için mevcut Godot oyunu iyileştirildi
 
 ## Gerçek doğrulama durumu
 
-120 kampanya +24 kritik +30 yeni native davranış kontrolü ve ayrı süreç kayıt okuma PASS. TR gerçek klavye kampanyası 112/112, hata yok. Kontrolcü menülerinin 11 kontrolü PASS. Mahremiyet/erişilebilirlik/yükleme/güncelleme son koşularının kayıtları VALIDATION_0.3.md'de izlenir. Tam EN Gamepad API kampanyası tekrarında 112/112 ve 0 JS/konsol hatasıyla geçti. İlk denemenin 61. kontrolündeki test varış hatası ve FAIL kanıtı saklandı; yardımcının gövde durduktan sonraki konum kontrolü düzeltildi. Tarayıcı veri/güvenlik18, gamepad menü11, erişilebilirlik12 ve shell7 PASS; export güncellemesinde kayıt korundu.
+120 kampanya +24 kritik +30 yeni native davranış kontrolü ve ayrı süreç kayıt okuma PASS. TR gerçek klavye kampanyası 112/112, hata yok. Kontrolcü menülerinin 11 kontrolü PASS. Mahremiyet/erişilebilirlik/yükleme/güncelleme son koşularının kayıtları VALIDATION_0.3.md'de izlenir. Tam EN Gamepad API kampanyası tekrarında 112/112 ve 0 JS/konsol hatasıyla geçti. İlk denemenin 61. kontrolündeki test varış hatası ve FAIL kanıtı saklandı; yardımcının gövde durduktan sonraki konum kontrolü düzeltildi. Tarayıcı veri/güvenlik20, gamepad menü11, erişilebilirlik12 ve shell7 PASS; export güncellemesinde kayıt korundu.
 
 ## Açık kapsam / devam noktası
 

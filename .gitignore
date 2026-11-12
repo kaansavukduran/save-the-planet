@@ -8,3 +8,5 @@ __pycache__/
 *.jks
 .godot/export_credentials.cfg
 .env*
+
+.vercel/

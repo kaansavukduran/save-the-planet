@@ -25,6 +25,14 @@
       "status": "PASS"
     },
     {
+      "check": "Portrait help footer reserves space instead of covering instructions",
+      "status": "PASS"
+    },
+    {
+      "check": "200% text help footer does not overlap the scrolling body",
+      "status": "PASS"
+    },
+    {
       "check": "Text guide close action works at 200% text enlargement",
       "status": "PASS"
     },
@@ -75,7 +83,7 @@
   ],
   "errors": [],
   "expected_csp_blocks": [
-    "Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval' 'sha256-lvrUyCvTzHizTkSfK3PqZB8w92Gcy5rxC2IRjVKS08A=''. Either the 'unsafe-inline' keyword, a hash ('sha256-kcAIvRDTlvPAIVP/gAgkOTj7jAwAakQwbYrwk7hY/40='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
+    "Executing inline script violates the following Content Security Policy directive 'script-src 'self' 'wasm-unsafe-eval' 'sha256-o7XBiCREDPKoCvo9drVqQ/OdtEgHzZn/EMcO20tiCBQ=''. Either the 'unsafe-inline' keyword, a hash ('sha256-kcAIvRDTlvPAIVP/gAgkOTj7jAwAakQwbYrwk7hY/40='), or a nonce ('nonce-...') is required to enable inline execution. The action has been blocked."
   ],
   "browser": "156.0.8078.79",
   "physical_device": false,

@@ -23,3 +23,5 @@ Export HTML'i gerçek inline bootstrap için SHA-256 CSP hash'i üretir. Genel J
 Vercel yapılandırması nosniff, kısıtlı referer ve kullanılmayan kamera/mikrofon/konum/ödeme/USB izinlerini kapatan başlıklar ekler. Gamepad/fullscreen iframe kullanımını ve mevcut SSO korumasını keyfî biçimde kaldırmaz. Yerel test sunucusunun Vercel başlıklarını sunduğu varsayılmaz; uzak başlık doğrulaması ayrıca raporlanır.
 
 Release keystore/parolalar `.gitignore` ile dışarıda; Android imza kimliği değiştirilmez. Windows Authenticode ve fiziksel kurulum testi hâlâ açık. Ekran okuyucu, fiziksel cihaz, çok sekmeli eşzamanlı oyun ve bağımsız penetrasyon denetimi test edilmeden onaylanmış sayılmaz.
+
+Hosting yapılandırması `vercel.json` ve `.vercel/` metadata çalışma zamanı export'una dahil edilmez. Provider'ın build sırasında kendi yapılandırmasını değiştirmesi ham BUILD değişim listesinde görünür; bu liste sessizce temiz diye işaretlenmez.

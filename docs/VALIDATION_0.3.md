@@ -11,7 +11,7 @@
 | TR klavye tam kampanya | PASS | Gerçek browser 112 kontrol, 0 JS/konsol hatası; final/reload/devam. QA f4444d4641d69e40. |
 | EN Gamepad API tam kampanya | PASS | Tekrarda 112 kontrol/0 JS-konsol hatası; 10 bölüm, final, reload/devam tamamen kontrolcü girdileriyle. İlk 61 kontrollük FAIL koşusu korunur. Fiziksel kol NOT TESTED. |
 | Gamepad API menü/remap/hotplug | PASS | 11 kontrol; klavyesiz A/B menüler, RS remap/etiket/gerçek yetenek, eski X kaldırma, disconnect release/pause, reconnect açık resume, reload'da atama korunması. Fiziksel kol değildir. |
-| Browser yerel veri/güvenlik | PASS | Son18 kontrol; CSP gerçekten izinsiz inline script'i reddetti, depolama reddi görünür/kurtarılır, silme/iptal/başka uygulama verisi/hızlı reload ve başka scope'taki service worker korunması doğrulandı. Beklenen CSP reddi dışında 0 hata. |
+| Browser yerel veri/güvenlik | PASS | Son20 kontrol; CSP gerçekten izinsiz inline script'i reddetti, depolama reddi görünür/kurtarılır, silme/iptal/başka uygulama verisi/hızlı reload ve başka scope'taki service worker korunması doğrulandı. Beklenen CSP reddi dışında 0 hata. |
 | Çoklu dokunma/odak/tercihler | PASS | 12; gerçek Chromium girdileriyle yön+zıplama/yetenek; TR/EN/büyük metin/düşük efekt; canvas blur/reload. |
 | Shell yükleme/hata/iframe | PASS | 7; gerçek byte callback, WASM503 → Retry, AudioContext running ve iframe yardımından tam sayfa bağlantısı. Duyulabilir ses NOT TESTED. |
 | Export güncellemesi | PASS | Aynı origin üzerinde 39b831ddf9799703 → dd8a1a51569ad289, kayıt korundu; yalnız yeni engine dosyaları, 0 hata. |
@@ -39,3 +39,7 @@ Tam klavye kampanyası f4444d4641d69e40, tam Gamepad API kampanyası ve son brow
 ## İzole performans örneği
 
 Aynı Linux/Chromium/SwiftShader, 1152×648 CSS/canvas, a1l1 başlangıcı ve boşta oyuncu, diğer oyun tarayıcıları kapalı; 180 requestAnimationFrame örneği. Önce0.2: medyan33,4ms/p95 66,6ms, Godot25FPS, statik allocator27.776.831 byte, yerel başlangıç2459,1ms. Son0.3 QA2b51e35d3bc5cfee: medyan33,4ms/p95 50,1ms, Godot24FPS, statik allocator26.179.397 byte, yerel başlangıç3021,6ms. Bunlar tekil örneklerdir; nedensel hızlanma veya hedef cihaz garantisi çıkarılmaz. **60FPS kapısı bu ortamda FAIL.** Statik allocator toplam WASM/browser belleği değildir; toplam bellek, enerji ve giriş gecikmesi NOT TESTED. Shell işlev testi başka browser ile eşzamanlıydı; oradaki FPS bağımsız benchmark yerine kullanılmaz.
+
+Görsel incelemede dar ekran ve 200% metinde sticky rehber düğmesi içeriği örtüyordu. Rehber gövdesi ayrı scroll bölgesi, düğme ayrılmış footer alanı yapıldı. Ölçülmüş iki örtüşmeme kontrolüyle browser veri/güvenlik toplamı20/20, 0 beklenmedik hata; yeni görüntüler insan gözüyle incelendi.
+
+Vercel dirty kaydı araştırıldı: 2b3f16b sunucu manifesti `M vercel.json` ve `.vercel/` üretim metadata'sını bildirdi. İlk PCK'de `vercel.json` yolu gerçekten bulundu. Hosting yapılandırması/dot metadata tüm export preset'lerinden dışlandı ve `.vercel/` ignore edildi. Ham worktree değişimleri manifestte kalır; temiz kaynak veya eşit PCK hash'i doğrulanmadan iddia edilmez.

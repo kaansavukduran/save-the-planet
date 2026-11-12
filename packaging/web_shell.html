@@ -26,8 +26,8 @@ button:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var
 details{font-size:12px;margin:12px 0;color:var(--sage)}summary{min-height:28px;cursor:pointer}#error-detail{white-space:pre-wrap;overflow-wrap:anywhere}
 #footer{font-size:11px;margin-top:24px;letter-spacing:.05em;color:#a0b7b4}
 #help-toggle{position:fixed;z-index:11;width:44px;height:44px;padding:0;background:var(--panel);border-color:#8fb9a5;font-weight:bold}
-#help{width:min(700px,calc(100% - 24px));max-height:calc(100svh - 24px);overflow:auto;border:2px solid #8fb9a5;background:var(--panel);color:var(--paper);padding:24px}
-#help::backdrop{background:#0a1729d9}#help-close{position:sticky;bottom:0;margin-top:18px}
+#help{width:min(700px,calc(100% - 24px));max-height:calc(100svh - 24px);overflow:hidden;border:2px solid #8fb9a5;background:var(--panel);color:var(--paper);padding:24px}
+#help[open]{display:flex;flex-direction:column;gap:16px}#help-body{overflow:auto;min-height:0;flex:1 1 auto}#help-actions{flex:0 0 auto}#help::backdrop{background:#0a1729d9}#help-close{margin:0}#help-title:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
 table{border-collapse:collapse;table-layout:fixed;width:100%;text-align:left}td,th{border-bottom:1px solid #587780;padding:8px 4px;overflow-wrap:anywhere}
 #full-page{display:inline-block;min-height:44px;padding:10px 0}.muted{color:var(--sage)}
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%)}
@@ -50,6 +50,7 @@ $GODOT_HEAD_INCLUDE
 <div id="footer">FRAGARIA INTERACTIVE · SAVE THE PLANET 0.3.0</div></div></section>
 <button id="help-toggle" type="button" aria-label="Yardım ve mahremiyet / Help and privacy (F1)" title="Yardım / Help (F1)">?</button>
 <dialog id="help" aria-labelledby="help-title">
+<div id="help-body" tabindex="0" role="region" aria-label="Rehber içeriği / Guide content">
 <h2 id="help-title" tabindex="-1">Yardım / <span lang="en">Help</span></h2>
 <p>Hedef sol üstte görünür. Güvenli yolu aç, hayvanın kendi hareketini bekle; yakındayken etkileşim tuşunu kullan. Hikâye modunda hatalar ilerlemeyi silmez.</p>
 <p lang="en">Follow the goal at the top left. Open a safe path and let the animal move on its own. Interact when nearby. In Story mode, mistakes do not erase progress.</p>
@@ -68,8 +69,8 @@ $GODOT_HEAD_INCLUDE
 <p>Oyun hesap, reklam veya analiz kullanmaz. İlerleme, ayarlar ve oyunun yazılmış konuşma geçmişi bu cihazda saklanır. Ayarlar → Yerel veriler bölümünden kayıt ve yedekleri silebilirsin. Eski tarayıcı dosyalarının geri gelmesini önlemek için yalnızca bir silme işareti tutulur; ilerleme içermez. Sunucu, dosya istekleri için erişim bilgilerini işleyebilir; bu kayıtlar ve tarayıcı önbelleği oyun içinden silinmez.</p>
 <p lang="en">The game uses no accounts, ads or analytics. Progress, settings and authored dialogue history are stored on this device. Use Settings → Local data to delete saves and backups. Only an erasure marker is retained to stop stale browser files restoring progress; it contains no progress. The host may process access data for file requests; host logs and browser caches are not deleted by the game.</p>
 <p class="muted">Oyun alanı görsel hareket takibi gerektirir; ekran okuyucuyla tam oynanış doğrulanmadı. / <span lang="en">Gameplay requires visual tracking; full screen-reader play has not been verified.</span></p>
-<a id="full-page" hidden target="_blank" rel="noopener">Tam sayfa aç / Open full page</a><br>
-<button id="help-close" type="button">Oyuna dön / Return to game</button>
+<a id="full-page" hidden target="_blank" rel="noopener">Tam sayfa aç / Open full page</a>
+</div><div id="help-actions"><button id="help-close" type="button">Kapat / Close</button></div>
 </dialog>
 <noscript>JavaScript gerekli / JavaScript is required.</noscript>
 <script src="$GODOT_URL"></script>
@@ -90,7 +91,7 @@ const engine=new Engine(GODOT_CONFIG);
 const canvas=document.getElementById('canvas'),loading=document.getElementById('loading'),progress=document.getElementById('progress');
 const help=document.getElementById('help'),helpToggle=document.getElementById('help-toggle');
 function positionHelp(){const r=canvas.getBoundingClientRect(),scale=Math.min(r.width/960,r.height/540);helpToggle.style.left=(r.left+(r.width-960*scale)/2+770*scale)+'px';helpToggle.style.top=(r.top+(r.height-540*scale)/2+12*scale)+'px';}
-function openHelp(){help.showModal();help.scrollTop=0;document.getElementById('help-title').focus({preventScroll:true});}
+function openHelp(){help.showModal();document.getElementById('help-body').scrollTop=0;document.getElementById('help-title').focus({preventScroll:true});}
 helpToggle.addEventListener('click',openHelp);
 document.getElementById('help-close').addEventListener('click',()=>help.close());
 help.addEventListener('close',()=>canvas.focus());
