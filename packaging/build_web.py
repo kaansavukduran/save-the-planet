@@ -1,6 +1,6 @@
 """Real single-threaded Godot Web build, content-addressed engine/data assets."""
 from pathlib import Path
-import os,subprocess,hashlib,json,shutil,re,base64
+import os,subprocess,hashlib,json,shutil,re,base64,struct
 from setup_godot import setup
 ROOT=Path(__file__).resolve().parents[1]
 os.chdir(ROOT)
@@ -23,6 +23,17 @@ for p in out.iterdir():
  if p.is_file():p.unlink()
 run(['--export-debug' if qa else '--export-release','Web',str(out/'index.html')])
 html=(out/'index.html').read_text()
+# Dashboard crawlers commonly request /favicon.ico without reading Godot's head.
+# Reuse the exported project icon bytes; no new artwork or imaging dependency.
+icon=(out/'index.icon.png').read_bytes()
+width,height=struct.unpack_from('>II',icon,16)
+if not (icon.startswith(b'\x89PNG\r\n\x1a\n') and 1<=width<=256 and 1<=height<=256):
+ raise ValueError('Project favicon must be a PNG no larger than 256px')
+(out/'favicon.png').write_bytes(icon)
+(out/'favicon.ico').write_bytes(struct.pack('<HHH',0,1,1)+struct.pack('<BBBBHHII',width%256,height%256,0,0,1,32,len(icon),22)+icon)
+shutil.copy2(ROOT/'assets/icon.svg',out/'favicon.svg')
+html=re.sub(r'<link\b[^>]*\brel="icon"[^>]*>', '', html)
+html=html.replace('</head>','<link rel="icon" type="image/x-icon" href="/favicon.ico">\n<link id="-gd-engine-icon" rel="icon" type="image/png" sizes="'+str(width)+'x'+str(height)+'" href="/favicon.png">\n<link rel="icon" type="image/svg+xml" sizes="any" href="/favicon.svg">\n</head>',1)
 if qa:html=html.replace('"args":[]','"args":["--","--qa"]')
 # Same content tag for js/wasm/pck: executable name resolves to the matching WASM.
 tag=hashlib.sha256((out/'index.pck').read_bytes()+(out/'index.js').read_bytes()).hexdigest()[:16]

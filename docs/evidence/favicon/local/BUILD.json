@@ -1,0 +1,36 @@
+{
+  "game_version": "0.4.4",
+  "source_commit": "39a5175d5af22ede8ffc6032c1f28f58a2ea5bfa",
+  "working_tree_dirty": true,
+  "working_tree_changes": [
+    " M FORGE.md",
+    " M README.md",
+    " M packaging/build_web.py",
+    " M vercel.json",
+    "?? docs/FAVICON_FIX.md",
+    "?? docs/evidence/favicon/"
+  ],
+  "content_tag": "0a7cdff33f023022",
+  "files": {
+    "planet-0a7cdff33f023022.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "index.html": "2c131ac071f00e9800fa3804f6330fa4a5e474e23b3afa4e84468456f58de3d9",
+    "index.service.worker.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458",
+    "planet-0a7cdff33f023022.pck": "2edab3f752c7d60b37b5024a47cba12e854a26e5fdb870f53c8e512dc4fa9aba",
+    "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+    "planet-0a7cdff33f023022.wasm": "26b61ce95247012ab3dca3ff51e96d1cdbff44ee91a8c20a83e150afca83f1b6",
+    "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+    "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+    "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+    "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+    "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+    "planet-0a7cdff33f023022.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+    "favicon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+    "favicon.svg": "9ae2975538700364a6f9faae5570e3b6d9234aa5dde7903ae1b3b7a6a6832cf5",
+    "favicon.ico": "f71b28d84b09190079da535d6cae007851fbcf9400e90768c819dd7b83fdfd39",
+    "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+    "planet-0a7cdff33f023022.js": "e3f56ee40e6f84371053db06692cfac15e2c8659547b11c6b2dfa1996dabd981",
+    "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+    "sw.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458"
+  }
+}

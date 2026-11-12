@@ -1,0 +1,10 @@
+{'check': 'Normal game entry still starts the Godot title screen', 'status': 'PASS'}
+{'check': 'HTML explicitly exposes standard ICO, PNG and SVG icons', 'status': 'PASS'}
+{'check': 'favicon.ico is served as an actual image, not a missing route or HTML', 'status': 'PASS'}
+{'check': 'favicon.png is served as an actual image, not a missing route or HTML', 'status': 'PASS'}
+{'check': 'favicon.svg is served as an actual image, not a missing route or HTML', 'status': 'PASS'}
+{'check': 'index.icon.png is served as an actual image, not a missing route or HTML', 'status': 'PASS'}
+{'check': 'ICO and PNG preserve the current Godot project icon pixels', 'status': 'PASS'}
+{'check': 'Vector icon is the unchanged existing planet artwork', 'status': 'PASS'}
+{'check': 'Chromium successfully decodes all three icons at 128 x 128', 'status': 'PASS'}
+{'check': 'New journey still creates the current save through the normal entry', 'status': 'PASS'}
