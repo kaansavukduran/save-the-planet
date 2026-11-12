@@ -1,15 +1,25 @@
 """Extract reviewed alpha spans, never assume a uniform source grid. MPL-2.0."""
 from pathlib import Path
-import json
+import json,statistics
 from PIL import Image
 ROOT=Path(__file__).resolve().parents[1]
 registry={}
+support_bias={}
 for source in ['CANONICAL','AGILITY']:
  meta=json.loads((ROOT/'assets/source'/f'{source}-PROVENANCE.json').read_text())
  for key,spec in meta['atlases'].items():
   if key.startswith('legacy'):continue
   image=Image.open(ROOT/'assets/source'/Path(spec['path']).name).convert('RGBA')
   registry[key]=[]
+  if key in ['canonical-aion','canonical-wolf','canonical-sheep','canonical-owl']:
+   # Estimate the body pivot once from the neutral stance. Keep that same bias
+   # through each pose: following individual stepping feet would add new jitter.
+   offsets=[]
+   for frame in spec['frames'][0]:
+    body=frame.get('body_bounds',frame['bounds']);band=max(3,round((body[3]-body[1])*.07))
+    support=[x+.5 for y,left,n in frame['runs'] if body[3]-band<=y<body[3] for x in range(max(left,body[0]),min(left+n,body[2]))]
+    offsets.append((statistics.median(support)-(body[0]+body[2])/2)*spec['scale'][0])
+   support_bias[key.removeprefix('canonical-')]=statistics.median(offsets)
   rows=range(4) if key in ['canonical-rolls','agility-wolf','agility-owl'] else [0,1,2,3,4,6,9,10,13]
   for row in rows:
    line=[]
@@ -20,8 +30,15 @@ for source in ['CANONICAL','AGILITY']:
      cropped.paste(image.crop((rect[0]+x,rect[1]+y,rect[0]+x+n,rect[1]+y+1)),(x-b[0]+2,y-b[1]+2))
     # Retain full source resolution. Runtime nearest filtering and shared scale.
     name=f'{key}-{row}-{col}.png';cropped.save(ROOT/'assets/derived'/name)
-    origin=f.get('origin',[f.get('anchor_x',(b[0]+b[2])/2),b[3]])
-    line.append({'texture':'res://assets/derived/'+name,'offset':[(b[0]-origin[0]-2)*scale,(b[1]-origin[1]-2)*scale],'scale':scale})
+    # Eye coordinates are unreliable during blinks and can place feet below the
+    # floor. Register the reviewed body silhouette, excluding detached effects.
+    # Compact rolls keep their authored fixed-radius rotation center.
+    body=f.get('body_bounds',b)
+    hero=key.split('-')[-1]
+    bias=support_bias.get(hero,0.0)/scale
+    origin=(f['origin'] if key=='canonical-rolls' else [(body[0]+body[2])/2+bias,body[3]])
+    anchor=[origin[0]-b[0]+2,origin[1]-b[1]+2]
+    line.append({'texture':'res://assets/derived/'+name,'offset':[-anchor[0]*scale,-anchor[1]*scale],'anchor':anchor,'body_bounds':[body[0]-b[0]+2,body[1]-b[1]+2,body[2]-b[0]+2,body[3]-b[1]+2],'registration':'roll-center' if key=='canonical-rolls' else 'body-floor','scale':scale})
    registry[key].append({'row':row,'frames':line})
 (ROOT/'data/sprites.json').write_text(json.dumps(registry,separators=(',',':')))
 print('Derived',sum(len(r['frames']) for rows in registry.values() for r in rows),'independent registered frames')

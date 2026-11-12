@@ -1,3 +1,7 @@
+# 0.4.3 · animasyon hizası
+
+Kullanıcının aşağı/yanlara kayma hatası gerçek animasyon karelerinde doğrulandı. Aion idle alt sınır +16,15 px; Baykuş yatay salınım 12,38 px. Göz pivotları yerine gövde/taban kaydı ve sabit Sprite2D kökü. Kaynak/türev PNG byte'ları korundu. Alpha/render56 (1.248 birleşim), browser19, native120+24+38 ve ayrı kayıt PASS. [Devam ve kanıt](SPRITE_FIX_0.4.3.md); henüz canlı test yapılmış sayılmaz.
+
 # 0.4.2 · eski ziyaretçi düzeltmesi
 
 Kullanıcının fotoğraflarındaki eski Canvas, gerçek arşiv HTML/worker ve bir saatlik cache ile yeniden üretildi. Yeni `/play` girişi ve kayıt silmeyen hedefli worker/cache emekliliği: 14/14 PASS. [Hotfix kaydı](HOTFIX_0.4.2.md). Henüz fiziksel telefon testi yapılmış sayılmaz; önceki 0.4.1 indirmeleri korunur.

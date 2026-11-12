@@ -1,0 +1,6682 @@
+{
+  "checks": [
+    {
+      "check": "Hero 0: actual complete idle/blink cycle was observed",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0: rendered opacity stays on the ground through every idle frame",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 0: full idle cycle has no sideways registration jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1: actual complete idle/blink cycle was observed",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1: rendered opacity stays on the ground through every idle frame",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 1: full idle cycle has no sideways registration jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2: actual complete idle/blink cycle was observed",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2: rendered opacity stays on the ground through every idle frame",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 2: full idle cycle has no sideways registration jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3: actual complete idle/blink cycle was observed",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3: rendered opacity stays on the ground through every idle frame",
+      "status": "PASS"
+    },
+    {
+      "check": "Hero 3: full idle cycle has no sideways registration jump",
+      "status": "PASS"
+    },
+    {
+      "check": "Normal right movement stops at a stable idle pose",
+      "status": "PASS"
+    },
+    {
+      "check": "Right-facing gameplay feet match the actual physical body",
+      "status": "PASS"
+    },
+    {
+      "check": "Reversing to face left preserves ground contact",
+      "status": "PASS"
+    },
+    {
+      "check": "Releasing input does not make the physical body drift",
+      "status": "PASS"
+    },
+    {
+      "check": "Real jump follows the physical body without a second visual translation",
+      "status": "PASS"
+    },
+    {
+      "check": "Landing restores exact ground contact",
+      "status": "PASS"
+    },
+    {
+      "check": "Portrait camera resizing preserves sprite-to-body registration",
+      "status": "PASS"
+    }
+  ],
+  "errors": [],
+  "title_samples": [
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.447021484375,
+          373.936279296875,
+          57.665771484375,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-5.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.438110351562,
+          375.055999755859,
+          58.5769653320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-5.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.199432373047,
+          375.055999755859,
+          93.5502624511719,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          706.726989746094,
+          373.376403808594,
+          57.10595703125,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-6.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-6.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-7.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          372.816558837891,
+          56.5460815429688,
+          67.1834411621094
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-0.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-0.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.006896972656,
+          373.936279296875,
+          56.5460815429688,
+          66.063720703125
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-1.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          494.359130859375,
+          375.055999755859,
+          91.2308349609375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.544677734375,
+          375.055999755859,
+          64.3009643554688,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-1.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.286804199219,
+          373.376403808594,
+          55.9862060546875,
+          66.6235961914062
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-2.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          374.282836914062,
+          92.7771606445312,
+          65.7171630859375
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          375.055999755859,
+          63.657958984375,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-2.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          374.496154785156,
+          55.4263305664062,
+          65.5038452148438
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          800.074829101562,
+          375.055999755859,
+          57.3035278320312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-3.png"
+      }
+    ],
+    [
+      {
+        "facing": 1,
+        "hero": 0,
+        "opaque_bounds": [
+          493.585998535156,
+          375.055999755859,
+          92.7771606445312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          545,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-aion-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 1,
+        "opaque_bounds": [
+          602.866149902344,
+          374.412994384766,
+          63.657958984375,
+          65.5870056152344
+        ],
+        "pose": "idle",
+        "root": [
+          640,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-wolf-0-3.png"
+      },
+      {
+        "facing": 1,
+        "hero": 2,
+        "opaque_bounds": [
+          707.566772460938,
+          375.055999755859,
+          55.4263305664062,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          735,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-sheep-0-4.png"
+      },
+      {
+        "facing": 1,
+        "hero": 3,
+        "opaque_bounds": [
+          799.756469726562,
+          375.055999755859,
+          57.9402465820312,
+          64.9440002441406
+        ],
+        "pose": "idle",
+        "root": [
+          830,
+          440
+        ],
+        "sprite_position": [
+          0,
+          0
+        ],
+        "texture": "res://assets/derived/canonical-owl-0-4.png"
+      }
+    ]
+  ],
+  "browser": "156.0.8078.79",
+  "build": {
+    "game_version": "0.4.3",
+    "source_commit": "07a87b7e95d9de7a44ea8d02c0508dc96bea6394",
+    "working_tree_dirty": true,
+    "working_tree_changes": [
+      " M .github/workflows/verify.yml",
+      " M data/sprites.json",
+      " M export_presets.cfg",
+      " M packaging/derive_sprites.py",
+      " M project.godot",
+      " M scripts/game.gd",
+      " M scripts/hero_visual.gd",
+      " M scripts/state.gd",
+      "?? tests/browser_sprite_alignment.py",
+      "?? tests/sprite_alignment.gd"
+    ],
+    "content_tag": "49bd433d46600e47",
+    "files": {
+      "planet-49bd433d46600e47.wasm": "9b772205387d214619428ef095c6c4319a4aa4514879ae411be515d405bad784",
+      "index.html": "465d9fd30113d7e1f422ffb409dadaa60284e202e91579fdd0f7dddd8c8a2300",
+      "index.service.worker.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458",
+      "fragaria-strawberry-reference-e72d624a012c.jpg": "e72d624a012cb86e5b21011452fd1a8fb1954b2f19c68b51d8910bebef093828",
+      "planet-49bd433d46600e47.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+      "planet-49bd433d46600e47.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+      "LICENSE": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+      "PressStart2P-LICENSE.txt": "705960c3281a5765ecc0b59bd4ed7ca59eed165748076bc2fc3e8fdbfeb944b0",
+      "FONT-LICENSE.txt": "63d3ba759d12804c5b31a9d5940d855c1820d1f5999e6b0872eb1c7ff045fbc9",
+      "index.png": "2ae6bca0f4704189a0a148a1603e5aa01b42d9926d80080fcf768dde147fcb22",
+      "index.apple-touch-icon.png": "da8c9ab9cb78df4dd542cc2dfa1adeecef006dc416a05b2295840ca58ffe68c9",
+      "THIRD_PARTY_NOTICES.md": "ca44f04bdcec9b54ea41652209de2148f120d64ca06a2dbc9116605ad249e00f",
+      "planet-49bd433d46600e47.pck": "15932a2fe03107ffb998fb9db12c05ff85737d3f345a53662c0e3e69db81f838",
+      "planet-49bd433d46600e47.js": "8ee40f1dfac8ea4d9828cbe4f17fbf4834ba3e7708c1fe5a96c3388977f5ef38",
+      "PressStart2P-Regular-034c77f1f05e.ttf": "034c77f1f05ec89421e4a63f0e3a4ca1ecf852cc6d2bf611f126f275728e017d",
+      "index.icon.png": "3acfcdab9a80f0119a2d1064a02a389aee3eceea2a4fd13edf6dee3f334a3999",
+      "sw.js": "2c3ac1579d0f35da6e85106e6803df9ea0ff83aeb055e36739c430914dff0458"
+    }
+  },
+  "physical_device": "NOT TESTED"
+}

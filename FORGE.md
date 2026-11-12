@@ -1,5 +1,7 @@
 # Save the Planet · geliştirme devam kaydı
 
+**0.4.3 sprite düzeltmesi:** yanlış göz/iris pivotları yüzünden Aion 16,15 px aşağı, Ömer 12,38 px yana kayabiliyordu. PNG'ler korunarak gövde/taban kaydı ve sabit Sprite2D kökü uygulandı. Gerçek alpha/render56 (1.248 birleşim), tarayıcı19, native120+24+38 ve bağımsız kayıt PASS. [Ayrıntı](docs/SPRITE_FIX_0.4.3.md). Yayın sonucu eklenecek; başka proje değiştirilmedi.
+
 **0.4.2 Web hotfix yayında:** https://save-the-planet-mauve.vercel.app/play . Kullanıcının eski Canvas ekranı gerçek cache ile yeniden üretildi; yeni giriş ve hedefli emeklilik 14/14, canlı oyun/kayıt 5/5, telefon boyutunda dokunmatik 4/4 PASS. [Ayrıntı ve sınırlar](docs/HOTFIX_0.4.2.md). Son yayın kaynağı b224a759c61ab3437386c6f2ec6c77636f090f8c; sonraki rapor commit'leri oyun kodunu değiştirmez. Önceki temiz tarayıcı testi eski ziyaretçiyi kapsamıyordu.
 
 **Onaylı 0.4.1 yayında:** https://save-the-planet-mauve.vercel.app · [GitHub release](https://github.com/kaansavukduran/save-the-planet/releases/tag/v0.4.1). Vercel production READY; canlı ilk görev/kayıt/QA kapalı testleri 5/5 PASS. [Yayın kaydı](docs/RELEASE_0.4.1.md). Aşağıdaki açık kalite kapıları geçerlidir.
